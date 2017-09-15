@@ -12,7 +12,7 @@ public class MainPaneController {
 	@FXML private TextField uselessTextField;
 	@FXML private Button uselessButton;
 	
-	// Note: Special JavaFX initialize method, called after the Pane has been created.
+	// JavaFX initialize method, called after this Pane is created.
 	@FXML
 	private void initialize() {
 	}
