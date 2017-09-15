@@ -17,6 +17,12 @@ public class GameDataTester {
 		gd.getSlides().add(s1);
 		gd.getSlides().add(s2);
 		
+		String serializedJSONText = gd.toJSON();
+		System.out.println(serializedJSONText);
+		
+		GameData gdRecreated = GameData.fromJSON(serializedJSONText);
+		System.out.println("Slide 0 has this image: ");
+		System.out.println(gdRecreated.getSlides().get(0).getImageFileName());
 		
 	}
 
