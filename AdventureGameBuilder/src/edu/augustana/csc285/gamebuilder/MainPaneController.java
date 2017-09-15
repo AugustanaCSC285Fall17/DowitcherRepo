@@ -1,11 +1,13 @@
 package edu.augustana.csc285.gamebuilder;
 
 import javafx.application.Platform;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import edu.augustana.csc285.game.datamodel.*;
 
 public class MainPaneController {
 
@@ -15,6 +17,7 @@ public class MainPaneController {
 	// JavaFX initialize method, called after this Pane is created.
 	@FXML
 	private void initialize() {
+		// Slide slide = new Slide();
 	}
 	
 	@FXML
