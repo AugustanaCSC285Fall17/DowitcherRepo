@@ -1,3 +1,5 @@
+package edu.augustana.csc285.game.datamodel;
+
 public class Item {
 	private String name;
 	private String desc;

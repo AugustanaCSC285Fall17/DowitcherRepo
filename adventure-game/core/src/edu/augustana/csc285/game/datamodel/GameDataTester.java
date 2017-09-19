@@ -3,7 +3,7 @@ package edu.augustana.csc285.game.datamodel;
 public class GameDataTester {
 
 	public static void main(String[] args) {
-		GameData gd = new GameData();
+		/*GameData gd = new GameData();
 		Slide s0 = new Slide("Room 0", "slide_000.png");
 		s0.getActionChoices().add(new ActionChoice("go to room 1", 1));
 		s0.getActionChoices().add(new ActionChoice("go to room 2", 2));
@@ -22,7 +22,7 @@ public class GameDataTester {
 		
 		GameData gdRecreated = GameData.fromJSON(serializedJSONText);
 		System.out.println("Slide 0 has this image: ");
-		System.out.println(gdRecreated.getSlides().get(0).getImageFileName());
+		System.out.println(gdRecreated.getSlides().get(0).getImageFileName());*/
 		
 	}
 

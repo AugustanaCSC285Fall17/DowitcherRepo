@@ -1,3 +1,5 @@
+package edu.augustana.csc285.game.datamodel;
+
 import java.util.HashMap;
 
 public class PlayerProperties {

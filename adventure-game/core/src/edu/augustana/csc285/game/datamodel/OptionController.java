@@ -1,3 +1,5 @@
+package edu.augustana.csc285.game.datamodel;
+
 
 public class OptionController {
 	private Option option;

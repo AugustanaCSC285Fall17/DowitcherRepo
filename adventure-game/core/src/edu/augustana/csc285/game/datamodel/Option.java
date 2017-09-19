@@ -1,3 +1,5 @@
+package edu.augustana.csc285.game.datamodel;
+
 
 public class Option {
 	private String desc;
@@ -83,5 +85,7 @@ public class Option {
 	public void setSound(String sound) {
 		this.sound = sound;
 	}
+	
+	
 	
 }
