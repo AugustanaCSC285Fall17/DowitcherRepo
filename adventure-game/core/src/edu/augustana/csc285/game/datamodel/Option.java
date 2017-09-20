@@ -11,19 +11,48 @@ public class Option {
 	private String rejectMessage;
 	private int nextSlideIndex;
 	// optionInventory: addInventory,subtractInventory,qualifyInventory
-	private Inventory[] optionInventory = new Inventory[3];
+	private Inventory[] optionInventory;
 	// optionPlayerProperties: addProperties, subtractProperties,
 	// qualifyProperties
-	private PlayerProperties[] optionPlayerProperties = new PlayerProperties[3];
+	private PlayerProperties[] optionPlayerProperties;
 	private String image;
 	private String sound;
 
+	private static final int SIZE = 3;
 	private static final int INDEX_FOR_ADD = 0;
 	private static final int INDEX_FOR_SUBTRACT = 1;
 	private static final int INDEX_FOR_QUALIFY = 2;
 
-	public Option(int nextSlideIndex) {
+	/**
+	 * 
+	 * @param desc:
+	 *            String to describe the context of the option
+	 * @param transitionMessage:
+	 *            String to pop up when transition (optional)
+	 * @param rejectMessage:
+	 *            String to pop up when the option is reject (optional)
+	 * @param nextSlideIndex:
+	 *            int to represent the slide theat the option linked to (at the
+	 *            moment it is required)
+	 * @param image:
+	 *            String to represent image for the option
+	 * @param sound:
+	 *            String to represent sound when the option is chose
+	 */
+	public Option(String desc, String transitionMessage, String rejectMessage, int nextSlideIndex, String image,
+			String sound) {
+		this.desc = desc;
+		this.transitionMessage = transitionMessage;
+		this.rejectMessage = rejectMessage;
 		this.nextSlideIndex = nextSlideIndex;
+		this.image = image;
+		this.sound = sound;
+		optionInventory = new Inventory[SIZE];
+		optionPlayerProperties = new PlayerProperties[SIZE];
+	}
+
+	public Option(int nextSlideIndex) {
+		this(null, null, null, nextSlideIndex, null, null);
 	}
 
 	public String getDesc() {
@@ -58,26 +87,52 @@ public class Option {
 		this.nextSlideIndex = nextSlideIndex;
 	}
 
-	public Inventory[] getOptionInventory() {
-		return optionInventory;
+	public Inventory getAddInventory() {
+		return optionInventory[INDEX_FOR_ADD];
 	}
 
-	public void setOptionInventory(Inventory[] optionInventory) {
-		if (optionInventory.length != 3) {
-			throw new IllegalArgumentException("optionInventory needs to have size of 3");
-		}
-		this.optionInventory = optionInventory;
+	public Inventory getSubtractInventory() {
+		return optionInventory[INDEX_FOR_SUBTRACT];
 	}
 
-	public PlayerProperties[] getOptionPlayerProperties() {
-		return optionPlayerProperties;
+	public Inventory getQualifyInventory() {
+		return optionInventory[INDEX_FOR_QUALIFY];
 	}
 
-	public void setOptionPlayerProperties(PlayerProperties[] optionPlayerProperties) {
-		if (optionPlayerProperties.length != 3) {
-			throw new IllegalArgumentException("optionPlayerProperties needs to have size of 3");
-		}
-		this.optionPlayerProperties = optionPlayerProperties;
+	public void setAddInventory(Inventory inventory) {
+		optionInventory[INDEX_FOR_ADD] = inventory;
+	}
+
+	public void setSubtractInventory(Inventory inventory) {
+		optionInventory[INDEX_FOR_SUBTRACT] = inventory;
+	}
+
+	public void setQualifyInventory(Inventory inventory) {
+		optionInventory[INDEX_FOR_QUALIFY] = inventory;
+	}
+
+	public PlayerProperties getAddPlayerProperties() {
+		return optionPlayerProperties[INDEX_FOR_ADD];
+	}
+
+	public PlayerProperties getSubtractPlayerProperties() {
+		return optionPlayerProperties[INDEX_FOR_SUBTRACT];
+	}
+
+	public PlayerProperties getQualifyPlayerProperties() {
+		return optionPlayerProperties[INDEX_FOR_QUALIFY];
+	}
+
+	public void setAddPlayerProperties(PlayerProperties properties) {
+		optionPlayerProperties[INDEX_FOR_ADD] = properties;
+	}
+
+	public void setSubtractPlayerProperties(PlayerProperties properties) {
+		optionPlayerProperties[INDEX_FOR_SUBTRACT] = properties;
+	}
+
+	public void setQualifyPlayerProperties(PlayerProperties properties) {
+		optionPlayerProperties[INDEX_FOR_QUALIFY] = properties;
 	}
 
 	public String getImage() {

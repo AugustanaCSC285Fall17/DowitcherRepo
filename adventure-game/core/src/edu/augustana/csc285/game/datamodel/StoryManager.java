@@ -22,6 +22,7 @@ public class StoryManager {
 	public StoryManager(Story story, Player player, int index) {
 		this.story = story;
 		this.player = player;
+		story.checkID(index);
 		this.currentSlideIndex = index;
 	}
 

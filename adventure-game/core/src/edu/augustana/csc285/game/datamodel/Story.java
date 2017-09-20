@@ -12,16 +12,12 @@ import com.google.gson.GsonBuilder;
 public class Story {
 	private HashMap<Integer, Slide> slides;
 
-	public Story(HashMap<Integer, Slide> slides) {
-		this.slides = slides;
-	}
-
 	public Story() {
 		slides = new HashMap<Integer, Slide>();
 	}
 
 	public Story(Story other) {
-		this(other.slides);
+		slides = new HashMap<Integer,Slide> (other.slides);
 	}
 
 	/**
@@ -65,8 +61,11 @@ public class Story {
 		checkID(id);
 		return new Slide(slides.get(id));
 	}
-
-	private void checkID(int id) {
+	/**
+	 * post: throw IllegalArgumentException if the id is not in the story
+	 * @param id for the slide in the story
+	 */
+	public void checkID(int id) {
 		if (!slides.containsKey(id)) {
 			throw new IllegalArgumentException("id is not valid");
 		}
