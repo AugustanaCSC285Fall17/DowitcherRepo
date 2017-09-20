@@ -10,21 +10,12 @@ public class Slide {
 	private int id;
 	ArrayList<Option> options;
 	/**
-<<<<<<< HEAD
-	 * @param image 
-	 * @param desc 
-	 * @param url 
-	 * @param music 
-	 * @param id 
-	 * @param options 
-=======
 	 * @param image is the name of the image
 	 * @param desc is the description of the slide that will appear on the screen
 	 * @param url is the link to the more information page on each slide
 	 * @param music is the name of the music file
 	 * @param id is the unique identifier for the slide
 	 * @param options is the group of options the player could have access to on this slide
->>>>>>> 51c3513173dfbf4995922af090f8e395bc0e2281
 	 */
 	public Slide(String image, String desc, String url, String music, int id, ArrayList<Option> options) {
 		this.image = image;

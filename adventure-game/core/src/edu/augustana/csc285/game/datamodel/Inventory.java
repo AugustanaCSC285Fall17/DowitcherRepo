@@ -58,7 +58,7 @@ public class Inventory {
 		if (other != null && other.collection != null) {
 			for (int id : other.collection.keySet()) {
 				Item temp1 = collection.get(id);
-				Item temp2 = collection.get(id);
+				Item temp2 = other.collection.get(id);
 				if (temp1 != null) {
 					temp1.addItem(temp2);
 				} else {
