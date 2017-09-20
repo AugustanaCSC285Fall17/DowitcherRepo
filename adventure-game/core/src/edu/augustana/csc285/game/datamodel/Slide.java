@@ -4,48 +4,44 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class Slide {
-	File image;
+	String image;
 	String desc;
-	String story;
 	String url;
 	File music;
 	int id;
 	ArrayList<Option> options;
 	/**
-	 * @param image
-	 * @param desc
-	 * @param story
-	 * @param url
-	 * @param music
-	 * @param id
-	 * @param options
+	 * @param image 
+	 * @param desc 
+	 * @param url 
+	 * @param music 
+	 * @param id 
+	 * @param options 
 	 */
-	public Slide(File image, String desc, String story, String url, File music, int id, ArrayList<Option> options) {
+	public Slide(String image, String desc, String url, File music, int id, ArrayList<Option> options) {
 		super();
 		this.image = image;
 		this.desc = desc;
-		this.story = story;
 		this.url = url;
 		this.music = music;
 		this.id = id;
 		this.options = options;
 	}
 	
-	public Slide(String desc, File image) {
-		this(image, desc, "", "", null, 0, null);
-		
+	public Slide(String desc, String image) {
+		this(image, desc, "", null, 0, null);
 	}
 
 	/**
 	 * @return the image
 	 */
-	public File getImage() {
+	public String getImage() {
 		return image;
 	}
 	/**
 	 * @param image the image to set
 	 */
-	public void setImage(File image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 	/**
@@ -59,18 +55,6 @@ public class Slide {
 	 */
 	public void setDesc(String desc) {
 		this.desc = desc;
-	}
-	/**
-	 * @return the story
-	 */
-	public String getStory() {
-		return story;
-	}
-	/**
-	 * @param story the story to set
-	 */
-	public void setStory(String story) {
-		this.story = story;
 	}
 	/**
 	 * @return the url
@@ -114,32 +98,14 @@ public class Slide {
 	public ArrayList<Option> getOptions() {
 		return options;
 	}
-	/**
-	 * @param options the options to set
-	 */
-	public void setOptions(ArrayList<Option> options) {
-		this.options = options;
+	
+	
+	public void addOption(int index, Option option) {
+		options.add(index, option);
 	}
 	
-	public void addOption(Option option) {
-		options.add(option);
+	public void removeOption(int index) {
+		options.remove(index);
 	}
-	
-	public void removeOption(Option option) {
-		
-		for(int i = 0; i < options.size(); i++) {
-			
-		}
-		
-	}
-	
-	
-	/**
-	 * Add a method to check if this slide's index has been used before and if so throw
-	 * an invalidArgumentException
-	 */
-	
-	
-	
-	
+
 }

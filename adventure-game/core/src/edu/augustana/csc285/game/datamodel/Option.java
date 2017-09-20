@@ -16,6 +16,7 @@ public class Option {
 	public Option(int nextSlideIndex) {
 		this.nextSlideIndex = nextSlideIndex;
 	}
+	
 	public String getDesc() {
 		return desc;
 	}
