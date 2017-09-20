@@ -1,6 +1,9 @@
 package edu.augustana.csc285.game.datamodel;
-
-
+/**
+ * 
+ * @author Dat Tran
+ *
+ */
 public class Option {
 	private String desc;
 	private String transitionMessage;

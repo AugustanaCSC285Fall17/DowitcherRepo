@@ -1,6 +1,10 @@
 package edu.augustana.csc285.game.datamodel;
-
 import java.util.HashMap;
+/**
+ * 
+ * @author Dat Tran
+ *
+ */
 
 public class PlayerProperties {
 	private HashMap<Property, Integer> properties;

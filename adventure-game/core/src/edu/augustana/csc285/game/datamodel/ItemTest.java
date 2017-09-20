@@ -1,5 +1,4 @@
 package edu.augustana.csc285.game.datamodel;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

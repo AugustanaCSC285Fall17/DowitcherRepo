@@ -1,5 +1,7 @@
 package edu.augustana.csc285.game.datamodel;
-
+/**
+ * author: Dat Tran
+ */
 import java.util.ArrayList;
 import java.util.HashMap;
 
