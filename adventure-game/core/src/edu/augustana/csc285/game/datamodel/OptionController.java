@@ -14,7 +14,7 @@ public class OptionController {
 	 * @return true if inventory and properties of player are greater than the
 	 *         one in option
 	 */
-	public boolean isVisible(Option option, Player player) {
+	public static boolean isVisible(Option option, Player player) {
 		Inventory qualifyInventory = option.getOptionInventory()[INDEX_FOR_QUALIFY];
 		PlayerProperties qualifyPlayerProperties = option.getOptionPlayerProperties()[INDEX_FOR_QUALIFY];
 		if (player.getInventory().checkInventory(qualifyInventory)
@@ -25,7 +25,7 @@ public class OptionController {
 		}
 	}
 
-	public void applyOption(Option option, Player player) {
+	public static void applyOption(Option option, Player player) {
 		Inventory addInventory = option.getOptionInventory()[INDEX_FOR_ADD];
 		PlayerProperties addPlayerProperties = option.getOptionPlayerProperties()[INDEX_FOR_ADD];
 		Inventory subtractInventory = option.getOptionInventory()[INDEX_FOR_SUBTRACT];
