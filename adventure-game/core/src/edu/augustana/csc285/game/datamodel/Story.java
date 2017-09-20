@@ -1,10 +1,14 @@
 package edu.augustana.csc285.game.datamodel;
 
 import java.util.HashMap;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+/**
+ * 
+ * @author Dat Tran
+ *
+ */
 public class Story {
 	private HashMap<Integer, Slide> slides;
 
@@ -22,8 +26,11 @@ public class Story {
 
 	/**
 	 * post: add a slide to a story
-	 * @param slide: slide to add into story
-	 * @throws IllegalArgumentException if the slide has the id that was already used
+	 * 
+	 * @param slide:
+	 *            slide to add into story
+	 * @throws IllegalArgumentException
+	 *             if the slide has the id that was already used
 	 */
 	public void addSlide(Slide slide) {
 		if (slides.containsKey(slide.getId())) {
@@ -35,9 +42,11 @@ public class Story {
 
 	/**
 	 * 
-	 * @param id: id for a slide that the user wants to remove
-	 * post: remove the certain slide with id
-	 * @throws IllegalArgumentException if id is not in the story
+	 * @param id:
+	 *            id for a slide that the user wants to remove post: remove the
+	 *            certain slide with id
+	 * @throws IllegalArgumentException
+	 *             if id is not in the story
 	 */
 	public void removeSlide(int id) {
 		checkID(id);
@@ -46,9 +55,11 @@ public class Story {
 
 	/**
 	 * 
-	 * @param id: id for a slide that the user wants to remove
-	 * post: remove the certain slide with id
-	 * @throws IllegalArgumentException if id is not in the story
+	 * @param id:
+	 *            id for a slide that the user wants to remove post: remove the
+	 *            certain slide with id
+	 * @throws IllegalArgumentException
+	 *             if id is not in the story
 	 */
 	public Slide getSlide(int id) {
 		checkID(id);

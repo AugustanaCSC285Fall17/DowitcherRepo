@@ -1,4 +1,5 @@
 package edu.augustana.csc285.game.datamodel;
+
 /**
  * 
  * @author Dat Tran
@@ -19,8 +20,9 @@ public class Item {
 		this.id = id;
 		this.image = image;
 	}
+
 	public Item(Item other) {
-		this(other.name,other.desc,other.quantity,other.id,other.image);
+		this(other.name, other.desc, other.quantity, other.id, other.image);
 	}
 
 	/**

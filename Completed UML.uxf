@@ -66,11 +66,7 @@
 - qualifiedInventory : Inventory
 - displayStatus : boolean
 - sound : Sound
---
-+ getNextSlideID() : int
-+ equals(Option) : boolean
-+ adjustInventory (Item)
-+ openMessageScreen()</panel_attributes>
+--</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -135,15 +131,14 @@
     </coordinates>
     <panel_attributes>Slide
 --
-- image : Texture
+- image : String
 - desc : String
 - story : String
 - url : String
 - music : Music
 - id : int
 --
-+ addOption(Option)
-+ removeOption(Option)
+
 
 </panel_attributes>
     <additional_attributes/>
@@ -169,8 +164,8 @@
     <coordinates>
       <x>870</x>
       <y>438</y>
-      <w>84</w>
-      <h>78</h>
+      <w>90</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>Story
 --
@@ -254,13 +249,13 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>948</x>
+      <x>954</x>
       <y>480</y>
-      <w>132</w>
+      <w>126</w>
       <h>18</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>200.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>190.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
@@ -838,21 +833,5 @@
     </coordinates>
     <panel_attributes>lt=&lt;..</panel_attributes>
     <additional_attributes>10.0;220.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>750</x>
-      <y>660</y>
-      <w>186</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>What does Option's openMessageScreen() 
-do? Shouldn't MessageScreen be handling 
-the screen and calling Option
-
-bg=blue
-</panel_attributes>
-    <additional_attributes/>
   </element>
 </diagram>

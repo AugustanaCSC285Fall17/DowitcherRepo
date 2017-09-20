@@ -10,12 +10,21 @@ public class Slide {
 	private int id;
 	ArrayList<Option> options;
 	/**
+<<<<<<< HEAD
 	 * @param image 
 	 * @param desc 
 	 * @param url 
 	 * @param music 
 	 * @param id 
 	 * @param options 
+=======
+	 * @param image is the name of the image
+	 * @param desc is the description of the slide that will appear on the screen
+	 * @param url is the link to the more information page on each slide
+	 * @param music is the name of the music file
+	 * @param id is the unique identifier for the slide
+	 * @param options is the group of options the player could have access to on this slide
+>>>>>>> 51c3513173dfbf4995922af090f8e395bc0e2281
 	 */
 	public Slide(String image, String desc, String url, String music, int id, ArrayList<Option> options) {
 		this.image = image;
@@ -30,10 +39,13 @@ public class Slide {
 		this(image, desc, "", null, 0, null);
 	}
 	
+	/**
+	 * This is a cloning method
+	 */
+
 	public Slide(Slide other) {
 		this(other.image, other.desc, other.url, other.music, other.id, other.options);
 	}
-
 	/**
 	 * @return the image
 	 */
@@ -97,19 +109,31 @@ public class Slide {
 	/**
 	 * @return the options
 	 */
-	public ArrayList<Option> getOptions() {
-		return options;
+	private void checkIndex(int index) {
+		if(options.size() <= index || index < 0) {
+			throw new IllegalArgumentException("This index is out of bounds!");
+		}
 	}
-	
-	
-	public void addOption(int index, Option option) {
-		options.add(index, option);
+	public Option getOption(int index) {
+		checkIndex(index);
+		return options.get(index);
 	}
-	
+	/**
+	 * Adds an option to this slide
+	 * @param index is the index of the option
+	 * @param option is the option you wish to add
+	 */
+	public void addOption(Option option) {
+		options.add(option);
+	}
+	/**
+	 * Removes an option from this slide
+	 * @param index is the index of the slide
+	 */
 	public void removeOption(int index) {
+		checkIndex(index);
 		options.remove(index);
 	}
-	
 	public String toString() {
 		String output = "";
 		
