@@ -1,5 +1,10 @@
 package edu.augustana.csc285.game.datamodel;
 
+/**
+ * 
+ * @author Dat Tran
+ *
+ */
 public class Item {
 	private String name;
 	private String desc;
@@ -15,12 +20,9 @@ public class Item {
 		this.id = id;
 		this.image = image;
 	}
+
 	public Item(Item other) {
-		this.name = other.name;
-		this.desc = other.desc;
-		this.quantity = other.quantity;
-		this.id = other.id;
-		this.image = other.image;
+		this(other.name, other.desc, other.quantity, other.id, other.image);
 	}
 
 	/**

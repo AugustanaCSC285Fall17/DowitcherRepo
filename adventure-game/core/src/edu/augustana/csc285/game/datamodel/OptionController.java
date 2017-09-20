@@ -1,61 +1,77 @@
 package edu.augustana.csc285.game.datamodel;
 
-
+/**
+ * 
+ * @author Dat Tran
+ *
+ */
 public class OptionController {
-	private Option option;
-	private Player player;
 	public static final int INDEX_FOR_ADD = 0;
 	public static final int INDEX_FOR_SUBTRACT = 1;
 	public static final int INDEX_FOR_QUALIFY = 2;
 
-	public OptionController(Option option, Player player) {
-		this.option = option;
-		this.player = player;
-	}
-
-	public OptionController(OptionController other) {
-		this.option = other.option;
-		this.player = other.player;
-	}
 	/**
 	 * 
-	 * @return true if inventory and properties of player are greater than the one in option
+	 * @return true if inventory and properties of player are greater than the
+	 *         one in option
 	 */
-	public boolean isVisible() {
-		Inventory qualifyInventory = option.getOptionInventory()[INDEX_FOR_QUALIFY];
-		PlayerProperties qualifyPlayerProperties = option.getOptionPlayerProperties()[INDEX_FOR_QUALIFY];
-		if (player.getInventory().checkInventory(qualifyInventory)
-				&& player.getProperties().checkProperties(qualifyPlayerProperties)) {
+	public static boolean isVisible(Option option, Player player) {
+		Inventory qualifyInventory = option.getQualifyInventory();
+		PlayerProperties qualifyPlayerProperties = option.getQualifyPlayerProperties();
+		return checkSatisfied(qualifyInventory, qualifyPlayerProperties, player);
+	}
+
+	/**
+	 * 
+	 * @param option
+	 *            option to be applied to the player
+	 * @param player:
+	 *            the player to choose the option
+	 */
+	public static void applyOption(Option option, Player player) {
+		Inventory subtractInventory = option.getSubtractInventory();
+		PlayerProperties subtractPlayerProperties = option.getSubtractPlayerProperties();
+		if (!canSubtract(option, player)) {
+			throw new IllegalArgumentException("Cannot subtract because of quantity");
+		} else {
+			player.getInventory().subtractInventory(subtractInventory);
+			player.getProperties().subtractProperties(subtractPlayerProperties);
+			Inventory addInventory = option.getAddInventory();
+			PlayerProperties addPlayerProperties = option.getAddPlayerProperties();
+			player.getInventory().addInventory(addInventory);
+			player.getProperties().addProperties(addPlayerProperties);
+		}
+	}
+
+	/**
+	 * 
+	 * @param inventory:
+	 *            Inventory to check in if the player has enough quantity
+	 * @param properties:
+	 *            PlayerProperties to check in if the player has enough quantity
+	 * @param player:
+	 *            the player to check
+	 * @return true if the player has enough quantity
+	 */
+	private static boolean checkSatisfied(Inventory inventory, PlayerProperties properties, Player player) {
+		if (player.getInventory().checkInventory(inventory) && player.getProperties().checkProperties(properties)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	public void applyOption() {
-		Inventory addInventory = option.getOptionInventory()[INDEX_FOR_ADD];
-		PlayerProperties addPlayerProperties = option.getOptionPlayerProperties()[INDEX_FOR_ADD];
-		Inventory subtractInventory = option.getOptionInventory()[INDEX_FOR_SUBTRACT];
-		PlayerProperties subtractPlayerProperties = option.getOptionPlayerProperties()[INDEX_FOR_SUBTRACT];
-		player.getInventory().addInventory(addInventory);
-		player.getProperties().addProperties(addPlayerProperties);
-		player.getInventory().subtractInventory(subtractInventory);
-		player.getProperties().subtractProperties(subtractPlayerProperties);
-	}
 
-	public Option getOption() {
-		return option;
-	}
-
-	public void setOption(Option option) {
-		this.option = option;
-	}
-
-	public Player getPlayer() {
-		return player;
-	}
-
-	public void setPlayer(Player player) {
-		this.player = player;
+	/**
+	 * 
+	 * @param option
+	 * @param player
+	 * @return true if the option inventory and properties in the subtract slot
+	 *         can be subtracted from the player
+	 */
+	private static boolean canSubtract(Option option, Player player) {
+		Inventory subtractInventory = option.getSubtractInventory();
+		PlayerProperties subtractPlayerProperties = option.getSubtractPlayerProperties();
+		return checkSatisfied(subtractInventory, subtractPlayerProperties, player);
 	}
 
 }

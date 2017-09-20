@@ -1,6 +1,13 @@
 package edu.augustana.csc285.game.datamodel;
 
 import java.util.HashMap;
+
+/**
+ * 
+ * @author Dat Tran
+ *
+ */
+
 import java.util.Set;
 
 public class PlayerProperties {
@@ -33,7 +40,7 @@ public class PlayerProperties {
 	 * of game
 	 */
 	public PlayerProperties() {
-		this(INITIAL_HEALTH,INITIAL_MORALE,INITIAL_GOLD,INITIAL_DAY);
+		this(INITIAL_HEALTH, INITIAL_MORALE, INITIAL_GOLD, INITIAL_DAY);
 	}
 
 	public HashMap<Property, Integer> getProperties() {
@@ -73,17 +80,18 @@ public class PlayerProperties {
 	 *            other
 	 */
 	public void addProperties(PlayerProperties other) {
-		if (other !=null && other.properties!=null) {
-		for (Property property : other.properties.keySet()) {
-			Integer temp1 = other.properties.get(property);
-			Integer temp2 = properties.get(property);
-			if (temp1 != null) {
-				temp1 += temp2;
-			} else {
-				temp1 = temp2;
+		if (other != null && other.properties != null) {
+			for (Property property : other.properties.keySet()) {
+				Integer temp1 = other.properties.get(property);
+				Integer temp2 = properties.get(property);
+				if (temp1 != null) {
+					temp1 += temp2;
+				} else {
+					temp1 = temp2;
+				}
+				properties.put(property, temp1);
 			}
-			properties.put(property, temp1);
-		}}
+		}
 	}
 
 	/**
@@ -99,23 +107,23 @@ public class PlayerProperties {
 		if (!checkProperties(other)) {
 			throw new IllegalArgumentException("other properties is greater than this properties");
 		} else {
-			if (other !=null && other.properties!=null) {
-			for (Property property : other.properties.keySet()) {
-				Integer temp1 = other.properties.get(property);
-				Integer temp2 = properties.get(property);
-				properties.put(property, temp1 - temp2);
+			if (other != null && other.properties != null) {
+				for (Property property : other.properties.keySet()) {
+					Integer temp1 = other.properties.get(property);
+					Integer temp2 = properties.get(property);
+					properties.put(property, temp1 - temp2);
+				}
 			}
 		}
 	}
-}
-	
+
 	public String toString() {
-		String output ="";
+		String output = "";
 		Set<Property> propertySet = properties.keySet();
-		for(Property index : propertySet) {
+		for (Property index : propertySet) {
 			output = "The index is: " + index + "\t The vaues is: " + properties.get(index);
 		}
-		
+
 		return output;
 	}
 }
