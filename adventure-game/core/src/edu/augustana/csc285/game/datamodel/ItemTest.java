@@ -113,7 +113,7 @@ public class ItemTest {
 		System.out.println("Adding " + temp.getName() + " to inv1");
 		inv1.addItem(temp);
 		
-		System.out.println(inv1);
+		System.out.println("Inv1: " + inv1);
 		
 		
 		temp = items.get((int)(Math.random() * items.size()));
@@ -128,18 +128,18 @@ public class ItemTest {
 		System.out.println("Adding " + temp.getName() + " to inv2");
 		inv2.addItem(temp);
 		
-		System.out.println(inv2);
+		System.out.println("Inv2: " + inv2);
 		
 		testBreak();
 		
 		//This is not working yet!!!
 		System.out.println("Adding these two inventories together");
 		inv1.addInventory(inv2);
-		System.out.println(inv1);
+		System.out.println("Inv1 " + inv1);
 		
 		System.out.println("Subtracting inv2 from inv1");
 		inv1.subtractInventory(inv2);
-		System.out.println(inv1);
+		System.out.println("Inv1 " + inv1);
 		
 		testBreak();
 		

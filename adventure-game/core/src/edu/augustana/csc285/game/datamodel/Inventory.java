@@ -114,7 +114,7 @@ public class Inventory {
 	public String toString() {
 		 ArrayList<String> str = new ArrayList<String>(); 
 		 for (Item item : collection.values()) { 
-			 str.add(item.getName());
+			 str.add("Name: " + item.getName() + " Q: " + item.getQuantity());
 		 }
 		return str.toString();
 	}
