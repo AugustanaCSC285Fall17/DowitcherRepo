@@ -1,13 +1,14 @@
 package edu.augustana.csc285.game.datamodel;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class PlayerProperties {
 	private HashMap<Property, Integer> properties;
-	public static final int INITIAL_HEALTH = 10;
-	public static final int INITIAL_MORALE = 10;
-	public static final int INITIAL_GOLD = 400;
-	public static final int INITIAL_DAY = 0;
+	private static final int INITIAL_HEALTH = 10;
+	private static final int INITIAL_MORALE = 10;
+	private static final int INITIAL_GOLD = 400;
+	private static final int INITIAL_DAY = 0;
 
 	/**
 	 * post: usually used to create a new copy of the properties
@@ -32,10 +33,7 @@ public class PlayerProperties {
 	 * of game
 	 */
 	public PlayerProperties() {
-		properties.put(Property.HEALTH, INITIAL_HEALTH);
-		properties.put(Property.MORALE, INITIAL_MORALE);
-		properties.put(Property.GOLD, INITIAL_GOLD);
-		properties.put(Property.DAY, INITIAL_DAY);
+		this(INITIAL_HEALTH,INITIAL_MORALE,INITIAL_GOLD,INITIAL_DAY);
 	}
 
 	public HashMap<Property, Integer> getProperties() {
@@ -110,4 +108,14 @@ public class PlayerProperties {
 		}
 	}
 }
+	
+	public String toString() {
+		String output ="";
+		Set<Property> propertySet = properties.keySet();
+		for(Property index : propertySet) {
+			output = "The index is: " + index + "\t The vaues is: " + properties.get(index);
+		}
+		
+		return output;
+	}
 }

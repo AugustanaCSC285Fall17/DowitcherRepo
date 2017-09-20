@@ -112,10 +112,10 @@ public class Inventory {
 	}
 
 	public String toString() {
-		/*
-		 * ArrayList<String> str = new ArrayList<String>(); for (Item item :
-		 * collection.values()) { str.add(item.getName()); }
-		 */
-		return collection.toString();
+		 ArrayList<String> str = new ArrayList<String>(); 
+		 for (Item item : collection.values()) { 
+			 str.add(item.getName());
+		 }
+		return str.toString();
 	}
 }
