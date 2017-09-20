@@ -13,6 +13,10 @@ public class Option {
 	private String image;
 	private String sound;
 	
+	private static final int INDEX_FOR_ADD = 0;
+	private static final int INDEX_FOR_SUBTRACT = 1;
+	private static final int INDEX_FOR_QUALIFY = 2;
+	
 	public Option(int nextSlideIndex) {
 		this.nextSlideIndex = nextSlideIndex;
 	}
@@ -87,6 +91,31 @@ public class Option {
 		this.sound = sound;
 	}
 	
-	
+	public String toString() {
+		String output = desc + ": Sucess Message: " + transitionMessage + "\tRejection Message:" + rejectMessage + 
+				"\tNext Slide: " + nextSlideIndex;
+		if(!(optionInventory[INDEX_FOR_ADD]==null)) {
+			output = output + "\tThe Inventory to Add: " + optionInventory[INDEX_FOR_ADD].toString();
+		}
+		if(!(optionInventory[INDEX_FOR_SUBTRACT]==null)) {
+			output = output + "\tThe Inventory to Subtract: " + optionInventory[INDEX_FOR_SUBTRACT].toString();
+		}
+		if(!(optionInventory[INDEX_FOR_QUALIFY]==null)) {
+			output = output + "\tThe Inventory to Qualify: " + optionInventory[INDEX_FOR_QUALIFY].toString();
+		}
+		
+		if(!(optionPlayerProperties[INDEX_FOR_ADD] == null)) {
+			output = output + "\tThe Player Stats to Add: " + optionPlayerProperties[INDEX_FOR_ADD].toString();
+		}
+		if(!(optionPlayerProperties[INDEX_FOR_SUBTRACT] == null)) {
+			output = output + "\tThe Player Stats to Subtract: " + optionPlayerProperties[INDEX_FOR_SUBTRACT].toString();
+		}
+		if(!(optionPlayerProperties[INDEX_FOR_QUALIFY] == null)) {
+			output = output + "\tThe Player Stats that Qualify: " + optionPlayerProperties[INDEX_FOR_QUALIFY].toString();
+		}
+			output = output + "\t Image file: " + image;
+			output = output + "\t Music file: " + sound;
+		return output;
+	}
 	
 }

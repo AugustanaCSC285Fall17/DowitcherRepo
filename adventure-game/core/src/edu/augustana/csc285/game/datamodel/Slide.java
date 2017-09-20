@@ -4,11 +4,11 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class Slide {
-	String image;
-	String desc;
-	String url;
-	File music;
-	int id;
+	private String image;
+	private String desc;
+	private String url;
+	private String music;
+	private int id;
 	ArrayList<Option> options;
 	/**
 	 * @param image 
@@ -18,8 +18,7 @@ public class Slide {
 	 * @param id 
 	 * @param options 
 	 */
-	public Slide(String image, String desc, String url, File music, int id, ArrayList<Option> options) {
-		super();
+	public Slide(String image, String desc, String url, String music, int id, ArrayList<Option> options) {
 		this.image = image;
 		this.desc = desc;
 		this.url = url;
@@ -30,6 +29,10 @@ public class Slide {
 	
 	public Slide(String desc, String image) {
 		this(image, desc, "", null, 0, null);
+	}
+	
+	public Slide(Slide other) {
+		this(other.image, other.desc, other.url, other.music, other.id, other.options);
 	}
 
 	/**
@@ -71,13 +74,13 @@ public class Slide {
 	/**
 	 * @return the music
 	 */
-	public File getMusic() {
+	public String getMusic() {
 		return music;
 	}
 	/**
 	 * @param music the music to set
 	 */
-	public void setMusic(File music) {
+	public void setMusic(String music) {
 		this.music = music;
 	}
 	/**
@@ -106,6 +109,16 @@ public class Slide {
 	
 	public void removeOption(int index) {
 		options.remove(index);
+	}
+	
+	public String toString() {
+		String output = "";
+		
+		for(Option index : options) {
+			output = output + index;
+		}
+		
+		return output;
 	}
 
 }
