@@ -47,8 +47,8 @@ public class Option {
 		this.nextSlideIndex = nextSlideIndex;
 		this.image = image;
 		this.sound = sound;
-		optionInventory = new Inventory[SIZE];
-		optionPlayerProperties = new PlayerProperties[SIZE];
+		this.optionInventory = new Inventory[SIZE];
+		this.optionPlayerProperties = new PlayerProperties[SIZE];
 	}
 
 	public Option(int nextSlideIndex) {
@@ -152,31 +152,31 @@ public class Option {
 	}
 
 	public String toString() {
-		String output = desc + ": Sucess Message: " + transitionMessage + "\tRejection Message:" + rejectMessage
-				+ "\tNext Slide: " + nextSlideIndex;
-		if (!(optionInventory[INDEX_FOR_ADD] == null)) {
-			output = output + "\tThe Inventory to Add: " + optionInventory[INDEX_FOR_ADD].toString();
-		}
-		if (!(optionInventory[INDEX_FOR_SUBTRACT] == null)) {
-			output = output + "\tThe Inventory to Subtract: " + optionInventory[INDEX_FOR_SUBTRACT].toString();
-		}
-		if (!(optionInventory[INDEX_FOR_QUALIFY] == null)) {
-			output = output + "\tThe Inventory to Qualify: " + optionInventory[INDEX_FOR_QUALIFY].toString();
-		}
+		String output = "Next Slide: " + nextSlideIndex + "\t";
 
-		if (!(optionPlayerProperties[INDEX_FOR_ADD] == null)) {
-			output = output + "\tThe Player Stats to Add: " + optionPlayerProperties[INDEX_FOR_ADD].toString();
-		}
-		if (!(optionPlayerProperties[INDEX_FOR_SUBTRACT] == null)) {
-			output = output + "\tThe Player Stats to Subtract: "
-					+ optionPlayerProperties[INDEX_FOR_SUBTRACT].toString();
-		}
-		if (!(optionPlayerProperties[INDEX_FOR_QUALIFY] == null)) {
-			output = output + "\tThe Player Stats that Qualify: "
-					+ optionPlayerProperties[INDEX_FOR_QUALIFY].toString();
-		}
-		output = output + "\t Image file: " + image;
-		output = output + "\t Music file: " + sound;
+		if (!(desc == null))
+			output += "Desc: " + desc + "\t";
+		if (!(transitionMessage == null))
+			output += "Sucess Message: " + transitionMessage + "\t";
+		if (!(rejectMessage == null))
+			output += "Rejection Message:" + rejectMessage + "\t";
+		if (!(optionInventory[INDEX_FOR_ADD] == null))
+			output += "The Inventory to Add: " + optionInventory[INDEX_FOR_ADD] + "\t";
+		if (!(optionInventory[INDEX_FOR_SUBTRACT] == null))
+			output += "The Inventory to Subtract: " + optionInventory[INDEX_FOR_SUBTRACT] + "\t";
+		if (!(optionInventory[INDEX_FOR_QUALIFY] == null))
+			output += "The Inventory to Qualify: " + optionInventory[INDEX_FOR_QUALIFY] + "\t";
+		if (!(optionPlayerProperties[INDEX_FOR_ADD] == null))
+			output += "The Player Stats to Add: " + optionPlayerProperties[INDEX_FOR_ADD] + "\t";
+		if (!(optionPlayerProperties[INDEX_FOR_SUBTRACT] == null) )
+			output += "The Player Stats to Subtract: " + optionPlayerProperties[INDEX_FOR_SUBTRACT] + "\t";
+		if (!(optionPlayerProperties[INDEX_FOR_QUALIFY] == null))
+			output += "The Player Stats that Qualify: " + optionPlayerProperties[INDEX_FOR_QUALIFY] + "\t";
+		if (!(image == null))
+			output += output + "Image file: " + image + "\t";
+		if (!(sound == null))
+			output = output + "Music file: " + sound + "\t";
+
 		return output;
 	}
 
