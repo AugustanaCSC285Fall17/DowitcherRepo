@@ -1,6 +1,8 @@
 package edu.augustana.csc285.game.datamodel;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Slide {
 	private String image;
@@ -8,26 +10,21 @@ public class Slide {
 	private String url;
 	private String music;
 	private int id;
-	ArrayList<Option> options;
+	List<Option> options;
 	/**
 	 * @param image is the name of the image
 	 * @param desc is the description of the slide that will appear on the screen
 	 * @param url is the link to the more information page on each slide
 	 * @param music is the name of the music file
 	 * @param id is the unique identifier for the slide
-	 * @param options is the group of options the player could have access to on this slide
 	 */
-	public Slide(String image, String desc, String url, String music, int id, ArrayList<Option> options) {
+	public Slide(String image,String desc, String url, String music, int id) {
 		this.image = image;
 		this.desc = desc;
 		this.url = url;
 		this.music = music;
 		this.id = id;
-		this.options = options;
-	}
-	
-	public Slide(String desc, String image) {
-		this(image, desc, "", null, 0, null);
+		this.options = new ArrayList<Option> ();
 	}
 	
 	/**
@@ -35,7 +32,7 @@ public class Slide {
 	 */
 
 	public Slide(Slide other) {
-		this(other.image, other.desc, other.url, other.music, other.id, other.options);
+		this(other.image, other.desc, other.url, other.music, other.id);
 	}
 	/**
 	 * @return the image
@@ -108,6 +105,17 @@ public class Slide {
 	public Option getOption(int index) {
 		checkIndex(index);
 		return options.get(index);
+	}
+	/**
+	 * 
+	 * @return a list of string to represent the options to display
+	 */
+	public List<String> getOptionStringList() {
+		List<String> result = new ArrayList<String> ();
+		for (Option option:options) {
+			result.add(option.getDesc());
+		}
+		return result;
 	}
 	/**
 	 * Adds an option to this slide
