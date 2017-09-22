@@ -26,7 +26,7 @@ public class Slide {
 		this.options = options;
 	}
 	
-	public Slide(String desc, String image) {
+	public Slide(String image, String desc) {
 		this(image, desc, "", null, 0, null);
 	}
 	
@@ -129,7 +129,7 @@ public class Slide {
 		String output = "";
 		
 		for(Option index : options) {
-			output = output + index;
+			output += index.toString();
 		}
 		
 		return output;
