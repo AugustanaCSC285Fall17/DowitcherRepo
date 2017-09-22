@@ -20,17 +20,13 @@ public class SlideScreen implements Screen {
 	private Slide slide;
 	private Texture image;
 	private OrthographicCamera camera;
-	private String desc;
-	private String directions; 
-	ArrayList<String> options;
 	
 	public SlideScreen(AdventureGame game) {
+		slide = new Slide("slide_000.png", "test", "hello", "", 0, null);
+		Option option1 = new Option("Option 1!", null, null, 1, null, null);
+		slide.addOption(option1);
 		this.game = game;
-		this.image = new Texture("slideImages/Swedish-Fish-Wrapper-Small.jpg");
-		this.desc = new String("This is the description of the image.");
-		this.directions = new String("You arrive in Sweden and are handed a large package of strange looking fish.");
-		this.options = new ArrayList<String>(
-				Arrays.asList("Eat the strange fish.", "Attempt to trade them with nearby shop owner.", "Throw them away.", "Travel to Narnia."));
+		this.image = new Texture("slideImages/" + slide.getImage());
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, 
 								AdventureGame.GAME_SCREEN_HEIGHT);
@@ -41,44 +37,41 @@ public class SlideScreen implements Screen {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		game.batch.begin();
+		//Draws the image
 		game.batch.draw(image, AdventureGame.GAME_SCREEN_WIDTH - image.getWidth() - RIGHT_BUFFER, 
-						(AdventureGame.GAME_SCREEN_HEIGHT - image.getHeight()) / 2); // this centers the image height-wise
-		game.font.draw(game.batch, directions + "\n\nWhat would you like to do?", BUFFER, 350);
-		
-		game.font.draw(game.batch, desc, AdventureGame.GAME_SCREEN_WIDTH - image.getWidth() - RIGHT_BUFFER,
-						AdventureGame.GAME_SCREEN_HEIGHT - image.getHeight() - BUFFER);
-		
-		for (int i = 0; i < options.size(); i++) {
-			game.font.draw(game.batch, i + 1 + ". " + options.get(i), BUFFER, 200 - BUFFER * i);
+				(AdventureGame.GAME_SCREEN_HEIGHT - image.getHeight()) / 2); // this centers the image height-wise 
+		//Draws the url or image description
+		game.font.draw(game.batch, slide.getUrl(), AdventureGame.GAME_SCREEN_WIDTH - image.getWidth() - RIGHT_BUFFER,
+				AdventureGame.GAME_SCREEN_HEIGHT - image.getHeight() - BUFFER);
+		//Draws the description or the directions for the current slide
+		game.font.draw(game.batch, slide.getDesc() + "\n\nWhat would you like to do?", BUFFER, 350);
+		//Draws the options
+		for (int i = 0; i < slide.getNumOptions(); i++) {
+			game.font.draw(game.batch, i + 1 + ". " + slide.getOption(i), BUFFER, 200 - BUFFER * i);
 		}
 		
-		game.font.draw(game.batch, "What would you like to do? __", BUFFER, 200 - BUFFER * options.size() - 30);		
+		game.font.draw(game.batch, "What would you like to do? __", BUFFER, 200 - BUFFER * slide.getNumOptions() - 30);		
 		game.batch.end();
 	}
 	
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void hide() {
-		// TODO Auto-generated method stub
 	}
 
 	@Override

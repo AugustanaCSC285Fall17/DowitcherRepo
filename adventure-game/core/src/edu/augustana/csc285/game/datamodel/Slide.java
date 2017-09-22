@@ -125,6 +125,14 @@ public class Slide {
 		checkIndex(index);
 		options.remove(index);
 	}
+	
+	/**
+	 * Returns how many options are in the array list
+	 */
+	public int getNumOptions() {
+		return options.size();
+	}
+
 	public String toString() {
 		String output = "";
 		
