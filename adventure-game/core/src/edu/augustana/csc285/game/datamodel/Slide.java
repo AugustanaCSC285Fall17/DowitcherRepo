@@ -127,7 +127,7 @@ public class Slide {
 		options.remove(index);
 	}
 	public String toString() {
-		String output = "";
+		String output = "Image: " + image + " Desc: " + desc + "\n";
 		
 		for(Option index : options) {
 			output += index.toString();
