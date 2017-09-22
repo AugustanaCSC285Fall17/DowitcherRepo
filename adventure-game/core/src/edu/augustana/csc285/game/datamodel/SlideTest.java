@@ -1,0 +1,130 @@
+package edu.augustana.csc285.game.datamodel;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ * Allows for testing of an slide and options
+ * Tests various methods and allow the user to visualize
+ * what the computer sees when manipulating an inventory
+ * 
+ * @author Daniel Zwiener
+ * @date 9-16-17
+ *
+ */
+public class SlideTest {
+
+	public static ArrayList<Slide> slides;
+	
+	public static void main(String[] args) {
+
+		//String input = "slides.txt";
+		slides = new ArrayList<>();
+		loadSlides();
+		testBreak();
+		System.out.println(slides.get(0));
+		testBreak();
+		
+	}
+	
+	/**
+	 * public Slide(String image, String desc, 
+	 * String url, String music, int id, ArrayList<Option> options) {
+	 * EX Text file
+	 * 
+	 * 001.jpg
+	 * You see an old lady in the swamp
+	 * ladyinaswamp.com
+	 * Skrillex.mp3
+	 * 4
+	 * 3 (number of options)
+	 * Option's next slide (* number of options)
+	 * Option's next slide
+	 * Option's next slide
+	 * 
+	 */
+	public static void loadSlides() {
+		Scanner inputStream = new Scanner(System.in);
+		System.out.println("Please enter the name of the file: ");
+		String input = inputStream.nextLine();
+		
+		try {
+			Scanner fileIn = new Scanner(new File(input));
+			while(fileIn.hasNextLine()) {
+				String tempStr;
+				String tempStr2;
+				int tempInt;
+				
+				tempStr = fileIn.nextLine();
+				tempStr2 = fileIn.nextLine();
+				System.out.print("Creating new slide with image: " + tempStr + " and desc: " + tempStr2 + " = ");
+					slides.add(new Slide(tempStr, tempStr2));
+				System.out.println("SUCCESS");
+				
+				
+				
+				tempStr = fileIn.nextLine();
+				System.out.print("Assigning the URL: " + tempStr + " to the slide = ");
+				slides.get(0).setUrl(tempStr);
+				System.out.println("SUCCESS");
+				
+				
+				tempStr = fileIn.nextLine();
+				System.out.print("Assigning the music: " + tempStr + " to the slide = ");
+				slides.get(0).setMusic(tempStr);
+				System.out.println("SUCCESS");
+				
+				tempInt = fileIn.nextInt();
+				System.out.print("Assigning the ID: " + tempInt + " to the slide = ");
+				slides.get(0).setId(tempInt);
+				System.out.println("Adding options = SUCCESS");
+				
+				//ArrayList<Option> options = new ArrayList<>();
+				
+				tempInt = fileIn.nextInt();
+				System.out.println("Adding " + tempInt + " option(s)");
+				for(int i = 0; i <= tempInt; i++) {
+					int temp = fileIn.nextInt();
+					System.out.print("Creating a new Option and assigning it an ID: " + temp + " = ");
+					slides.get(0).addOption(new Option(temp));
+					System.out.println("SUCCESS");
+				}
+				System.out.println("Adding options = SUCCESS");
+				
+				//Moves to the next line if it isn't the last element.
+				if(fileIn.hasNextLine()) {
+				fileIn.nextLine();
+				}
+				System.out.println();
+			}
+
+		} catch (FileNotFoundException E) {
+			// TODO Auto-generated catch block
+			System.out.println("File not found!\nFile: " + input + "\nException " + E);
+			System.exit(0);
+		} catch (NullPointerException E) {
+			System.out.println("FAILED \nException: " + E);
+			System.exit(0);
+		}
+		
+	}
+	
+	/**
+	 * Simple program to print out nice headers and footers for testing
+	 */
+	public static void testBreak() {
+		for(int i = 0; i < 100; i++) {
+			System.out.print("=");
+		}
+		System.out.println("\n");
+	}
+	
+	/**
+	 * Adds items to the inventory and adds and subtracts inventories
+	 */
+	public static void testSlides() {
+		
+		
+	}
+}
