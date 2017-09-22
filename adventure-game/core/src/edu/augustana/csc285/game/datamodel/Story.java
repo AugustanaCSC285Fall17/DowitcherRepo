@@ -1,6 +1,8 @@
 package edu.augustana.csc285.game.datamodel;
 
 import java.util.HashMap;
+import java.util.Map;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -10,7 +12,8 @@ import com.google.gson.GsonBuilder;
  *
  */
 public class Story {
-	private HashMap<Integer, Slide> slides;
+	private Map<Integer, Slide> slides;
+	private String defaultMusic;
 
 	public Story() {
 		slides = new HashMap<Integer, Slide>();
@@ -18,6 +21,19 @@ public class Story {
 
 	public Story(Story other) {
 		slides = new HashMap<Integer,Slide> (other.slides);
+	}
+	public Story(String defaultMusic) {
+		this();
+		this.defaultMusic = defaultMusic;
+	}
+	
+
+	public String getDefaultMusic() {
+		return defaultMusic;
+	}
+
+	public void setDefaultMusic(String defaultMusic) {
+		this.defaultMusic = defaultMusic;
 	}
 
 	/**

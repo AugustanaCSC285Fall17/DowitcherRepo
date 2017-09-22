@@ -4,9 +4,10 @@ package edu.augustana.csc285.game.datamodel;
  */
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Inventory {
-	private HashMap<Integer, Item> collection;
+	private Map<Integer, Item> collection;
 
 	public Inventory(HashMap<Integer, Item> collection) {
 		setCollection(collection);
@@ -20,11 +21,11 @@ public class Inventory {
 		collection = new HashMap<Integer, Item>();
 	}
 
-	public HashMap<Integer, Item> getCollection() {
+	public Map<Integer, Item> getCollection() {
 		return collection;
 	}
 
-	public void setCollection(HashMap<Integer, Item> collection) {
+	public void setCollection(Map<Integer, Item> collection) {
 		this.collection = collection;
 	}
 

@@ -28,6 +28,7 @@ public class Slide {
 	
 	public Slide(String image, String desc) {
 		this(image, desc, "", null, 0, null);
+		this.options = new ArrayList<Option> ();
 	}
 	
 	/**
