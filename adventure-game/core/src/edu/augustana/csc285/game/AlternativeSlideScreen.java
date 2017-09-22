@@ -35,7 +35,7 @@ public class AlternativeSlideScreen implements Screen {
 		this.slide = manager.getCurrentSlide();
 		this.image = new Texture(Gdx.files.internal(slide.getImage()));
 		this.desc = slide.getDesc();
-		this.options = slide.getOptionStringList();
+		//this.options = slide.getOptionStringList();
 		this.url = slide.getUrl();
 		this.music = slide.getMusic();
 		camera = new OrthographicCamera();

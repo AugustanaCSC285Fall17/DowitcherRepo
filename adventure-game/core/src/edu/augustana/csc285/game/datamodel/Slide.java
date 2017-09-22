@@ -1,6 +1,8 @@
 package edu.augustana.csc285.game.datamodel;
+
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Slide {
 	private String image;
@@ -9,13 +11,21 @@ public class Slide {
 	private String music;
 	private int id;
 	ArrayList<Option> options;
+
 	/**
-	 * @param image is the name of the image
-	 * @param desc is the description of the slide that will appear on the screen
-	 * @param url is the link to the more information page on each slide
-	 * @param music is the name of the music file
-	 * @param id is the unique identifier for the slide
-	 * @param options is the group of options the player could have access to on this slide
+	 * @param image
+	 *            is the name of the image
+	 * @param desc
+	 *            is the description of the slide that will appear on the screen
+	 * @param url
+	 *            is the link to the more information page on each slide
+	 * @param music
+	 *            is the name of the music file
+	 * @param id
+	 *            is the unique identifier for the slide
+	 * @param options
+	 *            is the group of options the player could have access to on
+	 *            this slide
 	 */
 	public Slide(String image, String desc, String url, String music, int id, ArrayList<Option> options) {
 		this.image = image;
@@ -25,12 +35,12 @@ public class Slide {
 		this.id = id;
 		this.options = options;
 	}
-	
+
 	public Slide(String image, String desc) {
 		this(image, desc, "", null, 0, null);
-		this.options = new ArrayList<Option> ();
+		this.options = new ArrayList<Option>();
 	}
-	
+
 	/**
 	 * This is a cloning method
 	 */
@@ -38,109 +48,139 @@ public class Slide {
 	public Slide(Slide other) {
 		this(other.image, other.desc, other.url, other.music, other.id, other.options);
 	}
+
 	/**
 	 * @return the image
 	 */
 	public String getImage() {
 		return image;
 	}
+
 	/**
-	 * @param image the image to set
+	 * @param image
+	 *            the image to set
 	 */
 	public void setImage(String image) {
 		this.image = image;
 	}
+
 	/**
 	 * @return the desc
 	 */
 	public String getDesc() {
 		return desc;
 	}
+
 	/**
-	 * @param desc the desc to set
+	 * @param desc
+	 *            the desc to set
 	 */
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
+
 	/**
 	 * @return the url
 	 */
 	public String getUrl() {
 		return url;
 	}
+
 	/**
-	 * @param url the url to set
+	 * @param url
+	 *            the url to set
 	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
 	/**
 	 * @return the music
 	 */
 	public String getMusic() {
 		return music;
 	}
+
 	/**
-	 * @param music the music to set
+	 * @param music
+	 *            the music to set
 	 */
 	public void setMusic(String music) {
 		this.music = music;
 	}
+
 	/**
 	 * @return the id
 	 */
 	public int getId() {
 		return id;
 	}
+
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	/**
 	 * @return the options
 	 */
 	private void checkIndex(int index) {
-		if(options.size() <= index || index < 0) {
+		if (options.size() <= index || index < 0) {
 			throw new IllegalArgumentException("This index is out of bounds!");
 		}
 	}
+
 	public Option getOption(int index) {
 		checkIndex(index);
 		return options.get(index);
 	}
+
 	/**
 	 * Adds an option to this slide
-	 * @param index is the index of the option
-	 * @param option is the option you wish to add
+	 * 
+	 * @param index
+	 *            is the index of the option
+	 * @param option
+	 *            is the option you wish to add
 	 */
 	public void addOption(Option option) {
 		options.add(option);
 	}
+
 	/**
 	 * Removes an option from this slide
-	 * @param index is the index of the slide
+	 * 
+	 * @param index
+	 *            is the index of the slide
 	 */
 	public void removeOption(int index) {
 		checkIndex(index);
 		options.remove(index);
 	}
-	
+
+
 	/**
-	 * Returns how many options are in the array list
+	 * 
+	 * @return a list of string to represent the options to display
 	 */
-	public int getNumOptions() {
-		return options.size();
+	public List<String> getOptionStringList() {
+		List<String> result = new ArrayList<String>();
+		for (Option option : options) {
+			result.add(option.getDesc());
+		}
+		return result;
 	}
 
 	public String toString() {
 		String output = "Image: " + image + " Desc: " + desc + "\n";
-		
-		for(Option index : options) {
+
+		for (Option index : options) {
 			output += index.toString();
 		}
-		
+
 		return output;
 	}
 
