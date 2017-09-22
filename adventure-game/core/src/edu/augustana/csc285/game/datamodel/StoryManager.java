@@ -8,7 +8,7 @@ package edu.augustana.csc285.game.datamodel;
 public class StoryManager {
 	private Story story;
 	private Player player;
-	private int currentSlideIndex;
+	private Slide currentSlide;
 
 	/**
 	 * 
@@ -23,7 +23,7 @@ public class StoryManager {
 		this.story = story;
 		this.player = player;
 		story.checkID(index);
-		this.currentSlideIndex = index;
+		currentSlide = this.story.getSlide(index);
 	}
 
 	/**
@@ -48,19 +48,8 @@ public class StoryManager {
 		return player;
 	}
 
-	public int getCurrentSlideIndex() {
-		return currentSlideIndex;
-	}
-
-	/**
-	 * 
-	 * @return a copy of the current slide in story that manager is on for
-	 *         displaying purpose
-	 * @throws IllegalArgumentException
-	 *             if index is invalid which should not happen
-	 */
 	public Slide getCurrentSlide() {
-		return story.getSlide(currentSlideIndex);
+		return currentSlide;
 	}
 
 	/**
@@ -90,7 +79,7 @@ public class StoryManager {
 		} else {
 			Option option = getCurrentSlideOption(optionIndex);
 			OptionController.applyOption(option, player);
-			currentSlideIndex = option.getNextSlideIndex();
+			currentSlide = this.story.getSlide(option.getNextSlideIndex());
 		}
 	}
 
@@ -106,6 +95,6 @@ public class StoryManager {
 	}
 
 	public String toString() {
-		return "StoryManager is current at index " + currentSlideIndex;
+		return "StoryManager is current at index " + currentSlide.getId();
 	}
 }

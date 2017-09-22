@@ -6,9 +6,6 @@ package edu.augustana.csc285.game.datamodel;
  *
  */
 public class OptionController {
-	public static final int INDEX_FOR_ADD = 0;
-	public static final int INDEX_FOR_SUBTRACT = 1;
-	public static final int INDEX_FOR_QUALIFY = 2;
 
 	/**
 	 * 

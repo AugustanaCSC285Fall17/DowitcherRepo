@@ -9,8 +9,6 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-
-import edu.augustana.csc285.game.datamodel.Option;
 import edu.augustana.csc285.game.datamodel.Slide;
 
 public class SlideScreen implements Screen {
@@ -23,8 +21,6 @@ public class SlideScreen implements Screen {
 	
 	public SlideScreen(AdventureGame game) {
 		slide = new Slide("slide_000.png", "test", "hello", "", 0, null);
-		Option option1 = new Option("Option 1!", null, null, 1, null, null);
-		slide.addOption(option1);
 		this.game = game;
 		this.image = new Texture("slideImages/" + slide.getImage());
 		camera = new OrthographicCamera();
