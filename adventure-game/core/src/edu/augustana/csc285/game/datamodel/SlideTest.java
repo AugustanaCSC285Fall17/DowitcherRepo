@@ -23,7 +23,10 @@ public class SlideTest {
 		slides = new ArrayList<>();
 		loadSlides();
 		testBreak();
-		System.out.println(slides.get(0));
+		for(Slide index : slides) {
+		System.out.println(index);
+		testBreak();
+		}
 		testBreak();
 		
 	}
@@ -51,6 +54,7 @@ public class SlideTest {
 		
 		try {
 			Scanner fileIn = new Scanner(new File(input));
+			int slideCount = 0;
 			while(fileIn.hasNextLine()) {
 				String tempStr;
 				String tempStr2;
@@ -66,28 +70,28 @@ public class SlideTest {
 				
 				tempStr = fileIn.nextLine();
 				System.out.print("Assigning the URL: " + tempStr + " to the slide = ");
-				slides.get(0).setUrl(tempStr);
+				slides.get(slideCount).setUrl(tempStr);
 				System.out.println("SUCCESS");
 				
 				
 				tempStr = fileIn.nextLine();
 				System.out.print("Assigning the music: " + tempStr + " to the slide = ");
-				slides.get(0).setMusic(tempStr);
+				slides.get(slideCount).setMusic(tempStr);
 				System.out.println("SUCCESS");
 				
 				tempInt = fileIn.nextInt();
 				System.out.print("Assigning the ID: " + tempInt + " to the slide = ");
-				slides.get(0).setId(tempInt);
+				slides.get(slideCount).setId(tempInt);
 				System.out.println("Adding options = SUCCESS");
 				
 				//ArrayList<Option> options = new ArrayList<>();
 				
 				tempInt = fileIn.nextInt();
 				System.out.println("Adding " + tempInt + " option(s)");
-				for(int i = 0; i <= tempInt; i++) {
+				for(int i = 1; i <= tempInt; i++) {
 					int temp = fileIn.nextInt();
 					System.out.print("Creating a new Option and assigning it an ID: " + temp + " = ");
-					slides.get(0).addOption(new Option(temp));
+					slides.get(slideCount).addOption(new Option(temp));
 					System.out.println("SUCCESS");
 				}
 				System.out.println("Adding options = SUCCESS");
@@ -96,6 +100,7 @@ public class SlideTest {
 				if(fileIn.hasNextLine()) {
 				fileIn.nextLine();
 				}
+				slideCount++;
 				System.out.println();
 			}
 
