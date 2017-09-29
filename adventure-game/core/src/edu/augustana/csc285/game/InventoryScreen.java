@@ -33,8 +33,8 @@ public class InventoryScreen implements Screen{
 	public SpriteBatch batch;
 	public BitmapFont font;
 	
-	public InventoryScreen(AdventureGame game, Player player) {
-		this.player = player;
+	public InventoryScreen(AdventureGame game) {
+		this.player = game.getManager().getPlayer();
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, GAME_SCREEN_WIDTH, GAME_SCREEN_HEIGHT);
 		this.game = game;
@@ -82,7 +82,7 @@ public class InventoryScreen implements Screen{
 				game.batch.draw(image, 25 * j, 25 * i);
 			}
 		}
-		batch.end();
+		game.batch.end();
 	}
 
 	@Override

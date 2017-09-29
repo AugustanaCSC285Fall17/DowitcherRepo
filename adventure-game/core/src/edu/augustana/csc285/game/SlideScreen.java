@@ -13,8 +13,12 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import edu.augustana.csc285.game.datamodel.Slide;
@@ -32,7 +36,6 @@ public class SlideScreen implements Screen {
 	private int numOptions;
 	private Stage stage;
 
-	
 	public SlideScreen(AdventureGame game) {
 		slide = new Slide("test_image", "You appear to have stumbled upon a testing slide!", "test url", "", 0, null);
 		//can test for different image with changing test_image to test_image2
@@ -52,8 +55,41 @@ public class SlideScreen implements Screen {
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, 
 								AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
-		Button button = LibGdxUtility.createChangeScreenButton(game,new MainMenuScreen(game), "MenuButton", "skin/glassy-ui.json", 50, 50, 50, 50);
+		stage.clear();
+		Skin skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
+		Button button = new TextButton("SlideButton", skin, "small");
+		button.setSize(50, 50);
+		button.setPosition(250, 250);
+		button.addListener(new InputListener() {
+			@Override
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				game.setScreen(new EndScreen(game));
+			}
+
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+
+		});
 		stage.addActor(button);
+		
+		
+		Button button1 = new TextButton("InventoryButton", skin, "small");
+		button.setSize(50, 50);
+		button.setPosition(250, 250);
+		button.addListener(new InputListener() {
+			@Override
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				game.setScreen(new InventoryScreen(game));
+			}
+
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+
+		});
 
 	}
 	
@@ -66,7 +102,7 @@ public class SlideScreen implements Screen {
 		camera.update();
 		stage.act();
 		stage.draw();
-
+		
 		// tell the SpriteBatch to render in the
 		// coordinate system specified by the camera.
 		game.batch.setProjectionMatrix(camera.combined);
@@ -104,6 +140,7 @@ public class SlideScreen implements Screen {
 	@Override
 	public void dispose () {
 		image.dispose();
+		stage.dispose();
 	}
 	
 	public void drawScreenForPortraitImage() {

@@ -28,6 +28,7 @@ public class EndScreen implements Screen {
 
         game.batch.begin();
         game.font.draw(game.batch, "GAME OVER", 50,50);
+        game.batch.end();
     }
 
     @Override

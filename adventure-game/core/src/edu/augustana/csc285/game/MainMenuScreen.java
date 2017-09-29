@@ -5,8 +5,12 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 
@@ -22,10 +26,25 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, 
 								AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
-		Button button = LibGdxUtility.createChangeScreenButton(game,new SlideScreen(game), "SlideButton", "skin/glassy-ui.json", 50, 50, 50, 50);
-		stage.addActor(button);
-		
+		stage.clear();
+//		Button button = LibGdxUtility.createChangeScreenButton(game,new SlideScreen(game), "SlideButton", "skin/glassy-ui.json", 50, 50, 50, 50);
+		Skin skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
+		Button button = new TextButton("SlideButton", skin, "small");
+		button.setSize(50, 50);
+		button.setPosition(50, 50);
+		button.addListener(new InputListener() {
+			@Override
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				game.setScreen(new SlideScreen(game));
+			}
 
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+
+		});
+		stage.addActor(button);
 	}
 	@Override
 	public void show() {
