@@ -13,7 +13,8 @@ public class EndScreen implements Screen {
     public EndScreen(AdventureGame game) {
         this.game = game;
         this.camera = new OrthographicCamera();
-        camera.setToOrtho(false,AdventureGame.GAME_SCREEN_WIDTH,AdventureGame.GAME_SCREEN_HEIGHT);
+        camera.setToOrtho(false,AdventureGame.GAME_SCREEN_WIDTH,
+                AdventureGame.GAME_SCREEN_HEIGHT);
     }
 
     @Override

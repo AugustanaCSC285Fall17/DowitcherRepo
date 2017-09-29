@@ -30,18 +30,12 @@ public class InventoryScreen implements Screen{
 	private Player player;
 	private OrthographicCamera camera;
 	private AdventureGame game;
-	public SpriteBatch batch;
-	public BitmapFont font;
 	
 	public InventoryScreen(AdventureGame game) {
 		this.player = game.getManager().getPlayer();
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, GAME_SCREEN_WIDTH, GAME_SCREEN_HEIGHT);
+		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
-		
-		batch = new SpriteBatch();
-		font = new BitmapFont();
-		
 	}
 	
 	@Override
@@ -60,21 +54,17 @@ public class InventoryScreen implements Screen{
 
 		
 		game.batch.begin();
-		game.font.draw(batch, "This is the inventory", 50, 50);
+		game.font.draw(game.batch, "This is the inventory", 50, 50);
 		Map<Integer, Item> map = player.getInventory().getCollection();
-		Set<Integer> set = map.keySet();
-		
-		ArrayList<Item> items = new ArrayList<>();
-		for(int index : set) {
-			items.add(map.get(index));
-		}
+		ArrayList<Item> items = new ArrayList(map.values());
+
 		Texture image;
-		Iterator<Integer> itr = set.iterator();
+		Iterator<Item> itr = items.iterator();
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; i < 4; j++) {
 				if(itr.hasNext()) {
 					//Draw that item
-					image = new Texture (map.get(itr.next()).getImage());
+					image = new Texture (itr.next().getImage());
 				} else {
 					//Draw a blank box
 					image = new Texture("Box.jpg");
