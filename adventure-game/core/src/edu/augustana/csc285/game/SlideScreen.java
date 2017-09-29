@@ -13,6 +13,9 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import edu.augustana.csc285.game.datamodel.Slide;
 
@@ -27,6 +30,7 @@ public class SlideScreen implements Screen {
 	private int input;
 	private String continueMessage;
 	private int numOptions;
+	private Stage stage;
 
 	
 	public SlideScreen(AdventureGame game) {
@@ -47,6 +51,10 @@ public class SlideScreen implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, 
 								AdventureGame.GAME_SCREEN_HEIGHT);
+		stage = new Stage(new ScreenViewport());
+		Button button = LibGdxUtility.createChangeScreenButton(game,new MainMenuScreen(game), "MenuButton", "skin/glassy-ui.json", 50, 50, 50, 50);
+		stage.addActor(button);
+
 	}
 	
 	@Override
@@ -56,6 +64,8 @@ public class SlideScreen implements Screen {
 		
 		// tell the camera to update its matrices.
 		camera.update();
+		stage.act();
+		stage.draw();
 
 		// tell the SpriteBatch to render in the
 		// coordinate system specified by the camera.
@@ -72,6 +82,7 @@ public class SlideScreen implements Screen {
 	
 	@Override
 	public void show() {
+		Gdx.input.setInputProcessor(stage);
 	}
 
 	@Override

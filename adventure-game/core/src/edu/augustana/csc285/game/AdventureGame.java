@@ -1,8 +1,12 @@
 package edu.augustana.csc285.game;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
+
 import edu.augustana.csc285.game.datamodel.StoryManager;
 
 public class AdventureGame extends Game {
@@ -12,11 +16,11 @@ public class AdventureGame extends Game {
 	
 	SpriteBatch batch;
 	BitmapFont font;
-
 	public void create() {
 		batch = new SpriteBatch();
 		font = new BitmapFont();
 		// line to declare the manager
+//		this.setScreen(new MainMenuScreen(this));
 		this.setScreen(new MainMenuScreen(this));
 	}
 
