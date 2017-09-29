@@ -56,8 +56,8 @@ public class SlideScreen implements Screen {
                 AdventureGame.GAME_SCREEN_HEIGHT);
         stage = new Stage(new ScreenViewport());
         stage.clear();
-        Skin skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
-        Button button = new TextButton("SlideButton", skin, "small");
+        Skin skin = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
+        Button button = new TextButton("SlideButton", skin, "default");
         button.setSize(50, 50);
         button.setPosition(250, 250);
         button.addListener(new InputListener() {
@@ -75,7 +75,7 @@ public class SlideScreen implements Screen {
         stage.addActor(button);
 
 
-        Button button1 = new TextButton("InventoryButton", skin, "small");
+        Button button1 = new TextButton("InventoryButton", skin, "default");
         button.setSize(50, 50);
         button.setPosition(250, 250);
         button.addListener(new InputListener() {

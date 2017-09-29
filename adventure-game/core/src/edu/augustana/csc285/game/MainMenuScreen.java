@@ -28,8 +28,8 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		stage = new Stage(new ScreenViewport());
 		stage.clear();
 //		Button button = LibGdxUtility.createChangeScreenButton(game,new SlideScreen(game), "SlideButton", "skin/glassy-ui.json", 50, 50, 50, 50);
-		Skin skin = new Skin(Gdx.files.internal("skin/glassy-ui.json"));
-		Button button = new TextButton("SlideButton", skin, "small");
+		Skin skin = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
+		Button button = new TextButton("SlideButton", skin, "default");
 		button.setSize(50, 50);
 		button.setPosition(50, 50);
 		button.addListener(new InputListener() {
