@@ -2,9 +2,8 @@ package edu.augustana.csc285.game.datamodel;
 
 import java.util.HashMap;
 import java.util.Map;
+import com.badlogic.gdx.utils.Json;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 /**
  * 
@@ -100,8 +99,8 @@ public class Story {
 	 *         object
 	 */
 	public String toJSON() {
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		return gson.toJson(this);
+		Json json = new Json();
+		return json.toJson(this);
 	}
 
 	/**
@@ -109,8 +108,8 @@ public class Story {
 	 *         data provided.
 	 */
 	public static Story fromJSON(String jsonData) {
-		Gson gson = new GsonBuilder().create();
-		return gson.fromJson(jsonData, Story.class);
+		Json json = new Json();
+		return json.fromJson(Story.class,jsonData);
 	}
 
 }
