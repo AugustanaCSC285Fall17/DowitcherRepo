@@ -1,6 +1,7 @@
 package edu.augustana.csc285.game.datamodel;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 /**
@@ -12,12 +13,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class PlayerProperties {
-	private Map<Property, Integer> properties;
-	private static final int INITIAL_HEALTH = 10;
-	private static final int INITIAL_MORALE = 10;
-	private static final int INITIAL_GOLD = 400;
-	private static final int INITIAL_DAY = 0;
-	private static final int INITIAL_GENDER = 0;
+	private Map<Integer,Property> properties;
 
 	/**
 	 * post: usually used to create a new copy of the properties
@@ -26,15 +22,16 @@ public class PlayerProperties {
 	 *            is the PlayerProperties
 	 */
 	public PlayerProperties(PlayerProperties other) {
-		properties = new HashMap<Property, Integer>(other.properties);
+		properties = new HashMap<Integer,Property>(other.properties);
 	}
 
-	public PlayerProperties(int health, int morale, int gold, int day) {
-		properties = new HashMap<Property, Integer>();
-		properties.put(Property.HEALTH, health);
-		properties.put(Property.MORALE, morale);
-		properties.put(Property.GOLD, gold);
-		properties.put(Property.DAY, day);
+	public PlayerProperties(int health, int morale, int gold, int day, int gender) {
+		properties = new HashMap<Integer,Property>();
+		properties.put(PropertyType.HEALTH.getID(),new Property(PropertyType.HEALTH, health));
+		properties.put(PropertyType.MORALE.getID(),new Property(PropertyType.MORALE, morale));
+		properties.put(PropertyType.GOLD.getID(),new Property(PropertyType.GOLD, gold));
+		properties.put(PropertyType.DAY.getID(),new Property(PropertyType.DAY, day));
+		properties.put(PropertyType.GENDER.getID(),new Property(PropertyType.GENDER, gender));
 	}
 
 	/**
@@ -42,15 +39,27 @@ public class PlayerProperties {
 	 * of game
 	 */
 	public PlayerProperties() {
-		this(INITIAL_HEALTH, INITIAL_MORALE, INITIAL_GOLD, INITIAL_DAY);
+		this(PropertyType.HEALTH.getValue(), PropertyType.MORALE.getValue(), PropertyType.GOLD.getValue(),
+				PropertyType.DAY.getValue(), PropertyType.GENDER.getValue());
 	}
-
-	public Map<Property, Integer> getProperties() {
-		return properties;
+	
+	public void changePropertyQuantity(Property property,int newQuantity) {
+		if (newQuantity<0) {
+			newQuantity = 0;
+		}
+		Property temp = new Property(property);
+		temp.setQuantity(newQuantity);
+		properties.put(temp.getID(), temp);
 	}
-
-	public void setProperties(HashMap<Property, Integer> properties) {
-		this.properties = properties;
+	
+	public int getPropertyQuantity(int propertyID) {
+		Property temp = properties.get(propertyID);
+		if (temp == null) {
+			return 0;
+		}
+		else {
+			return temp.getQuantity();
+		}
 	}
 
 	/**
@@ -62,7 +71,7 @@ public class PlayerProperties {
 	 */
 	public boolean checkProperties(PlayerProperties other) {
 		if (other.properties != null) {
-			for (Property property : other.properties.keySet()) {
+			for (PropertyType property : other.properties.keySet()) {
 				Integer temp = other.properties.get(property);
 				if (temp != null) {
 					if (properties.get(property) == null || temp > properties.get(property)) {
@@ -83,7 +92,7 @@ public class PlayerProperties {
 	 */
 	public void addProperties(PlayerProperties other) {
 		if (other != null && other.properties != null) {
-			for (Property property : other.properties.keySet()) {
+			for (PropertyType property : other.properties.keySet()) {
 				Integer temp1 = other.properties.get(property);
 				Integer temp2 = properties.get(property);
 				if (temp1 != null) {
@@ -110,7 +119,7 @@ public class PlayerProperties {
 			throw new IllegalArgumentException("other properties is greater than this properties");
 		} else {
 			if (other != null && other.properties != null) {
-				for (Property property : other.properties.keySet()) {
+				for (PropertyType property : other.properties.keySet()) {
 					Integer temp1 = other.properties.get(property);
 					Integer temp2 = properties.get(property);
 					properties.put(property, temp1 - temp2);
@@ -121,8 +130,8 @@ public class PlayerProperties {
 
 	public String toString() {
 		String output = "";
-		Set<Property> propertySet = properties.keySet();
-		for (Property index : propertySet) {
+		Set<PropertyType> propertySet = properties.keySet();
+		for (PropertyType index : propertySet) {
 			output = "The index is: " + index + "\t The vaues is: " + properties.get(index);
 		}
 

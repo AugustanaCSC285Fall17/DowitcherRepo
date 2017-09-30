@@ -93,10 +93,6 @@ public class Item {
 		this.desc = desc;
 	}
 
-	public void setQty(int quantity) {
-		this.quantity = quantity;
-	}
-
 	public void setID(int id) {
 		this.id = id;
 	}

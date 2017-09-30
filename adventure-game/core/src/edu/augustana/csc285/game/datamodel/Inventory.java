@@ -42,6 +42,26 @@ public class Inventory {
 			collection.put(item.getID(), new Item(item));
 		}
 	}
+	// precondition that collection is not null
+	// add Item in condition with new quantity to the collection if newQuantity <0 then set to 0
+	public void changeItemQuantity(Item item,int newQuantity) {
+		if (newQuantity<0) {
+			newQuantity = 0;
+		}
+		Item temp = new Item(item);
+		temp.setQuantity(newQuantity);
+		collection.put(temp.getID(), temp);
+	}
+	// return the quantity of an item, if the item is not in the collection then return 0
+	public int getItemQuantity(int itemID) {
+		Item temp = collection.get(itemID);
+		if (temp == null) {
+			return 0;
+		}
+		else {
+			return temp.getQuantity();
+		}
+	}
 
 	/*
 	 * post: remove item from the inventory, make no change if the item is not
