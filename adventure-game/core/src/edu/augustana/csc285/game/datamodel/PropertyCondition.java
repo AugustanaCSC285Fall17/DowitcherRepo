@@ -29,5 +29,8 @@ public class PropertyCondition implements Condition {
 		int currentQuantity = player.getProperties().getPropertyQuantity(property.getID());
 		return operation.checkCondition(currentQuantity, property.getQuantity());
 	}
+	public String toString () {
+		return (operation + " with property " + property);
+	}
 
 }

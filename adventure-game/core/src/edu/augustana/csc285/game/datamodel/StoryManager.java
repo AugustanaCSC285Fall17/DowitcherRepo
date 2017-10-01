@@ -1,5 +1,7 @@
 package edu.augustana.csc285.game.datamodel;
 
+import java.util.List;
+
 /**
  * 
  * @author Dat Tran
@@ -52,48 +54,19 @@ public class StoryManager {
 		return currentSlide;
 	}
 
-	/**
-	 * 
-	 * @param optionIndex
-	 *            is the index for the option in the list of options in the
-	 *            current slide
-	 * @return Option object corresponding to the optionIndex
-	 */
-	public Option getCurrentSlideOption(int optionIndex) {
-		return getCurrentSlide().getOption(optionIndex);
+	public List<Option> getCurrentSlideVisibleOptions() {
+		return currentSlide.getVisibleOptions(player);
 	}
-
-	/**
-	 * post: perform the option on the player and change the properties and
-	 * inventory correspondingly
-	 * 
-	 * @param optionIndex
-	 *            the index of the option in the current slide
-	 * @throws: IllegalArgumentException
-	 *              if option is not visible since the player doesn't satisfy
-	 *              the visibility requirement
-	 */
-	public void chooseOption(int optionIndex) {
-		if (!checkVisible(optionIndex)) {
-			throw new IllegalArgumentException("Option is not visible");
-		} else {
-			Option option = getCurrentSlideOption(optionIndex);
-			OptionController.applyOption(option, player);
-			currentSlide = this.story.getSlide(option.getNextSlideIndex());
+	public void applyOption(Option option) {
+		if (!option.isFeasible(player)) {
+			throw new IllegalArgumentException("That option is not feasible");
+		}
+		else {
+			option.applyEffects(player);
+			currentSlide = story.getSlide(option.getNextSlideIndex());
+			
 		}
 	}
-
-	/**
-	 * 
-	 * @param optionIndex
-	 *            the index of the option in the current slide
-	 * @return true if an option is visible to the player
-	 */
-	public boolean checkVisible(int optionIndex) {
-		Option option = getCurrentSlideOption(optionIndex);
-		return OptionController.isVisible(option, player);
-	}
-
 	public String toString() {
 		return "StoryManager is current at index " + currentSlide.getId();
 	}

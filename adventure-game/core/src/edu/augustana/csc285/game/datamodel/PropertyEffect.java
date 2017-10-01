@@ -30,5 +30,8 @@ public class PropertyEffect implements Effect {
 		int newQuantity = operation.applyEffect(currentQuantity, property.getQuantity());
 		player.getProperties().changePropertyQuantity(property, newQuantity);
 	}
+	public String toString() {
+		return (operation + " with property " + property);
+	}
 
 }

@@ -32,4 +32,7 @@ public class ItemCondition implements Condition {
 		int currentQuantity = player.getInventory().getItemQuantity(item.getID());
 		return operation.checkCondition(currentQuantity, item.getQuantity());
 	}
+	public String toString() {
+		return (operation + " with item " + item);
+	}
 }

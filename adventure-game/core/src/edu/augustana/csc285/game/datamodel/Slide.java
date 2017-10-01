@@ -10,7 +10,7 @@ public class Slide {
 	private String url;
 	private String music;
 	private int id;
-	ArrayList<Option> options;
+	List<Option> options;
 
 	/**
 	 * @param image
@@ -27,18 +27,17 @@ public class Slide {
 	 *            is the group of options the player could have access to on
 	 *            this slide
 	 */
-	public Slide(String image, String desc, String url, String music, int id, ArrayList<Option> options) {
+	public Slide(String image, String desc, String url, String music, int id) {
 		this.image = image;
 		this.desc = desc;
 		this.url = url;
 		this.music = music;
 		this.id = id;
-		this.options = options;
+		this.options = new ArrayList<Option>();
 	}
 
 	public Slide(String image, String desc) {
-		this(image, desc, "", null, 0, null);
-		this.options = new ArrayList<Option>();
+		this(image, desc, "", null, 0);
 	}
 
 	/**
@@ -46,7 +45,8 @@ public class Slide {
 	 */
 
 	public Slide(Slide other) {
-		this(other.image, other.desc, other.url, other.music, other.id, other.options);
+		this(other.image, other.desc, other.url, other.music, other.id);
+		this.options = new ArrayList<Option>(other.options);
 	}
 
 	/**
@@ -161,17 +161,14 @@ public class Slide {
 		options.remove(index);
 	}
 
-
-	/**
-	 * 
-	 * @return a list of string to represent the options to display
-	 */
-	public List<String> getOptionStringList() {
-		List<String> result = new ArrayList<String>();
+	public List<Option> getVisibleOptions(Player player) {
+		List<Option> visibleOptions = new ArrayList<Option>();
 		for (Option option : options) {
-			result.add(option.getDesc());
+			if (option.isVisible(player)) {
+				visibleOptions.add(option);
+			}
 		}
-		return result;
+		return visibleOptions;
 	}
 
 	public String toString() {

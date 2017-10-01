@@ -31,6 +31,9 @@ public class Property {
 	public int getID() {
 		return id;
 	}
+	public String toString() {
+		return (type.toString()+" (id: " + id+"): " + quantity);
+	}
 	
 	
 }

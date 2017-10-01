@@ -29,5 +29,8 @@ public class ItemEffect implements Effect {
 		int newQuantity = operation.applyEffect(currentQuantity, item.getQuantity());
 		player.getInventory().changeItemQuantity(item, newQuantity);
 	}
+	public String toString() {
+		return (operation + " with item " + item);
+	}
 
 }

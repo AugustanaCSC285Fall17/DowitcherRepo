@@ -1,5 +1,8 @@
 package edu.augustana.csc285.game.datamodel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  * @author Dat Tran
@@ -10,18 +13,11 @@ public class Option {
 	private String transitionMessage;
 	private String rejectMessage;
 	private int nextSlideIndex;
-	// optionInventory: addInventory,subtractInventory,qualifyInventory
-	private Inventory[] optionInventory;
-	// optionPlayerProperties: addProperties, subtractProperties,
-	// qualifyProperties
-	private PlayerProperties[] optionPlayerProperties;
+	private List<Effect> effects;
+	private List<Condition> visibleConditions;
+	private List<Condition> feasibleConditions;
 	private String image;
 	private String sound;
-
-	private static final int SIZE = 3;
-	private static final int INDEX_FOR_ADD = 0;
-	private static final int INDEX_FOR_SUBTRACT = 1;
-	private static final int INDEX_FOR_QUALIFY = 2;
 
 	/**
 	 * 
@@ -47,8 +43,9 @@ public class Option {
 		this.nextSlideIndex = nextSlideIndex;
 		this.image = image;
 		this.sound = sound;
-		this.optionInventory = new Inventory[SIZE];
-		this.optionPlayerProperties = new PlayerProperties[SIZE];
+		effects = new ArrayList<Effect>();
+		visibleConditions = new ArrayList<Condition>();
+		feasibleConditions = new ArrayList<Condition>();
 	}
 
 	public Option(int nextSlideIndex) {
@@ -87,54 +84,6 @@ public class Option {
 		this.nextSlideIndex = nextSlideIndex;
 	}
 
-	public Inventory getAddInventory() {
-		return optionInventory[INDEX_FOR_ADD];
-	}
-
-	public Inventory getSubtractInventory() {
-		return optionInventory[INDEX_FOR_SUBTRACT];
-	}
-
-	public Inventory getQualifyInventory() {
-		return optionInventory[INDEX_FOR_QUALIFY];
-	}
-
-	public void setAddInventory(Inventory inventory) {
-		optionInventory[INDEX_FOR_ADD] = inventory;
-	}
-
-	public void setSubtractInventory(Inventory inventory) {
-		optionInventory[INDEX_FOR_SUBTRACT] = inventory;
-	}
-
-	public void setQualifyInventory(Inventory inventory) {
-		optionInventory[INDEX_FOR_QUALIFY] = inventory;
-	}
-
-	public PlayerProperties getAddPlayerProperties() {
-		return optionPlayerProperties[INDEX_FOR_ADD];
-	}
-
-	public PlayerProperties getSubtractPlayerProperties() {
-		return optionPlayerProperties[INDEX_FOR_SUBTRACT];
-	}
-
-	public PlayerProperties getQualifyPlayerProperties() {
-		return optionPlayerProperties[INDEX_FOR_QUALIFY];
-	}
-
-	public void setAddPlayerProperties(PlayerProperties properties) {
-		optionPlayerProperties[INDEX_FOR_ADD] = properties;
-	}
-
-	public void setSubtractPlayerProperties(PlayerProperties properties) {
-		optionPlayerProperties[INDEX_FOR_SUBTRACT] = properties;
-	}
-
-	public void setQualifyPlayerProperties(PlayerProperties properties) {
-		optionPlayerProperties[INDEX_FOR_QUALIFY] = properties;
-	}
-
 	public String getImage() {
 		return image;
 	}
@@ -151,6 +100,76 @@ public class Option {
 		this.sound = sound;
 	}
 
+	public void addEffect(Effect effect) {
+		effects.add(effect);
+	}
+
+	public void addVisibleCondition(Condition condition) {
+		visibleConditions.add(condition);
+	}
+
+	public void addFeasibleCondition(Condition condition) {
+		feasibleConditions.add(condition);
+	}
+
+	public void removeEffect(int index) {
+		checkIndex(index, effects);
+		effects.remove(index);
+	}
+
+	public void removeVisibleCondition(int index) {
+		checkIndex(index, visibleConditions);
+		visibleConditions.remove(index);
+	}
+
+	public void removeFeasibleCondition(int index) {
+		checkIndex(index, feasibleConditions);
+		feasibleConditions.remove(index);
+	}
+
+	// don't parameterize list
+	public void checkIndex(int index, List list) {
+		if (index < 0 || index >= list.size()) {
+			throw new IllegalArgumentException("index: " + index + " is out of bound");
+		}
+	}
+
+	public List<Effect> getEffects() {
+		return effects;
+	}
+
+	public List<Condition> getVisibleConditions() {
+		return visibleConditions;
+	}
+
+	public List<Condition> getFeasibleConditions() {
+		return feasibleConditions;
+	}
+
+	public boolean isVisible(Player player) {
+		for (Condition condition : visibleConditions) {
+			if (!condition.checkCondition(player)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public boolean isFeasible(Player player) {
+		for (Condition condition : feasibleConditions) {
+			if (!condition.checkCondition(player)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public void applyEffects(Player player) {
+		for (Effect effect : effects) {
+			effect.applyEffect(player);
+		}
+	}
+
 	public String toString() {
 		String output = "Next Slide: " + nextSlideIndex + "\t";
 
@@ -160,18 +179,18 @@ public class Option {
 			output += "Sucess Message: " + transitionMessage + "\t";
 		if (!(rejectMessage == null))
 			output += "Rejection Message:" + rejectMessage + "\t";
-		if (!(optionInventory[INDEX_FOR_ADD] == null))
-			output += "The Inventory to Add: " + optionInventory[INDEX_FOR_ADD] + "\t";
-		if (!(optionInventory[INDEX_FOR_SUBTRACT] == null))
-			output += "The Inventory to Subtract: " + optionInventory[INDEX_FOR_SUBTRACT] + "\t";
-		if (!(optionInventory[INDEX_FOR_QUALIFY] == null))
-			output += "The Inventory to Qualify: " + optionInventory[INDEX_FOR_QUALIFY] + "\t";
-		if (!(optionPlayerProperties[INDEX_FOR_ADD] == null))
-			output += "The Player Stats to Add: " + optionPlayerProperties[INDEX_FOR_ADD] + "\t";
-		if (!(optionPlayerProperties[INDEX_FOR_SUBTRACT] == null) )
-			output += "The Player Stats to Subtract: " + optionPlayerProperties[INDEX_FOR_SUBTRACT] + "\t";
-		if (!(optionPlayerProperties[INDEX_FOR_QUALIFY] == null))
-			output += "The Player Stats that Qualify: " + optionPlayerProperties[INDEX_FOR_QUALIFY] + "\t";
+		output += "Effects: \n";
+		for (Effect effect : effects) {
+			output += effect + "\n";
+		}
+		output += "Visible conditions: \n";
+		for (Condition condition : visibleConditions) {
+			output += condition + "\n";
+		}
+		output += "Feasible conditions: \n";
+		for (Condition condition : feasibleConditions) {
+			output += condition + "\n";
+		}
 		if (!(image == null))
 			output += output + "Image file: " + image + "\t";
 		if (!(sound == null))

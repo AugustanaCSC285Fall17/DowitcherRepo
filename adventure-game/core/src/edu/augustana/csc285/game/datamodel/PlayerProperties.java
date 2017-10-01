@@ -11,6 +11,7 @@ import java.util.Map;
  */
 
 import java.util.Set;
+import java.util.TreeMap;
 
 public class PlayerProperties {
 	private Map<Integer,Property> properties;
@@ -22,11 +23,11 @@ public class PlayerProperties {
 	 *            is the PlayerProperties
 	 */
 	public PlayerProperties(PlayerProperties other) {
-		properties = new HashMap<Integer,Property>(other.properties);
+		properties = new TreeMap<Integer,Property>(other.properties);
 	}
 
 	public PlayerProperties(int health, int morale, int gold, int day, int gender) {
-		properties = new HashMap<Integer,Property>();
+		properties = new TreeMap<Integer,Property>();
 		properties.put(PropertyType.HEALTH.getID(),new Property(PropertyType.HEALTH, health));
 		properties.put(PropertyType.MORALE.getID(),new Property(PropertyType.MORALE, morale));
 		properties.put(PropertyType.GOLD.getID(),new Property(PropertyType.GOLD, gold));
@@ -61,80 +62,40 @@ public class PlayerProperties {
 			return temp.getQuantity();
 		}
 	}
-
-	/**
-	 * 
-	 * @param other:
-	 *            other properties set, usually in the option to see if it is
-	 *            visible
-	 * @return: true if this has greater quantity in each element than other
-	 */
-	public boolean checkProperties(PlayerProperties other) {
-		if (other.properties != null) {
-			for (PropertyType property : other.properties.keySet()) {
-				Integer temp = other.properties.get(property);
-				if (temp != null) {
-					if (properties.get(property) == null || temp > properties.get(property)) {
-						return false;
-					}
-				}
-			}
-			return true;
+	public Property getProperty(int propertyID) {
+		if (!properties.containsKey(propertyID)) {
+			throw new IllegalArgumentException("PropertyID is not valid");
 		}
-		return true;
-	}
-
-	/**
-	 * @param other:
-	 *            other properties set, usually in the option to update player
-	 *            properties post: add properties to this by the properties in
-	 *            other
-	 */
-	public void addProperties(PlayerProperties other) {
-		if (other != null && other.properties != null) {
-			for (PropertyType property : other.properties.keySet()) {
-				Integer temp1 = other.properties.get(property);
-				Integer temp2 = properties.get(property);
-				if (temp1 != null) {
-					temp1 += temp2;
-				} else {
-					temp1 = temp2;
-				}
-				properties.put(property, temp1);
-			}
+		else {
+			return properties.get(propertyID);
 		}
 	}
 
-	/**
-	 * 
-	 * @param other:
-	 *            other properties set, usually in the option to update player
-	 *            properties post: subtract properties from this by the
-	 *            properties in other
-	 * @throws IllegalArgumentException
-	 *             if there is not enough in this to subtract from
-	 */
-	public void subtractProperties(PlayerProperties other) {
-		if (!checkProperties(other)) {
-			throw new IllegalArgumentException("other properties is greater than this properties");
-		} else {
-			if (other != null && other.properties != null) {
-				for (PropertyType property : other.properties.keySet()) {
-					Integer temp1 = other.properties.get(property);
-					Integer temp2 = properties.get(property);
-					properties.put(property, temp1 - temp2);
+	public void addProperty(Property property) {
+		if (property != null){
+			if (properties.containsKey(property.getID())) {
+				Property original = properties.get(property.getID());
+				int newQuantity = original.getQuantity() + property.getQuantity();
+				if (newQuantity<0) {
+					newQuantity = 0;
 				}
+				original.setQuantity(newQuantity);
+			}
+			else {
+				Property temp = new Property(property);
+				if (temp.getQuantity()<0) {
+					temp.setQuantity(0);
+				}
+				properties.put(temp.getID(),temp);
 			}
 		}
 	}
 
 	public String toString() {
 		String output = "";
-		Set<PropertyType> propertySet = properties.keySet();
-		for (PropertyType index : propertySet) {
-			output = "The index is: " + index + "\t The vaues is: " + properties.get(index);
+		for (Property temp : properties.values()) {
+			output += temp.toString()+"\n";
 		}
-
 		return output;
 	}
 }
