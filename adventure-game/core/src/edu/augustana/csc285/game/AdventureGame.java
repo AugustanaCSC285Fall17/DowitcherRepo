@@ -28,12 +28,16 @@ public class AdventureGame extends Game {
 		slide0.addOption(new Option("Go to 2",2));
 		story.addSlide(slide0);
 		Slide slide1 = new Slide("slideImages/test_image2.png", "Slide 1",1);
-		slide1.addOption(new Option("Go to 0",1));
-		slide1.addOption(new Option("Go to 1",2));
+		slide1.addOption(new Option("Go to 0",0));
+		slide1.addOption(new Option("Go to 2",2));
+		story.addSlide(slide1);
+		Slide slide2 = new Slide("slideImages/test_image2.png", "Slide 1",2);
+		slide1.addOption(new Option("Go to 0",0));
+		slide1.addOption(new Option("Go to 1",1));
 		story.addSlide(slide1);
 		
+		
 		manager = new StoryManager(story,"default_name",story.getStartingSlideIndex());
-		System.out.println("manager is: " + manager);
 		batch = new SpriteBatch();
 		font = new BitmapFont();
 		this.setScreen(new MainMenuScreen(this));

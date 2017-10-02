@@ -34,7 +34,6 @@ public class SlideScreen implements Screen {
 	private final int LEFT_BUFFER = 5;
 	private final int BUFFER = 20;
 	private final AdventureGame game;
-	private StoryManager manager;
 	private Slide slide;
 	private List<Option> visibleOptions;
 	private Texture image;
@@ -47,10 +46,9 @@ public class SlideScreen implements Screen {
 		// Set up data fields
 		this.game = game;
 		slide = game.manager.getCurrentSlide();
-		System.out.println(game.manager);
 		image = new Texture(Gdx.files.internal(slide.getImage()));
-		visibleOptions = slide.getVisibleOptions(manager.getPlayer());
-
+		visibleOptions = slide.getVisibleOptions(game.manager.getPlayer());
+		System.out.println(visibleOptions);
 		// Set up camera
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
@@ -58,7 +56,7 @@ public class SlideScreen implements Screen {
 		// Set up stage and table for buttons
 		stage = new Stage(new ScreenViewport());
 		Table buttonTable = new Table();
-
+		buttonTable.setPosition(200, 200);
 		// Create and add button
 		for (int i = 0; i < visibleOptions.size(); i++) {
 			Option option = visibleOptions.get(i);
@@ -82,7 +80,8 @@ public class SlideScreen implements Screen {
 			});
 			// for now not measuring the width of the option string but assume
 			// they are the same
-			buttonTable.add(button).width(300).height(100).row();
+			buttonTable.add(button).width(200).height(30).row();
+			buttonTable.row();
 		}
 		
 			stage.addActor(buttonTable);
