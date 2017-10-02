@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import com.badlogic.gdx.utils.Json;
 
-
 /**
  * 
  * @author Dat Tran
@@ -13,21 +12,28 @@ import com.badlogic.gdx.utils.Json;
 public class Story {
 	private Map<Integer, Slide> slides;
 	private String defaultMusic;
+	private int startingSlideIndex;
+	// Never use -1 since that is the ending indicator
 
-	public Story() {
+	public Story(int startingSlideIndex) {
 		slides = new HashMap<Integer, Slide>();
+		this.startingSlideIndex = startingSlideIndex;
 	}
 
 	public Story(Story other) {
-		slides = new HashMap<Integer,Slide> (other.slides);
+		slides = new HashMap<Integer, Slide>(other.slides);
+		this.startingSlideIndex = other.startingSlideIndex;
 	}
-	public Story(String defaultMusic) {
-		this();
+
+	public Story(int startingSlideIndex, String defaultMusic) {
+		this(startingSlideIndex);
 		this.defaultMusic = defaultMusic;
 	}
-	
 
 	public String getDefaultMusic() {
+		if (defaultMusic == null) {
+			throw new IllegalStateException("There is no default music");
+		}
 		return defaultMusic;
 	}
 
@@ -76,9 +82,20 @@ public class Story {
 		checkID(id);
 		return new Slide(slides.get(id));
 	}
+
+	public int getStartingSlideIndex() {
+		return startingSlideIndex;
+	}
+
+	public void setStartingSlideIndex(int startingSlideIndex) {
+		this.startingSlideIndex = startingSlideIndex;
+	}
+
 	/**
 	 * post: throw IllegalArgumentException if the id is not in the story
-	 * @param id for the slide in the story
+	 * 
+	 * @param id
+	 *            for the slide in the story
 	 */
 	public void checkID(int id) {
 		if (!slides.containsKey(id)) {
@@ -109,7 +126,7 @@ public class Story {
 	 */
 	public static Story fromJSON(String jsonData) {
 		Json json = new Json();
-		return json.fromJson(Story.class,jsonData);
+		return json.fromJson(Story.class, jsonData);
 	}
 
 }

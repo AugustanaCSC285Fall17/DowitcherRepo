@@ -48,8 +48,8 @@ public class Option {
 		feasibleConditions = new ArrayList<Condition>();
 	}
 
-	public Option(int nextSlideIndex) {
-		this(null, null, null, nextSlideIndex, null, null);
+	public Option(String desc, int nextSlideIndex) {
+		this(desc, null, null, nextSlideIndex, null, null);
 	}
 
 	public String getDesc() {
@@ -179,7 +179,7 @@ public class Option {
 			output += "Sucess Message: " + transitionMessage + "\t";
 		if (!(rejectMessage == null))
 			output += "Rejection Message:" + rejectMessage + "\t";
-		output += "Effects: \n";
+		output += "\nEffects: \n";
 		for (Effect effect : effects) {
 			output += effect + "\n";
 		}

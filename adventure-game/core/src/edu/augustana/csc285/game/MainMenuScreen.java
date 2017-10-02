@@ -26,8 +26,8 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, 
 								AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
-		stage.clear();
-//		Button button = LibGdxUtility.createChangeScreenButton(game,new SlideScreen(game), "SlideButton", "skin/glassy-ui.json", 50, 50, 50, 50);
+		
+		// Section to create a button 
 		Skin skin = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
 		Button button = new TextButton("SlideButton", skin, "default");
 		button.setSize(50, 50);
@@ -45,6 +45,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 
 		});
 		stage.addActor(button);
+		// End of section to create a button
 	}
 	@Override
 	public void show() {

@@ -36,8 +36,8 @@ public class Slide {
 		this.options = new ArrayList<Option>();
 	}
 
-	public Slide(String image, String desc) {
-		this(image, desc, "", null, 0);
+	public Slide(String image, String desc,int id) {
+		this(image, desc, "", null, id);
 	}
 
 	/**
@@ -174,8 +174,8 @@ public class Slide {
 	public String toString() {
 		String output = "Image: " + image + " Desc: " + desc + "\n";
 
-		for (Option index : options) {
-			output += index.toString();
+		for (Option option : options) {
+			output += option.toString()+"\n";
 		}
 
 		return output;
