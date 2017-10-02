@@ -34,7 +34,7 @@ public class AdventureGame extends Game {
 		Slide slide2 = new Slide("slideImages/test_image2.png", "Slide 1",2);
 		slide1.addOption(new Option("Go to 0",0));
 		slide1.addOption(new Option("Go to 1",1));
-		story.addSlide(slide1);
+		story.addSlide(slide2);
 		
 		
 		manager = new StoryManager(story,"default_name",story.getStartingSlideIndex());
