@@ -69,7 +69,8 @@ public class InventoryScreen implements Screen{
 					//Draw a blank box
 					image = new Texture("Box.jpg");
 				}
-				game.batch.draw(image, 25 * j, 25 * i);
+				game.batch.draw(image, (25 *j) +5, (25 *i)+5;
+				//items and boxes are assumed to be 25
 			}
 		}
 		game.batch.end();
