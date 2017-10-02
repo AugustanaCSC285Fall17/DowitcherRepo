@@ -52,4 +52,7 @@ public class Player {
 	public void setProperties(PlayerProperties properties) {
 		this.properties = properties;
 	}
+	public String toString() {
+		return "Player " + name + "\nInventory:\n" +inventory + "\nProperties:\n" +properties;
+	}
 }
