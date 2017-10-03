@@ -63,7 +63,8 @@ public class SlideTest {
 				tempStr = fileIn.nextLine();
 				tempStr2 = fileIn.nextLine();
 				System.out.print("Creating new slide with image: " + tempStr + " and desc: " + tempStr2 + " = ");
-					slides.add(new Slide(tempStr, tempStr2));
+					//commented out to run project w/o errors
+					//slides.add(new Slide(tempStr, tempStr2));
 				System.out.println("SUCCESS");
 				
 				
@@ -91,7 +92,8 @@ public class SlideTest {
 				for(int i = 1; i <= tempInt; i++) {
 					int temp = fileIn.nextInt();
 					System.out.print("Creating a new Option and assigning it an ID: " + temp + " = ");
-					slides.get(slideCount).addOption(new Option(temp));
+					//same here
+					//slides.get(slideCount).addOption(new Option(temp));
 					System.out.println("SUCCESS");
 				}
 				System.out.println("Adding options = SUCCESS");

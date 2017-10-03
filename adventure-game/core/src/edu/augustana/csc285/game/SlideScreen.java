@@ -37,11 +37,13 @@ public class SlideScreen implements Screen {
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
 																														// 9
 	private final int LEFT_BUFFER = 5;
-	private final int BUFFER = 20;
+	private final int BUFFER = 5;
 	private final AdventureGame game;
 	private Slide slide;
 	private List<Option> visibleOptions;
 	private Texture image;
+	private TextButton inventoryButton;
+	private TextButton optionsButton;
 	private OrthographicCamera camera;
 	private int input;
 	private int numOptions;
@@ -60,8 +62,9 @@ public class SlideScreen implements Screen {
 		// Set up stage and table for buttons
 		stage = new Stage(new ScreenViewport());
 		Table buttonTable = new Table();
-		buttonTable.setPosition(250, 100);
-		// Create and add button
+		buttonTable.setPosition(450, 100);
+		
+		// Create and add buttons for ActionChoices
 		for (int i = 0; i < visibleOptions.size(); i++) {
 			Option option = visibleOptions.get(i);
 			String displayString = (i + 1) + ".  " + option.getDesc();
@@ -89,19 +92,36 @@ public class SlideScreen implements Screen {
 			});
 			// for now not measuring the width of the option string but assume
 			// they are the same
-			buttonTable.add(button).width(200).height(30).pad(5).row();
+			buttonTable.add(button).width(200).height(30).pad(BUFFER).row();
 		}
+		
 		stage.addActor(buttonTable);
 		Label testLabel = new Label(
-				"This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string",
+				"This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string",
 				DEFAULT_SKIN);
 		testLabel.setWrap(true);
 		ScrollPane scroll = new ScrollPane(testLabel, DEFAULT_SKIN);
-		scroll.setPosition(200, 200);
-		scroll.setSize(100, 100);
+		scroll.setPosition(350, 250);
+		scroll.setSize(350, 100);
 		scroll.setScrollingDisabled(true, false);
 		stage.addActor(scroll);
-
+		
+		// instantiate buttons for Options and Inventory
+		optionsButton = new TextButton("Options", DEFAULT_SKIN);
+		optionsButton.setSize(100, 35);
+		
+		inventoryButton = new TextButton("Inventory", DEFAULT_SKIN);
+		inventoryButton.setSize(105, 35);
+		
+		optionsButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() - optionsButton.getWidth() - (BUFFER * 2), 
+								AdventureGame.GAME_SCREEN_HEIGHT - optionsButton.getHeight() - BUFFER);
+		inventoryButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() - BUFFER, 
+								AdventureGame.GAME_SCREEN_HEIGHT - inventoryButton.getHeight() - BUFFER);
+		
+		stage.addActor(optionsButton);
+		stage.addActor(inventoryButton);
+		
+		
 		// Enable player to press key
 
 		// slide = new Slide("test_image", "You appear to have stumbled upon a
@@ -131,6 +151,8 @@ public class SlideScreen implements Screen {
 		camera.update();
 		stage.act();
 		stage.draw();
+		
+		// Draw ActionChoices
 		for (int temp : KEY_SET) {
 			if (Gdx.input.isKeyJustPressed(temp)) {
 				int index = temp - 8;
@@ -151,6 +173,13 @@ public class SlideScreen implements Screen {
 				}
 			}
 		}
+		
+		Texture testImage = new Texture("slideImages/Slide2.jpg");
+		game.batch.begin();
+		game.batch.draw(testImage, BUFFER, AdventureGame.GAME_SCREEN_HEIGHT - testImage.getHeight() / 2 - BUFFER, 100, 100, 300, 300);
+		//game.batch.draw(region, x, y, originX, originY, width, height, scaleX, scaleY, rotation);
+		game.batch.end();
+		
 		// tell the SpriteBatch to render in the
 		// coordinate system specified by the camera.
 		game.batch.setProjectionMatrix(camera.combined);

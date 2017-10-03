@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
+import edu.augustana.csc285.game.datamodel.Player;
+
 public class PlayerStatScreen implements Screen {
 	public static final int GAME_SCREEN_WIDTH = 800;
 	public static final int GAME_SCREEN_HEIGHT = 480;	
@@ -56,6 +58,6 @@ public void hide() {
 
 @Override
 public void dispose () {
-	img.dispose();
+	//img.dispose();
 }
 }
