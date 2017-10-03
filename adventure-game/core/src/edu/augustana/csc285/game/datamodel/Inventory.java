@@ -1,4 +1,5 @@
 package edu.augustana.csc285.game.datamodel;
+
 /**
  * author: Dat Tran
  */
@@ -7,7 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Inventory {
-	private Map<Integer, Item> collection;
+	// Need to initialize in here so can have 0 argument constructor
+	private Map<Integer, Item> collection = new HashMap<Integer, Item>();
 
 	public Inventory(HashMap<Integer, Item> collection) {
 		setCollection(collection);
@@ -18,7 +20,6 @@ public class Inventory {
 	}
 
 	public Inventory() {
-		collection = new HashMap<Integer, Item>();
 	}
 
 	public Map<Integer, Item> getCollection() {
@@ -42,23 +43,26 @@ public class Inventory {
 			collection.put(item.getID(), new Item(item));
 		}
 	}
+
 	// precondition that collection is not null
-	// add Item in condition with new quantity to the collection if newQuantity <0 then set to 0
-	public void changeItemQuantity(Item item,int newQuantity) {
-		if (newQuantity<0) {
+	// add Item in condition with new quantity to the collection if newQuantity
+	// <0 then set to 0
+	public void changeItemQuantity(Item item, int newQuantity) {
+		if (newQuantity < 0) {
 			newQuantity = 0;
 		}
 		Item temp = new Item(item);
 		temp.setQuantity(newQuantity);
 		collection.put(temp.getID(), temp);
 	}
-	// return the quantity of an item, if the item is not in the collection then return 0
+
+	// return the quantity of an item, if the item is not in the collection then
+	// return 0
 	public int getItemQuantity(int itemID) {
 		Item temp = collection.get(itemID);
 		if (temp == null) {
 			return 0;
-		}
-		else {
+		} else {
 			return temp.getQuantity();
 		}
 	}
@@ -135,10 +139,10 @@ public class Inventory {
 	}
 
 	public String toString() {
-		 ArrayList<String> str = new ArrayList<String>(); 
-		 for (Item item : collection.values()) { 
-			 str.add("Name: " + item.getName() + " Q: " + item.getQuantity() + " ID: " + item.getID());
-		 }
+		ArrayList<String> str = new ArrayList<String>();
+		for (Item item : collection.values()) {
+			str.add("Name: " + item.getName() + " Q: " + item.getQuantity() + " ID: " + item.getID());
+		}
 		return str.toString();
 	}
 }

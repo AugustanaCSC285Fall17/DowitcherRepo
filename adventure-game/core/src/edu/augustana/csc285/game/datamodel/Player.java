@@ -1,4 +1,5 @@
 package edu.augustana.csc285.game.datamodel;
+
 /**
  * 
  * @author Dat Tran
@@ -9,6 +10,10 @@ public class Player {
 	private Inventory inventory;
 	private boolean gameOver;
 	private PlayerProperties properties;
+
+	public Player() {
+
+	}
 
 	public Player(String name, Inventory inventory, PlayerProperties properties, boolean gameOver) {
 		this.name = name;
@@ -52,7 +57,8 @@ public class Player {
 	public void setProperties(PlayerProperties properties) {
 		this.properties = properties;
 	}
+
 	public String toString() {
-		return "Player " + name + "\nInventory:\n" +inventory + "\nProperties:\n" +properties;
+		return "Player " + name + "\nInventory:\n" + inventory + "\nProperties:\n" + properties;
 	}
 }

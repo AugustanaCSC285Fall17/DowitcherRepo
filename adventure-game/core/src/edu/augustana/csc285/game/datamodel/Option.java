@@ -9,6 +9,7 @@ import java.util.List;
  *
  */
 public class Option {
+	public static final String DEFAULT_REJECT_MESSAGE = "You are not allowed to choose this.";
 	private String desc;
 	private String transitionMessage;
 	private String rejectMessage;
@@ -18,6 +19,10 @@ public class Option {
 	private List<Condition> feasibleConditions;
 	private String image;
 	private String sound;
+
+	public Option() {
+
+	}
 
 	/**
 	 * 
@@ -49,7 +54,7 @@ public class Option {
 	}
 
 	public Option(String desc, int nextSlideIndex) {
-		this(desc, null, null, nextSlideIndex, null, null);
+		this(desc, null, DEFAULT_REJECT_MESSAGE, nextSlideIndex, null, null);
 	}
 
 	public String getDesc() {

@@ -12,6 +12,10 @@ public class StoryManager {
 	private Player player;
 	private Slide currentSlide;
 
+	public StoryManager() {
+
+	}
+
 	/**
 	 * 
 	 * @param story
@@ -24,7 +28,7 @@ public class StoryManager {
 	public StoryManager(Story story, Player player, int index) {
 		this.story = story;
 		this.player = player;
-		story.checkID(index);
+		//story.checkID(index);
 		currentSlide = this.story.getSlide(index);
 	}
 
@@ -57,16 +61,17 @@ public class StoryManager {
 	public List<Option> getCurrentSlideVisibleOptions() {
 		return currentSlide.getVisibleOptions(player);
 	}
+
 	public void applyOption(Option option) {
 		if (!option.isFeasible(player)) {
 			throw new IllegalArgumentException("That option is not feasible");
-		}
-		else {
+		} else {
 			option.applyEffects(player);
 			currentSlide = story.getSlide(option.getNextSlideIndex());
-			
+
 		}
 	}
+
 	public String toString() {
 		return "StoryManager is current at index " + currentSlide.getId();
 	}

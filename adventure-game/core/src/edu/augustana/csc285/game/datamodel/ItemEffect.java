@@ -3,11 +3,16 @@ package edu.augustana.csc285.game.datamodel;
 public class ItemEffect implements Effect {
 	private Item item;
 	private EffectOperation operation;
+
+	public ItemEffect() {
+
+	}
+
 	public ItemEffect(Item item, EffectOperation operation) {
 		this.item = item;
 		this.operation = operation;
 	}
-	
+
 	public Item getItem() {
 		return item;
 	}
@@ -29,6 +34,7 @@ public class ItemEffect implements Effect {
 		int newQuantity = operation.applyEffect(currentQuantity, item.getQuantity());
 		player.getInventory().changeItemQuantity(item, newQuantity);
 	}
+
 	public String toString() {
 		return (operation + " with item " + item);
 	}

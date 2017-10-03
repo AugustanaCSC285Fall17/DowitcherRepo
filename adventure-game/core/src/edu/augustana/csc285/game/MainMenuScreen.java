@@ -5,31 +5,36 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
-
 public class MainMenuScreen extends ScreenAdapter implements Screen {
-
+	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
 	private final AdventureGame game;
+	private String introduction;
 	private Stage stage;
 	OrthographicCamera camera;
 
 	public MainMenuScreen(final AdventureGame game) {
 		this.game = game;
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, 
-								AdventureGame.GAME_SCREEN_HEIGHT);
+		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
 		
-		// Section to create a button 
-		Skin skin = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
-		Button button = new TextButton("SlideButton", skin, "default");
+
+		Table buttonTable = new Table();
+		buttonTable.setPosition(400, 200);
+
+		Button button = new TextButton("New Game", DEFAULT_SKIN, "default");
 		button.setSize(50, 50);
 		button.setPosition(50, 50);
 		button.addListener(new InputListener() {
@@ -44,9 +49,46 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 
 		});
-		stage.addActor(button);
-		// End of section to create a button
+		buttonTable.add(button).width(200).height(30).pad(5).row();
+
+		button = new TextButton("Credit", DEFAULT_SKIN, "default");
+		button.setSize(50, 50);
+		button.setPosition(50, 50);
+		button.addListener(new InputListener() {
+			@Override
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+			}
+
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+
+		});
+		buttonTable.add(button).width(200).height(30).pad(5).row();
+
+		button = new TextButton("Exit", DEFAULT_SKIN, "default");
+		button.setSize(50, 50);
+		button.setPosition(50, 50);
+		button.addListener(new InputListener() {
+			@Override
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				Gdx.app.exit();
+			}
+
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+
+		});
+		buttonTable.add(button).width(200).height(30).pad(5).row();
+
+		stage.addActor(buttonTable);
+		introduction = "Welcome to Oreo Trail";
 	}
+
 	@Override
 	public void show() {
 		Gdx.input.setInputProcessor(stage);
@@ -62,15 +104,12 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		camera.update();
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.begin();
-		game.font.draw(game.batch, "Welcome to Adventure!!! ", 100, 150);
-		game.font.draw(game.batch, "Tap anywhere to begin!", 100, 100);
+		game.font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
+		game.font.getData().setScale(3);
+		game.font.draw(game.batch, "Welcome to Oreo Trail",210,350);
 		game.batch.end();
-//		if (Gdx.input.isTouched()) {
-//			game.setScreen(new SlideScreen(game));
-//			dispose();
-//		}
+		
 	}
-
 
 	@Override
 	public void resize(int width, int height) {
@@ -93,5 +132,3 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		stage.dispose();
 	}
 }
-
-	

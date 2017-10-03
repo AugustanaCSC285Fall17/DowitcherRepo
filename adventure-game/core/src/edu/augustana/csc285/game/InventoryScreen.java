@@ -32,7 +32,7 @@ public class InventoryScreen implements Screen{
 	private AdventureGame game;
 	
 	public InventoryScreen(AdventureGame game) {
-		this.player = game.getManager().getPlayer();
+		this.player = game.manager.getPlayer();
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
@@ -69,7 +69,7 @@ public class InventoryScreen implements Screen{
 					//Draw a blank box
 					image = new Texture("Box.jpg");
 				}
-				game.batch.draw(image, (25 *j) +5, (25 *i)+5;
+				game.batch.draw(image, (25 *j) +5, (25 *i) + 5);
 				//items and boxes are assumed to be 25
 			}
 		}

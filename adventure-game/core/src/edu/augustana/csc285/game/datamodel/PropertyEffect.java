@@ -4,6 +4,10 @@ public class PropertyEffect implements Effect {
 	private Property property;
 	private EffectOperation operation;
 
+	public PropertyEffect() {
+
+	}
+
 	public PropertyEffect(Property property, EffectOperation operation) {
 		this.property = property;
 		this.operation = operation;
@@ -30,6 +34,7 @@ public class PropertyEffect implements Effect {
 		int newQuantity = operation.applyEffect(currentQuantity, property.getQuantity());
 		player.getProperties().changePropertyQuantity(property, newQuantity);
 	}
+
 	public String toString() {
 		return (operation + " with property " + property);
 	}
