@@ -4,6 +4,10 @@ public class PropertyCondition implements Condition {
 	private Property property;
 	private ConditionOperation operation;
 
+	public PropertyCondition() {
+
+	}
+
 	public PropertyCondition(Property property, ConditionOperation operation) {
 		this.property = property;
 		this.operation = operation;
@@ -29,7 +33,8 @@ public class PropertyCondition implements Condition {
 		int currentQuantity = player.getProperties().getPropertyQuantity(property.getID());
 		return operation.checkCondition(currentQuantity, property.getQuantity());
 	}
-	public String toString () {
+
+	public String toString() {
 		return (operation + " with property " + property);
 	}
 

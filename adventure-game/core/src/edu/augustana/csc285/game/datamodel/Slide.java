@@ -12,6 +12,10 @@ public class Slide {
 	private int id;
 	List<Option> options;
 
+	public Slide() {
+
+	}
+
 	/**
 	 * @param image
 	 *            is the name of the image
@@ -36,7 +40,7 @@ public class Slide {
 		this.options = new ArrayList<Option>();
 	}
 
-	public Slide(String image, String desc,int id) {
+	public Slide(String image, String desc, int id) {
 		this(image, desc, "", null, id);
 	}
 
@@ -172,10 +176,10 @@ public class Slide {
 	}
 
 	public String toString() {
-		String output = "Image: " + image + " Desc: " + desc + "\n";
+		String output = "Current slide " + id + " Image: " + image + " Desc: " + desc + "\n\n";
 
 		for (Option option : options) {
-			output += option.toString()+"\n";
+			output += option.toString() + "\n";
 		}
 
 		return output;

@@ -5,11 +5,11 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 public class PlayerStatScreen implements Screen {
 	public static final int GAME_SCREEN_WIDTH = 800;
-	public static final int GAME_SCREEN_HEIGHT = 480;
-	
+	public static final int GAME_SCREEN_HEIGHT = 480;	
 	private Player player;
 	private OrthographicCamera camera;
 	private AdventureGame game;

@@ -13,6 +13,10 @@ public class Item {
 	// image is the location in asset
 	private String image;
 
+	public Item() {
+
+	}
+
 	public Item(String name, String desc, int quantity, int id, String image) {
 		this.name = name;
 		this.desc = desc;
