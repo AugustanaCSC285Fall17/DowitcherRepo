@@ -53,6 +53,7 @@ public class Item {
 	 * @param image:
 	 *            location in asset
 	 */
+
 	public Item(String name, String desc, int quantity, int id) {
 		this(name, desc, quantity, id, null);
 	}

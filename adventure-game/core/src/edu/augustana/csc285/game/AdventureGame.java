@@ -24,7 +24,7 @@ public class AdventureGame extends Game {
 //		Story story = Story.fromJSON(jsonData);
 		Story story = new Story(0);
 		Slide slide0 = new Slide("slideImages/test_image.png", "Slide 0",0);
-		slide0.addOption(new Option("Go to 1",1));
+		slide0.addOption(new Option("Go to 1",1).addEffect(new ItemEffect()););
 		slide0.addOption(new Option("Go to 2",2));
 		story.addSlide(slide0);
 		Slide slide1 = new Slide("slideImages/test_image2.png", "Slide 1",1);
@@ -32,9 +32,9 @@ public class AdventureGame extends Game {
 		slide1.addOption(new Option("Go to 2",2));
 		story.addSlide(slide1);
 		Slide slide2 = new Slide("slideImages/test_image2.png", "Slide 1",2);
-		slide1.addOption(new Option("Go to 0",0));
-		slide1.addOption(new Option("Go to 1",1));
-		story.addSlide(slide1);
+		slide2.addOption(new Option("Go to 0",0));
+		slide2.addOption(new Option("Go to 1",1));
+		story.addSlide(slide2);
 		
 		
 		manager = new StoryManager(story,"default_name",story.getStartingSlideIndex());
@@ -51,6 +51,4 @@ public class AdventureGame extends Game {
 		batch.dispose();
 		font.dispose();
 	}
-
-	
 }
