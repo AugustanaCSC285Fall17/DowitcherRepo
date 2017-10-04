@@ -6,8 +6,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
+
+
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -20,7 +20,7 @@ public class PlayerStatScreen implements Screen {
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
 	public static final int GAME_SCREEN_WIDTH = 800;
 	public static final int GAME_SCREEN_HEIGHT = 480;
-	private Viewport viewport;
+	
 	private Stage stage;
 	private Player player;
 	private OrthographicCamera camera;
@@ -34,6 +34,7 @@ public class PlayerStatScreen implements Screen {
 								AdventureGame.GAME_SCREEN_HEIGHT);
 		Label.LabelStyle font = new Label.LabelStyle();
 		Table table = new Table();
+		table.setPosition(450, 150);
 		table.top();
 		table.setFillParent(true);
 	    

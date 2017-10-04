@@ -4,18 +4,7 @@ public class GameDataTester {
 
 	public static void main(String[] args) {
 		GameData gd = new GameData();
-		/*
-		 * Slide s0 = new Slide("Room 0", "A boring room", "slide_000.png");
-		 * ActionChoice choice = new ActionChoice("go to room 1 and get bananas", 1);
-		 * choice.addEffect(new InventoryEffect("bananas", 42));
-		 * s0.getActionChoices().add(choice); s0.getActionChoices().add(new
-		 * ActionChoice("go to room 2", 2)); Slide s1 = new Slide("Room 1",
-		 * "A fascinating room", "slide_001.png"); s1.getActionChoices().add(new
-		 * ActionChoice("die", -1)); s1.getActionChoices().add(new
-		 * ActionChoice("go to room 2", 2)); Slide s2 = new Slide("Room 2",
-		 * "An emu farm", "slide_002.png"); s2.getActionChoices().add(new
-		 * ActionChoice("go back to room 0", 0));
-		 */
+		
 		Slide s0 = new Slide("GameData/SlideImages/slide0.jpg",
 				"You’re a young Swedish immigrant to America in 1880. You’ve made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?\n",
 				null, null, 0);
