@@ -52,9 +52,9 @@ public class SlideScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		Table buttonTable = new Table();
 
-		buttonTable.setPosition((6*AdventureGame.GAME_SCREEN_WIDTH)/16 + WIDTH_BUFFER  , 
-				AdventureGame.GAME_SCREEN_HEIGHT - ((5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8) - (HEIGHT_BUFFER * 12) - AdventureGame.GAME_SCREEN_HEIGHT / 24);
-
+		buttonTable.setPosition((6 * AdventureGame.GAME_SCREEN_WIDTH) / 16 + WIDTH_BUFFER,
+				AdventureGame.GAME_SCREEN_HEIGHT - ((6 * AdventureGame.GAME_SCREEN_HEIGHT) / 9) - (HEIGHT_BUFFER * 12)
+						- AdventureGame.GAME_SCREEN_HEIGHT / 24);
 
 		// Create and add buttons for ActionChoices
 		for (int i = 0; i < visibleOptions.size(); i++) {
@@ -62,7 +62,7 @@ public class SlideScreen implements Screen {
 			String displayString = (i + 1) + ".  " + option.getDesc();
 			TextButton button = new TextButton(displayString, DEFAULT_SKIN);
 			button.getLabel().setWrap(true);
-			button.getLabel().setFontScale((float)0.8);
+			button.getLabel().setFontScale((float) 0.8);
 			button.getLabel().setAlignment(Align.left);
 			button.addListener(new InputListener() {
 				public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -89,7 +89,8 @@ public class SlideScreen implements Screen {
 			// for now not measuring the width of the option string but assume
 			// they are the same
 
-			buttonTable.add(button).width((6*AdventureGame.GAME_SCREEN_WIDTH) /8).height(AdventureGame.GAME_SCREEN_HEIGHT / 18).padTop(HEIGHT_BUFFER).row();
+			buttonTable.add(button).width((6 * AdventureGame.GAME_SCREEN_WIDTH) / 8)
+					.height(AdventureGame.GAME_SCREEN_HEIGHT / 18).padTop(HEIGHT_BUFFER).row();
 
 		}
 
@@ -98,14 +99,15 @@ public class SlideScreen implements Screen {
 		Label description = new Label(slide.getDesc(), DEFAULT_SKIN);
 		description.setWrap(true);
 		ScrollPane scroll = new ScrollPane(description, DEFAULT_SKIN);
-		scroll.setPosition((WIDTH_BUFFER * 2) + (23 * AdventureGame.GAME_SCREEN_HEIGHT) / 32, 
-						AdventureGame.GAME_SCREEN_HEIGHT - (HEIGHT_BUFFER * 2) - (AdventureGame.GAME_SCREEN_HEIGHT / 10) - ((3 * AdventureGame.GAME_SCREEN_HEIGHT) / 8));
+		scroll.setPosition((WIDTH_BUFFER * 2) + (23 * AdventureGame.GAME_SCREEN_HEIGHT) / 32,
+				AdventureGame.GAME_SCREEN_HEIGHT - (HEIGHT_BUFFER * 2) - (AdventureGame.GAME_SCREEN_HEIGHT / 10)
+						- ((3 * AdventureGame.GAME_SCREEN_HEIGHT) / 8));
 		scroll.setSize(AdventureGame.GAME_SCREEN_WIDTH / 2, AdventureGame.GAME_SCREEN_HEIGHT / 3);
 		scroll.setScrollingDisabled(true, false);
 		stage.addActor(scroll);
 
-		// create buttons for top right of screen (Inventory, Player Stats, Settings)
-		
+		// create buttons for top right of screen (Inventory, Player Stats,
+		// Settings)
 
 		TextButton inventoryButton = new TextButton("Inventory", DEFAULT_SKIN);
 		inventoryButton.setSize(120, 35);
@@ -119,7 +121,6 @@ public class SlideScreen implements Screen {
 			}
 		});
 
-		
 		TextButton playerStatButton = new TextButton("Stats", DEFAULT_SKIN);
 		playerStatButton.setSize(120, 35);
 		playerStatButton.addListener(new InputListener() {
@@ -131,19 +132,18 @@ public class SlideScreen implements Screen {
 				return true;
 			}
 		});
-		
+
 		TextButton settingsButton = new TextButton("Settings", DEFAULT_SKIN);
 		settingsButton.setSize(120, 35);
-		
-		inventoryButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() * 3- WIDTH_BUFFER * 3,
+
+		inventoryButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() * 3 - WIDTH_BUFFER * 3,
 				AdventureGame.GAME_SCREEN_HEIGHT - inventoryButton.getHeight() - HEIGHT_BUFFER);
-		playerStatButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() * 2- WIDTH_BUFFER* 2,
+		playerStatButton.setPosition(
+				AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() * 2 - WIDTH_BUFFER * 2,
 				AdventureGame.GAME_SCREEN_HEIGHT - inventoryButton.getHeight() - HEIGHT_BUFFER);
-		settingsButton.setPosition(
-				AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() - (WIDTH_BUFFER),
+		settingsButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() - (WIDTH_BUFFER),
 				AdventureGame.GAME_SCREEN_HEIGHT - settingsButton.getHeight() - HEIGHT_BUFFER);
-		
-		
+
 		stage.addActor(inventoryButton);
 		stage.addActor(playerStatButton);
 		stage.addActor(settingsButton);
@@ -189,8 +189,8 @@ public class SlideScreen implements Screen {
 		// game.batch.draw(region, x, y, originX, originY, width, height,
 		// scaleX, scaleY, rotation);
 
-		game.batch.draw(image, WIDTH_BUFFER,
-				AdventureGame.GAME_SCREEN_HEIGHT - WIDTH_BUFFER - (5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8 * (image.getWidth() / image.getHeight()),
+		game.batch.draw(image, WIDTH_BUFFER, AdventureGame.GAME_SCREEN_HEIGHT - WIDTH_BUFFER
+				- (5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8 * (image.getWidth() / image.getHeight()),
 
 				(5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8,
 				(5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8 * (image.getWidth() / image.getHeight()));
