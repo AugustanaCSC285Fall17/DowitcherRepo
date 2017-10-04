@@ -66,6 +66,23 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 
 		});
 		buttonTable.add(button).width(200).height(30).pad(5).row();
+		
+		button = new TextButton("Music", DEFAULT_SKIN, "default");
+		button.setSize(50, 50);
+		button.addListener(new InputListener() {
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				if(game.testMusic.isPlaying()) {
+					game.testMusic.pause();
+				}
+				else {
+					game.testMusic.play();
+				}}
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+			});
+		
+		buttonTable.add(button).width(200).height(30).pad(5).row();
 
 		button = new TextButton("Exit", DEFAULT_SKIN, "default");
 		button.setSize(50, 50);
@@ -83,7 +100,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 
 		});
 		buttonTable.add(button).width(200).height(30).pad(5).row();
-
+	
 		stage.addActor(buttonTable);
 		introduction = "Welcome to Swedish Imigration Trail";
 	}
