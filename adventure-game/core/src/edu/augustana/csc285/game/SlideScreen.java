@@ -35,9 +35,9 @@ import edu.augustana.csc285.game.datamodel.StoryManager;
 public class SlideScreen implements Screen {
 	public static final Set<Integer> KEY_SET = new HashSet<Integer>(Arrays.asList(8, 9, 10, 11, 12, 13, 14, 15, 16)); // 1
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
-																														// 9
-	private final int LEFT_BUFFER = 5;
-	private final int BUFFER = 5;
+	// 9
+	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
+	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
 	private final AdventureGame game;
 	private Slide slide;
 	private List<Option> visibleOptions;
@@ -62,8 +62,9 @@ public class SlideScreen implements Screen {
 		// Set up stage and table for buttons
 		stage = new Stage(new ScreenViewport());
 		Table buttonTable = new Table();
-		buttonTable.setPosition(450, 100);
-		
+		buttonTable.setPosition((3*AdventureGame.GAME_SCREEN_WIDTH)/16 + WIDTH_BUFFER  , 
+				AdventureGame.GAME_SCREEN_HEIGHT - ((5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8) - (HEIGHT_BUFFER * 4) - AdventureGame.GAME_SCREEN_HEIGHT / 24);
+
 		// Create and add buttons for ActionChoices
 		for (int i = 0; i < visibleOptions.size(); i++) {
 			Option option = visibleOptions.get(i);
@@ -92,36 +93,37 @@ public class SlideScreen implements Screen {
 			});
 			// for now not measuring the width of the option string but assume
 			// they are the same
-			buttonTable.add(button).width(200).height(30).pad(BUFFER).row();
+			buttonTable.add(button).width((3*AdventureGame.GAME_SCREEN_WIDTH) /8).height(AdventureGame.GAME_SCREEN_HEIGHT / 24).padTop(HEIGHT_BUFFER).row();
 		}
-		
+
 		stage.addActor(buttonTable);
 		Label testLabel = new Label(
 				"This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string",
 				DEFAULT_SKIN);
 		testLabel.setWrap(true);
 		ScrollPane scroll = new ScrollPane(testLabel, DEFAULT_SKIN);
-		scroll.setPosition(350, 250);
-		scroll.setSize(350, 100);
+		scroll.setPosition((WIDTH_BUFFER * 2) + (23 * AdventureGame.GAME_SCREEN_HEIGHT) / 32, 
+						AdventureGame.GAME_SCREEN_HEIGHT - (HEIGHT_BUFFER * 2) - (AdventureGame.GAME_SCREEN_HEIGHT / 10) - ((3 * AdventureGame.GAME_SCREEN_HEIGHT) / 8));
+		scroll.setSize(AdventureGame.GAME_SCREEN_WIDTH / 2, AdventureGame.GAME_SCREEN_HEIGHT / 3);
 		scroll.setScrollingDisabled(true, false);
 		stage.addActor(scroll);
-		
+
 		// instantiate buttons for Options and Inventory
 		optionsButton = new TextButton("Options", DEFAULT_SKIN);
 		optionsButton.setSize(100, 35);
-		
+
 		inventoryButton = new TextButton("Inventory", DEFAULT_SKIN);
 		inventoryButton.setSize(105, 35);
-		
-		optionsButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() - optionsButton.getWidth() - (BUFFER * 2), 
-								AdventureGame.GAME_SCREEN_HEIGHT - optionsButton.getHeight() - BUFFER);
-		inventoryButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() - BUFFER, 
-								AdventureGame.GAME_SCREEN_HEIGHT - inventoryButton.getHeight() - BUFFER);
-		
+
+		optionsButton.setPosition(
+				AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() - optionsButton.getWidth() - (WIDTH_BUFFER * 2),
+				AdventureGame.GAME_SCREEN_HEIGHT - optionsButton.getHeight() - HEIGHT_BUFFER);
+		inventoryButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() - WIDTH_BUFFER,
+				AdventureGame.GAME_SCREEN_HEIGHT - inventoryButton.getHeight() - HEIGHT_BUFFER);
+
 		stage.addActor(optionsButton);
 		stage.addActor(inventoryButton);
-		
-		
+
 		// Enable player to press key
 
 		// slide = new Slide("test_image", "You appear to have stumbled upon a
@@ -151,7 +153,7 @@ public class SlideScreen implements Screen {
 		camera.update();
 		stage.act();
 		stage.draw();
-		
+
 		// Draw ActionChoices
 		for (int temp : KEY_SET) {
 			if (Gdx.input.isKeyJustPressed(temp)) {
@@ -173,13 +175,19 @@ public class SlideScreen implements Screen {
 				}
 			}
 		}
-		
+
 		Texture testImage = new Texture("slideImages/Slide2.jpg");
 		game.batch.begin();
-		game.batch.draw(testImage, BUFFER, AdventureGame.GAME_SCREEN_HEIGHT - testImage.getHeight() / 2 - BUFFER, 100, 100, 300, 300);
-		//game.batch.draw(region, x, y, originX, originY, width, height, scaleX, scaleY, rotation);
+		// game.batch.draw(region, x, y, originX, originY, width, height,
+		// scaleX, scaleY, rotation);
+		game.batch.draw(testImage, WIDTH_BUFFER,
+				AdventureGame.GAME_SCREEN_HEIGHT - WIDTH_BUFFER - (5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8 * (testImage.getWidth() / testImage.getHeight()),
+				(5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8,
+				(5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8 * (testImage.getWidth() / testImage.getHeight()));
+		// game.batch.draw(region, x, y, originX, originY, width, height,
+		// scaleX, scaleY, rotation);
 		game.batch.end();
-		
+
 		// tell the SpriteBatch to render in the
 		// coordinate system specified by the camera.
 		game.batch.setProjectionMatrix(camera.combined);
