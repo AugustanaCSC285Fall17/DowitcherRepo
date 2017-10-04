@@ -70,6 +70,7 @@ public class SlideScreen implements Screen {
 			Option option = visibleOptions.get(i);
 			String displayString = (i + 1) + ".  " + option.getDesc();
 			TextButton button = new TextButton(displayString, DEFAULT_SKIN);
+			button.getLabel().setWrap(true);
 			button.getLabel().setAlignment(Align.left);
 			button.addListener(new InputListener() {
 				public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
