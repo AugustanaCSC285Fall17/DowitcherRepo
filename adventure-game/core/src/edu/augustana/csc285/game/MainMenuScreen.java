@@ -84,7 +84,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		buttonTable.add(button).width(200).height(30).pad(5).row();
 
 		stage.addActor(buttonTable);
-		introduction = "Welcome to Oreo Trail";
+		introduction = "Welcome to Swedish Imigration Trail";
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		game.batch.begin();
 		game.font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		game.font.getData().setScale(3);
-		game.font.draw(game.batch, "Welcome to Oreo Trail", 190, 330);
+		game.font.draw(game.batch, introduction, 80, 330);
 		game.batch.end();
 
 	}

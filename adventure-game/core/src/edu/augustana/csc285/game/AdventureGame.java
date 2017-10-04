@@ -2,6 +2,7 @@ package edu.augustana.csc285.game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -35,6 +36,7 @@ public class AdventureGame extends Game {
 	StoryManager manager;
 	SpriteBatch batch;
 	BitmapFont font;
+	Music testMusic;
 
 	public void create() {
 		// Define Items
@@ -78,7 +80,7 @@ public class AdventureGame extends Game {
 		s1.addOption(temp);
 
 		Slide s2 = new Slide("GameData/SlideImages/slide2.jpg",
-				"You are an 18 year-old male from Mellby Parish, SmÃ¥land. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. ",
+				"You are an 18 year-old male from Mellby Parish, SmÃƒÂ¥land. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. ",
 				null, null, 2);
 		s2.addOption(new Option("Continue", null, null, 4, null, null));
 
@@ -88,7 +90,7 @@ public class AdventureGame extends Game {
 		s3.addOption(new Option("Continue", null, null, 4, null, null));
 
 		Slide s4 = new Slide("GameData/SlideImages/slide4.jpg",
-				"Receiving letters from those who journeyed to America prompted many of your family friends to pursue their own journey over. Life must be treating them well in Americaâ€” economic opportunities, building their own legacy and family. The American Dream is a strong pull for Swedes, yourself included. \n"
+				"Receiving letters from those who journeyed to America prompted many of your family friends to pursue their own journey over. Life must be treating them well in AmericaÃ¢â‚¬â€� economic opportunities, building their own legacy and family. The American Dream is a strong pull for Swedes, yourself included. \n"
 						+ "\n" + "Choose a letter to read:",
 				null, null, 4);
 
@@ -235,7 +237,7 @@ public class AdventureGame extends Game {
 		s13.addOption(new Option("Continue", null, null, 14, null, null));
 
 		Slide s14 = new Slide("GameData/SlideImages/slide14.jpg",
-				"Over a million Swedish immigrants left through the port of Gothenburg in southwest Sweden. Many American genealogists believe their ancestors lived in Gothenburg, when really this was just the port they left through. Provinces of Sweden including SmÃ¥land, VÃ¤stergÃ¶tland, Dalsland, VÃ¤rmland, and Ã–land saw large numbers emigrate. ",
+				"Over a million Swedish immigrants left through the port of Gothenburg in southwest Sweden. Many American genealogists believe their ancestors lived in Gothenburg, when really this was just the port they left through. Provinces of Sweden including SmÃƒÂ¥land, VÃƒÂ¤stergÃƒÂ¶tland, Dalsland, VÃƒÂ¤rmland, and Ãƒâ€“land saw large numbers emigrate. ",
 				null, null, 14);
 		s14.addOption(new Option("Left", null, null, 15, null, null));
 		s14.addOption(new Option("Forward", null, null, 16, null, null));
@@ -258,9 +260,8 @@ public class AdventureGame extends Game {
 		Slide s17 = new Slide("GameData/SlideImages/slide15.jpg", "Ticket agent \"What can I do for you?\"", null, null,
 				17);
 		Option buyHull = new Option("Pay for transport to Hull $15 or 60 SEK", null, null, 14, null, null);
-		Option buyHullAmerica = new Option(
-				"Pay for transport to Hull through Liverpool $30 or 120 SEK", null, null,
-				14, null, null);
+		Option buyHullAmerica = new Option("Pay for transport to Hull through Liverpool $30 or 120 SEK", null, null, 14,
+				null, null);
 		buyHull.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
 		buyHull.addFeasibleCondition(
 				new PropertyCondition(new Property(PropertyType.GOLD, 15), ConditionOperation.GREATER_OR_EQUAL));
@@ -272,7 +273,7 @@ public class AdventureGame extends Game {
 				new PropertyCondition(new Property(PropertyType.GOLD, 30), ConditionOperation.GREATER_OR_EQUAL));
 		s17.addOption(buyHull);
 		s17.addOption(buyHullAmerica);
-		
+
 		Slide s18 = new Slide("GameData/SlideImages/slide10.jpg", "You're in the shop. What would you like to do?\n",
 				null, null, 18);
 		s18.addOption(new Option("Buy", null, null, 19, null, null));
@@ -342,6 +343,10 @@ public class AdventureGame extends Game {
 		batch = new SpriteBatch();
 		font = new BitmapFont();
 		this.setScreen(new MainMenuScreen(this));
+		testMusic = Gdx.audio.newMusic(Gdx.files.internal("theme.mp3"));
+		testMusic.setLooping(true);
+		testMusic.play();
+
 	}
 
 	public void render() {

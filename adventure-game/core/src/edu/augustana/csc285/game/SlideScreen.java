@@ -133,8 +133,22 @@ public class SlideScreen implements Screen {
 			}
 		});
 
-		TextButton settingsButton = new TextButton("Settings", DEFAULT_SKIN);
+		TextButton settingsButton = new TextButton("Music", DEFAULT_SKIN);
 		settingsButton.setSize(120, 35);
+		settingsButton.addListener(new InputListener() {
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				if(game.testMusic.isPlaying()) {
+					game.testMusic.pause();
+				}
+				else {
+					game.testMusic.play();
+				}
+			}
+
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+		});
 
 		inventoryButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() * 3 - WIDTH_BUFFER * 3,
 				AdventureGame.GAME_SCREEN_HEIGHT - inventoryButton.getHeight() - HEIGHT_BUFFER);
