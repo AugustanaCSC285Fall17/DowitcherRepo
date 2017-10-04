@@ -42,8 +42,6 @@ public class SlideScreen implements Screen {
 	private Slide slide;
 	private List<Option> visibleOptions;
 	private Texture image;
-	private TextButton inventoryButton;
-	private TextButton optionsButton;
 	private OrthographicCamera camera;
 	private int input;
 	private int numOptions;
@@ -63,7 +61,7 @@ public class SlideScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		Table buttonTable = new Table();
 		buttonTable.setPosition((3*AdventureGame.GAME_SCREEN_WIDTH)/16 + WIDTH_BUFFER  , 
-				AdventureGame.GAME_SCREEN_HEIGHT - ((5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8) - (HEIGHT_BUFFER * 4) - AdventureGame.GAME_SCREEN_HEIGHT / 24);
+				AdventureGame.GAME_SCREEN_HEIGHT - ((5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8) - (HEIGHT_BUFFER * 12) - AdventureGame.GAME_SCREEN_HEIGHT / 24);
 
 		// Create and add buttons for ActionChoices
 		for (int i = 0; i < visibleOptions.size(); i++) {
@@ -93,15 +91,16 @@ public class SlideScreen implements Screen {
 			});
 			// for now not measuring the width of the option string but assume
 			// they are the same
-			buttonTable.add(button).width((3*AdventureGame.GAME_SCREEN_WIDTH) /8).height(AdventureGame.GAME_SCREEN_HEIGHT / 24).padTop(HEIGHT_BUFFER).row();
+			buttonTable.add(button).width((3*AdventureGame.GAME_SCREEN_WIDTH) /8).height(AdventureGame.GAME_SCREEN_HEIGHT / 18).padTop(HEIGHT_BUFFER).row();
 		}
 
 		stage.addActor(buttonTable);
-		Label testLabel = new Label(
-				"This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string",
-				DEFAULT_SKIN);
-		testLabel.setWrap(true);
-		ScrollPane scroll = new ScrollPane(testLabel, DEFAULT_SKIN);
+		//Label testLabel = new Label(
+		//		"This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string This is a very very long string",
+		//		DEFAULT_SKIN);
+		Label description = new Label(slide.getDesc(), DEFAULT_SKIN);
+		description.setWrap(true);
+		ScrollPane scroll = new ScrollPane(description, DEFAULT_SKIN);
 		scroll.setPosition((WIDTH_BUFFER * 2) + (23 * AdventureGame.GAME_SCREEN_HEIGHT) / 32, 
 						AdventureGame.GAME_SCREEN_HEIGHT - (HEIGHT_BUFFER * 2) - (AdventureGame.GAME_SCREEN_HEIGHT / 10) - ((3 * AdventureGame.GAME_SCREEN_HEIGHT) / 8));
 		scroll.setSize(AdventureGame.GAME_SCREEN_WIDTH / 2, AdventureGame.GAME_SCREEN_HEIGHT / 3);
@@ -109,10 +108,10 @@ public class SlideScreen implements Screen {
 		stage.addActor(scroll);
 
 		// instantiate buttons for Options and Inventory
-		optionsButton = new TextButton("Options", DEFAULT_SKIN);
+		TextButton optionsButton = new TextButton("Options", DEFAULT_SKIN);
 		optionsButton.setSize(100, 35);
 
-		inventoryButton = new TextButton("Inventory", DEFAULT_SKIN);
+		TextButton inventoryButton = new TextButton("Inventory", DEFAULT_SKIN);
 		inventoryButton.setSize(105, 35);
 
 		optionsButton.setPosition(
@@ -176,21 +175,27 @@ public class SlideScreen implements Screen {
 			}
 		}
 
-		Texture testImage = new Texture("GameData/SlideImages/Slide2.jpg");
+		game.batch.setProjectionMatrix(camera.combined);
+
+		
+		//Texture testImage = new Texture("GameData/SlideImages/Slide2.jpg");
 		game.batch.begin();
 		// game.batch.draw(region, x, y, originX, originY, width, height,
 		// scaleX, scaleY, rotation);
-		game.batch.draw(testImage, WIDTH_BUFFER,
-				AdventureGame.GAME_SCREEN_HEIGHT - WIDTH_BUFFER - (5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8 * (testImage.getWidth() / testImage.getHeight()),
+		game.batch.draw(image, WIDTH_BUFFER,
+				AdventureGame.GAME_SCREEN_HEIGHT - WIDTH_BUFFER - (5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8 * (image.getWidth() / image.getHeight()),
 				(5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8,
-				(5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8 * (testImage.getWidth() / testImage.getHeight()));
+				(5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8 * (image.getWidth() / image.getHeight()));
 		// game.batch.draw(region, x, y, originX, originY, width, height,
 		// scaleX, scaleY, rotation);
 		game.batch.end();
+		
+		//dispose();
+
 
 		// tell the SpriteBatch to render in the
 		// coordinate system specified by the camera.
-		game.batch.setProjectionMatrix(camera.combined);
+		
 		//
 		// if (image.getHeight() >= image.getWidth()) {
 		// drawScreenForPortraitImage();
@@ -224,7 +229,7 @@ public class SlideScreen implements Screen {
 	@Override
 	public void dispose() {
 		image.dispose();
-		stage.dispose();
+		//stage.dispose();
 	}
 	//
 	// public void drawScreenForPortraitImage() {
