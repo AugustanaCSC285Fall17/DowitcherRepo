@@ -111,22 +111,28 @@ public class SlideScreen implements Screen {
 		scroll.setScrollingDisabled(true, false);
 		stage.addActor(scroll);
 
-		// instantiate buttons for Options and Inventory
-		TextButton optionsButton = new TextButton("Options", DEFAULT_SKIN);
-		optionsButton.setSize(100, 35);
+		// create buttons for top right of screen (Inventory, Player Stats, Settings)
+		
 
 		TextButton inventoryButton = new TextButton("Inventory", DEFAULT_SKIN);
-		inventoryButton.setSize(105, 35);
-
-		optionsButton.setPosition(
-				AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() - optionsButton.getWidth()
-						- (WIDTH_BUFFER * 2),
-				AdventureGame.GAME_SCREEN_HEIGHT - optionsButton.getHeight() - HEIGHT_BUFFER);
-		inventoryButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() - WIDTH_BUFFER,
+		inventoryButton.setSize(120, 35);
+		TextButton playerStatButton = new TextButton("Stats", DEFAULT_SKIN);
+		playerStatButton.setSize(120, 35);
+		TextButton settingsButton = new TextButton("Settings", DEFAULT_SKIN);
+		settingsButton.setSize(120, 35);
+		
+		inventoryButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() * 3- WIDTH_BUFFER * 3,
 				AdventureGame.GAME_SCREEN_HEIGHT - inventoryButton.getHeight() - HEIGHT_BUFFER);
-
-		stage.addActor(optionsButton);
+		playerStatButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() * 2- WIDTH_BUFFER* 2,
+				AdventureGame.GAME_SCREEN_HEIGHT - inventoryButton.getHeight() - HEIGHT_BUFFER);
+		settingsButton.setPosition(
+				AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() - (WIDTH_BUFFER),
+				AdventureGame.GAME_SCREEN_HEIGHT - settingsButton.getHeight() - HEIGHT_BUFFER);
+		
+		
 		stage.addActor(inventoryButton);
+		stage.addActor(playerStatButton);
+		stage.addActor(settingsButton);
 	}
 
 	@Override
