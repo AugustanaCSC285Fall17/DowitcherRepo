@@ -43,18 +43,21 @@ public class GameDataTester {
 		
 		Option johnDeereLetter = new Option("John Deere Letter", null, null, 5, null, null);
 		johnDeereLetter.addEffect(new ItemEffect(new Item("John Deere Letter", "A letter from John Deere", 1, 5, "GameData/SlideImages/item5.jpg"), EffectOperation.PLUS));
+		johnDeereLetter.addVisibleCondition(new GenderCondition(1));
 		s4.addOption(johnDeereLetter);
 		
 		Option illinoisLetter = new Option("Illinois Letter", null, null, 6, null, null);
-		johnDeereLetter.addEffect(new ItemEffect(new Item("Illinois Letter", "A letter from Illinois", 1, 6, "GameData/SlideImages/item6.jpg"), EffectOperation.PLUS));
+		illinoisLetter.addEffect(new ItemEffect(new Item("Illinois Letter", "A letter from Illinois", 1, 6, "GameData/SlideImages/item6.jpg"), EffectOperation.PLUS));
 		s4.addOption(illinoisLetter);
 		
 		Option washingtonLetter = new Option("Washington Letter", null, null, 7, null, null);
 		washingtonLetter.addEffect(new ItemEffect(new Item("Washington Letter", "A letter from Washington", 1, 7, "GameData/SlideImages/item7.jpg"), EffectOperation.PLUS));
+		washingtonLetter.addVisibleCondition(new GenderCondition(0));
 		s4.addOption(washingtonLetter);
 		
 		Option minnesotaLetter = new Option("Minnesota Letter", null, null, 8, null, null);
 		minnesotaLetter.addEffect(new ItemEffect(new Item("Minnesota Letter", "A letter from Minnesota", 1, 8, "GameData/SlideImages/item8.jpg"), EffectOperation.PLUS));
+		minnesotaLetter.addVisibleCondition(new GenderCondition(1));
 		s4.addOption(minnesotaLetter);
 		
 		Slide s5 = new Slide("GameData/SlideImages/slide5.jpg", "To Whom It May Concern,\n"
@@ -126,6 +129,7 @@ public class GameDataTester {
 		gd.addSlide(s7);
 		gd.addSlide(s8);
 		gd.addSlide(s9);
+		gd.addSlide(s10);
 
 		String serializedJSONText = gd.toJSON();
 

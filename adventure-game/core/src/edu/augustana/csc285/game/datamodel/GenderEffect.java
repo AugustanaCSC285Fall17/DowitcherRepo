@@ -2,6 +2,7 @@ package edu.augustana.csc285.game.datamodel;
 
 public class GenderEffect implements Effect{
 	private int gender;
+	
 	public GenderEffect(int gender) {
 		this.gender = gender;
 	}
