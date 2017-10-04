@@ -29,13 +29,13 @@ public class GameDataTester {
 				"It’s the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. \nWho are you?",
 				null, null, 1);
 		Option temp = new Option("Anders Bengtsson ", "You choose Anders Bengtsson", null, 2, null, null);
-		Effect effect = new GenderEffect(1);
+		Effect effect = new GenderEffect(Gender.MALE);
 		temp.addEffect(effect);
 		effect = new NameEffect("Anders Bengtsson");
 		temp.addEffect(effect);
 		s1.addOption(temp);
 		temp = new Option("Lovisa Eriksdotter", "You choose Lovisa Eriksdotter", null, 3, null, null);
-		effect = new GenderEffect(0);
+		effect = new GenderEffect(Gender.FEMALE);
 		temp.addEffect(effect);
 		effect = new NameEffect("Lovisa Eriksdotter");
 		temp.addEffect(effect);
@@ -59,7 +59,7 @@ public class GameDataTester {
 		
 		Option johnDeereLetter = new Option("John Deere Letter", null, null, 5, null, null);
 		johnDeereLetter.addEffect(new ItemEffect(jDLetter, EffectOperation.PLUS));
-		johnDeereLetter.addVisibleCondition(new GenderCondition(1));
+		johnDeereLetter.addVisibleCondition(new GenderCondition(Gender.MALE));
 		s4.addOption(johnDeereLetter);
 		
 		Option illinoisLetter = new Option("Illinois Letter", null, null, 6, null, null);
@@ -68,12 +68,12 @@ public class GameDataTester {
 		
 		Option washingtonLetter = new Option("Washington Letter", null, null, 7, null, null);
 		washingtonLetter.addEffect(new ItemEffect(wLetter, EffectOperation.PLUS));
-		washingtonLetter.addVisibleCondition(new GenderCondition(0));
+		washingtonLetter.addVisibleCondition(new GenderCondition(Gender.FEMALE));
 		s4.addOption(washingtonLetter);
 		
 		Option minnesotaLetter = new Option("Minnesota Letter", null, null, 8, null, null);
 		minnesotaLetter.addEffect(new ItemEffect(mLetter, EffectOperation.PLUS));
-		minnesotaLetter.addVisibleCondition(new GenderCondition(1));
+		minnesotaLetter.addVisibleCondition(new GenderCondition(Gender.MALE));
 		s4.addOption(minnesotaLetter);
 		
 		Slide s5 = new Slide("GameData/SlideImages/slide5.jpg", "To Whom It May Concern,\n"

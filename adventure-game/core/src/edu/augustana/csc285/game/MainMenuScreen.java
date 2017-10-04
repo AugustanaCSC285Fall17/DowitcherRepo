@@ -29,18 +29,16 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
-		
 
 		Table buttonTable = new Table();
 		buttonTable.setPosition(400, 200);
 
 		Button button = new TextButton("New Game", DEFAULT_SKIN, "default");
-		button.setSize(50, 50);
-		button.setPosition(50, 50);
 		button.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.setScreen(new SlideScreen(game));
+				dispose();
 			}
 
 			@Override
@@ -97,7 +95,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(0, 0, 0.4f, 1);
+		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		stage.act();
 		stage.draw();
@@ -106,9 +104,9 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		game.batch.begin();
 		game.font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		game.font.getData().setScale(3);
-		game.font.draw(game.batch, "Welcome to Oreo Trail",210,350);
+		game.font.draw(game.batch, "Welcome to Oreo Trail", 190, 330);
 		game.batch.end();
-		
+
 	}
 
 	@Override
