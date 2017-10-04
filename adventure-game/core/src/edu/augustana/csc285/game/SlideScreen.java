@@ -163,8 +163,8 @@ public class SlideScreen implements Screen {
 				}
 			}
 		}
-
-		Texture testImage = new Texture("GameData/SlideImages/Slide2.jpg");
+		Texture testImage = new Texture(game.manager.getCurrentSlide().getImage());
+		// Texture testImage = new Texture("GameData/SlideImages/Slide2.jpg");
 		game.batch.begin();
 		// game.batch.draw(region, x, y, originX, originY, width, height,
 		// scaleX, scaleY, rotation);
