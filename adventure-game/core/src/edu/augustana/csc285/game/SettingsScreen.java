@@ -50,9 +50,9 @@ public class SettingsScreen implements Screen {
 		String button1 = "Sound On";
 		String button2 = "Sound Off";
 		TextButton buttonOn = new TextButton(button1, DEFAULT_SKIN);
-		button1.getLabel().setAlignment(Align.left);
+		//button1.getLabel().setAlignment(Align.left);
 		TextButton buttonOff = new TextButton(button1, DEFAULT_SKIN);
-		button2.getLabel().setAlignment(Align.right);
+		//button2.getLabel().setAlignment(Align.right);
 		
 		indextable.add(button1).width(200).height(30).pad(BUFFER).row();
 		indextable.add(button2).width(200).height(30).pad(BUFFER*BUFFER).row();
