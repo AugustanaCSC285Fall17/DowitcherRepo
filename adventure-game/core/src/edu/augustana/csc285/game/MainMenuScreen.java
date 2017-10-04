@@ -55,7 +55,8 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		button.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-
+				game.setScreen(new CreditsScreen(game));
+				dispose();
 			}
 
 			@Override
