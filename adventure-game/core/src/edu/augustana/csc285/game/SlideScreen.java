@@ -1,25 +1,17 @@
 package edu.augustana.csc285.game;
 
-import java.awt.Font;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
-
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -30,7 +22,6 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import edu.augustana.csc285.game.datamodel.Option;
 import edu.augustana.csc285.game.datamodel.Slide;
-import edu.augustana.csc285.game.datamodel.StoryManager;
 
 public class SlideScreen implements Screen {
 	public static final Set<Integer> KEY_SET = new HashSet<Integer>(Arrays.asList(8, 9, 10, 11, 12, 13, 14, 15, 16)); // 1
@@ -61,7 +52,7 @@ public class SlideScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		Table buttonTable = new Table();
 
-		buttonTable.setPosition((3*AdventureGame.GAME_SCREEN_WIDTH)/16 + WIDTH_BUFFER  , 
+		buttonTable.setPosition((6*AdventureGame.GAME_SCREEN_WIDTH)/16 + WIDTH_BUFFER  , 
 				AdventureGame.GAME_SCREEN_HEIGHT - ((5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8) - (HEIGHT_BUFFER * 12) - AdventureGame.GAME_SCREEN_HEIGHT / 24);
 
 
@@ -71,6 +62,7 @@ public class SlideScreen implements Screen {
 			String displayString = (i + 1) + ".  " + option.getDesc();
 			TextButton button = new TextButton(displayString, DEFAULT_SKIN);
 			button.getLabel().setWrap(true);
+			button.getLabel().setFontScale((float)0.8);
 			button.getLabel().setAlignment(Align.left);
 			button.addListener(new InputListener() {
 				public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -97,7 +89,7 @@ public class SlideScreen implements Screen {
 			// for now not measuring the width of the option string but assume
 			// they are the same
 
-			buttonTable.add(button).width((3*AdventureGame.GAME_SCREEN_WIDTH) /8).height(AdventureGame.GAME_SCREEN_HEIGHT / 18).padTop(HEIGHT_BUFFER).row();
+			buttonTable.add(button).width((6*AdventureGame.GAME_SCREEN_WIDTH) /8).height(AdventureGame.GAME_SCREEN_HEIGHT / 18).padTop(HEIGHT_BUFFER).row();
 
 		}
 
@@ -117,8 +109,29 @@ public class SlideScreen implements Screen {
 
 		TextButton inventoryButton = new TextButton("Inventory", DEFAULT_SKIN);
 		inventoryButton.setSize(120, 35);
+		inventoryButton.addListener(new InputListener() {
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				game.setScreen(new InventoryScreen(game));
+			}
+
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+		});
+
+		
 		TextButton playerStatButton = new TextButton("Stats", DEFAULT_SKIN);
 		playerStatButton.setSize(120, 35);
+		playerStatButton.addListener(new InputListener() {
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				game.setScreen(new PlayerStatScreen(game));
+			}
+
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+		});
+		
 		TextButton settingsButton = new TextButton("Settings", DEFAULT_SKIN);
 		settingsButton.setSize(120, 35);
 		
@@ -184,20 +197,6 @@ public class SlideScreen implements Screen {
 		// game.batch.draw(region, x, y, originX, originY, width, height,
 		// scaleX, scaleY, rotation);
 		game.batch.end();
-		
-		//dispose();
-
-
-		// tell the SpriteBatch to render in the
-		// coordinate system specified by the camera.
-		
-		//
-		// if (image.getHeight() >= image.getWidth()) {
-		// drawScreenForPortraitImage();
-		// } else {
-		// drawScreenForPortraitImage();
-		// }
-
 	}
 
 	@Override
@@ -224,7 +223,7 @@ public class SlideScreen implements Screen {
 	@Override
 	public void dispose() {
 		image.dispose();
-		//stage.dispose();
+		stage.dispose();
 	}
 
 }

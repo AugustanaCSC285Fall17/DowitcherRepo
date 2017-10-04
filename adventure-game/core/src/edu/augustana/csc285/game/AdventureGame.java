@@ -12,6 +12,7 @@ import edu.augustana.csc285.game.datamodel.ConditionOperation;
 import edu.augustana.csc285.game.datamodel.Effect;
 import edu.augustana.csc285.game.datamodel.EffectOperation;
 import edu.augustana.csc285.game.datamodel.GameData;
+import edu.augustana.csc285.game.datamodel.Gender;
 import edu.augustana.csc285.game.datamodel.GenderCondition;
 import edu.augustana.csc285.game.datamodel.GenderEffect;
 import edu.augustana.csc285.game.datamodel.Item;
@@ -44,13 +45,13 @@ public class AdventureGame extends Game {
 				"It’s the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. \nWho are you?",
 				null, null, 1);
 		Option temp = new Option("Anders Bengtsson ", "You choose Anders Bengtsson", null, 2, null, null);
-		Effect effect = new GenderEffect(1);
+		Effect effect = new GenderEffect(Gender.MALE);
 		temp.addEffect(effect);
 		effect = new NameEffect("Anders Bengtsson");
 		temp.addEffect(effect);
 		s1.addOption(temp);
 		temp = new Option("Lovisa Eriksdotter", "You choose Lovisa Eriksdotter", null, 3, null, null);
-		effect = new GenderEffect(0);
+		effect = new GenderEffect(Gender.FEMALE);
 		temp.addEffect(effect);
 		effect = new NameEffect("Lovisa Eriksdotter");
 		temp.addEffect(effect);
@@ -75,7 +76,7 @@ public class AdventureGame extends Game {
 		johnDeereLetter.addEffect(new ItemEffect(
 				new Item("John Deere Letter", "A letter from John Deere", 1, 5, "GameData/SlideImages/item5.jpg"),
 				EffectOperation.PLUS));
-		johnDeereLetter.addVisibleCondition(new GenderCondition(1));
+		johnDeereLetter.addVisibleCondition(new GenderCondition(Gender.MALE));
 		s4.addOption(johnDeereLetter);
 
 		Option illinoisLetter = new Option("Illinois Letter", null, null, 6, null, null);
@@ -88,14 +89,14 @@ public class AdventureGame extends Game {
 		washingtonLetter.addEffect(new ItemEffect(
 				new Item("Washington Letter", "A letter from Washington", 1, 7, "GameData/SlideImages/item7.jpg"),
 				EffectOperation.PLUS));
-		washingtonLetter.addVisibleCondition(new GenderCondition(0));
+		washingtonLetter.addVisibleCondition(new GenderCondition(Gender.FEMALE));
 		s4.addOption(washingtonLetter);
 
 		Option minnesotaLetter = new Option("Minnesota Letter", null, null, 8, null, null);
 		minnesotaLetter.addEffect(new ItemEffect(
 				new Item("Minnesota Letter", "A letter from Minnesota", 1, 8, "GameData/SlideImages/item8.jpg"),
 				EffectOperation.PLUS));
-		minnesotaLetter.addVisibleCondition(new GenderCondition(1));
+		minnesotaLetter.addVisibleCondition(new GenderCondition(Gender.MALE));
 		s4.addOption(minnesotaLetter);
 
 		Slide s5 = new Slide("GameData/SlideImages/slide5.jpg",
@@ -183,7 +184,7 @@ public class AdventureGame extends Game {
 		story.addSlide(s9);
 		story.addSlide(s10);
 
-		manager = new StoryManager(story, "default_name", story.getStartingSlideIndex());
+		manager = new StoryManager(story, "Unknown", story.getStartingSlideIndex());
 		batch = new SpriteBatch();
 		font = new BitmapFont();
 		this.setScreen(new MainMenuScreen(this));

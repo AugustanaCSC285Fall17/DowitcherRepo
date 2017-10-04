@@ -1,27 +1,22 @@
 package edu.augustana.csc285.game.datamodel;
 
 public class GenderEffect implements Effect{
-	private int gender;
+	private Gender gender;
 	
-	public GenderEffect(int gender) {
+	public GenderEffect(Gender gender) {
 		this.gender = gender;
 	}
 	@Override
 	public void applyEffect(Player player) {
-		player.getProperties().getProperty(PropertyType.GENDER.getID()).setQuantity(gender);
+		player.setGender(gender);
 	}
-	/**
-	 * @return the gender
-	 */
-	public int getGender() {
+	public Gender getGender() {
 		return gender;
 	}
-	/**
-	 * @param gender the gender to set
-	 */
-	public void setGender(int gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
+	
 	
 	
 }

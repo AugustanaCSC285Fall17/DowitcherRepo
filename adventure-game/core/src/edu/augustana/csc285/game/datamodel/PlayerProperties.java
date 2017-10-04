@@ -16,7 +16,6 @@ import java.util.TreeMap;
 public class PlayerProperties {
 	private Map<Integer, Property> properties;
 
-
 	/**
 	 * post: usually used to create a new copy of the properties
 	 * 
@@ -27,13 +26,12 @@ public class PlayerProperties {
 		properties = new TreeMap<Integer, Property>(other.properties);
 	}
 
-	public PlayerProperties(int health, int morale, int gold, int day, int gender) {
+	public PlayerProperties(int health, int morale, int gold, int day) {
 		properties = new TreeMap<Integer, Property>();
 		properties.put(PropertyType.HEALTH.getID(), new Property(PropertyType.HEALTH, health));
 		properties.put(PropertyType.MORALE.getID(), new Property(PropertyType.MORALE, morale));
 		properties.put(PropertyType.GOLD.getID(), new Property(PropertyType.GOLD, gold));
 		properties.put(PropertyType.DAY.getID(), new Property(PropertyType.DAY, day));
-		properties.put(PropertyType.GENDER.getID(), new Property(PropertyType.GENDER, gender));
 	}
 
 	/**
@@ -42,7 +40,11 @@ public class PlayerProperties {
 	 */
 	public PlayerProperties() {
 		this(PropertyType.HEALTH.getValue(), PropertyType.MORALE.getValue(), PropertyType.GOLD.getValue(),
-				PropertyType.DAY.getValue(), PropertyType.GENDER.getValue());
+				PropertyType.DAY.getValue());
+	}
+
+	public Map<Integer, Property> getProperties() {
+		return properties;
 	}
 
 	public void changePropertyQuantity(Property property, int newQuantity) {

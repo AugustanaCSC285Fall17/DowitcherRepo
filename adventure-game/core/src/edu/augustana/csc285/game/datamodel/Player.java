@@ -8,6 +8,7 @@ package edu.augustana.csc285.game.datamodel;
 public class Player {
 	private String name;
 	private Inventory inventory;
+	private Gender gender;
 	private boolean gameOver;
 	private PlayerProperties properties;
 
@@ -15,15 +16,24 @@ public class Player {
 
 	}
 
-	public Player(String name, Inventory inventory, PlayerProperties properties, boolean gameOver) {
+	public Player(String name, Inventory inventory, PlayerProperties properties, boolean gameOver, Gender gender) {
 		this.name = name;
 		this.inventory = inventory;
 		this.properties = properties;
 		this.gameOver = gameOver;
+		this.gender = gender;
 	}
 
 	public Player(String name) {
-		this(name, new Inventory(), new PlayerProperties(), false);
+		this(name, new Inventory(), new PlayerProperties(), false, Gender.UNKNOWN);
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 
 	public String getName() {
