@@ -5,12 +5,21 @@ import java.util.*;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
+import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
+import edu.augustana.csc285.game.datamodel.Inventory;
 import edu.augustana.csc285.game.datamodel.Item;
 import edu.augustana.csc285.game.datamodel.Player;
 
@@ -24,23 +33,37 @@ import edu.augustana.csc285.game.datamodel.Player;
  */
 public class InventoryScreen implements Screen{
 
-	public static final int GAME_SCREEN_WIDTH = 800;
-	public static final int GAME_SCREEN_HEIGHT = 480;
-	
-	private Player player;
+	private final AdventureGame game;
 	private OrthographicCamera camera;
-	private AdventureGame game;
+	private Stage stage;
 	
 	public InventoryScreen(AdventureGame game) {
-		this.player = game.manager.getPlayer();
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
+		Map<Integer,Item> inventoryCollection = game.manager.getPlayer().getInventory().getCollection();
+		
+		Stage stage = new Stage(new ScreenViewport());
+		Table table = new Table();
+		Table container = new Table();
+		ScrollPane scroll = new ScrollPane(table);
+	    container.add(scroll).width(500f).height(500f);
+	    container.row();
+	    
+	    LabelStyle style = new LabelStyle(game.font,Color.WHITE);
+		
+		for(Item item:inventoryCollection.values()) {
+			Label label = new Label(item.getName() + " x " + item.getQuantity(),style);
+			table.add(label);
+			table.row();
+			label.setAlignment(Align.left);
+		}
+		stage.addActor(container);
 	}
 	
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
+		Gdx.input.setInputProcessor(stage);
 		
 		
 	}
@@ -50,29 +73,9 @@ public class InventoryScreen implements Screen{
 		// TODO Auto-generated method stub
 		Gdx.gl.glClearColor(0, 0, 0.2f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
-
-		
+		stage.act();
+		stage.draw();
 		game.batch.begin();
-		game.font.draw(game.batch, "This is the inventory", 50, 50);
-		Map<Integer, Item> map = player.getInventory().getCollection();
-		ArrayList<Item> items = new ArrayList(map.values());
-
-		Texture image;
-		Iterator<Item> itr = items.iterator();
-		for(int i = 0; i < 3; i++) {
-			for(int j = 0; i < 4; j++) {
-				if(itr.hasNext()) {
-					//Draw that item
-					image = new Texture (itr.next().getImage());
-				} else {
-					//Draw a blank box
-					image = new Texture("Box.jpg");
-				}
-				game.batch.draw(image, (25 *j) +5, (25 *i) + 5);
-				//items and boxes are assumed to be 25
-			}
-		}
 		game.batch.end();
 	}
 
@@ -102,8 +105,7 @@ public class InventoryScreen implements Screen{
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
-		
+		stage.dispose();
 	}
 	
 }
