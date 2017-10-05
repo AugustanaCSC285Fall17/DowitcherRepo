@@ -10,7 +10,7 @@ public class Slide {
 	private String url;
 	private String music;
 	private int id;
-	List<Option> options;
+	ArrayList<Option> options;
 
 	public Slide() {
 
