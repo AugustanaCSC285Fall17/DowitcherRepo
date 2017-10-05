@@ -36,7 +36,7 @@ public class PlayerStatScreen implements Screen {
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
 		stage = new Stage(new ScreenViewport());
-		Map<Integer, Property> properties = game.manager.getPlayer().getProperties().getProperties();
+		Map<String, Property> properties = game.manager.getPlayer().getProperties().getProperties();
 		String propertyString = "You are: " + game.manager.getPlayer().getName() + "\n";
 		propertyString += "Gender: " + game.manager.getPlayer().getGender() + "\n";
 		for (Property property : properties.values()) {

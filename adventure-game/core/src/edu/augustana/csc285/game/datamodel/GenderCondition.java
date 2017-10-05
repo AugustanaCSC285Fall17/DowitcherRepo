@@ -4,6 +4,9 @@ public class GenderCondition implements Condition {
 
 	private Gender gender;
 
+	public GenderCondition() {
+	}
+
 	public GenderCondition(Gender gender) {
 		this.gender = gender;
 	}

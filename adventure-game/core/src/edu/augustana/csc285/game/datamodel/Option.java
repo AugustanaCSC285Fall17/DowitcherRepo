@@ -13,7 +13,7 @@ public class Option {
 	private String desc;
 	private String transitionMessage;
 	private String rejectMessage;
-	private int nextSlideIndex;
+	private String nextSlideIndex;
 	private List<Effect> effects;
 	private List<Condition> visibleConditions;
 	private List<Condition> feasibleConditions;
@@ -40,7 +40,7 @@ public class Option {
 	 * @param sound:
 	 *            String to represent sound when the option is chose
 	 */
-	public Option(String desc, String transitionMessage, String rejectMessage, int nextSlideIndex, String image,
+	public Option(String desc, String transitionMessage, String rejectMessage, String nextSlideIndex, String image,
 			String sound) {
 		this.desc = desc;
 		this.transitionMessage = transitionMessage;
@@ -53,7 +53,7 @@ public class Option {
 		feasibleConditions = new ArrayList<Condition>();
 	}
 
-	public Option(String desc, int nextSlideIndex) {
+	public Option(String desc, String nextSlideIndex) {
 		this(desc, null, DEFAULT_REJECT_MESSAGE, nextSlideIndex, null, null);
 	}
 
@@ -81,11 +81,11 @@ public class Option {
 		this.rejectMessage = rejectMessage;
 	}
 
-	public int getNextSlideIndex() {
+	public String getNextSlideIndex() {
 		return nextSlideIndex;
 	}
 
-	public void setNextSlideIndex(int nextSlideIndex) {
+	public void setNextSlideIndex(String nextSlideIndex) {
 		this.nextSlideIndex = nextSlideIndex;
 	}
 

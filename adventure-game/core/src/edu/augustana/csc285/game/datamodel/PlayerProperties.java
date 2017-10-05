@@ -14,7 +14,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class PlayerProperties {
-	private Map<Integer, Property> properties;
+	private Map<String, Property> properties;
 
 	/**
 	 * post: usually used to create a new copy of the properties
@@ -23,11 +23,11 @@ public class PlayerProperties {
 	 *            is the PlayerProperties
 	 */
 	public PlayerProperties(PlayerProperties other) {
-		properties = new TreeMap<Integer, Property>(other.properties);
+		properties = new TreeMap<String, Property>(other.properties);
 	}
 
 	public PlayerProperties(int health, int morale, int gold, int day) {
-		properties = new TreeMap<Integer, Property>();
+		properties = new TreeMap<String, Property>();
 		properties.put(PropertyType.HEALTH.getID(), new Property(PropertyType.HEALTH, health));
 		properties.put(PropertyType.MORALE.getID(), new Property(PropertyType.MORALE, morale));
 		properties.put(PropertyType.GOLD.getID(), new Property(PropertyType.GOLD, gold));
@@ -43,7 +43,7 @@ public class PlayerProperties {
 				PropertyType.DAY.getValue());
 	}
 
-	public Map<Integer, Property> getProperties() {
+	public Map<String, Property> getProperties() {
 		return properties;
 	}
 
@@ -56,7 +56,7 @@ public class PlayerProperties {
 		properties.put(temp.getID(), temp);
 	}
 
-	public int getPropertyQuantity(int propertyID) {
+	public int getPropertyQuantity(String propertyID) {
 		Property temp = properties.get(propertyID);
 		if (temp == null) {
 			return 0;
@@ -65,7 +65,7 @@ public class PlayerProperties {
 		}
 	}
 
-	public Property getProperty(int propertyID) {
+	public Property getProperty(String propertyID) {
 		if (!properties.containsKey(propertyID)) {
 			throw new IllegalArgumentException("PropertyID is not valid");
 		} else {

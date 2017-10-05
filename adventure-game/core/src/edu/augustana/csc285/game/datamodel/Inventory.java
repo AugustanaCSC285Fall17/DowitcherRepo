@@ -9,9 +9,9 @@ import java.util.Map;
 
 public class Inventory {
 	// Need to initialize in here so can have 0 argument constructor
-	private Map<Integer, Item> collection = new HashMap<Integer, Item>();
+	private Map<String, Item> collection = new HashMap<String, Item>();
 
-	public Inventory(HashMap<Integer, Item> collection) {
+	public Inventory(HashMap<String, Item> collection) {
 		setCollection(collection);
 	}
 
@@ -22,11 +22,11 @@ public class Inventory {
 	public Inventory() {
 	}
 
-	public Map<Integer, Item> getCollection() {
+	public Map<String, Item> getCollection() {
 		return collection;
 	}
 
-	public void setCollection(Map<Integer, Item> collection) {
+	public void setCollection(Map<String, Item> collection) {
 		this.collection = collection;
 	}
 
@@ -58,7 +58,7 @@ public class Inventory {
 
 	// return the quantity of an item, if the item is not in the collection then
 	// return 0
-	public int getItemQuantity(int itemID) {
+	public int getItemQuantity(String itemID) {
 		Item temp = collection.get(itemID);
 		if (temp == null) {
 			return 0;
@@ -81,7 +81,7 @@ public class Inventory {
 	 */
 	public void addInventory(Inventory other) {
 		if (other != null && other.collection != null) {
-			for (int id : other.collection.keySet()) {
+			for (String id : other.collection.keySet()) {
 				Item temp1 = collection.get(id);
 				Item temp2 = other.collection.get(id);
 				if (temp1 != null) {
@@ -106,7 +106,7 @@ public class Inventory {
 			throw new IllegalArgumentException("There is not enough items");
 		} else {
 			if (other != null && other.collection != null) {
-				for (int id : other.collection.keySet()) {
+				for (String id : other.collection.keySet()) {
 					Item temp1 = collection.get(id);
 					Item temp2 = other.collection.get(id);
 					temp1.subtractItem(temp2);
@@ -122,7 +122,7 @@ public class Inventory {
 	 */
 	public boolean checkInventory(Inventory other) {
 		if (other != null) {
-			for (int id : other.collection.keySet()) {
+			for (String id : other.collection.keySet()) {
 				Item temp1 = collection.get(id);
 				Item temp2 = other.collection.get(id);
 				if (temp1 == null) {
