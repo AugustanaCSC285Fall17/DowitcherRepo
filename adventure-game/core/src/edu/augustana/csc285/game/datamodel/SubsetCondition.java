@@ -3,7 +3,7 @@ package edu.augustana.csc285.game.datamodel;
 import java.util.List;
 
 public class SubsetCondition implements Condition {
-	private ArrayList<Condition> conditions;
+	private List<Condition> conditions;
 	private int numberOfSatisfied;
 
 	@Override

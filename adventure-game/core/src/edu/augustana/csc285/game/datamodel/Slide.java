@@ -9,7 +9,7 @@ public class Slide {
 	private String desc;
 	private String url;
 	private String music;
-	private int id;
+	private String id;
 	ArrayList<Option> options;
 
 	public Slide() {

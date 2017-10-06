@@ -14,7 +14,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 public class PlayerProperties {
-	private TreeMap<Integer, Property> properties;
+	private TreeMap<String, Property> properties;
 
 	/**
 	 * post: usually used to create a new copy of the properties

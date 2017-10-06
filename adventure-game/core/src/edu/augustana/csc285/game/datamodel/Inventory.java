@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Inventory {
 	// Need to initialize in here so can have 0 argument constructor
-	private HashMap<Integer, Item> collection = new HashMap<Integer, Item>();
+	private HashMap<String, Item> collection = new HashMap<String, Item>();
 
 	public Inventory(HashMap<String, Item> collection) {
 		setCollection(collection);
@@ -22,12 +22,12 @@ public class Inventory {
 	public Inventory() {
 	}
 
-	public Map<String, Item> getCollection() {
+	public HashMap<String, Item> getCollection() {
 		return collection;
 	}
 
-	public void setCollection(HashMap<Integer, Item> collection) {
-		this.collection = (HashMap<Integer, Item>) collection;
+	public void setCollection(HashMap<String, Item> collection) {
+		this.collection = (HashMap<String, Item>) collection;
 	}
 
 	/*

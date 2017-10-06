@@ -58,7 +58,7 @@ public class SlideTest {
 			while(fileIn.hasNextLine()) {
 				String tempStr;
 				String tempStr2;
-				int tempInt;
+				String tempInt;
 				
 				tempStr = fileIn.nextLine();
 				tempStr2 = fileIn.nextLine();
@@ -80,16 +80,16 @@ public class SlideTest {
 				slides.get(slideCount).setMusic(tempStr);
 				System.out.println("SUCCESS");
 				
-				tempInt = fileIn.nextInt();
+				tempInt = fileIn.nextLine();
 				System.out.print("Assigning the ID: " + tempInt + " to the slide = ");
-				slides.get(slideCount).setId(tempInt);
+				slides.get(slideCount).setId(""+tempInt);
 				System.out.println("Adding options = SUCCESS");
 				
 				//ArrayList<Option> options = new ArrayList<>();
 				
-				tempInt = fileIn.nextInt();
+				tempInt = fileIn.nextLine();
 				System.out.println("Adding " + tempInt + " option(s)");
-				for(int i = 1; i <= tempInt; i++) {
+				for(int i = 1; i <= tempInt.length(); i++) {
 					int temp = fileIn.nextInt();
 					System.out.print("Creating a new Option and assigning it an ID: " + temp + " = ");
 					//same here

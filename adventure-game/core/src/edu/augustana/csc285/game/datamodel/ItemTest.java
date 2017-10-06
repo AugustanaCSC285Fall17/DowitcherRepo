@@ -67,7 +67,7 @@ public class ItemTest {
 			Scanner fileIn = new Scanner(new File(input));
 			while(fileIn.hasNextLine()) {
 				items.add(new Item(fileIn.nextLine(), fileIn.nextLine(), 
-						fileIn.nextInt(), fileIn.nextInt(), null));
+						fileIn.nextInt(), fileIn.nextLine(), null));
 				
 				//Moves to the next line if it isn't the last element.
 				if(fileIn.hasNextLine()) {

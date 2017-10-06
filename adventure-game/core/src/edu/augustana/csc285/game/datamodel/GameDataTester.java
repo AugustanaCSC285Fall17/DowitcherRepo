@@ -134,80 +134,80 @@ public class GameDataTester {
 		familyHeirloomOption.addVisibleCondition(new ItemCondition(familyHeirloom, ConditionOperation.EQUAL));
 		familyHeirloomOption.addEffect(new ItemEffect(familyHeirloom, EffectOperation.PLUS));
 		s10.addOption(familyHeirloomOption);
-		Option sewingMachineOption = new Option("sewingMachine", null, null, 11, null, null);
+		Option sewingMachineOption = new Option("sewingMachine", null, null, "11", null, null);
 		sewingMachineOption.addVisibleCondition(new ItemCondition(sewingMachine, ConditionOperation.EQUAL));
 		sewingMachineOption.addEffect(new ItemEffect(sewingMachine, EffectOperation.PLUS));
 		s10.addOption(sewingMachineOption);
-		Option medicineOption = new Option("Medicine", null, null, 11, null, null);
+		Option medicineOption = new Option("Medicine", null, null, "11", null, null);
 		medicineOption.addVisibleCondition(new ItemCondition(medicine, ConditionOperation.EQUAL));
 		medicineOption.addEffect(new ItemEffect(medicine, EffectOperation.PLUS));
 		s10.addOption(medicineOption);
-		Option curedMeatOption = new Option("Cured Meat", null, null, 11, null, null);
+		Option curedMeatOption = new Option("Cured Meat", null, null, "11", null, null);
 		curedMeatOption.addVisibleCondition(new ItemCondition(curedMeat, ConditionOperation.EQUAL));
 		curedMeatOption.addEffect(new ItemEffect(curedMeat, EffectOperation.PLUS));
 		s10.addOption(curedMeatOption);
 
 		Slide s11 = new Slide("GameData/SlideImages/slide10.jpg",
 				"Excellent. You are the first in your family to take on this journey. They are counting on your success in America. Your family has pooled enough money for passage, thankfully. You cannot take too much with you, so you must choose carefully which items to bring. Some items are more useful than others but even the smallest, trivial item can lead to unexpected use. Remember, you already have some money left after purchasing papers.  \n",
-				null, null, 11);
-		bibleOption.setNextSlideIndex(12);
+				null, null, "11");
+		bibleOption.setNextSlideIndex("12");
 		s11.addOption(bibleOption);
-		familyHeirloomOption.setNextSlideIndex(12);
+		familyHeirloomOption.setNextSlideIndex("12");
 		s11.addOption(familyHeirloomOption);
-		sewingMachineOption.setNextSlideIndex(12);
+		sewingMachineOption.setNextSlideIndex("12");
 		s11.addOption(sewingMachineOption);
-		medicineOption.setNextSlideIndex(12);
+		medicineOption.setNextSlideIndex("12");
 		s11.addOption(medicineOption);
-		curedMeatOption.setNextSlideIndex(12);
+		curedMeatOption.setNextSlideIndex("12");
 		s11.addOption(curedMeatOption);
 
 		Slide s12 = new Slide("GameData/SlideImages/slide10.jpg",
 				"Excellent. You are the first in your family to take on this journey. They are counting on your success in America. Your family has pooled enough money for passage, thankfully. You cannot take too much with you, so you must choose carefully which items to bring. Some items are more useful than others but even the smallest, trivial item can lead to unexpected use. Remember, you already have some money left after purchasing papers.  \n",
-				null, null, 12);
-		bibleOption.setNextSlideIndex(13);
+				null, null, "12");
+		bibleOption.setNextSlideIndex("13");
 		s12.addOption(bibleOption);
-		familyHeirloomOption.setNextSlideIndex(13);
+		familyHeirloomOption.setNextSlideIndex("13");
 		s12.addOption(familyHeirloomOption);
-		sewingMachineOption.setNextSlideIndex(13);
+		sewingMachineOption.setNextSlideIndex("13");
 		s12.addOption(sewingMachineOption);
-		medicineOption.setNextSlideIndex(13);
+		medicineOption.setNextSlideIndex("13");
 		s12.addOption(medicineOption);
-		curedMeatOption.setNextSlideIndex(13);
+		curedMeatOption.setNextSlideIndex("13");
 		s12.addOption(curedMeatOption);
 
 		Slide s13 = new Slide("GameData/SlideImages/slide13.jpg",
 				"You take a wagon to the port city of Gothenburg. You walk along Sillgatan or â€œHerring Streetâ€� where there were many emigrant agents, hotels, shops, and taverns. Here you wait to board a ship to England.",
-				null, null, 13);
-		s13.addOption(new Option("Continue", null, null, 14, null, null));
+				null, null, "13");
+		s13.addOption(new Option("Continue", null, null, "14", null, null));
 
 		Slide s14 = new Slide("GameData/SlideImages/slide14.jpg",
 				"Over a million Swedish immigrants left through the port of Gothenburg in southwest Sweden. Many American genealogists believe their ancestors lived in Gothenburg, when really this was just the port they left through. Provinces of Sweden including SmÃ¥land, VÃ¤stergÃ¶tland, Dalsland, VÃ¤rmland, and Ã–land saw large numbers emigrate. ",
-				null, null, 14);
-		s14.addOption(new Option("Left", null, null, 15, null, null));
-		s14.addOption(new Option("Forward", null, null, 16, null, null));
-		s14.addOption(new Option("Right", null, null, 17, null, null));
+				null, null, "14");
+		s14.addOption(new Option("Left", null, null, "15", null, null));
+		s14.addOption(new Option("Forward", null, null, "16", null, null));
+		s14.addOption(new Option("Right", null, null, "17", null, null));
 		gd.addSlide(s14);
 
 		Slide s15 = new Slide("GameData/SlideImages/slide15.jpg",
-				"You see a market at the end of the lane. Do you wish to shop here?", null, null, 15);
-		s15.addOption(new Option("Yes", null, null, 16, null, null));
-		s15.addOption(new Option("No", null, null, 14, null, null));
+				"You see a market at the end of the lane. Do you wish to shop here?", null, null, "15");
+		s15.addOption(new Option("Yes", null, null, "16", null, null));
+		s15.addOption(new Option("No", null, null, "14", null, null));
 
 		Slide s16 = new Slide("GameData/SlideImages/slide15.jpg",
 				"Inspection After passing initial health inspection, the ticketmaster asks for your papers. Do you have your ticket?\n",
-				null, null, 16);
-		Option shipBoarding = new Option("Yes", null, null, 21, null, null);
+				null, null, "16");
+		Option shipBoarding = new Option("Yes", null, null, "21", null, null);
 		shipBoarding.addVisibleCondition(new ItemCondition(ticketToHull, ConditionOperation.EQUAL));
 		shipBoarding.addEffect(new ItemEffect(ticketToHull, EffectOperation.MINUS));
 		s16.addOption(shipBoarding);
-		s16.addOption(new Option("No", null, null, 14, null, null));
+		s16.addOption(new Option("No", null, null, "14", null, null));
 
 		Slide s17 = new Slide("GameData/SlideImages/slide15.jpg", "Ticket agent â€œWhat can I do for you?â€�", null,
-				null, 17);
-		Option buyHull = new Option("Pay for transport to Hull $15 or 60 SEK.\n", null, null, 14, null, null);
+				null, "17");
+		Option buyHull = new Option("Pay for transport to Hull $15 or 60 SEK.\n", null, null, "14", null, null);
 		Option buyHullAmerica = new Option(
 				"Pay for transport to Hull with connection to Liverpool and ship passage $30 or 120 SEK", null, null,
-				14, null, null);
+				"14", null, null);
 		buyHull.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
 		buyHull.addFeasibleCondition(
 				new PropertyCondition(new Property(PropertyType.GOLD, 15), ConditionOperation.GREATER_OR_EQUAL));
@@ -219,48 +219,48 @@ public class GameDataTester {
 				new PropertyCondition(new Property(PropertyType.GOLD, 30), ConditionOperation.GREATER_OR_EQUAL));
 
 		Slide s18 = new Slide("GameData/SlideImages/slide10.jpg", "Youâ€™re in the shop. What would you like to do?\n",
-				null, null, 18);
-		s18.addOption(new Option("Buy", null, null, 19, null, null));
-		s18.addOption(new Option("Sell", null, null, 20, null, null));
-		s18.addOption(new Option("Leave", null, null, 14, null, null));
+				null, null, "18");
+		s18.addOption(new Option("Buy", null, null, "19", null, null));
+		s18.addOption(new Option("Sell", null, null, "20", null, null));
+		s18.addOption(new Option("Leave", null, null, "14", null, null));
 
-		Slide s19 = new Slide("GameData/SlideImages/slide10.jpg", "Choose one item to buy", null, null, 19);
-		Option buyBible = new Option("Buy Bible $5 or 20 SEK", null, null, 14, null, null);
+		Slide s19 = new Slide("GameData/SlideImages/slide10.jpg", "Choose one item to buy", null, null, "19");
+		Option buyBible = new Option("Buy Bible $5 or 20 SEK", null, null, "14", null, null);
 		buyBible.addFeasibleCondition(
 				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
 		buyBible.addEffect(new ItemEffect(bible, EffectOperation.PLUS));
 		buyBible.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
 		s19.addOption(buyBible);
 
-		Option buyFamilyHeirloom = new Option("Buy Family Heirloom $5 or 20 SEK", null, null, 14, null, null);
+		Option buyFamilyHeirloom = new Option("Buy Family Heirloom $5 or 20 SEK", null, null, "14", null, null);
 		buyFamilyHeirloom.addFeasibleCondition(
 				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
 		buyFamilyHeirloom.addEffect(new ItemEffect(familyHeirloom, EffectOperation.PLUS));
 		buyFamilyHeirloom.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
 		s19.addOption(buyFamilyHeirloom);
 
-		Option buySewingMachine = new Option("Buy Sewing Machine $5 or 20 SEK", null, null, 14, null, null);
+		Option buySewingMachine = new Option("Buy Sewing Machine $5 or 20 SEK", null, null, "14", null, null);
 		buySewingMachine.addFeasibleCondition(
 				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
 		buySewingMachine.addEffect(new ItemEffect(sewingMachine, EffectOperation.PLUS));
 		buySewingMachine.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
 		s19.addOption(buySewingMachine);
 
-		Option buyMedicine = new Option("Buy Medicine $5 or 20 SEK", null, null, 14, null, null);
+		Option buyMedicine = new Option("Buy Medicine $5 or 20 SEK", null, null, "14", null, null);
 		buyMedicine.addFeasibleCondition(
 				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
 		buyMedicine.addEffect(new ItemEffect(medicine, EffectOperation.PLUS));
 		buyMedicine.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
 		s19.addOption(buyMedicine);
 
-		Option buyCuredMeat = new Option("Buy Cured Meat $5 or 20 SEK", null, null, 14, null, null);
+		Option buyCuredMeat = new Option("Buy Cured Meat $5 or 20 SEK", null, null, "14", null, null);
 		buyCuredMeat.addFeasibleCondition(
 				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
 		buyCuredMeat.addEffect(new ItemEffect(curedMeat, EffectOperation.PLUS));
 		buyCuredMeat.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
 		s19.addOption(buyCuredMeat);
 
-		s19.addOption(new Option("Leave", null, null, 14, null, null));
+		s19.addOption(new Option("Leave", null, null, "14", null, null));
 
 		gd.addSlide(s0);
 		gd.addSlide(s1);

@@ -11,7 +11,7 @@ import com.badlogic.gdx.utils.Json;
  *
  */
 public class Story {
-	public HashMap<Integer, Slide> slides;
+	public HashMap<String, Slide> slides;
 	private String defaultMusic;
 	private String startingSlideIndex;
 	// Never use -1 since that is the ending indicator
