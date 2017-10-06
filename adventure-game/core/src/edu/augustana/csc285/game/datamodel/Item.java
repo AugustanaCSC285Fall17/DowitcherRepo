@@ -9,7 +9,7 @@ public class Item {
 	private String name;
 	private String desc;
 	private int quantity;
-	private int id;
+	private String id;
 	// image is the location in asset
 	private String image;
 
@@ -17,7 +17,7 @@ public class Item {
 
 	}
 
-	public Item(String name, String desc, int quantity, int id, String image) {
+	public Item(String name, String desc, int quantity, String id, String image) {
 		this.name = name;
 		this.desc = desc;
 		this.quantity = quantity;
@@ -41,7 +41,7 @@ public class Item {
 	 * @param image:
 	 *            location in asset
 	 */
-	public Item(String name, String desc, int id, String image) {
+	public Item(String name, String desc, String id, String image) {
 		this(name, desc, 0, id, image);
 	}
 
@@ -58,7 +58,7 @@ public class Item {
 	 *            location in asset
 	 */
 
-	public Item(String name, String desc, int quantity, int id) {
+	public Item(String name, String desc, int quantity, String id) {
 		this(name, desc, quantity, id, null);
 	}
 
@@ -86,7 +86,7 @@ public class Item {
 		this.image = image;
 	}
 
-	public int getID() {
+	public String getID() {
 		return id;
 	}
 
@@ -98,7 +98,7 @@ public class Item {
 		this.desc = desc;
 	}
 
-	public void setID(int id) {
+	public void setID(String id) {
 		this.id = id;
 	}
 
@@ -110,7 +110,7 @@ public class Item {
 		if (other == null) {
 			return false;
 		}
-		return (other.id == id);
+		return (other.id.equals(id));
 	}
 
 	/**

@@ -3,7 +3,7 @@ package edu.augustana.csc285.game.datamodel;
 public class Property {
 	private PropertyType type;
 	private int quantity;
-	private int id;
+	private String id;
 
 	public Property() {
 
@@ -40,7 +40,7 @@ public class Property {
 		this.quantity = quantity;
 	}
 
-	public int getID() {
+	public String getID() {
 		return id;
 	}
 

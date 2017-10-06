@@ -3,6 +3,9 @@ package edu.augustana.csc285.game.datamodel;
 public class GenderEffect implements Effect{
 	private Gender gender;
 	
+	public GenderEffect() {
+		
+	}
 	public GenderEffect(Gender gender) {
 		this.gender = gender;
 	}

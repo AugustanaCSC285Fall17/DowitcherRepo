@@ -31,7 +31,7 @@ public class Slide {
 	 *            is the group of options the player could have access to on
 	 *            this slide
 	 */
-	public Slide(String image, String desc, String url, String music, int id) {
+	public Slide(String image, String desc, String url, String music, String id) {
 		this.image = image;
 		this.desc = desc;
 		this.url = url;
@@ -40,7 +40,7 @@ public class Slide {
 		this.options = new ArrayList<Option>();
 	}
 
-	public Slide(String image, String desc, int id) {
+	public Slide(String image, String desc, String id) {
 		this(image, desc, "", null, id);
 	}
 
@@ -116,7 +116,7 @@ public class Slide {
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -124,7 +124,7 @@ public class Slide {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
