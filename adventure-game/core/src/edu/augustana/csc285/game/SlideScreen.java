@@ -1,5 +1,6 @@
 package edu.augustana.csc285.game;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -24,14 +25,14 @@ import edu.augustana.csc285.game.datamodel.Option;
 import edu.augustana.csc285.game.datamodel.Slide;
 
 public class SlideScreen implements Screen {
-	public static final Set<Integer> KEY_SET = new HashSet<Integer>(Arrays.asList(8, 9, 10, 11, 12, 13, 14, 15, 16)); // 1
+	public static final HashSet<Integer> KEY_SET = new HashSet<Integer>(Arrays.asList(8, 9, 10, 11, 12, 13, 14, 15, 16)); // 1
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
 	// 9
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
 	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
 	private final AdventureGame game;
 	private Slide slide;
-	private List<Option> visibleOptions;
+	private ArrayList<Option> visibleOptions;
 	private Texture image;
 	private OrthographicCamera camera;
 	private int input;
@@ -43,7 +44,7 @@ public class SlideScreen implements Screen {
 		this.game = game;
 		slide = game.manager.getCurrentSlide();
 		image = new Texture(Gdx.files.internal(slide.getImage()));
-		visibleOptions = slide.getVisibleOptions(game.manager.getPlayer());
+		visibleOptions = (ArrayList<Option>) slide.getVisibleOptions(game.manager.getPlayer());
 		// Set up camera
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);

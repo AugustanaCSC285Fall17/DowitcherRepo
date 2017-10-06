@@ -1,9 +1,10 @@
 package edu.augustana.csc285.game.datamodel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SubsetCondition implements Condition {
-	private List<Condition> conditions;
+	private ArrayList<Condition> conditions;
 	private int numberOfSatisfied;
 
 	@Override

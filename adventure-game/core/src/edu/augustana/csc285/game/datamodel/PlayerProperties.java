@@ -43,7 +43,7 @@ public class PlayerProperties {
 				PropertyType.DAY.getValue());
 	}
 
-	public Map<String, Property> getProperties() {
+	public TreeMap<String, Property> getProperties() {
 		return properties;
 	}
 

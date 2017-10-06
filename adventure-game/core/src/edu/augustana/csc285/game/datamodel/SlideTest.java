@@ -109,10 +109,10 @@ public class SlideTest {
 		} catch (FileNotFoundException E) {
 			// TODO Auto-generated catch block
 			System.out.println("File not found!\nFile: " + input + "\nException " + E);
-			System.exit(0);
+			//System.exit(0);
 		} catch (NullPointerException E) {
 			System.out.println("FAILED \nException: " + E);
-			System.exit(0);
+			//System.exit(0);
 		}
 		
 	}

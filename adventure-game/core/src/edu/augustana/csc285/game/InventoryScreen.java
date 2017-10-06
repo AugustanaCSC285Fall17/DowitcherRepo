@@ -48,7 +48,7 @@ public class InventoryScreen implements Screen {
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
 		stage = new Stage(new ScreenViewport());
-		Map<String, Item> inventoryCollection = game.manager.getPlayer().getInventory().getCollection();
+		HashMap<String, Item> inventoryCollection = game.manager.getPlayer().getInventory().getCollection();
 		String inventory = "You have: \n";
 		for (Item item : inventoryCollection.values()) {
 			inventory += item.getName() + " x " + item.getQuantity() + "\n";

@@ -11,7 +11,7 @@ import com.badlogic.gdx.utils.Json;
  * load/save an adventure game.
  */
 public class GameData {
-	private List<Slide> slides;
+	private ArrayList<Slide> slides;
 	
 	public GameData() { // needed for GSon
 		slides = new ArrayList<Slide>();
