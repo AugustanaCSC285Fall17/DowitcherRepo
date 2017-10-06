@@ -25,7 +25,7 @@ public class StoryManager {
 	 * @param index
 	 *            the starting index
 	 */
-	public StoryManager(Story story, Player player, int index) {
+	public StoryManager(Story story, Player player, String index) {
 		this.story = story;
 		this.player = player;
 		//story.checkID(index);
@@ -42,7 +42,7 @@ public class StoryManager {
 	 * @param index
 	 *            the starting index
 	 */
-	public StoryManager(Story story, String name, int index) {
+	public StoryManager(Story story, String name, String index) {
 		this(story, new Player(name), index);
 	}
 

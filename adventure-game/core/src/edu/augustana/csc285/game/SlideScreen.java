@@ -66,7 +66,7 @@ public class SlideScreen implements Screen {
 			button.getLabel().setAlignment(Align.left);
 			button.addListener(new InputListener() {
 				public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-					if (option.getNextSlideIndex() != -1) {
+					if (option.getNextSlideIndex() != "-1") {
 						if (option.isFeasible(game.manager.getPlayer())) {
 							game.manager.applyOption(option);
 							game.setScreen(new SlideScreen(game));
@@ -179,7 +179,7 @@ public class SlideScreen implements Screen {
 				int index = temp - 8;
 				if (index < visibleOptions.size()) {
 					Option option = visibleOptions.get(index);
-					if (option.getNextSlideIndex() != -1) {
+					if (option.getNextSlideIndex() != "-1") {
 						if (option.isFeasible(game.manager.getPlayer())) {
 							game.manager.applyOption(option);
 							game.setScreen(new SlideScreen(game));
