@@ -55,8 +55,9 @@ public class Inventory {
 		if (newQuantity < 0) {
 			newQuantity = 0;
 		}
-		Item temp = this.findItem(item);
+		Item temp = new Item(item);
 		temp.setQuantity(newQuantity);
+		collection.add(temp);
 	}
 
 	// return the quantity of an item, if the item is not in the collection then
