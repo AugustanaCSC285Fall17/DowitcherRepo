@@ -67,16 +67,14 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		});
 		buttonTable.add(button).width(200).height(30).pad(5).row();
 		
-		button = new TextButton("Music", DEFAULT_SKIN, "default");
+		button = new TextButton("Settings", DEFAULT_SKIN, "default");
 		button.setSize(50, 50);
 		button.addListener(new InputListener() {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				if(game.testMusic.isPlaying()) {
-					game.testMusic.pause();
-				}
-				else {
-					game.testMusic.play();
-				}}
+				game.setScreen(new SettingsScreen(game));
+				dispose();
+			
+			}
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				return true;
 			}

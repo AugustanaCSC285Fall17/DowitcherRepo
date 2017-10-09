@@ -33,15 +33,15 @@ public class StorySelectionScreen implements Screen{
         this.stage = new Stage(new ScreenViewport());
 
 
-        ArrayList<FileHandle> storyFiles = Story
+      //  ArrayList<FileHandle> storyFiles = Story
         this.fileNames = new String[storyFiles.size()];
-        for() {
+       // for() {
 
-        }
+        //}
 
 
 
-    }
+    //}
 
     @Override
     public void show() {
