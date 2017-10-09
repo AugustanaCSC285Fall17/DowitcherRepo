@@ -3,8 +3,6 @@ package edu.augustana.csc285.game;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -35,8 +33,8 @@ public class SlideScreen implements Screen {
 	private ArrayList<Option> visibleOptions;
 	private Texture image;
 	private OrthographicCamera camera;
-	private int input;
-	private int numOptions;
+//	private int input;
+//	private int numOptions;
 	private Stage stage;
 
 	public SlideScreen(AdventureGame game) {
@@ -151,13 +149,14 @@ public class SlideScreen implements Screen {
 			}
 		});
 
-		inventoryButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() * 3 - WIDTH_BUFFER * 3,
-				AdventureGame.GAME_SCREEN_HEIGHT - inventoryButton.getHeight() - HEIGHT_BUFFER);
+		
+		// Constants in formula can be changed to adjust location of these buttons
+		inventoryButton.setPosition(Math.round(0.52 * AdventureGame.GAME_SCREEN_WIDTH),
+				Math.round(0.91875 * AdventureGame.GAME_SCREEN_HEIGHT));
 		playerStatButton.setPosition(
-				AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() * 2 - WIDTH_BUFFER * 2,
-				AdventureGame.GAME_SCREEN_HEIGHT - inventoryButton.getHeight() - HEIGHT_BUFFER);
-		settingsButton.setPosition(AdventureGame.GAME_SCREEN_WIDTH - inventoryButton.getWidth() - (WIDTH_BUFFER),
-				AdventureGame.GAME_SCREEN_HEIGHT - settingsButton.getHeight() - HEIGHT_BUFFER);
+				Math.round(0.68 * AdventureGame.GAME_SCREEN_WIDTH), Math.round(0.91875 * AdventureGame.GAME_SCREEN_WIDTH));
+		settingsButton.setPosition(Math.round((0.84 * AdventureGame.GAME_SCREEN_WIDTH)),
+				Math.round(0.91875 * AdventureGame.GAME_SCREEN_WIDTH));
 
 		stage.addActor(inventoryButton);
 		stage.addActor(playerStatButton);
@@ -204,6 +203,9 @@ public class SlideScreen implements Screen {
 		// game.batch.draw(region, x, y, originX, originY, width, height,
 		// scaleX, scaleY, rotation);
 
+		System.out.println((AdventureGame.GAME_SCREEN_HEIGHT - WIDTH_BUFFER
+				- (5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8 * (image.getWidth() / image.getHeight())) / AdventureGame.GAME_SCREEN_WIDTH);
+		// Draw the image
 		game.batch.draw(image, WIDTH_BUFFER, AdventureGame.GAME_SCREEN_HEIGHT - WIDTH_BUFFER
 				- (5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8 * (image.getWidth() / image.getHeight()),
 
