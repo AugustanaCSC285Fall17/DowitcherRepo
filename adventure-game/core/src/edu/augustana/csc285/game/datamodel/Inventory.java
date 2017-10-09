@@ -3,15 +3,26 @@ package edu.augustana.csc285.game.datamodel;
 /**
  * author: Dat Tran
  */
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.TreeSet;
 
 public class Inventory {
-	// Need to initialize in here so can have 0 argument constructor
-	private HashMap<String, Item> collection = new HashMap<String, Item>();
+	class StringComp implements Comparator<Item> {
+		@Override
+		public int compare(Item o1, Item o2) {
+			return o1.getName().compareTo(o2.getName());
+		}
+	}
 
-	public Inventory(HashMap<String, Item> collection) {
+	// Need to initialize in here so can have 0 argument constructor
+	private TreeSet<Item> collection = new TreeSet<Item>(new StringComp());
+
+	public Inventory() {
+	}
+
+	public Inventory(TreeSet<Item> collection) {
 		setCollection(collection);
 	}
 
@@ -19,28 +30,21 @@ public class Inventory {
 		this.collection = other.collection;
 	}
 
-	public Inventory() {
-	}
-
-	public HashMap<String, Item> getCollection() {
+	public TreeSet<Item> getCollection() {
 		return collection;
 	}
 
-	public void setCollection(HashMap<String, Item> collection) {
-		this.collection = (HashMap<String, Item>) collection;
+	public void setCollection(TreeSet<Item> collection) {
+		this.collection = (TreeSet<Item>) collection;
 	}
 
 	/*
 	 * post: add item to the inventory
 	 */
 	public void addItem(Item item) {
-		Item temp = collection.get(item.getID());
-		// if item already exist in Inventory
+		Item temp = this.findItem(item);
 		if (temp != null) {
 			temp.addItem(item);
-			collection.put(temp.getID(), temp);
-		} else {
-			collection.put(item.getID(), new Item(item));
 		}
 	}
 
@@ -51,20 +55,21 @@ public class Inventory {
 		if (newQuantity < 0) {
 			newQuantity = 0;
 		}
-		Item temp = new Item(item);
+		Item temp = this.findItem(item);
 		temp.setQuantity(newQuantity);
-		collection.put(temp.getID(), temp);
 	}
 
 	// return the quantity of an item, if the item is not in the collection then
 	// return 0
-	public int getItemQuantity(String itemID) {
-		Item temp = collection.get(itemID);
-		if (temp == null) {
-			return 0;
-		} else {
-			return temp.getQuantity();
+	public int getItemQuantity(Item item) {
+		Iterator<Item> itr = this.collection.iterator();
+		while (itr.hasNext()) {
+			Item temp = itr.next();
+			if (temp.equals(item)) {
+				return temp.getQuantity();
+			}
 		}
+		return 0;
 	}
 
 	/*
@@ -72,7 +77,7 @@ public class Inventory {
 	 * in collection
 	 */
 	public void removeItem(Item item) {
-		collection.remove(item.getID());
+		collection.remove(item);
 	}
 
 	/*
@@ -80,69 +85,36 @@ public class Inventory {
 	 * do nothing
 	 */
 	public void addInventory(Inventory other) {
-		if (other != null && other.collection != null) {
-			for (String id : other.collection.keySet()) {
-				Item temp1 = collection.get(id);
-				Item temp2 = other.collection.get(id);
-				if (temp1 != null) {
-					temp1.addItem(temp2);
-				} else {
-					temp1 = temp2;
-				}
-				collection.put(id, temp1);
+		Iterator<Item> itr = this.collection.iterator();
+		while (itr.hasNext()) {
+			Item item = itr.next();
+			if (other.collection.contains(item)) {
+				Item temp = other.findItem(item);
+				item.addItem(temp);
 			}
 		}
-	}
-
-	/*
-	 * post: subtract Inventory other from this do nothing if other is empty
-	 * 
-	 * @ throw: IllegalArgumentException if there is at least one item with not
-	 * enough quantity
-	 * 
-	 */
-	public void subtractInventory(Inventory other) {
-		if (!checkInventory(other)) {
-			throw new IllegalArgumentException("There is not enough items");
-		} else {
-			if (other != null && other.collection != null) {
-				for (String id : other.collection.keySet()) {
-					Item temp1 = collection.get(id);
-					Item temp2 = other.collection.get(id);
-					temp1.subtractItem(temp2);
-					collection.put(id, temp1);
-				}
-			}
-		}
-	}
-
-	/*
-	 * @return: true if this has greater quantity in every item than Inventory
-	 * other, also true if Inventory other is null
-	 */
-	public boolean checkInventory(Inventory other) {
-		if (other != null) {
-			for (String id : other.collection.keySet()) {
-				Item temp1 = collection.get(id);
-				Item temp2 = other.collection.get(id);
-				if (temp1 == null) {
-					return false;
-				} else {
-					if (!temp1.compareQuantity(temp2)) {
-						return false;
-					}
-				}
-			}
-			return true;
-		}
-		return true;
 	}
 
 	public String toString() {
-		ArrayList<String> str = new ArrayList<String>();
-		for (Item item : collection.values()) {
-			str.add("Name: " + item.getName() + " Q: " + item.getQuantity() + " ID: " + item.getID());
+		String str = "";
+		for (Item item : this.collection) {
+			if (item.getQuantity() != 0) {
+				str += item + "\n";
+			}
 		}
-		return str.toString();
+		return str;
+	}
+
+	// Find item with matched name in the inventory, return null if nothing was
+	// found
+	public Item findItem(Item other) {
+		Iterator<Item> itr = this.collection.iterator();
+		while (itr.hasNext()) {
+			Item item = itr.next();
+			if (item.equals(other)) {
+				return item;
+			}
+		}
+		return null;
 	}
 }

@@ -33,7 +33,7 @@ public class ItemEffect implements Effect {
 	}
 
 	public void applyEffect(Player player) {
-		int currentQuantity = player.getInventory().getItemQuantity(item.getID());
+		int currentQuantity = player.getInventory().getItemQuantity(item);
 		int newQuantity = operation.applyEffect(currentQuantity, item.getQuantity());
 		player.getInventory().changeItemQuantity(item, newQuantity);
 	}

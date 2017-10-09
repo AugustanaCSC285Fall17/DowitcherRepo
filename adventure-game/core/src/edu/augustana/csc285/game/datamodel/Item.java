@@ -9,7 +9,6 @@ public class Item {
 	private String name;
 	private String desc;
 	private int quantity;
-	private String id;
 	// image is the location in asset
 	private String image;
 
@@ -17,16 +16,15 @@ public class Item {
 
 	}
 
-	public Item(String name, String desc, int quantity, String id, String image) {
+	public Item(String name, String desc, int quantity, String image) {
 		this.name = name;
 		this.desc = desc;
 		this.quantity = quantity;
-		this.id = id;
 		this.image = image;
 	}
 
 	public Item(Item other) {
-		this(other.name, other.desc, other.quantity, other.id, other.image);
+		this(other.name, other.desc, other.quantity, other.image);
 	}
 
 	/**
@@ -36,13 +34,11 @@ public class Item {
 	 *            name of the item
 	 * @param desc:
 	 *            description of the item
-	 * @param id:
-	 *            identification number of item
 	 * @param image:
 	 *            location in asset
 	 */
-	public Item(String name, String desc, String id, String image) {
-		this(name, desc, 0, id, image);
+	public Item(String name, String desc, String image) {
+		this(name, desc, 0, image);
 	}
 
 	/**
@@ -52,14 +48,12 @@ public class Item {
 	 *            name of the item
 	 * @param desc:
 	 *            description of the item
-	 * @param id:
-	 *            identification number of item
 	 * @param image:
 	 *            location in asset
 	 */
 
-	public Item(String name, String desc, int quantity, String id) {
-		this(name, desc, quantity, id, null);
+	public Item(String name, String desc, int quantity) {
+		this(name, desc, quantity, null);
 	}
 
 	public String getName() {
@@ -86,20 +80,12 @@ public class Item {
 		this.image = image;
 	}
 
-	public String getID() {
-		return id;
-	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	public void setDesc(String desc) {
 		this.desc = desc;
-	}
-
-	public void setID(String id) {
-		this.id = id;
 	}
 
 	/*
@@ -110,7 +96,7 @@ public class Item {
 		if (other == null) {
 			return false;
 		}
-		return (other.id.equals(id));
+		return (other.name.equals(name));
 	}
 
 	/**
@@ -123,24 +109,11 @@ public class Item {
 
 	public void addItem(Item other) {
 		checkType(other);
-		quantity += other.quantity;
-	}
-
-	/**
-	 * @throws: IllegalStateException
-	 *              if the quantity is negative after subtraction
-	 * @throws: IllegalArgumentException
-	 *              if type doesn't match
-	 * @param other:
-	 *            The item to subtract from this post: subtract the quantity of
-	 *            other from this
-	 */
-	public void subtractItem(Item other) {
-		if (!compareQuantity(other)) {
-			throw new IllegalStateException("item " + id + "'s quantity cannot be negative");
-		} else {
-			quantity -= other.quantity;
+		int temp = quantity + other.quantity;
+		if (temp < 0) {
+			temp = 0;
 		}
+		quantity = temp;
 	}
 
 	/**
@@ -163,6 +136,29 @@ public class Item {
 	}
 
 	public String toString() {
-		return "Item " + name + "(with ID: " + id + "): " + quantity;
+		return "Item " + name + ": " + quantity;
 	}
+
+	@Override
+	public int hashCode() {
+		return name.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Item other = (Item) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+
 }

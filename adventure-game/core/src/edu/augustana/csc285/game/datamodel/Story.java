@@ -151,22 +151,19 @@ public class Story {
 	}
 
 	public static void main(String[] args) {
-		Item medicine = new Item("Medicine", null, 1, "15", null);
-		Item jDLetter = new Item("John Deere Letter", "A letter from John Deere", 1, "5",
-				"GameData/SlideImages/item5.jpg");
-		Item iLetter = new Item("Illinois Letter", "A letter from Illinois", 1, "6", "GameData/SlideImages/item6.jpg");
-		Item wLetter = new Item("Washington Letter", "A letter from Washington", 1, "7",
-				"GameData/SlideImages/item7.jpg");
-		Item mLetter = new Item("Minnesota Letter", "A letter from Minnesota", 1, "8",
-				"GameData/SlideImages/item8.jpg");
-		Item officialPapers = new Item("Official papers", null, 1, "10", null);
-		Item forgedPapers = new Item("Forged papers", null, 1, "11", null);
-		Item bible = new Item("Bible", null, 1, "12", null);
-		Item familyHeirloom = new Item("Family Heirloom", null, 1, "13", null);
-		Item sewingMachine = new Item("Sewing Machine", null, 1, "14", null);
-		Item curedMeat = new Item("Cured Meat", null, 1, "16", null);
-		Item ticketToHull = new Item("Ticket to Hull", null, 1, "17", null);
-		Item ticketToAmerica = new Item("Ticket to America", null, 1, "18", null);
+		Item medicine = new Item("Medicine", null, 1, null);
+		Item jDLetter = new Item("John Deere Letter", "A letter from John Deere", 1, "GameData/SlideImages/item5.jpg");
+		Item iLetter = new Item("Illinois Letter", "A letter from Illinois", 1, "GameData/SlideImages/item6.jpg");
+		Item wLetter = new Item("Washington Letter", "A letter from Washington", 1, "GameData/SlideImages/item7.jpg");
+		Item mLetter = new Item("Minnesota Letter", "A letter from Minnesota", 1, "GameData/SlideImages/item8.jpg");
+		Item officialPapers = new Item("Official papers", null, 1, null);
+		Item forgedPapers = new Item("Forged papers", null, 1, null);
+		Item bible = new Item("Bible", null, 1, null);
+		Item familyHeirloom = new Item("Family Heirloom", null, 1, null);
+		Item sewingMachine = new Item("Sewing Machine", null, 1, null);
+		Item curedMeat = new Item("Cured Meat", null, 1, null);
+		Item ticketToHull = new Item("Ticket to Hull", null, 1, null);
+		Item ticketToAmerica = new Item("Ticket to America", null, 1, null);
 		// Item
 
 		Story story = new Story("0");

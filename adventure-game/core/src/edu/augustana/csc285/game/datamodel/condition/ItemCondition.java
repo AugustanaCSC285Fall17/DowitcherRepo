@@ -33,7 +33,7 @@ public class ItemCondition implements Condition {
 	}
 
 	public boolean checkCondition(Player player) {
-		int currentQuantity = player.getInventory().getItemQuantity(item.getID());
+		int currentQuantity = player.getInventory().getItemQuantity(item);
 		return operation.checkCondition(currentQuantity, item.getQuantity());
 	}
 

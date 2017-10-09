@@ -32,9 +32,9 @@ public class ItemTest {
 			Item next = items.get(i + 1);
 
 			System.out.println("\n\nFirst Item\nName: " + target.getName() + " description: " + target.getDesc()
-					+ " Quantity: " + target.getQuantity() + " Id: " + target.getID());
+					+ " Quantity: " + target.getQuantity());
 			System.out.println("Second Item\nName: " + next.getName() + " description: " + next.getDesc()
-					+ " Quantity: " + next.getQuantity() + " Id: " + next.getID());
+					+ " Quantity: " + next.getQuantity());
 
 			System.out.println("Checking if " + target.getName() + " equals " + next.getName());
 
@@ -62,7 +62,7 @@ public class ItemTest {
 		try {
 			Scanner fileIn = new Scanner(new File(input));
 			while (fileIn.hasNextLine()) {
-				items.add(new Item(fileIn.nextLine(), fileIn.nextLine(), fileIn.nextInt(), fileIn.nextLine(), null));
+				items.add(new Item(fileIn.nextLine(), fileIn.nextLine(), fileIn.nextInt(), null));
 
 				// Moves to the next line if it isn't the last element.
 				if (fileIn.hasNextLine()) {
@@ -131,7 +131,6 @@ public class ItemTest {
 		System.out.println("Inv1 " + inv1);
 
 		System.out.println("Subtracting inv2 from inv1");
-		inv1.subtractInventory(inv2);
 		System.out.println("Inv1 " + inv1);
 
 		testBreak();
