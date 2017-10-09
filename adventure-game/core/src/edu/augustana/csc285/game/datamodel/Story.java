@@ -8,6 +8,9 @@ import java.util.Map;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Json;
 
+import edu.augustana.csc285.game.datamodel.effect.*;
+import edu.augustana.csc285.game.datamodel.condition.*;
+
 /**
  * 
  * @author Dat Tran
@@ -129,8 +132,8 @@ public class Story {
 	}
 
 	/**
-		Returns an array containing all the Story files
-	 	Uses libgdx for compatability with game engine
+	 * Returns an array containing all the Story files Uses libgdx for
+	 * compatability with game engine
 	 */
 	public static FileHandle[] getStoryFiles() {
 		return new FileHandle("storyData").list();
@@ -146,7 +149,8 @@ public class Story {
 	public static Story fromJSON(String jsonData) {
 		return new Json().fromJson(Story.class, jsonData);
 	}
-	public static void main (String [] args) {
+
+	public static void main(String[] args) {
 		Item medicine = new Item("Medicine", null, 1, "15", null);
 		Item jDLetter = new Item("John Deere Letter", "A letter from John Deere", 1, "5",
 				"GameData/SlideImages/item5.jpg");
@@ -366,8 +370,8 @@ public class Story {
 		Slide s17 = new Slide("GameData/SlideImages/slide15.jpg", "Ticket agent \"What can I do for you?\"", null, null,
 				"17");
 		Option buyHull = new Option("Pay for transport to Hull $15 or 60 SEK", null, null, "14", null, null);
-		Option buyHullAmerica = new Option("Pay for transport to Hull through Liverpool $30 or 120 SEK", null, null, "14",
-				null, null);
+		Option buyHullAmerica = new Option("Pay for transport to Hull through Liverpool $30 or 120 SEK", null, null,
+				"14", null, null);
 		buyHull.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
 		buyHull.addFeasibleCondition(
 				new PropertyCondition(new Property(PropertyType.GOLD, 15), ConditionOperation.GREATER_OR_EQUAL));
@@ -444,7 +448,7 @@ public class Story {
 		story.addSlide(s17);
 		story.addSlide(s18);
 		story.addSlide(s19);
-		
+
 		System.out.println(story.toJSON());
 	}
 

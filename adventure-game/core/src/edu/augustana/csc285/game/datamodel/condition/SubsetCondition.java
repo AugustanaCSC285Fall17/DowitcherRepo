@@ -1,7 +1,9 @@
-package edu.augustana.csc285.game.datamodel;
+package edu.augustana.csc285.game.datamodel.condition;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import edu.augustana.csc285.game.datamodel.Player;
 
 public class SubsetCondition implements Condition {
 	private ArrayList<Condition> conditions;

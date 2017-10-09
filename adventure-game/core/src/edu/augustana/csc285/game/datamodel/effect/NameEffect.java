@@ -1,4 +1,6 @@
-package edu.augustana.csc285.game.datamodel;
+package edu.augustana.csc285.game.datamodel.effect;
+
+import edu.augustana.csc285.game.datamodel.Player;
 
 public class NameEffect implements Effect {
 	private String name;

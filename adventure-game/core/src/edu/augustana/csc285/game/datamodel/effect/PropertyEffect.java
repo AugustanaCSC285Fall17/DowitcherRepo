@@ -1,4 +1,7 @@
-package edu.augustana.csc285.game.datamodel;
+package edu.augustana.csc285.game.datamodel.effect;
+
+import edu.augustana.csc285.game.datamodel.Player;
+import edu.augustana.csc285.game.datamodel.Property;
 
 public class PropertyEffect implements Effect {
 	private Property property;

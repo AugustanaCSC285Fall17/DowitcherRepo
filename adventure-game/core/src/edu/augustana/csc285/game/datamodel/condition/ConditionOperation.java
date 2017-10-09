@@ -1,4 +1,4 @@
-package edu.augustana.csc285.game.datamodel;
+package edu.augustana.csc285.game.datamodel.condition;
 
 import java.util.Random;
 

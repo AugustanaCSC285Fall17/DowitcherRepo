@@ -9,26 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
-import edu.augustana.csc285.game.datamodel.ConditionOperation;
-import edu.augustana.csc285.game.datamodel.Effect;
-import edu.augustana.csc285.game.datamodel.EffectOperation;
-import edu.augustana.csc285.game.datamodel.GameData;
-import edu.augustana.csc285.game.datamodel.Gender;
-import edu.augustana.csc285.game.datamodel.GenderCondition;
-import edu.augustana.csc285.game.datamodel.GenderEffect;
-import edu.augustana.csc285.game.datamodel.Item;
-import edu.augustana.csc285.game.datamodel.ItemCondition;
-import edu.augustana.csc285.game.datamodel.ItemEffect;
-import edu.augustana.csc285.game.datamodel.NameEffect;
-import edu.augustana.csc285.game.datamodel.Option;
-import edu.augustana.csc285.game.datamodel.Player;
-import edu.augustana.csc285.game.datamodel.Property;
-import edu.augustana.csc285.game.datamodel.PropertyCondition;
-import edu.augustana.csc285.game.datamodel.PropertyEffect;
-import edu.augustana.csc285.game.datamodel.PropertyType;
-import edu.augustana.csc285.game.datamodel.Slide;
-import edu.augustana.csc285.game.datamodel.Story;
-import edu.augustana.csc285.game.datamodel.StoryManager;
+import edu.augustana.csc285.game.datamodel.*;
 
 public class AdventureGame extends Game {
 	public static final int GAME_SCREEN_WIDTH = 800;

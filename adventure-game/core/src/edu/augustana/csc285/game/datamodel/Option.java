@@ -3,6 +3,9 @@ package edu.augustana.csc285.game.datamodel;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.augustana.csc285.game.datamodel.effect.*;
+import edu.augustana.csc285.game.datamodel.condition.*;
+
 /**
  * 
  * @author Dat Tran

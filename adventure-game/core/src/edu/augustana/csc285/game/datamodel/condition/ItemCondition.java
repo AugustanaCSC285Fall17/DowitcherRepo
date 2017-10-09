@@ -1,4 +1,7 @@
-package edu.augustana.csc285.game.datamodel;
+package edu.augustana.csc285.game.datamodel.condition;
+
+import edu.augustana.csc285.game.datamodel.Item;
+import edu.augustana.csc285.game.datamodel.Player;
 
 public class ItemCondition implements Condition {
 	private Item item;

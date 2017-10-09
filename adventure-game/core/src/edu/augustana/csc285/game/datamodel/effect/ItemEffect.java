@@ -1,4 +1,7 @@
-package edu.augustana.csc285.game.datamodel;
+package edu.augustana.csc285.game.datamodel.effect;
+
+import edu.augustana.csc285.game.datamodel.Item;
+import edu.augustana.csc285.game.datamodel.Player;
 
 public class ItemEffect implements Effect {
 	private Item item;

@@ -1,6 +1,8 @@
-package edu.augustana.csc285.game.datamodel;
+package edu.augustana.csc285.game.datamodel.condition;
 
 import java.util.Random;
+
+import edu.augustana.csc285.game.datamodel.Player;
 
 public class RandomCondition implements Condition {
 	private double percentage;

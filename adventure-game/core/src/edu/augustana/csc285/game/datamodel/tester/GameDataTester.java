@@ -1,4 +1,8 @@
-package edu.augustana.csc285.game.datamodel;
+package edu.augustana.csc285.game.datamodel.tester;
+
+import edu.augustana.csc285.game.datamodel.*;
+import edu.augustana.csc285.game.datamodel.effect.*;
+import edu.augustana.csc285.game.datamodel.condition.*;
 
 public class GameDataTester {
 
@@ -25,11 +29,11 @@ public class GameDataTester {
 		GameData gd = new GameData();
 		Player player = new Player();
 		Slide s0 = new Slide("GameData/SlideImages/slide0.jpg",
-				"Youâ€™re a young Swedish immigrant to America in 1880. Youâ€™ve made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?\n",
+				"YouÃ¢â‚¬â„¢re a young Swedish immigrant to America in 1880. YouÃ¢â‚¬â„¢ve made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?\n",
 				null, null, "0");
 		s0.addOption(new Option("Take the Journey", "You have embarked on a journey!", null, "1", null, null));
 		Slide s1 = new Slide("GameData/SlideImages/slide1.jpg",
-				"Itâ€™s the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. \nWho are you?",
+				"ItÃ¢â‚¬â„¢s the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. \nWho are you?",
 				null, null, "1");
 		Option temp = new Option("Anders Bengtsson ", "You choose Anders Bengtsson", null, "2", null, null);
 		Effect effect = new GenderEffect(Gender.MALE);
@@ -45,17 +49,17 @@ public class GameDataTester {
 		s1.addOption(temp);
 
 		Slide s2 = new Slide("GameData/SlideImages/slide2.jpg",
-				"You are an 18 year-old male from Mellby Parish, SmÃ¥land. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. ",
+				"You are an 18 year-old male from Mellby Parish, SmÃƒÂ¥land. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. ",
 				null, null, "2");
 		s2.addOption(new Option("Continue", null, null, "4", null, null));
 
 		Slide s3 = new Slide("GameData/SlideImages/slide3.jpg",
-				"You are an 18 year-old female maid from Stockholm. You dislike your job as maid and canâ€™t seem to find a better one because there is too much competition (population has been booming in the city and countryside). You decide to seek better employment in America.",
+				"You are an 18 year-old female maid from Stockholm. You dislike your job as maid and canÃ¢â‚¬â„¢t seem to find a better one because there is too much competition (population has been booming in the city and countryside). You decide to seek better employment in America.",
 				null, null, "3");
 		s3.addOption(new Option("Continue", null, null, "4", null, null));
 
 		Slide s4 = new Slide("GameData/SlideImages/slide4.jpg",
-				"Receiving letters from those who journeyed to America prompted many of your family friends to pursue their own journey over. Life must be treating them well in Americaâ€” economic opportunities, building their own legacy and family. The American Dream is a strong pull for Swedes, yourself included. \n"
+				"Receiving letters from those who journeyed to America prompted many of your family friends to pursue their own journey over. Life must be treating them well in AmericaÃ¢â‚¬â€� economic opportunities, building their own legacy and family. The American Dream is a strong pull for Swedes, yourself included. \n"
 						+ "\n" + "Choose a letter to read:",
 				null, null, "4");
 
@@ -176,12 +180,12 @@ public class GameDataTester {
 		s12.addOption(curedMeatOption);
 
 		Slide s13 = new Slide("GameData/SlideImages/slide13.jpg",
-				"You take a wagon to the port city of Gothenburg. You walk along Sillgatan or â€œHerring Streetâ€� where there were many emigrant agents, hotels, shops, and taverns. Here you wait to board a ship to England.",
+				"You take a wagon to the port city of Gothenburg. You walk along Sillgatan or Ã¢â‚¬Å“Herring StreetÃ¢â‚¬ï¿½ where there were many emigrant agents, hotels, shops, and taverns. Here you wait to board a ship to England.",
 				null, null, "13");
 		s13.addOption(new Option("Continue", null, null, "14", null, null));
 
 		Slide s14 = new Slide("GameData/SlideImages/slide14.jpg",
-				"Over a million Swedish immigrants left through the port of Gothenburg in southwest Sweden. Many American genealogists believe their ancestors lived in Gothenburg, when really this was just the port they left through. Provinces of Sweden including SmÃ¥land, VÃ¤stergÃ¶tland, Dalsland, VÃ¤rmland, and Ã–land saw large numbers emigrate. ",
+				"Over a million Swedish immigrants left through the port of Gothenburg in southwest Sweden. Many American genealogists believe their ancestors lived in Gothenburg, when really this was just the port they left through. Provinces of Sweden including SmÃƒÂ¥land, VÃƒÂ¤stergÃƒÂ¶tland, Dalsland, VÃƒÂ¤rmland, and Ãƒâ€“land saw large numbers emigrate. ",
 				null, null, "14");
 		s14.addOption(new Option("Left", null, null, "15", null, null));
 		s14.addOption(new Option("Forward", null, null, "16", null, null));
@@ -202,8 +206,8 @@ public class GameDataTester {
 		s16.addOption(shipBoarding);
 		s16.addOption(new Option("No", null, null, "14", null, null));
 
-		Slide s17 = new Slide("GameData/SlideImages/slide15.jpg", "Ticket agent â€œWhat can I do for you?â€�", null,
-				null, "17");
+		Slide s17 = new Slide("GameData/SlideImages/slide15.jpg", "Ticket agent Ã¢â‚¬Å“What can I do for you?Ã¢â‚¬ï¿½",
+				null, null, "17");
 		Option buyHull = new Option("Pay for transport to Hull $15 or 60 SEK.\n", null, null, "14", null, null);
 		Option buyHullAmerica = new Option(
 				"Pay for transport to Hull with connection to Liverpool and ship passage $30 or 120 SEK", null, null,
@@ -218,8 +222,8 @@ public class GameDataTester {
 		buyHullAmerica.addFeasibleCondition(
 				new PropertyCondition(new Property(PropertyType.GOLD, 30), ConditionOperation.GREATER_OR_EQUAL));
 
-		Slide s18 = new Slide("GameData/SlideImages/slide10.jpg", "Youâ€™re in the shop. What would you like to do?\n",
-				null, null, "18");
+		Slide s18 = new Slide("GameData/SlideImages/slide10.jpg",
+				"YouÃ¢â‚¬â„¢re in the shop. What would you like to do?\n", null, null, "18");
 		s18.addOption(new Option("Buy", null, null, "19", null, null));
 		s18.addOption(new Option("Sell", null, null, "20", null, null));
 		s18.addOption(new Option("Leave", null, null, "14", null, null));

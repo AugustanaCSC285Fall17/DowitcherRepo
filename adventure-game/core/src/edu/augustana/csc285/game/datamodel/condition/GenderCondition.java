@@ -1,4 +1,7 @@
-package edu.augustana.csc285.game.datamodel;
+package edu.augustana.csc285.game.datamodel.condition;
+
+import edu.augustana.csc285.game.datamodel.Gender;
+import edu.augustana.csc285.game.datamodel.Player;
 
 public class GenderCondition implements Condition {
 
