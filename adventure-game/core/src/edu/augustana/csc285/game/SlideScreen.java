@@ -153,10 +153,10 @@ public class SlideScreen implements Screen {
 		// Constants in formula can be changed to adjust location of these buttons
 		inventoryButton.setPosition(Math.round(0.52 * AdventureGame.GAME_SCREEN_WIDTH),
 				Math.round(0.91875 * AdventureGame.GAME_SCREEN_HEIGHT));
-		playerStatButton.setPosition(
-				Math.round(0.68 * AdventureGame.GAME_SCREEN_WIDTH), Math.round(0.91875 * AdventureGame.GAME_SCREEN_WIDTH));
+		playerStatButton.setPosition(Math.round(0.68 * AdventureGame.GAME_SCREEN_WIDTH), 
+				Math.round(0.91875 * AdventureGame.GAME_SCREEN_HEIGHT));
 		settingsButton.setPosition(Math.round((0.84 * AdventureGame.GAME_SCREEN_WIDTH)),
-				Math.round(0.91875 * AdventureGame.GAME_SCREEN_WIDTH));
+				Math.round(0.91875 * AdventureGame.GAME_SCREEN_HEIGHT));
 
 		stage.addActor(inventoryButton);
 		stage.addActor(playerStatButton);
@@ -198,19 +198,15 @@ public class SlideScreen implements Screen {
 		}
 
 		game.batch.setProjectionMatrix(camera.combined);
-
 		game.batch.begin();
-		// game.batch.draw(region, x, y, originX, originY, width, height,
-		// scaleX, scaleY, rotation);
-
-		System.out.println((AdventureGame.GAME_SCREEN_HEIGHT - WIDTH_BUFFER
-				- (5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8 * (image.getWidth() / image.getHeight())) / AdventureGame.GAME_SCREEN_WIDTH);
+		
 		// Draw the image
-		game.batch.draw(image, WIDTH_BUFFER, AdventureGame.GAME_SCREEN_HEIGHT - WIDTH_BUFFER
-				- (5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8 * (image.getWidth() / image.getHeight()),
+		//game.batch.draw(region, x, y, width, height);
+		game.batch.draw(image, WIDTH_BUFFER, 
+				Math.round(0.3583333333 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())),
 
-				(5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8,
-				(5 * AdventureGame.GAME_SCREEN_HEIGHT) / 8 * (image.getWidth() / image.getHeight()));
+				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT),
+				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())));
 		// game.batch.draw(region, x, y, originX, originY, width, height,
 		// scaleX, scaleY, rotation);
 		game.batch.end();
