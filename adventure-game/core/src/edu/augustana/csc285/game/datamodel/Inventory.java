@@ -46,6 +46,9 @@ public class Inventory {
 		if (temp != null) {
 			temp.addItem(item);
 		}
+		else {
+			collection.add(item);
+		}
 	}
 
 	// precondition that collection is not null

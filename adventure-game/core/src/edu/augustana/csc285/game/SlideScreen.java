@@ -3,8 +3,6 @@ package edu.augustana.csc285.game;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -35,8 +33,8 @@ public class SlideScreen implements Screen {
 	private ArrayList<Option> visibleOptions;
 	private Texture image;
 	private OrthographicCamera camera;
-	private int input;
-	private int numOptions;
+//	private int input;
+//	private int numOptions;
 	private Stage stage;
 
 	public SlideScreen(AdventureGame game) {
