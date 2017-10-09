@@ -1,8 +1,11 @@
 package edu.augustana.csc285.game.datamodel;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Json;
 
 /**
@@ -123,6 +126,14 @@ public class Story {
 	 */
 	public String toJSON() {
 		return new Json().prettyPrint(this);
+	}
+
+	/**
+		Returns an array containing all the Story files
+	 	Uses libgdx for compatability with game engine
+	 */
+	public static FileHandle[] getStoryFiles() {
+		return new FileHandle("storyData").list();
 	}
 
 	/**
