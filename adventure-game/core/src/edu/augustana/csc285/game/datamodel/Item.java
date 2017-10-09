@@ -136,7 +136,7 @@ public class Item {
 	}
 
 	public String toString() {
-		return "Item " + name + ": " + quantity;
+		return name + ": " + quantity;
 	}
 
 	@Override

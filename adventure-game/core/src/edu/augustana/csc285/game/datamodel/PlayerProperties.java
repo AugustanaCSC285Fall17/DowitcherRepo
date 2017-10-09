@@ -26,11 +26,10 @@ public class PlayerProperties {
 		properties = new TreeMap<String, Property>(other.properties);
 	}
 
-	public PlayerProperties(int health, int morale, int gold, int day) {
+	public PlayerProperties(int health, int morale, int day) {
 		properties = new TreeMap<String, Property>();
 		properties.put(PropertyType.HEALTH.getID(), new Property(PropertyType.HEALTH, health));
 		properties.put(PropertyType.MORALE.getID(), new Property(PropertyType.MORALE, morale));
-		properties.put(PropertyType.GOLD.getID(), new Property(PropertyType.GOLD, gold));
 		properties.put(PropertyType.DAY.getID(), new Property(PropertyType.DAY, day));
 	}
 
@@ -39,8 +38,7 @@ public class PlayerProperties {
 	 * of game
 	 */
 	public PlayerProperties() {
-		this(PropertyType.HEALTH.getValue(), PropertyType.MORALE.getValue(), PropertyType.GOLD.getValue(),
-				PropertyType.DAY.getValue());
+		this(PropertyType.HEALTH.getValue(), PropertyType.MORALE.getValue(), PropertyType.DAY.getValue());
 	}
 
 	public TreeMap<String, Property> getProperties() {

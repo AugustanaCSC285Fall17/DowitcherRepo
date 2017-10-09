@@ -20,6 +20,7 @@ public class Inventory {
 	private TreeSet<Item> collection = new TreeSet<Item>(new StringComp());
 
 	public Inventory() {
+		this.addDefaultItem();
 	}
 
 	public Inventory(TreeSet<Item> collection) {
@@ -117,5 +118,12 @@ public class Inventory {
 			}
 		}
 		return null;
+	}
+
+	public void addDefaultItem() {
+		Item sck = new Item("Sck", "Currency of Sweden", 1000000, null);
+		Item dollar = new Item("Dollar", "Currency of USA", 1000000, null);
+		collection.add(sck);
+		collection.add(dollar);
 	}
 }

@@ -6,7 +6,7 @@ package edu.augustana.csc285.game.datamodel;
  *
  */
 public enum PropertyType {
-	HEALTH(10, "0"), MORALE(10, "1"), GOLD(400, "2"), DAY(0, "3");
+	HEALTH(10, "0"), MORALE(10, "1"), DAY(0, "2");
 	private int default_value;
 	private String default_id;
 
@@ -28,9 +28,4 @@ public enum PropertyType {
 		return this.name().toLowerCase();
 	}
 
-	public static void main(String[] args) {
-		PropertyType temp = PropertyType.GOLD;
-		System.out.println(temp.getValue());
-		System.out.println(temp.getID());
-	}
 }

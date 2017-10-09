@@ -151,6 +151,8 @@ public class Story {
 	}
 
 	public static void main(String[] args) {
+		Item sck = new Item("Sck", "Currency of Sweden", 1, null);
+		Item dollar = new Item("Dollar", "Currency of USA", 1, null);
 		Item medicine = new Item("Medicine", null, 1, null);
 		Item jDLetter = new Item("John Deere Letter", "A letter from John Deere", 1, "GameData/SlideImages/item5.jpg");
 		Item iLetter = new Item("Illinois Letter", "A letter from Illinois", 1, "GameData/SlideImages/item6.jpg");
@@ -257,7 +259,7 @@ public class Story {
 				null, null, "9");
 		temp = new Option("Buy official papers from your home parish $20 or 80 SEK", null, null, "10", null, null);
 		temp.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 20), ConditionOperation.GREATER_OR_EQUAL));
+				new ItemCondition(new Item(PropertyType.GOLD, 20), ConditionOperation.GREATER_OR_EQUAL));
 		temp.addEffect(new ItemEffect(officialPapers, EffectOperation.PLUS));
 		s9.addOption(temp);
 		temp = new Option("Buy forged papers $10 or 40 SEK", null, null, "10", null, null);
