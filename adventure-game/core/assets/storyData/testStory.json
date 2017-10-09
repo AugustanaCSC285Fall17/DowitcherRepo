@@ -1,6 +1,5 @@
 {
 slides: {
-	class: java.util.HashMap
 	11: {
 		image: GameData/SlideImages/slide10.jpg
 		desc: "Excellent. You are the first in your family to take on this journey. They are counting on your success in America. Your family has pooled enough money for passage, thankfully. You cannot take too much with you, so you must choose carefully which items to bring. Some items are more useful than others but even the smallest, trivial item can lead to unexpected use. Remember, you already have some money left after purchasing papers.  \n"
@@ -11,22 +10,20 @@ slides: {
 				nextSlideIndex: 12
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Bible
 							quantity: 1
-							id: 12
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Bible
 							quantity: 1
-							id: 12
 						}
 						operation: SMALLER
 					}
@@ -38,22 +35,20 @@ slides: {
 				nextSlideIndex: 12
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Family Heirloom
 							quantity: 1
-							id: 13
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Family Heirloom
 							quantity: 1
-							id: 13
 						}
 						operation: SMALLER
 					}
@@ -65,22 +60,20 @@ slides: {
 				nextSlideIndex: 12
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Sewing Machine
 							quantity: 1
-							id: 14
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Sewing Machine
 							quantity: 1
-							id: 14
 						}
 						operation: SMALLER
 					}
@@ -92,22 +85,20 @@ slides: {
 				nextSlideIndex: 12
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Medicine
 							quantity: 1
-							id: 15
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Medicine
 							quantity: 1
-							id: 15
 						}
 						operation: SMALLER
 					}
@@ -119,22 +110,20 @@ slides: {
 				nextSlideIndex: 12
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Cured Meat
 							quantity: 1
-							id: 16
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Cured Meat
 							quantity: 1
-							id: 16
 						}
 						operation: SMALLER
 					}
@@ -153,22 +142,20 @@ slides: {
 				nextSlideIndex: 13
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Bible
 							quantity: 1
-							id: 12
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Bible
 							quantity: 1
-							id: 12
 						}
 						operation: SMALLER
 					}
@@ -180,22 +167,20 @@ slides: {
 				nextSlideIndex: 13
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Family Heirloom
 							quantity: 1
-							id: 13
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Family Heirloom
 							quantity: 1
-							id: 13
 						}
 						operation: SMALLER
 					}
@@ -207,22 +192,20 @@ slides: {
 				nextSlideIndex: 13
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Sewing Machine
 							quantity: 1
-							id: 14
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Sewing Machine
 							quantity: 1
-							id: 14
 						}
 						operation: SMALLER
 					}
@@ -234,22 +217,20 @@ slides: {
 				nextSlideIndex: 13
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Medicine
 							quantity: 1
-							id: 15
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Medicine
 							quantity: 1
-							id: 15
 						}
 						operation: SMALLER
 					}
@@ -261,22 +242,20 @@ slides: {
 				nextSlideIndex: 13
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Cured Meat
 							quantity: 1
-							id: 16
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Cured Meat
 							quantity: 1
-							id: 16
 						}
 						operation: SMALLER
 					}
@@ -358,22 +337,20 @@ slides: {
 				nextSlideIndex: 21
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Ticket to Hull
 							quantity: 1
-							id: 17
 						}
 						operation: MINUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Ticket to Hull
 							quantity: 1
-							id: 17
 						}
 						operation: EQUAL
 					}
@@ -399,16 +376,15 @@ slides: {
 				nextSlideIndex: 14
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Ticket to Hull
 							quantity: 1
-							id: 17
 						}
 						operation: PLUS
 					}
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyEffect
+						class: edu.augustana.csc285.game.datamodel.effect.PropertyEffect
 						property: {
 							type: GOLD
 							quantity: 15
@@ -420,7 +396,7 @@ slides: {
 				visibleConditions: []
 				feasibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyCondition
+						class: edu.augustana.csc285.game.datamodel.condition.PropertyCondition
 						property: {
 							type: GOLD
 							quantity: 15
@@ -435,25 +411,23 @@ slides: {
 				nextSlideIndex: 14
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Ticket to Hull
 							quantity: 1
-							id: 17
 						}
 						operation: PLUS
 					}
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Ticket to America
 							quantity: 1
-							id: 18
 						}
 						operation: PLUS
 					}
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyEffect
+						class: edu.augustana.csc285.game.datamodel.effect.PropertyEffect
 						property: {
 							type: GOLD
 							quantity: 30
@@ -465,7 +439,7 @@ slides: {
 				visibleConditions: []
 				feasibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyCondition
+						class: edu.augustana.csc285.game.datamodel.condition.PropertyCondition
 						property: {
 							type: GOLD
 							quantity: 30
@@ -515,16 +489,15 @@ slides: {
 				nextSlideIndex: 14
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Bible
 							quantity: 1
-							id: 12
 						}
 						operation: PLUS
 					}
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyEffect
+						class: edu.augustana.csc285.game.datamodel.effect.PropertyEffect
 						property: {
 							type: GOLD
 							quantity: 5
@@ -536,7 +509,7 @@ slides: {
 				visibleConditions: []
 				feasibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyCondition
+						class: edu.augustana.csc285.game.datamodel.condition.PropertyCondition
 						property: {
 							type: GOLD
 							quantity: 5
@@ -551,16 +524,15 @@ slides: {
 				nextSlideIndex: 14
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Family Heirloom
 							quantity: 1
-							id: 13
 						}
 						operation: PLUS
 					}
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyEffect
+						class: edu.augustana.csc285.game.datamodel.effect.PropertyEffect
 						property: {
 							type: GOLD
 							quantity: 5
@@ -572,7 +544,7 @@ slides: {
 				visibleConditions: []
 				feasibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyCondition
+						class: edu.augustana.csc285.game.datamodel.condition.PropertyCondition
 						property: {
 							type: GOLD
 							quantity: 5
@@ -587,16 +559,15 @@ slides: {
 				nextSlideIndex: 14
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Sewing Machine
 							quantity: 1
-							id: 14
 						}
 						operation: PLUS
 					}
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyEffect
+						class: edu.augustana.csc285.game.datamodel.effect.PropertyEffect
 						property: {
 							type: GOLD
 							quantity: 5
@@ -608,7 +579,7 @@ slides: {
 				visibleConditions: []
 				feasibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyCondition
+						class: edu.augustana.csc285.game.datamodel.condition.PropertyCondition
 						property: {
 							type: GOLD
 							quantity: 5
@@ -623,16 +594,15 @@ slides: {
 				nextSlideIndex: 14
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Medicine
 							quantity: 1
-							id: 15
 						}
 						operation: PLUS
 					}
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyEffect
+						class: edu.augustana.csc285.game.datamodel.effect.PropertyEffect
 						property: {
 							type: GOLD
 							quantity: 5
@@ -644,7 +614,7 @@ slides: {
 				visibleConditions: []
 				feasibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyCondition
+						class: edu.augustana.csc285.game.datamodel.condition.PropertyCondition
 						property: {
 							type: GOLD
 							quantity: 5
@@ -659,16 +629,15 @@ slides: {
 				nextSlideIndex: 14
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Cured Meat
 							quantity: 1
-							id: 16
 						}
 						operation: PLUS
 					}
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyEffect
+						class: edu.augustana.csc285.game.datamodel.effect.PropertyEffect
 						property: {
 							type: GOLD
 							quantity: 5
@@ -680,7 +649,7 @@ slides: {
 				visibleConditions: []
 				feasibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyCondition
+						class: edu.augustana.csc285.game.datamodel.condition.PropertyCondition
 						property: {
 							type: GOLD
 							quantity: 5
@@ -725,11 +694,11 @@ slides: {
 				nextSlideIndex: 2
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.GenderEffect
+						class: edu.augustana.csc285.game.datamodel.effect.GenderEffect
 						gender: MALE
 					}
 					{
-						class: edu.augustana.csc285.game.datamodel.NameEffect
+						class: edu.augustana.csc285.game.datamodel.effect.NameEffect
 						name: Anders Bengtsson
 					}
 				]
@@ -742,11 +711,11 @@ slides: {
 				nextSlideIndex: 3
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.GenderEffect
+						class: edu.augustana.csc285.game.datamodel.effect.GenderEffect
 						gender: FEMALE
 					}
 					{
-						class: edu.augustana.csc285.game.datamodel.NameEffect
+						class: edu.augustana.csc285.game.datamodel.effect.NameEffect
 						name: Lovisa Eriksdotter
 					}
 				]
@@ -793,12 +762,11 @@ slides: {
 				nextSlideIndex: 5
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: John Deere Letter
 							desc: A letter from John Deere
 							quantity: 1
-							id: 5
 							image: GameData/SlideImages/item5.jpg
 						}
 						operation: PLUS
@@ -806,7 +774,7 @@ slides: {
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.GenderCondition
+						class: edu.augustana.csc285.game.datamodel.condition.GenderCondition
 						gender: MALE
 					}
 				]
@@ -817,12 +785,11 @@ slides: {
 				nextSlideIndex: 6
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Illinois Letter
 							desc: A letter from Illinois
 							quantity: 1
-							id: 6
 							image: GameData/SlideImages/item6.jpg
 						}
 						operation: PLUS
@@ -836,12 +803,11 @@ slides: {
 				nextSlideIndex: 7
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Washington Letter
 							desc: A letter from Washington
 							quantity: 1
-							id: 7
 							image: GameData/SlideImages/item7.jpg
 						}
 						operation: PLUS
@@ -849,7 +815,7 @@ slides: {
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.GenderCondition
+						class: edu.augustana.csc285.game.datamodel.condition.GenderCondition
 						gender: FEMALE
 					}
 				]
@@ -860,12 +826,11 @@ slides: {
 				nextSlideIndex: 8
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Minnesota Letter
 							desc: A letter from Minnesota
 							quantity: 1
-							id: 8
 							image: GameData/SlideImages/item8.jpg
 						}
 						operation: PLUS
@@ -873,7 +838,7 @@ slides: {
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.GenderCondition
+						class: edu.augustana.csc285.game.datamodel.condition.GenderCondition
 						gender: MALE
 					}
 				]
@@ -947,11 +912,10 @@ slides: {
 				nextSlideIndex: 10
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Official papers
 							quantity: 1
-							id: 10
 						}
 						operation: PLUS
 					}
@@ -959,7 +923,7 @@ slides: {
 				visibleConditions: []
 				feasibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyCondition
+						class: edu.augustana.csc285.game.datamodel.condition.PropertyCondition
 						property: {
 							type: GOLD
 							quantity: 20
@@ -974,11 +938,10 @@ slides: {
 				nextSlideIndex: 10
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Forged papers
 							quantity: 1
-							id: 11
 						}
 						operation: PLUS
 					}
@@ -986,7 +949,7 @@ slides: {
 				visibleConditions: []
 				feasibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.PropertyCondition
+						class: edu.augustana.csc285.game.datamodel.condition.PropertyCondition
 						property: {
 							type: GOLD
 							quantity: 10
@@ -1008,22 +971,20 @@ slides: {
 				nextSlideIndex: 11
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Bible
 							quantity: 1
-							id: 12
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Bible
 							quantity: 1
-							id: 12
 						}
 						operation: SMALLER
 					}
@@ -1035,22 +996,20 @@ slides: {
 				nextSlideIndex: 11
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Family Heirloom
 							quantity: 1
-							id: 13
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Family Heirloom
 							quantity: 1
-							id: 13
 						}
 						operation: SMALLER
 					}
@@ -1062,22 +1021,20 @@ slides: {
 				nextSlideIndex: 11
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Sewing Machine
 							quantity: 1
-							id: 14
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Sewing Machine
 							quantity: 1
-							id: 14
 						}
 						operation: SMALLER
 					}
@@ -1089,22 +1046,20 @@ slides: {
 				nextSlideIndex: 11
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Medicine
 							quantity: 1
-							id: 15
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Medicine
 							quantity: 1
-							id: 15
 						}
 						operation: SMALLER
 					}
@@ -1116,22 +1071,20 @@ slides: {
 				nextSlideIndex: 11
 				effects: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemEffect
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
 							name: Cured Meat
 							quantity: 1
-							id: 16
 						}
 						operation: PLUS
 					}
 				]
 				visibleConditions: [
 					{
-						class: edu.augustana.csc285.game.datamodel.ItemCondition
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Cured Meat
 							quantity: 1
-							id: 16
 						}
 						operation: SMALLER
 					}
