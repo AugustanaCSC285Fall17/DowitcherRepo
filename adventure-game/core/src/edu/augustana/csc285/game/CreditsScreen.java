@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 /*
@@ -38,6 +39,7 @@ public class CreditsScreen implements Screen {
 		ScrollPane scroll = new ScrollPane(label, DEFAULT_SKIN);
 		scroll.setPosition(150, 10);
 		scroll.setSize(500, 500);
+		
 		stage.addActor(scroll);
 
 		Button button = new TextButton("Back", DEFAULT_SKIN);

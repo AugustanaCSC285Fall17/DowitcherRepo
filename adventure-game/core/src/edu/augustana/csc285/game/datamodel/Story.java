@@ -168,7 +168,7 @@ public class Story {
 
 		Story story = new Story("0");
 		Slide s0 = new Slide("GameData/SlideImages/slide0.jpg",
-				"You're a young Swedish immigrant to America in 1880. You've made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?\n",
+				"You're young Swedish Immigrat to America in 1880. You've made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?\n",
 				null, null, "0");
 		s0.addOption(new Option("Take the Journey", "You have embarked on a journey!", null, "1", null, null));
 		Slide s1 = new Slide("GameData/SlideImages/slide1.jpg",

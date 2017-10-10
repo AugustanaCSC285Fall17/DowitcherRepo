@@ -7,51 +7,52 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
 
-<BorderPane prefHeight="400.0" prefWidth="551.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.augustana.csc285.gamebuilder.MainPaneController">
-   <top>
-<MenuBar BorderPane.alignment="CENTER">
-  <menus>
-    <Menu mnemonicParsing="false" text="File">
-      <items>
-        <MenuItem mnemonicParsing="false" onAction="#handleMenuFileClose" text="Close" />
-      </items>
-    </Menu>
-    <Menu mnemonicParsing="false" text="Help">
-      <items>
-        <MenuItem mnemonicParsing="false" onAction="#handleMenuHelpAbout" text="About" />
-      </items>
-    </Menu>
-            <Menu mnemonicParsing="false" text="Current Slide">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1">
-                     <graphic>
-                        <Pane prefHeight="200.0" prefWidth="200.0" />
-                     </graphic>
-                  </MenuItem>
-              </items>
-            </Menu>
-  </menus>
-</MenuBar>
-   </top>
-   <center>
+<BorderPane prefHeight="400.0" prefWidth="551.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.augustana.csc285.gamebuilder.MainPaneController">
+   <bottom>
 <AnchorPane prefHeight="371.0" prefWidth="551.0" BorderPane.alignment="CENTER">
    <children>
-            <TextField alignment="TOP_LEFT" layoutX="195.0" layoutY="16.0" prefHeight="91.0" prefWidth="167.0" />
-            <Label layoutX="27.0" layoutY="53.0" text="Enter slide description:" />
-            <Label layoutX="27.0" layoutY="156.0" text="Enter an option:" />
-            <TextField alignment="TOP_LEFT" layoutX="195.0" layoutY="133.0" prefHeight="45.0" prefWidth="167.0" />
-            <ChoiceBox layoutX="203.0" layoutY="186.0" prefWidth="150.0" />
-            <Button layoutX="413.0" layoutY="48.0" mnemonicParsing="false" text="Add to slide" />
-            <Button layoutX="413.0" layoutY="142.0" mnemonicParsing="false" text="Add to slide" />
-            <Label layoutX="194.0" layoutY="205.0" prefHeight="17.0" prefWidth="170.0" text="eventually remove this label, but this choicebox  will have list of available slides to add to --&gt;" />
-            <Button layoutX="27.0" layoutY="308.0" mnemonicParsing="false" text="Upload Image" />
-            <Button layoutX="220.0" layoutY="308.0" mnemonicParsing="false" text="Upload Music" />
-            <Button layoutX="413.0" layoutY="308.0" mnemonicParsing="false" text="Upload Sound" />
+            <TextField alignment="TOP_LEFT" layoutX="188.0" layoutY="86.0" prefHeight="100.0" prefWidth="315.0" />
+            <Label layoutX="27.0" layoutY="75.0" prefHeight="35.0" prefWidth="143.0" text="Enter slide description:" textFill="#1b1a1a" />
+            <ChoiceBox layoutX="188.0" layoutY="207.0" prefWidth="150.0" />
+            <Button layoutX="346.0" layoutY="321.0" mnemonicParsing="false" onAction="#saveChanges" text="Apply Changes To Slide" />
+            <Button layoutX="27.0" layoutY="207.0" mnemonicParsing="false" text="Upload Image" />
+            <Button layoutX="28.0" layoutY="248.0" mnemonicParsing="false" text="Upload Music" />
+            <Label layoutX="27.0" layoutY="35.0" text="Choose Slide to edit:" />
+            <Button layoutX="27.0" layoutY="294.0" mnemonicParsing="false" text="Show Slide Status" />
+            <ChoiceBox layoutX="188.0" layoutY="30.0" prefHeight="27.0" prefWidth="65.0" />
+            <ChoiceBox layoutX="188.0" layoutY="248.0" prefWidth="150.0" />
+            <ImageView fitHeight="70.0" fitWidth="250.0" layoutX="269.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../Downloads/media_sm/image1.png" />
+               </image>
+            </ImageView>
    </children>
 </AnchorPane>
+   </bottom>
+   <center>
+      <MenuBar prefHeight="58.0" prefWidth="551.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#handleMenuFileClose" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleMenuHelpAbout" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
    </center>
 </BorderPane>
