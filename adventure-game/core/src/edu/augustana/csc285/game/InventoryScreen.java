@@ -71,9 +71,9 @@ public class InventoryScreen implements Screen {
 		button.setPosition(660, 430);
 		stage.addActor(button);
 
-		//
+		
 		// Label description = new Label(slide.getDesc(), DEFAULT_SKIN);
-		// description.setWrap(true);
+		//description.setWrap(true);
 		// ScrollPane scroll = new ScrollPane(description, DEFAULT_SKIN);
 		// scroll.setPosition((WIDTH_BUFFER * 2) + (23 *
 		// AdventureGame.GAME_SCREEN_HEIGHT) / 32,

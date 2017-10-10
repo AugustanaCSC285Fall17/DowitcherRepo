@@ -7,6 +7,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import java.awt.event.MouseEvent;
 import java.io.File;
 
 public class MainPaneController {
@@ -34,9 +35,16 @@ public class MainPaneController {
 
 	@FXML
 	private void handleMenuHelpAbout() {
-		new Alert(AlertType.INFORMATION,"Placeholder for about screen").showAndWait();
+		new Alert(AlertType.INFORMATION,"Placeholder for screen to be created").showAndWait();
 	}
-
+	
+    @FXML
+    void saveChanges() {
+    	//save the edited screen
+    	new Alert(AlertType.INFORMATION,"All Changes Saved").showAndWait();
+    }	
+	
+	
 	/**
 	 * Returns an array containing the story files
 	 * Uses Java I/O for compatability with gamebuilder

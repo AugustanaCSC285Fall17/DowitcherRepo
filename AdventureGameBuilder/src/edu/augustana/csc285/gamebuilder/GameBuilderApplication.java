@@ -16,7 +16,7 @@ public class GameBuilderApplication extends Application {
 	    
         Scene scene = new Scene(root);
     
-        primaryStage.setTitle("<YOUR TEAM>'s Game Builder");
+        primaryStage.setTitle("Game Builder for Swedish Immigration Trail");
         primaryStage.setScene(scene);
         primaryStage.show();
 	}
