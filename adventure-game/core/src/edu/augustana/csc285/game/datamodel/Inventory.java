@@ -45,8 +45,7 @@ public class Inventory {
 		Item temp = this.findItem(item);
 		if (temp != null) {
 			temp.addItem(item);
-		}
-		else {
+		} else {
 			collection.add(item);
 		}
 	}
