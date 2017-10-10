@@ -5,26 +5,31 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.util.HashMap;
 
 public class MainPaneController {
 
-	@FXML private TextField uselessTextField;
-	@FXML private Button uselessButton;
+	@FXML private TextField descriptionField;
+	@FXML private ChoiceBox slideChoiceBox;
+	@FXML private Button imageButton;
+	@FXML private Button musicButton;
+	@FXML private Button slideStatusButton;
+	@FXML private Button saveChangesButton;
+	@FXML private Button descriptionButton;
+	//private Story story;
+	//private Slide currentSlide;
 	
 	// JavaFX initialize method, called after this Pane is created.
 	@FXML
 	private void initialize() {
+		// Story story = new Story();
 		// Slide slide = new Slide();
-	}
-	
-	@FXML
-	private void handleUselessButton() {
-		Alert alert = new Alert(AlertType.INFORMATION,"This button is useless!");
-		alert.showAndWait();
 	}
 
 	@FXML
@@ -37,10 +42,43 @@ public class MainPaneController {
 	private void handleMenuHelpAbout() {
 		new Alert(AlertType.INFORMATION,"Placeholder for screen to be created").showAndWait();
 	}
+
+	@FXML
+	private void handleSlideChoiceBox() {
+
+	}
+
+	@FXML
+	private void handleImageButton() {
+		File imageFile = getFileFromUser();
+		//currentSlide.setImage(imageFile.getPath());
+	}
+
+	@FXML
+	private void handleMusicButton() {
+		File musicFile = getFileFromUser();
+		//currentSlide.setMusic(musicFile.getPath());
+	}
+
+	@FXML
+	private void handleSlideStatusButton() {
+		//new Alert(AlertType.INFORMATION, currentSlide.toString()).showAndWait();
+	}
+
+	@FXML
+	private void handleDescriptionButton() {
+		//currentSlide.setDesc(descriptionField.getText());
+	}
+
+	private File getFileFromUser() {
+		FileChooser fileBrowser = new FileChooser();
+		return fileBrowser.showOpenDialog(null);
+	}
 	
     @FXML
-    void saveChanges() {
+    private void handleSaveChangesButton() {
     	//save the edited screen
+		//Story.slides.get(currentSlide.getID()) = new Slide(currentSlide);
     	new Alert(AlertType.INFORMATION,"All Changes Saved").showAndWait();
     }	
 	
