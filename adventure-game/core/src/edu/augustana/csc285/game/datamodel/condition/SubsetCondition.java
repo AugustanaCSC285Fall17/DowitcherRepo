@@ -6,8 +6,21 @@ import java.util.List;
 import edu.augustana.csc285.game.datamodel.Player;
 
 public class SubsetCondition implements Condition {
-	private ArrayList<Condition> conditions;
+	private ArrayList<Condition> conditions = new ArrayList<Condition>();
 	private int numberOfSatisfied;
+
+	public SubsetCondition() {
+
+	}
+
+	public SubsetCondition(ArrayList<Condition> conditions, int numberOfSatisfied) {
+		this.conditions = conditions;
+		this.numberOfSatisfied = numberOfSatisfied;
+	}
+
+	public SubsetCondition(int numberOfSatisfied) {
+		this.numberOfSatisfied = numberOfSatisfied;
+	}
 
 	@Override
 	public boolean checkCondition(Player player) {

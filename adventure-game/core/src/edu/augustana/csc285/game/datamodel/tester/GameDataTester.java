@@ -1,5 +1,7 @@
 package edu.augustana.csc285.game.datamodel.tester;
 
+import java.util.Arrays;
+
 import edu.augustana.csc285.game.datamodel.*;
 import edu.augustana.csc285.game.datamodel.effect.*;
 import edu.augustana.csc285.game.datamodel.condition.*;
@@ -7,7 +9,8 @@ import edu.augustana.csc285.game.datamodel.condition.*;
 public class GameDataTester {
 
 	public static void main(String[] args) {
-		// Define Items
+		Item sek = new Item("Sek", "Currency of Sweden", 1, null);
+		Item dollar = new Item("Dollar", "Currency of USA", 1, null);
 		Item medicine = new Item("Medicine", null, 1, null);
 		Item jDLetter = new Item("John Deere Letter", "A letter from John Deere", 1, "GameData/SlideImages/item5.jpg");
 		Item iLetter = new Item("Illinois Letter", "A letter from Illinois", 1, "GameData/SlideImages/item6.jpg");
@@ -22,14 +25,14 @@ public class GameDataTester {
 		Item ticketToHull = new Item("Ticket to Hull", null, 1, null);
 		Item ticketToAmerica = new Item("Ticket to America", null, 1, null);
 		// Item
-		GameData gd = new GameData();
-		Player player = new Player();
+
+		Story story = new Story("0");
 		Slide s0 = new Slide("GameData/SlideImages/slide0.jpg",
-				"YouÃ¢â‚¬â„¢re a young Swedish immigrant to America in 1880. YouÃ¢â‚¬â„¢ve made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?\n",
+				"You're a young Swedish immigrant to America in 1880. You've made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?\n",
 				null, null, "0");
 		s0.addOption(new Option("Take the Journey", "You have embarked on a journey!", null, "1", null, null));
 		Slide s1 = new Slide("GameData/SlideImages/slide1.jpg",
-				"ItÃ¢â‚¬â„¢s the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. \nWho are you?",
+				"It's the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. \nWho are you?",
 				null, null, "1");
 		Option temp = new Option("Anders Bengtsson ", "You choose Anders Bengtsson", null, "2", null, null);
 		Effect effect = new GenderEffect(Gender.MALE);
@@ -45,17 +48,17 @@ public class GameDataTester {
 		s1.addOption(temp);
 
 		Slide s2 = new Slide("GameData/SlideImages/slide2.jpg",
-				"You are an 18 year-old male from Mellby Parish, SmÃƒÂ¥land. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. ",
+				"You are an 18 year-old male from Mellby Parish, SmÃ¥land. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. ",
 				null, null, "2");
 		s2.addOption(new Option("Continue", null, null, "4", null, null));
 
 		Slide s3 = new Slide("GameData/SlideImages/slide3.jpg",
-				"You are an 18 year-old female maid from Stockholm. You dislike your job as maid and canÃ¢â‚¬â„¢t seem to find a better one because there is too much competition (population has been booming in the city and countryside). You decide to seek better employment in America.",
+				"You are an 18 year-old female maid from Stockholm. You dislike your job as maid and can't seem to find a better one because there is too much competition (population has been booming in the city and countryside). You decide to seek better employment in America.",
 				null, null, "3");
 		s3.addOption(new Option("Continue", null, null, "4", null, null));
 
 		Slide s4 = new Slide("GameData/SlideImages/slide4.jpg",
-				"Receiving letters from those who journeyed to America prompted many of your family friends to pursue their own journey over. Life must be treating them well in AmericaÃ¢â‚¬â€� economic opportunities, building their own legacy and family. The American Dream is a strong pull for Swedes, yourself included. \n"
+				"Receiving letters from those who journeyed to America prompted many of your family friends to pursue their own journey over. Life must be treating them well in Americaâ€” economic opportunities, building their own legacy and family. The American Dream is a strong pull for Swedes, yourself included. \n"
 						+ "\n" + "Choose a letter to read:",
 				null, null, "4");
 
@@ -112,14 +115,12 @@ public class GameDataTester {
 		Slide s9 = new Slide("GameData/SlideImages/slide9.jpg",
 				"To start your journey, you need a few provisions. The first and foremost being your papers. You have $70 USD worth of Kronor (Swedish money)  right now. Do you:\n",
 				null, null, "9");
-		temp = new Option("Buy official papers from your home parish $20 or 80 SEK", null, null, "10", null, null);
-		temp.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 20), ConditionOperation.GREATER_OR_EQUAL));
+		temp = new Option("Buy official papers from your home parish 80 SEK", null, null, "10", null, null);
+		temp.addFeasibleCondition(new ItemCondition(new Item(sek, 80), ConditionOperation.GREATER_OR_EQUAL));
 		temp.addEffect(new ItemEffect(officialPapers, EffectOperation.PLUS));
 		s9.addOption(temp);
-		temp = new Option("Buy forged papers $10 or 40 SEK", null, null, "10", null, null);
-		temp.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 10), ConditionOperation.GREATER_OR_EQUAL));
+		temp = new Option("Buy forged papers 40 SEK", null, null, "10", null, null);
+		temp.addFeasibleCondition(new ItemCondition(new Item(sek, 40), ConditionOperation.GREATER_OR_EQUAL));
 		temp.addEffect(new ItemEffect(forgedPapers, EffectOperation.PLUS));
 		s9.addOption(temp);
 
@@ -127,56 +128,76 @@ public class GameDataTester {
 				"Excellent. You are the first in your family to take on this journey. They are counting on your success in America. Your family has pooled enough money for passage, thankfully. You cannot take too much with you, so you must choose carefully which items to bring. Some items are more useful than others but even the smallest, trivial item can lead to unexpected use. Remember, you already have some money left after purchasing papers.  \n",
 				null, null, "10");
 		Option bibleOption = new Option("A Bible", null, null, "11", null, null);
-		bibleOption.addVisibleCondition(new ItemCondition(bible, ConditionOperation.EQUAL));
+		bibleOption.addVisibleCondition(new ItemCondition(bible, ConditionOperation.SMALLER));
 		bibleOption.addEffect(new ItemEffect(bible, EffectOperation.PLUS));
 		s10.addOption(bibleOption);
 		Option familyHeirloomOption = new Option("Family Heirloon", null, null, "11", null, null);
-		familyHeirloomOption.addVisibleCondition(new ItemCondition(familyHeirloom, ConditionOperation.EQUAL));
+		familyHeirloomOption.addVisibleCondition(new ItemCondition(familyHeirloom, ConditionOperation.SMALLER));
 		familyHeirloomOption.addEffect(new ItemEffect(familyHeirloom, EffectOperation.PLUS));
 		s10.addOption(familyHeirloomOption);
-		Option sewingMachineOption = new Option("sewingMachine", null, null, "11", null, null);
-		sewingMachineOption.addVisibleCondition(new ItemCondition(sewingMachine, ConditionOperation.EQUAL));
+		Option sewingMachineOption = new Option("Sewing Machine", null, null, "11", null, null);
+		sewingMachineOption.addVisibleCondition(new ItemCondition(sewingMachine, ConditionOperation.SMALLER));
 		sewingMachineOption.addEffect(new ItemEffect(sewingMachine, EffectOperation.PLUS));
 		s10.addOption(sewingMachineOption);
 		Option medicineOption = new Option("Medicine", null, null, "11", null, null);
-		medicineOption.addVisibleCondition(new ItemCondition(medicine, ConditionOperation.EQUAL));
+		medicineOption.addVisibleCondition(new ItemCondition(medicine, ConditionOperation.SMALLER));
 		medicineOption.addEffect(new ItemEffect(medicine, EffectOperation.PLUS));
 		s10.addOption(medicineOption);
 		Option curedMeatOption = new Option("Cured Meat", null, null, "11", null, null);
-		curedMeatOption.addVisibleCondition(new ItemCondition(curedMeat, ConditionOperation.EQUAL));
+		curedMeatOption.addVisibleCondition(new ItemCondition(curedMeat, ConditionOperation.SMALLER));
 		curedMeatOption.addEffect(new ItemEffect(curedMeat, EffectOperation.PLUS));
 		s10.addOption(curedMeatOption);
 
 		Slide s11 = new Slide("GameData/SlideImages/slide10.jpg",
 				"Excellent. You are the first in your family to take on this journey. They are counting on your success in America. Your family has pooled enough money for passage, thankfully. You cannot take too much with you, so you must choose carefully which items to bring. Some items are more useful than others but even the smallest, trivial item can lead to unexpected use. Remember, you already have some money left after purchasing papers.  \n",
 				null, null, "11");
-		bibleOption.setNextSlideIndex("12");
-		s11.addOption(bibleOption);
-		familyHeirloomOption.setNextSlideIndex("12");
-		s11.addOption(familyHeirloomOption);
-		sewingMachineOption.setNextSlideIndex("12");
-		s11.addOption(sewingMachineOption);
-		medicineOption.setNextSlideIndex("12");
-		s11.addOption(medicineOption);
-		curedMeatOption.setNextSlideIndex("12");
-		s11.addOption(curedMeatOption);
+		Option bibleOption1 = new Option("A Bible", null, null, "12", null, null);
+		bibleOption1.addVisibleCondition(new ItemCondition(bible, ConditionOperation.SMALLER));
+		bibleOption1.addEffect(new ItemEffect(bible, EffectOperation.PLUS));
+		s11.addOption(bibleOption1);
+		Option familyHeirloomOption1 = new Option("Family Heirloon", null, null, "12", null, null);
+		familyHeirloomOption1.addVisibleCondition(new ItemCondition(familyHeirloom, ConditionOperation.SMALLER));
+		familyHeirloomOption1.addEffect(new ItemEffect(familyHeirloom, EffectOperation.PLUS));
+		s11.addOption(familyHeirloomOption1);
+		Option sewingMachineOption1 = new Option("Sewing Machine", null, null, "12", null, null);
+		sewingMachineOption1.addVisibleCondition(new ItemCondition(sewingMachine, ConditionOperation.SMALLER));
+		sewingMachineOption1.addEffect(new ItemEffect(sewingMachine, EffectOperation.PLUS));
+		s11.addOption(sewingMachineOption1);
+		Option medicineOption1 = new Option("Medicine", null, null, "12", null, null);
+		medicineOption1.addVisibleCondition(new ItemCondition(medicine, ConditionOperation.SMALLER));
+		medicineOption1.addEffect(new ItemEffect(medicine, EffectOperation.PLUS));
+		s11.addOption(medicineOption1);
+		Option curedMeatOption1 = new Option("Cured Meat", null, null, "12", null, null);
+		curedMeatOption1.addVisibleCondition(new ItemCondition(curedMeat, ConditionOperation.SMALLER));
+		curedMeatOption1.addEffect(new ItemEffect(curedMeat, EffectOperation.PLUS));
+		s11.addOption(curedMeatOption1);
 
 		Slide s12 = new Slide("GameData/SlideImages/slide10.jpg",
 				"Excellent. You are the first in your family to take on this journey. They are counting on your success in America. Your family has pooled enough money for passage, thankfully. You cannot take too much with you, so you must choose carefully which items to bring. Some items are more useful than others but even the smallest, trivial item can lead to unexpected use. Remember, you already have some money left after purchasing papers.  \n",
 				null, null, "12");
-		bibleOption.setNextSlideIndex("13");
-		s12.addOption(bibleOption);
-		familyHeirloomOption.setNextSlideIndex("13");
-		s12.addOption(familyHeirloomOption);
-		sewingMachineOption.setNextSlideIndex("13");
-		s12.addOption(sewingMachineOption);
-		medicineOption.setNextSlideIndex("13");
-		s12.addOption(medicineOption);
-		curedMeatOption.setNextSlideIndex("13");
-		s12.addOption(curedMeatOption);
+		Option bibleOption2 = new Option("A Bible", null, null, "13", null, null);
+		bibleOption2.addVisibleCondition(new ItemCondition(bible, ConditionOperation.SMALLER));
+		bibleOption2.addEffect(new ItemEffect(bible, EffectOperation.PLUS));
+		s12.addOption(bibleOption2);
+		Option familyHeirloomOption2 = new Option("Family Heirloon", null, null, "13", null, null);
+		familyHeirloomOption2.addVisibleCondition(new ItemCondition(familyHeirloom, ConditionOperation.SMALLER));
+		familyHeirloomOption2.addEffect(new ItemEffect(familyHeirloom, EffectOperation.PLUS));
+		s12.addOption(familyHeirloomOption2);
+		Option sewingMachineOption2 = new Option("Sewing Machine", null, null, "13", null, null);
+		sewingMachineOption2.addVisibleCondition(new ItemCondition(sewingMachine, ConditionOperation.SMALLER));
+		sewingMachineOption2.addEffect(new ItemEffect(sewingMachine, EffectOperation.PLUS));
+		s12.addOption(sewingMachineOption2);
+		Option medicineOption2 = new Option("Medicine", null, null, "13", null, null);
+		medicineOption2.addVisibleCondition(new ItemCondition(medicine, ConditionOperation.SMALLER));
+		medicineOption2.addEffect(new ItemEffect(medicine, EffectOperation.PLUS));
+		s12.addOption(medicineOption2);
+		Option curedMeatOption2 = new Option("Cured Meat", null, null, "13", null, null);
+		curedMeatOption2.addVisibleCondition(new ItemCondition(curedMeat, ConditionOperation.SMALLER));
+		curedMeatOption2.addEffect(new ItemEffect(curedMeat, EffectOperation.PLUS));
+		s12.addOption(curedMeatOption2);
 
 		Slide s13 = new Slide("GameData/SlideImages/slide13.jpg",
-				"You take a wagon to the port city of Gothenburg. You walk along Sillgatan or Ã¢â‚¬Å“Herring StreetÃ¢â‚¬ï¿½ where there were many emigrant agents, hotels, shops, and taverns. Here you wait to board a ship to England.",
+				"You take a wagon to the port city of Gothenburg. You walk along Sillgatan or \"Herring Street\" where there were many emigrant agents, hotels, shops, and taverns. Here you wait to board a ship to England.",
 				null, null, "13");
 		s13.addOption(new Option("Continue", null, null, "14", null, null));
 
@@ -186,7 +207,6 @@ public class GameDataTester {
 		s14.addOption(new Option("Left", null, null, "15", null, null));
 		s14.addOption(new Option("Forward", null, null, "16", null, null));
 		s14.addOption(new Option("Right", null, null, "17", null, null));
-		gd.addSlide(s14);
 
 		Slide s15 = new Slide("GameData/SlideImages/slide15.jpg",
 				"You see a market at the end of the lane. Do you wish to shop here?", null, null, "15");
@@ -202,94 +222,87 @@ public class GameDataTester {
 		s16.addOption(shipBoarding);
 		s16.addOption(new Option("No", null, null, "14", null, null));
 
-		Slide s17 = new Slide("GameData/SlideImages/slide15.jpg", "Ticket agent Ã¢â‚¬Å“What can I do for you?Ã¢â‚¬ï¿½",
-				null, null, "17");
-		Option buyHull = new Option("Pay for transport to Hull $15 or 60 SEK.\n", null, null, "14", null, null);
-		Option buyHullAmerica = new Option(
-				"Pay for transport to Hull with connection to Liverpool and ship passage $30 or 120 SEK", null, null,
-				"14", null, null);
+		Slide s17 = new Slide("GameData/SlideImages/slide15.jpg", "Ticket agent \"What can I do for you?\"", null, null,
+				"17");
+		Option buyHull = new Option("Pay for transport to Hull 60 SEK", null, null, "14", null, null);
+		Option buyHullAmerica = new Option("Pay for transport to Hull through Liverpool 120 SEK", null, null, "14",
+				null, null);
+
 		buyHull.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
-		buyHull.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 15), ConditionOperation.GREATER_OR_EQUAL));
-		buyHull.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 15), EffectOperation.MINUS));
+		buyHull.addFeasibleCondition(new ItemCondition(new Item(sek, 60), ConditionOperation.GREATER_OR_EQUAL));
+		buyHull.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
+		buyHull.addEffect(new ItemEffect(new Item(sek, 60), EffectOperation.MINUS));
+
+		buyHull.addFeasibleCondition(new ItemCondition(new Item(sek, 120), ConditionOperation.GREATER_OR_EQUAL));
 		buyHullAmerica.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
 		buyHullAmerica.addEffect(new ItemEffect(ticketToAmerica, EffectOperation.PLUS));
-		buyHullAmerica.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 30), EffectOperation.MINUS));
-		buyHullAmerica.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 30), ConditionOperation.GREATER_OR_EQUAL));
+		buyHull.addEffect(new ItemEffect(new Item(sek, 120), EffectOperation.MINUS));
+		s17.addOption(buyHull);
+		s17.addOption(buyHullAmerica);
 
-		Slide s18 = new Slide("GameData/SlideImages/slide10.jpg",
-				"YouÃ¢â‚¬â„¢re in the shop. What would you like to do?\n", null, null, "18");
+		Slide s18 = new Slide("GameData/SlideImages/slide10.jpg", "You're in the shop. What would you like to do?\n",
+				null, null, "18");
 		s18.addOption(new Option("Buy", null, null, "19", null, null));
 		s18.addOption(new Option("Sell", null, null, "20", null, null));
 		s18.addOption(new Option("Leave", null, null, "14", null, null));
 
 		Slide s19 = new Slide("GameData/SlideImages/slide10.jpg", "Choose one item to buy", null, null, "19");
-		Option buyBible = new Option("Buy Bible $5 or 20 SEK", null, null, "14", null, null);
-		buyBible.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
+		Option buyBible = new Option("Buy Bible 20 SEK", null, null, "14", null, null);
+		buyBible.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buyBible.addEffect(new ItemEffect(bible, EffectOperation.PLUS));
-		buyBible.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
+		buyBible.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));
 		s19.addOption(buyBible);
 
-		Option buyFamilyHeirloom = new Option("Buy Family Heirloom $5 or 20 SEK", null, null, "14", null, null);
-		buyFamilyHeirloom.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
+		Option buyFamilyHeirloom = new Option("Buy Family Heirloom 20 SEK", null, null, "14", null, null);
+		buyFamilyHeirloom
+				.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buyFamilyHeirloom.addEffect(new ItemEffect(familyHeirloom, EffectOperation.PLUS));
-		buyFamilyHeirloom.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
+		buyFamilyHeirloom.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));
 		s19.addOption(buyFamilyHeirloom);
 
-		Option buySewingMachine = new Option("Buy Sewing Machine $5 or 20 SEK", null, null, "14", null, null);
-		buySewingMachine.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
+		Option buySewingMachine = new Option("Buy Sewing Machine 20 SEK", null, null, "14", null, null);
+		buySewingMachine
+				.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buySewingMachine.addEffect(new ItemEffect(sewingMachine, EffectOperation.PLUS));
-		buySewingMachine.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
+		buySewingMachine.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));
 		s19.addOption(buySewingMachine);
 
-		Option buyMedicine = new Option("Buy Medicine $5 or 20 SEK", null, null, "14", null, null);
-		buyMedicine.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
+		Option buyMedicine = new Option("Buy Medicine 20 SEK", null, null, "14", null, null);
+		buyMedicine.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buyMedicine.addEffect(new ItemEffect(medicine, EffectOperation.PLUS));
-		buyMedicine.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
+		buyMedicine.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));
 		s19.addOption(buyMedicine);
 
-		Option buyCuredMeat = new Option("Buy Cured Meat $5 or 20 SEK", null, null, "14", null, null);
-		buyCuredMeat.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
+		Option buyCuredMeat = new Option("Buy Cured Meat 20 SEK", null, null, "14", null, null);
+		buyCuredMeat.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buyCuredMeat.addEffect(new ItemEffect(curedMeat, EffectOperation.PLUS));
-		buyCuredMeat.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
+		buyCuredMeat.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));
 		s19.addOption(buyCuredMeat);
 
 		s19.addOption(new Option("Leave", null, null, "14", null, null));
 
-		gd.addSlide(s0);
-		gd.addSlide(s1);
-		gd.addSlide(s2);
-		gd.addSlide(s3);
-		gd.addSlide(s4);
-		gd.addSlide(s5);
-		gd.addSlide(s6);
-		gd.addSlide(s7);
-		gd.addSlide(s8);
-		gd.addSlide(s9);
-		gd.addSlide(s10);
-		gd.addSlide(s11);
-		gd.addSlide(s12);
-		gd.addSlide(s13);
-		gd.addSlide(s14);
-		gd.addSlide(s15);
-		gd.addSlide(s16);
-		gd.addSlide(s17);
-		gd.addSlide(s18);
-		gd.addSlide(s19);
+		story.addSlide(s0);
+		story.addSlide(s1);
+		story.addSlide(s2);
+		story.addSlide(s3);
+		story.addSlide(s4);
+		story.addSlide(s5);
+		story.addSlide(s6);
+		story.addSlide(s7);
+		story.addSlide(s8);
+		story.addSlide(s9);
+		story.addSlide(s10);
+		story.addSlide(s11);
+		story.addSlide(s12);
+		story.addSlide(s13);
+		story.addSlide(s14);
+		story.addSlide(s15);
+		story.addSlide(s16);
+		story.addSlide(s17);
+		story.addSlide(s18);
+		story.addSlide(s19);
 
-		String serializedJSONText = gd.toJSON();
-
-		System.out.println(serializedJSONText);
-
-		// GameData gdRecreated = GameData.fromJSON(serializedJSONText);
-		// System.out.println("Slide 0 has this image: ");
-		// System.out.println(gdRecreated.getSlide(0).getImageFileName());
+		System.out.println(story.toJSON());
 
 	}
 

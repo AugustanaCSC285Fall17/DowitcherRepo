@@ -2,6 +2,7 @@ package edu.augustana.csc285.game.datamodel;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -151,7 +152,7 @@ public class Story {
 	}
 
 	public static void main(String[] args) {
-		Item sck = new Item("Sck", "Currency of Sweden", 1, null);
+		Item sek = new Item("Sek", "Currency of Sweden", 1, null);
 		Item dollar = new Item("Dollar", "Currency of USA", 1, null);
 		Item medicine = new Item("Medicine", null, 1, null);
 		Item jDLetter = new Item("John Deere Letter", "A letter from John Deere", 1, "GameData/SlideImages/item5.jpg");
@@ -257,14 +258,12 @@ public class Story {
 		Slide s9 = new Slide("GameData/SlideImages/slide9.jpg",
 				"To start your journey, you need a few provisions. The first and foremost being your papers. You have $70 USD worth of Kronor (Swedish money)  right now. Do you:\n",
 				null, null, "9");
-		temp = new Option("Buy official papers from your home parish $20 or 80 SEK", null, null, "10", null, null);
-		temp.addFeasibleCondition(
-				new ItemCondition(new Item(PropertyType.GOLD, 20), ConditionOperation.GREATER_OR_EQUAL));
+		temp = new Option("Buy official papers from your home parish 80 SEK", null, null, "10", null, null);
+		temp.addFeasibleCondition(new ItemCondition(new Item(sek, 80), ConditionOperation.GREATER_OR_EQUAL));
 		temp.addEffect(new ItemEffect(officialPapers, EffectOperation.PLUS));
 		s9.addOption(temp);
-		temp = new Option("Buy forged papers $10 or 40 SEK", null, null, "10", null, null);
-		temp.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 10), ConditionOperation.GREATER_OR_EQUAL));
+		temp = new Option("Buy forged papers 40 SEK", null, null, "10", null, null);
+		temp.addFeasibleCondition(new ItemCondition(new Item(sek, 40), ConditionOperation.GREATER_OR_EQUAL));
 		temp.addEffect(new ItemEffect(forgedPapers, EffectOperation.PLUS));
 		s9.addOption(temp);
 
@@ -368,18 +367,19 @@ public class Story {
 
 		Slide s17 = new Slide("GameData/SlideImages/slide15.jpg", "Ticket agent \"What can I do for you?\"", null, null,
 				"17");
-		Option buyHull = new Option("Pay for transport to Hull $15 or 60 SEK", null, null, "14", null, null);
-		Option buyHullAmerica = new Option("Pay for transport to Hull through Liverpool $30 or 120 SEK", null, null,
-				"14", null, null);
+		Option buyHull = new Option("Pay for transport to Hull 60 SEK", null, null, "14", null, null);
+		Option buyHullAmerica = new Option("Pay for transport to Hull through Liverpool 120 SEK", null, null, "14",
+				null, null);
+
 		buyHull.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
-		buyHull.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 15), ConditionOperation.GREATER_OR_EQUAL));
-		buyHull.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 15), EffectOperation.MINUS));
+		buyHull.addFeasibleCondition(new ItemCondition(new Item(sek, 60), ConditionOperation.GREATER_OR_EQUAL));
+		buyHull.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
+		buyHull.addEffect(new ItemEffect(new Item(sek, 60), EffectOperation.MINUS));
+
+		buyHull.addFeasibleCondition(new ItemCondition(new Item(sek, 120), ConditionOperation.GREATER_OR_EQUAL));
 		buyHullAmerica.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
 		buyHullAmerica.addEffect(new ItemEffect(ticketToAmerica, EffectOperation.PLUS));
-		buyHullAmerica.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 30), EffectOperation.MINUS));
-		buyHullAmerica.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 30), ConditionOperation.GREATER_OR_EQUAL));
+		buyHull.addEffect(new ItemEffect(new Item(sek, 120), EffectOperation.MINUS));
 		s17.addOption(buyHull);
 		s17.addOption(buyHullAmerica);
 
@@ -390,39 +390,36 @@ public class Story {
 		s18.addOption(new Option("Leave", null, null, "14", null, null));
 
 		Slide s19 = new Slide("GameData/SlideImages/slide10.jpg", "Choose one item to buy", null, null, "19");
-		Option buyBible = new Option("Buy Bible $5 or 20 SEK", null, null, "14", null, null);
-		buyBible.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
+		Option buyBible = new Option("Buy Bible 20 SEK", null, null, "14", null, null);
+		buyBible.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buyBible.addEffect(new ItemEffect(bible, EffectOperation.PLUS));
-		buyBible.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
+		buyBible.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));
 		s19.addOption(buyBible);
 
-		Option buyFamilyHeirloom = new Option("Buy Family Heirloom $5 or 20 SEK", null, null, "14", null, null);
-		buyFamilyHeirloom.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
+		Option buyFamilyHeirloom = new Option("Buy Family Heirloom 20 SEK", null, null, "14", null, null);
+		buyFamilyHeirloom
+				.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buyFamilyHeirloom.addEffect(new ItemEffect(familyHeirloom, EffectOperation.PLUS));
-		buyFamilyHeirloom.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
+		buyFamilyHeirloom.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));
 		s19.addOption(buyFamilyHeirloom);
 
-		Option buySewingMachine = new Option("Buy Sewing Machine $5 or 20 SEK", null, null, "14", null, null);
-		buySewingMachine.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
+		Option buySewingMachine = new Option("Buy Sewing Machine 20 SEK", null, null, "14", null, null);
+		buySewingMachine
+				.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buySewingMachine.addEffect(new ItemEffect(sewingMachine, EffectOperation.PLUS));
-		buySewingMachine.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
+		buySewingMachine.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));
 		s19.addOption(buySewingMachine);
 
-		Option buyMedicine = new Option("Buy Medicine $5 or 20 SEK", null, null, "14", null, null);
-		buyMedicine.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
+		Option buyMedicine = new Option("Buy Medicine 20 SEK", null, null, "14", null, null);
+		buyMedicine.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buyMedicine.addEffect(new ItemEffect(medicine, EffectOperation.PLUS));
-		buyMedicine.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
+		buyMedicine.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));
 		s19.addOption(buyMedicine);
 
-		Option buyCuredMeat = new Option("Buy Cured Meat $5 or 20 SEK", null, null, "14", null, null);
-		buyCuredMeat.addFeasibleCondition(
-				new PropertyCondition(new Property(PropertyType.GOLD, 5), ConditionOperation.GREATER_OR_EQUAL));
+		Option buyCuredMeat = new Option("Buy Cured Meat 20 SEK", null, null, "14", null, null);
+		buyCuredMeat.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buyCuredMeat.addEffect(new ItemEffect(curedMeat, EffectOperation.PLUS));
-		buyCuredMeat.addEffect(new PropertyEffect(new Property(PropertyType.GOLD, 5), EffectOperation.MINUS));
+		buyCuredMeat.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));
 		s19.addOption(buyCuredMeat);
 
 		s19.addOption(new Option("Leave", null, null, "14", null, null));

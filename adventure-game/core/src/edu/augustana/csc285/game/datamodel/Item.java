@@ -27,6 +27,11 @@ public class Item {
 		this(other.name, other.desc, other.quantity, other.image);
 	}
 
+	public Item(Item other, int qty) {
+		this(other);
+		this.quantity = qty;
+	}
+
 	/**
 	 * set the quantity to 0 and has an image
 	 * 

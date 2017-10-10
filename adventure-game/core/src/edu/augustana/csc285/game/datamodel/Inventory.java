@@ -46,6 +46,8 @@ public class Inventory {
 		Item temp = this.findItem(item);
 		if (temp != null) {
 			temp.addItem(item);
+		} else {
+			collection.add(item);
 		}
 	}
 
@@ -121,9 +123,9 @@ public class Inventory {
 	}
 
 	public void addDefaultItem() {
-		Item sck = new Item("Sck", "Currency of Sweden", 1000000, null);
+		Item sek = new Item("Sek", "Currency of Sweden", 1000000, null);
 		Item dollar = new Item("Dollar", "Currency of USA", 1000000, null);
-		collection.add(sck);
+		collection.add(sek);
 		collection.add(dollar);
 	}
 }
