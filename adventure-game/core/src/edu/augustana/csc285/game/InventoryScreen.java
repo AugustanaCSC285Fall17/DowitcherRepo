@@ -19,6 +19,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+
+import edu.augustana.csc285.game.datamodel.Item;
+import edu.augustana.csc285.game.datamodel.Inventory;
+
+
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -27,7 +32,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 /**
  * To create a Screen that shows the player's inventory
  * 
- * @author Dat Tran, Daniel Zwiener, Faisal Nawaz, Ryan Philp
+ * @author Dat Tran, Daniel Zwiener, Faisal Nawaz, Ryan Philp, Lars Harvey
  * 
  * 
  */
@@ -71,37 +76,35 @@ public class InventoryScreen implements Screen {
 		button.setPosition(660, 430);
 		stage.addActor(button);
 
-		
-		// Label description = new Label(slide.getDesc(), DEFAULT_SKIN);
-		//description.setWrap(true);
-		// ScrollPane scroll = new ScrollPane(description, DEFAULT_SKIN);
+		// Label description = new Label("Test description", DEFAULT_SKIN);
+		// description.setWrap(true);
+		// ScrollPane scroll2 = new ScrollPane(description, DEFAULT_SKIN);
 		// scroll.setPosition((WIDTH_BUFFER * 2) + (23 *
 		// AdventureGame.GAME_SCREEN_HEIGHT) / 32,
 		// AdventureGame.GAME_SCREEN_HEIGHT - (HEIGHT_BUFFER * 2) -
 		// (AdventureGame.GAME_SCREEN_HEIGHT / 10) - ((3 *
 		// AdventureGame.GAME_SCREEN_HEIGHT) / 8));
-		// scroll.setSize(AdventureGame.GAME_SCREEN_WIDTH / 2,
+		// scroll2.setSize(AdventureGame.GAME_SCREEN_WIDTH / 2,
 		// AdventureGame.GAME_SCREEN_HEIGHT / 3);
-		// scroll.setScrollingDisabled(true, false);
-		// stage.addActor(scroll);
-		//
-		// Table table = new Table();
-		// Table container = new Table();
-		// container.setBounds(10, 10, 400, 400);
-		// ScrollPane scroll = new ScrollPane(table);
-		// container.add(scroll);
-		// container.row();
-		// container.debug();
-		// table.debug();
-		// for (Item item : inventoryCollection.values()) {
-		// Label label = new Label(item.getName() + " x " + item.getQuantity(),
-		// DEFAULT_SKIN);
-		// label.setAlignment(Align.right);
-		// label.setWrap(true);
-		// table.add(label);
-		// table.row();
-		// }
-		// stage.addActor(container);
+		// scroll2.setScrollingDisabled(true, false);
+		// stage.addActor(scroll2);
+
+//		Table table = new Table();
+//		Table container = new Table();
+//		container.setBounds(10, 10, 400, 400);
+//		ScrollPane scroll3 = new ScrollPane(table);
+//		container.add(scroll);
+//		container.row();
+//		container.debug();
+//		table.debug();
+//		for (Item item : inventoryCollection.values()) {
+//			Label label2 = new Label(item.getName() + " x " + item.getQuantity(), DEFAULT_SKIN);
+//			label2.setAlignment(Align.right);
+//			label2.setWrap(true);
+//			table.add(label2);
+//			table.row();
+//		}
+//		stage.addActor(container);
 	}
 
 	@Override
@@ -112,7 +115,7 @@ public class InventoryScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		camera.update();
 		stage.act();

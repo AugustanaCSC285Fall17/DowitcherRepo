@@ -32,9 +32,11 @@ public class SlideScreen implements Screen {
 	private Slide slide;
 	private ArrayList<Option> visibleOptions;
 	private Texture image;
+	private Texture inventoryImage;
+	private Texture playerStatImage;
+	private Texture settingsImage;
+	private Texture backgroundImage;
 	private OrthographicCamera camera;
-//	private int input;
-//	private int numOptions;
 	private Stage stage;
 
 	public SlideScreen(AdventureGame game) {
@@ -42,6 +44,10 @@ public class SlideScreen implements Screen {
 		this.game = game;
 		slide = game.manager.getCurrentSlide();
 		image = new Texture(Gdx.files.internal(slide.getImage()));
+		backgroundImage = new Texture("art/background.jpg");
+		inventoryImage = new Texture("icons/inventory.jpg");
+		playerStatImage = new Texture("icons/player-stat.jpg");
+		settingsImage = new Texture("icons/settings.jpg");
 		visibleOptions = (ArrayList<Option>) slide.getVisibleOptions(game.manager.getPlayer());
 		// Set up camera
 		camera = new OrthographicCamera();
@@ -165,13 +171,19 @@ public class SlideScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(0, 0, 0, 1);
+		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+		game.batch.begin();
+		//Draw background image
+		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+		game.batch.end();
+	
 		// tell the camera to update its matrices.
 		camera.update();
 		stage.act();
 		stage.draw();
+		
 
 		// Draw ActionChoices
 		for (int temp : KEY_SET) {
@@ -200,15 +212,16 @@ public class SlideScreen implements Screen {
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.begin();
 		
-		// Draw the image
-		//game.batch.draw(region, x, y, width, height);
+		// Draw the slide images
 		game.batch.draw(image, WIDTH_BUFFER, 
 				Math.round(0.3583333333 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())),
 
 				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT),
 				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())));
-		// game.batch.draw(region, x, y, originX, originY, width, height,
-		// scaleX, scaleY, rotation);
+		
+		game.batch.draw(inventoryImage, AdventureGame.GAME_SCREEN_WIDTH - 165, 425, 50, 50);
+		game.batch.draw(playerStatImage, AdventureGame.GAME_SCREEN_WIDTH - 110, 425, 50, 50);
+		game.batch.draw(settingsImage, AdventureGame.GAME_SCREEN_WIDTH - 55, 425, 50, 50);
 		game.batch.end();
 	}
 
@@ -236,6 +249,10 @@ public class SlideScreen implements Screen {
 	@Override
 	public void dispose() {
 		image.dispose();
+		backgroundImage.dispose();
+		inventoryImage.dispose();
+		playerStatImage.dispose();
+		settingsImage.dispose();
 		stage.dispose();
 	}
 
