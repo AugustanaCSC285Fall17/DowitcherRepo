@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -30,8 +31,10 @@ public class PlayerStatScreen implements Screen {
 	private OrthographicCamera camera;
 	private final AdventureGame game;
 	private Stage stage;
+	private boolean popUp;
 
-	public PlayerStatScreen(final AdventureGame game) {
+	public PlayerStatScreen(final AdventureGame game, boolean popUp) {
+		this.popUp = popUp;
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
@@ -64,6 +67,7 @@ public class PlayerStatScreen implements Screen {
 			}
 
 		});
+
 		button.setSize(120, 35);
 		button.setPosition(660, 430);
 		stage.addActor(button);

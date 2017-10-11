@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -23,7 +24,8 @@ import edu.augustana.csc285.game.datamodel.Option;
 import edu.augustana.csc285.game.datamodel.Slide;
 
 public class SlideScreen implements Screen {
-	public static final HashSet<Integer> KEY_SET = new HashSet<Integer>(Arrays.asList(8, 9, 10, 11, 12, 13, 14, 15, 16)); // 1
+	public static final HashSet<Integer> KEY_SET = new HashSet<Integer>(
+			Arrays.asList(8, 9, 10, 11, 12, 13, 14, 15, 16)); // 1
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
 	// 9
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
@@ -38,9 +40,18 @@ public class SlideScreen implements Screen {
 	private Texture backgroundImage;
 	private OrthographicCamera camera;
 	private Stage stage;
+	private boolean popUp;
+	private String rejectMessage;
+
+	public SlideScreen(AdventureGame game, String rejectMessage) {
+		this(game);
+		this.popUp = true;
+		this.rejectMessage = rejectMessage;
+	}
 
 	public SlideScreen(AdventureGame game) {
 		// Set up data fields
+		this.popUp = false;
 		this.game = game;
 		slide = game.manager.getCurrentSlide();
 		image = new Texture(Gdx.files.internal(slide.getImage()));
@@ -77,9 +88,7 @@ public class SlideScreen implements Screen {
 							game.setScreen(new SlideScreen(game));
 							dispose();
 						} else {
-							System.out.println(option.getRejectMessage());
-							// To do note: handle exception when option is not
-							// feasible
+							game.setScreen(new SlideScreen(game, option.getRejectMessage()));
 						}
 					} else {
 						game.setScreen(new EndScreen(game));
@@ -118,6 +127,7 @@ public class SlideScreen implements Screen {
 		inventoryButton.setSize(120, 35);
 		inventoryButton.addListener(new InputListener() {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				// game.setScreen(new InventoryScreen(game));
 				game.setScreen(new InventoryScreen(game));
 			}
 
@@ -130,7 +140,7 @@ public class SlideScreen implements Screen {
 		playerStatButton.setSize(120, 35);
 		playerStatButton.addListener(new InputListener() {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.setScreen(new PlayerStatScreen(game));
+				game.setScreen(new PlayerStatScreen(game, false));
 			}
 
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -142,10 +152,9 @@ public class SlideScreen implements Screen {
 		settingsButton.setSize(120, 35);
 		settingsButton.addListener(new InputListener() {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				if(game.testMusic.isPlaying()) {
+				if (game.testMusic.isPlaying()) {
 					game.testMusic.pause();
-				}
-				else {
+				} else {
 					game.testMusic.play();
 				}
 			}
@@ -155,11 +164,11 @@ public class SlideScreen implements Screen {
 			}
 		});
 
-		
-		// Constants in formula can be changed to adjust location of these buttons
+		// Constants in formula can be changed to adjust location of these
+		// buttons
 		inventoryButton.setPosition(Math.round(0.52 * AdventureGame.GAME_SCREEN_WIDTH),
 				Math.round(0.91875 * AdventureGame.GAME_SCREEN_HEIGHT));
-		playerStatButton.setPosition(Math.round(0.68 * AdventureGame.GAME_SCREEN_WIDTH), 
+		playerStatButton.setPosition(Math.round(0.68 * AdventureGame.GAME_SCREEN_WIDTH),
 				Math.round(0.91875 * AdventureGame.GAME_SCREEN_HEIGHT));
 		settingsButton.setPosition(Math.round((0.84 * AdventureGame.GAME_SCREEN_WIDTH)),
 				Math.round(0.91875 * AdventureGame.GAME_SCREEN_HEIGHT));
@@ -175,15 +184,14 @@ public class SlideScreen implements Screen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		game.batch.begin();
-		//Draw background image
+		// Draw background image
 		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		game.batch.end();
-	
+
 		// tell the camera to update its matrices.
 		camera.update();
 		stage.act();
 		stage.draw();
-		
 
 		// Draw ActionChoices
 		for (int temp : KEY_SET) {
@@ -197,9 +205,7 @@ public class SlideScreen implements Screen {
 							game.setScreen(new SlideScreen(game));
 							dispose();
 						} else {
-							System.out.println(option.getRejectMessage());
-							// To do note: handle exception when option is not
-							// feasible
+							game.setScreen(new SlideScreen(game, option.getRejectMessage()));
 						}
 					} else {
 						game.setScreen(new EndScreen(game));
@@ -211,14 +217,14 @@ public class SlideScreen implements Screen {
 
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.begin();
-		
+
 		// Draw the slide images
-		game.batch.draw(image, WIDTH_BUFFER, 
+		game.batch.draw(image, WIDTH_BUFFER,
 				Math.round(0.3583333333 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())),
 
 				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT),
 				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())));
-		
+
 		game.batch.draw(inventoryImage, AdventureGame.GAME_SCREEN_WIDTH - 165, 425, 50, 50);
 		game.batch.draw(playerStatImage, AdventureGame.GAME_SCREEN_WIDTH - 110, 425, 50, 50);
 		game.batch.draw(settingsImage, AdventureGame.GAME_SCREEN_WIDTH - 55, 425, 50, 50);
@@ -228,6 +234,20 @@ public class SlideScreen implements Screen {
 	@Override
 	public void show() {
 		Gdx.input.setInputProcessor(stage);
+		if (popUp) {
+			new Dialog("You cannot do this", DEFAULT_SKIN) {
+
+				{
+					text(rejectMessage);
+					button("Back", game);
+				}
+
+				@Override
+				protected void result(final Object object) {
+					game.setScreen(new SlideScreen(game));
+				}
+			}.show(stage);
+		}
 	}
 
 	@Override

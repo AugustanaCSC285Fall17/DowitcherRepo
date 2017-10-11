@@ -10,8 +10,6 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -66,20 +64,21 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 
 		});
 		buttonTable.add(button).width(200).height(30).pad(5).row();
-		
+
 		button = new TextButton("Settings", DEFAULT_SKIN, "default");
 		button.setSize(50, 50);
 		button.addListener(new InputListener() {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.setScreen(new SettingsScreen(game));
 				dispose();
-			
+
 			}
+
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				return true;
 			}
-			});
-		
+		});
+
 		buttonTable.add(button).width(200).height(30).pad(5).row();
 
 		button = new TextButton("Exit", DEFAULT_SKIN, "default");
@@ -98,7 +97,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 
 		});
 		buttonTable.add(button).width(200).height(30).pad(5).row();
-	
+
 		stage.addActor(buttonTable);
 		introduction = "Welcome to Swedish Imigration Trail";
 	}
@@ -106,7 +105,6 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 	@Override
 	public void show() {
 		Gdx.input.setInputProcessor(stage);
-
 	}
 
 	@Override
@@ -145,4 +143,5 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 	public void dispose() {
 		stage.dispose();
 	}
+
 }
