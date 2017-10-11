@@ -280,7 +280,7 @@ slides: {
 	}
 	14: {
 		image: GameData/SlideImages/slide14.jpg
-		desc: "Over a million Swedish immigrants left through the port of Gothenburg in southwest Sweden. Many American genealogists believe their ancestors lived in Gothenburg, when really this was just the port they left through. Provinces of Sweden including SmÃ¥land, VÃ¤stergÃ¶tland, Dalsland, VÃ¤rmland, and Ã–land saw large numbers emigrate. "
+		desc: "Over a million Swedish immigrants left through the port of Gothenburg in southwest Sweden. Many American genealogists believe their ancestors lived in Gothenburg, when really this was just the port they left through. Provinces of Sweden including SmÃƒÂ¥land, VÃƒÂ¤stergÃƒÂ¶tland, Dalsland, VÃƒÂ¤rmland, and Ãƒâ€“land saw large numbers emigrate. "
 		id: 14
 		options: [
 			{
@@ -313,7 +313,7 @@ slides: {
 		options: [
 			{
 				desc: Yes
-				nextSlideIndex: 16
+				nextSlideIndex: 18
 				effects: []
 				visibleConditions: []
 				feasibleConditions: []
@@ -386,6 +386,14 @@ slides: {
 					{
 						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
+							name: Ticket to Hull
+							quantity: 1
+						}
+						operation: PLUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
 							name: Sek
 							desc: Currency of Sweden
 							quantity: 60
@@ -410,6 +418,15 @@ slides: {
 							name: Sek
 							desc: Currency of Sweden
 							quantity: 60
+						}
+						operation: GREATER_OR_EQUAL
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Sek
+							desc: Currency of Sweden
+							quantity: 120
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -437,17 +454,7 @@ slides: {
 					}
 				]
 				visibleConditions: []
-				feasibleConditions: [
-					{
-						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
-						item: {
-							name: Sek
-							desc: Currency of Sweden
-							quantity: 120
-						}
-						operation: GREATER_OR_EQUAL
-					}
-				]
+				feasibleConditions: []
 			}
 		]
 	}
@@ -670,7 +677,7 @@ slides: {
 	}
 	0: {
 		image: GameData/SlideImages/slide0.jpg
-		desc: You're young Swedish Immigrat to America in 1880. You've made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?\n
+		desc: You're a young Swedish immigrant to America in 1880. You've made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?\n
 		id: 0
 		options: [
 			{
@@ -726,7 +733,7 @@ slides: {
 	}
 	2: {
 		image: GameData/SlideImages/slide2.jpg
-		desc: "You are an 18 year-old male from Mellby Parish, Småland. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. "
+		desc: "You are an 18 year-old male from Mellby Parish, SmÃ¥land. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. "
 		id: 2
 		options: [
 			{
@@ -754,7 +761,7 @@ slides: {
 	}
 	4: {
 		image: GameData/SlideImages/slide4.jpg
-		desc: "Receiving letters from those who journeyed to America prompted many of your family friends to pursue their own journey over. Life must be treating them well in America— economic opportunities, building their own legacy and family. The American Dream is a strong pull for Swedes, yourself included. \n\nChoose a letter to read:"
+		desc: "Receiving letters from those who journeyed to America prompted many of your family friends to pursue their own journey over. Life must be treating them well in Americaâ€” economic opportunities, building their own legacy and family. The American Dream is a strong pull for Swedes, yourself included. \n\nChoose a letter to read:"
 		id: 4
 		options: [
 			{
@@ -919,15 +926,6 @@ slides: {
 						}
 						operation: PLUS
 					}
-					{
-						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
-						item: {
-							name: Sek
-							desc: Currency of Sweden
-							quantity: 80
-						}
-						operation: MINUS
-					}
 				]
 				visibleConditions: []
 				feasibleConditions: [
@@ -953,15 +951,6 @@ slides: {
 							quantity: 1
 						}
 						operation: PLUS
-					}
-					{
-						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
-						item: {
-							name: Sek
-							desc: Currency of Sweden
-							quantity: 40
-						}
-						operation: MINUS
 					}
 				]
 				visibleConditions: []

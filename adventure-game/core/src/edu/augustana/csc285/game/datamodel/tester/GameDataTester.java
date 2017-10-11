@@ -24,7 +24,7 @@ public class GameDataTester {
 		Item curedMeat = new Item("Cured Meat", null, 1, null);
 		Item ticketToHull = new Item("Ticket to Hull", null, 1, null);
 		Item ticketToAmerica = new Item("Ticket to America", null, 1, null);
-		// Item
+		
 
 		Story story = new Story("0");
 		Slide s0 = new Slide("GameData/SlideImages/slide0.jpg",
@@ -210,7 +210,7 @@ public class GameDataTester {
 
 		Slide s15 = new Slide("GameData/SlideImages/slide15.jpg",
 				"You see a market at the end of the lane. Do you wish to shop here?", null, null, "15");
-		s15.addOption(new Option("Yes", null, null, "16", null, null));
+		s15.addOption(new Option("Yes", null, null, "18", null, null));
 		s15.addOption(new Option("No", null, null, "14", null, null));
 
 		Slide s16 = new Slide("GameData/SlideImages/slide15.jpg",
