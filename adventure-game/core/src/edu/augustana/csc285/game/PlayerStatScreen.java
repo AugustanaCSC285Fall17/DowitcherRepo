@@ -31,10 +31,8 @@ public class PlayerStatScreen implements Screen {
 	private OrthographicCamera camera;
 	private final AdventureGame game;
 	private Stage stage;
-	private boolean popUp;
 
-	public PlayerStatScreen(final AdventureGame game, boolean popUp) {
-		this.popUp = popUp;
+	public PlayerStatScreen(final AdventureGame game) {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
