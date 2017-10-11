@@ -1,10 +1,7 @@
 package edu.augustana.csc285.game.datamodel;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Json;
@@ -260,11 +257,13 @@ public class Story {
 				null, null, "9");
 		temp = new Option("Buy official papers from your home parish 80 SEK", null, null, "10", null, null);
 		temp.addFeasibleCondition(new ItemCondition(new Item(sek, 80), ConditionOperation.GREATER_OR_EQUAL));
-		temp.addEffect(new ItemEffect(officialPapers, EffectOperation.PLUS));
+		temp.addEffect(new ItemEffect(new Item(officialPapers,1), EffectOperation.PLUS));
+		temp.addEffect(new ItemEffect(new Item(sek,80),EffectOperation.MINUS));
 		s9.addOption(temp);
 		temp = new Option("Buy forged papers 40 SEK", null, null, "10", null, null);
 		temp.addFeasibleCondition(new ItemCondition(new Item(sek, 40), ConditionOperation.GREATER_OR_EQUAL));
 		temp.addEffect(new ItemEffect(forgedPapers, EffectOperation.PLUS));
+		temp.addEffect(new ItemEffect(new Item(sek,40),EffectOperation.MINUS));
 		s9.addOption(temp);
 
 		Slide s10 = new Slide("GameData/SlideImages/slide10.jpg",

@@ -5,7 +5,7 @@ public enum EffectOperation {
     MINUS,
     TIMES;
 	// change should always be positive, original should always be non negative
-    int applyEffect(int original, int change) {
+    public int applyEffect(int original, int change) {
         switch (this) {
             case PLUS:
                 return original + change;

@@ -6,7 +6,7 @@ public enum ConditionOperation {
 	GREATER, GREATER_OR_EQUAL, SMALLER, SMALLER_OR_EQUAL, EQUAL, NOT_EQUAL;
 	// condition should always be positive, original should always be non
 	// negative
-	boolean checkCondition(int original, int condition) {
+	public boolean checkCondition(int original, int condition) {
 		switch (this) {
 		case GREATER:
 			return (original > condition);

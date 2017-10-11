@@ -58,8 +58,8 @@ public class Inventory {
 		if (newQuantity < 0) {
 			newQuantity = 0;
 		}
-		Item temp = new Item(item);
-		temp.setQuantity(newQuantity);
+		Item temp = new Item(item,newQuantity);
+		collection.remove(temp);
 		collection.add(temp);
 	}
 
@@ -123,8 +123,8 @@ public class Inventory {
 	}
 
 	public void addDefaultItem() {
-		Item sek = new Item("Sek", "Currency of Sweden", 1000000, null);
-		Item dollar = new Item("Dollar", "Currency of USA", 1000000, null);
+		Item sek = new Item("Sek", "Currency of Sweden", 1000, null);
+		Item dollar = new Item("Dollar", "Currency of USA", 1000, null);
 		collection.add(sek);
 		collection.add(dollar);
 	}
