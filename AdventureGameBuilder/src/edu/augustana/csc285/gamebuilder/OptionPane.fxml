@@ -7,20 +7,35 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.augustana.csc285.gamebuilder.OptionPane">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.augustana.csc285.gamebuilder.OptionPane">
    <children>
       <Label layoutX="31.0" layoutY="55.0" text="Option" />
-      <Label layoutX="31.0" layoutY="129.0" text="Effect" />
+      <Label layoutX="34.0" layoutY="206.0" text="Effect" />
       <ComboBox layoutX="99.0" layoutY="50.0" prefHeight="26.0" prefWidth="71.0" />
       <ComboBox layoutX="99.0" layoutY="124.0" prefHeight="26.0" prefWidth="71.0" />
       <Button layoutX="99.0" layoutY="159.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="23.0" text="+" />
       <Button layoutX="139.0" layoutY="159.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="29.0" text="-" />
-      <Button layoutX="99.0" layoutY="84.0" mnemonicParsing="false" text="+" />
+      <Button layoutX="99.0" layoutY="84.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="25.0" text="+" />
       <Button layoutX="142.0" layoutY="84.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="29.0" text="-" />
       <TextField layoutX="217.0" layoutY="54.0" prefHeight="60.0" prefWidth="310.0" />
       <Label layoutX="332.0" layoutY="25.0" prefHeight="16.0" prefWidth="81.0" text="Option Text" />
-      <Label layoutX="217.0" layoutY="129.0" prefHeight="16.0" prefWidth="81.0" text="Effect Type" />
-      <ChoiceBox layoutX="306.0" layoutY="124.0" prefWidth="150.0" />
-      <Button layoutX="25.0" layoutY="12.0" mnemonicParsing="false" text="Save" />
+      <Label layoutX="217.0" layoutY="205.0" prefHeight="16.0" prefWidth="81.0" text="Effect Type" />
+      <ChoiceBox layoutX="311.0" layoutY="202.0" prefWidth="150.0" />
+      <Button layoutX="7.0" layoutY="14.0" mnemonicParsing="false" text="Save To Slide" />
+      <Button layoutX="96.0" layoutY="235.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="29.0" text="+" />
+      <ComboBox layoutX="96.0" layoutY="200.0" prefHeight="26.0" prefWidth="71.0" />
+      <Button layoutX="140.0" layoutY="235.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="28.0" text="-" />
+      <Label layoutX="31.0" layoutY="130.0" text="Condition" />
+      <Label layoutX="217.0" layoutY="130.0" text="Condition Type" />
+      <ChoiceBox layoutX="311.0" layoutY="126.0" prefWidth="150.0" />
+      <Button layoutX="10.0" layoutY="148.0" mnemonicParsing="false" text="Set" />
+      <Button layoutX="10.0" layoutY="224.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="32.0" text="Set" />
+      <Button layoutX="9.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="33.0" text="Set" />
+      <Button layoutX="43.0" layoutY="73.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="46.0" text="Reset" />
+      <Button layoutX="42.0" layoutY="148.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="46.0" text="Reset" />
+      <Button layoutX="42.0" layoutY="224.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="46.0" text="Reset" />
+      <Button layoutX="479.0" layoutY="126.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="96.0" text="Edit Condition" />
+      <Button layoutX="479.0" layoutY="202.0" mnemonicParsing="false" text="Edit Effect" />
+      <Button layoutX="18.0" layoutY="357.0" mnemonicParsing="false" text="Back" />
    </children>
 </AnchorPane>

@@ -9,9 +9,14 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
+
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.HashMap;
+
+import edu.augustana.csc285.game.*;
+import edu.augustana.csc285.game.datamodel.Slide;
+import edu.augustana.csc285.game.datamodel.Story;
 
 public class MainPaneController {
 
@@ -22,6 +27,8 @@ public class MainPaneController {
 	@FXML private Button slideStatusButton;
 	@FXML private Button saveChangesButton;
 	@FXML private Button descriptionButton;
+	private Story story;
+	private Slide currentSlide;
 	//private Story story;
 	//private Slide currentSlide;
 	
@@ -51,23 +58,23 @@ public class MainPaneController {
 	@FXML
 	private void handleImageButton() {
 		File imageFile = getFileFromUser();
-		//currentSlide.setImage(imageFile.getPath());
+		currentSlide.setImage(imageFile.getPath());
 	}
 
 	@FXML
 	private void handleMusicButton() {
 		File musicFile = getFileFromUser();
-		//currentSlide.setMusic(musicFile.getPath());
+		currentSlide.setMusic(musicFile.getPath());
 	}
 
 	@FXML
 	private void handleSlideStatusButton() {
-		//new Alert(AlertType.INFORMATION, currentSlide.toString()).showAndWait();
+		new Alert(AlertType.INFORMATION, currentSlide.toString()).showAndWait();
 	}
 
 	@FXML
 	private void handleDescriptionButton() {
-		//currentSlide.setDesc(descriptionField.getText());
+		currentSlide.setDesc(descriptionField.getText());
 	}
 
 	private File getFileFromUser() {
