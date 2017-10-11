@@ -39,11 +39,11 @@ public class SettingsScreen implements Screen {
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
 		
-		Button button = new TextButton("Back", DEFAULT_SKIN);
-		button.addListener(new InputListener() {
+		Button backButton = new TextButton("Back", DEFAULT_SKIN);
+		backButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.setScreen(new MainMenuScreen(game));
+				game.setScreen(new SlideScreen(game));
 			}
 
 			@Override
@@ -52,9 +52,9 @@ public class SettingsScreen implements Screen {
 			}
 
 		});
-		button.setSize(120, 35);
-		button.setPosition(660, 430);
-		stage.addActor(button);
+		backButton.setSize(120, 35);
+		backButton.setPosition(660, 430);
+		stage.addActor(backButton);
 	
 		
 		
