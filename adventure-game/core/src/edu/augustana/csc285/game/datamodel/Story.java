@@ -257,13 +257,13 @@ public class Story {
 				null, null, "9");
 		temp = new Option("Buy official papers from your home parish 80 SEK", null, null, "10", null, null);
 		temp.addFeasibleCondition(new ItemCondition(new Item(sek, 80), ConditionOperation.GREATER_OR_EQUAL));
-		temp.addEffect(new ItemEffect(new Item(officialPapers,1), EffectOperation.PLUS));
-		temp.addEffect(new ItemEffect(new Item(sek,80),EffectOperation.MINUS));
+		temp.addEffect(new ItemEffect(new Item(officialPapers, 1), EffectOperation.PLUS));
+		temp.addEffect(new ItemEffect(new Item(sek, 80), EffectOperation.MINUS));
 		s9.addOption(temp);
 		temp = new Option("Buy forged papers 40 SEK", null, null, "10", null, null);
 		temp.addFeasibleCondition(new ItemCondition(new Item(sek, 40), ConditionOperation.GREATER_OR_EQUAL));
 		temp.addEffect(new ItemEffect(forgedPapers, EffectOperation.PLUS));
-		temp.addEffect(new ItemEffect(new Item(sek,40),EffectOperation.MINUS));
+		temp.addEffect(new ItemEffect(new Item(sek, 40), EffectOperation.MINUS));
 		s9.addOption(temp);
 
 		Slide s10 = new Slide("GameData/SlideImages/slide10.jpg",
@@ -372,10 +372,9 @@ public class Story {
 
 		buyHull.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
 		buyHull.addFeasibleCondition(new ItemCondition(new Item(sek, 60), ConditionOperation.GREATER_OR_EQUAL));
-		buyHull.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
 		buyHull.addEffect(new ItemEffect(new Item(sek, 60), EffectOperation.MINUS));
 
-		buyHull.addFeasibleCondition(new ItemCondition(new Item(sek, 120), ConditionOperation.GREATER_OR_EQUAL));
+		buyHullAmerica.addFeasibleCondition(new ItemCondition(new Item(sek, 120), ConditionOperation.GREATER_OR_EQUAL));
 		buyHullAmerica.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
 		buyHullAmerica.addEffect(new ItemEffect(ticketToAmerica, EffectOperation.PLUS));
 		buyHull.addEffect(new ItemEffect(new Item(sek, 120), EffectOperation.MINUS));

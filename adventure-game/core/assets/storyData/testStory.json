@@ -386,14 +386,6 @@ slides: {
 					{
 						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
 						item: {
-							name: Ticket to Hull
-							quantity: 1
-						}
-						operation: PLUS
-					}
-					{
-						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
-						item: {
 							name: Sek
 							desc: Currency of Sweden
 							quantity: 60
@@ -421,15 +413,6 @@ slides: {
 						}
 						operation: GREATER_OR_EQUAL
 					}
-					{
-						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
-						item: {
-							name: Sek
-							desc: Currency of Sweden
-							quantity: 120
-						}
-						operation: GREATER_OR_EQUAL
-					}
 				]
 			}
 			{
@@ -454,7 +437,17 @@ slides: {
 					}
 				]
 				visibleConditions: []
-				feasibleConditions: []
+				feasibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Sek
+							desc: Currency of Sweden
+							quantity: 120
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
 			}
 		]
 	}
