@@ -8,15 +8,19 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
@@ -34,9 +38,9 @@ public class SlideScreen implements Screen {
 	private Slide slide;
 	private ArrayList<Option> visibleOptions;
 	private Texture image;
-	private Texture inventoryImage;
-	private Texture playerStatImage;
-	private Texture settingsImage;
+	private Button inventoryBtn;
+	private Button playerStatBtn;
+	private Button settingsBtn;
 	private Texture backgroundImage;
 	private OrthographicCamera camera;
 	private Stage stage;
@@ -56,16 +60,24 @@ public class SlideScreen implements Screen {
 		slide = game.manager.getCurrentSlide();
 		image = new Texture(Gdx.files.internal(slide.getImage()));
 		backgroundImage = new Texture("art/background.jpg");
-		inventoryImage = new Texture("icons/inventory.jpg");
-		playerStatImage = new Texture("icons/player-stat.jpg");
-		settingsImage = new Texture("icons/settings.jpg");
+		inventoryBtn = this.addTextureRegion("icons/inventory.jpg", new InventoryScreen(game));
+		inventoryBtn.debug();
+		playerStatBtn = this.addTextureRegion("icons/player-stat.jpg", new PlayerStatScreen(game));
+		playerStatBtn.debug();
+		settingsBtn = this.addTextureRegion("icons/settings.jpg", new SettingsScreen(game));
+		settingsBtn.debug();
 		visibleOptions = (ArrayList<Option>) slide.getVisibleOptions(game.manager.getPlayer());
 		// Set up camera
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 
+		inventoryBtn.setPosition(450, 300);
+		
 		// Set up stage and table for buttons
 		stage = new Stage(new ScreenViewport());
+		stage.addActor(inventoryBtn);
+		stage.addActor(playerStatBtn);
+		stage.addActor(settingsBtn);
 		Table buttonTable = new Table();
 
 		buttonTable.setPosition((6 * AdventureGame.GAME_SCREEN_WIDTH) / 16 + WIDTH_BUFFER,
@@ -140,7 +152,7 @@ public class SlideScreen implements Screen {
 		playerStatButton.setSize(120, 35);
 		playerStatButton.addListener(new InputListener() {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.setScreen(new PlayerStatScreen(game, false));
+				game.setScreen(new PlayerStatScreen(game));
 			}
 
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -225,10 +237,27 @@ public class SlideScreen implements Screen {
 				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT),
 				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())));
 
-		game.batch.draw(inventoryImage, AdventureGame.GAME_SCREEN_WIDTH - 165, 425, 50, 50);
-		game.batch.draw(playerStatImage, AdventureGame.GAME_SCREEN_WIDTH - 110, 425, 50, 50);
-		game.batch.draw(settingsImage, AdventureGame.GAME_SCREEN_WIDTH - 55, 425, 50, 50);
 		game.batch.end();
+	}
+
+	public Button addTextureRegion(String skinLocation, Screen screen) {
+		Texture textureImage = new Texture(skinLocation);
+
+		TextureRegion textureRegion = new TextureRegion(textureImage);
+		TextureRegionDrawable textureRegionDrawable = new TextureRegionDrawable(textureRegion);
+		Button button = new ImageButton(textureRegionDrawable);
+		button.addListener(new InputListener() {
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				// game.setScreen(new InventoryScreen(game));
+				game.setScreen(screen);
+			}
+
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+		});
+		return button;
+
 	}
 
 	@Override
