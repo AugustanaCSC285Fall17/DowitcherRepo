@@ -5,6 +5,9 @@ import static org.junit.Assert.*;
 import java.util.*;
 
 import org.junit.Test;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
 
 import edu.augustana.csc285.game.datamodel.Inventory;
 import edu.augustana.csc285.game.datamodel.Item;
@@ -27,6 +30,8 @@ public class ItemTester {
 	@Test
 	public void testContains() {
 
+		      
+		
 		Inventory inv = new Inventory();
 		bible = new Item("Bible", "A Holy book", 3);
 		book = new Item("Book", "A normal book", 1);
@@ -50,13 +55,13 @@ public class ItemTester {
 		book = new Item("Book", "A normal book", 1);
 		bird = new Item("Bird", "A wild bird", 2);
 		emu = new Item("Emu", "A wild bird", 2);
-		assertTrue(emu.equals(emu));
-		assertFalse(emu.equals(bird));
-		assertTrue(bird.equals(bird));
-		assertFalse(bird.equals(bible));
-		assertTrue(bird.getDesc().equals(emu.getDesc()));
-		assertFalse(bird.getQuantity() == bible.getQuantity());
-		assertTrue(bird.getQuantity() == emu.getQuantity());
+		assertEquals(emu, emu);
+		assertNotEquals(emu, bird);
+		assertEquals(bird, bird);
+		assertNotEquals(bird, bible);
+		assertEquals(bird.getDesc(), emu.getDesc());
+		assertNotEquals(bird.getQuantity(), bible.getQuantity());
+		assertEquals(bird.getQuantity(), emu.getQuantity());
 
 	}
 
@@ -74,33 +79,24 @@ public class ItemTester {
 		Set<Item> list1 = inv1.getCollection();
 		Set<Item> list2 = inv2.getCollection();
 
-		assertTrue(list1.equals(list2));
-
-		System.out.println(inv1);
-		System.out.println(inv2);
-		System.out.println(list1);
-		System.out.println(list2);
+		assertEquals(list1, list2);
 		
 		inv1.addItem(emu);
 		list1 = inv1.getCollection();
 		//Failure, cannot add an item's quantity by simply adding an item with quantity
 		// 2
-		System.out.println(inv1);
-		System.out.println(inv2);
-		System.out.println(list1);
-		System.out.println(list2);
-		assertFalse(list1.equals(list2));
+		assertNotEquals(list1, list2);
 
 		inv2.addItem(emu);
 		list2 = inv2.getCollection();
 		// This test run successfully because neither of the lists were modified when
 		// adding an item
-		assertTrue(list1.equals(list2));
+		assertEquals(list1, list2);
 
 		inv2.addItem(bible);
 		list2 = inv2.getCollection();
 
-		assertFalse(list1.equals(list2));
+		assertNotEquals(list1, list2);
 		System.out.println(inv2);
 
 	}
