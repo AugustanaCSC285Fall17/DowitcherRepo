@@ -19,8 +19,8 @@ public class Inventory {
 	// Need to initialize in here so can have 0 argument constructor
 	private TreeSet<Item> collection = new TreeSet<Item>(new StringComp());
 
+	// cannot have calls inside of this constructor
 	public Inventory() {
-		this.addDefaultItem();
 	}
 
 	public Inventory(TreeSet<Item> collection) {
@@ -45,7 +45,7 @@ public class Inventory {
 	public void addItem(Item item) {
 		Item temp = this.findItem(item);
 		if (temp != null) {
-			temp.addItem(item);
+			temp.setQuantity(item.getQuantity() + temp.getQuantity());
 		} else {
 			collection.add(item);
 		}
@@ -53,12 +53,12 @@ public class Inventory {
 
 	// precondition that collection is not null
 	// add Item in condition with new quantity to the collection if newQuantity
-	// <0 then set to 0
+	// < 0 then set to 0
 	public void changeItemQuantity(Item item, int newQuantity) {
 		if (newQuantity < 0) {
 			newQuantity = 0;
 		}
-		Item temp = new Item(item,newQuantity);
+		Item temp = new Item(item, newQuantity);
 		collection.remove(temp);
 		collection.add(temp);
 	}
@@ -77,16 +77,16 @@ public class Inventory {
 	}
 
 	/*
-	 * post: remove item from the inventory, make no change if the item is not
-	 * in collection
+	 * post: remove item from the inventory, make no change if the item is not in
+	 * collection
 	 */
 	public void removeItem(Item item) {
 		collection.remove(item);
 	}
 
 	/*
-	 * post: add Inventory other to this inventory if inventory other is empty,
-	 * do nothing
+	 * post: add Inventory other to this inventory if inventory other is empty, do
+	 * nothing
 	 */
 	public void addInventory(Inventory other) {
 		Iterator<Item> itr = this.collection.iterator();
@@ -122,10 +122,10 @@ public class Inventory {
 		return null;
 	}
 
-	public void addDefaultItem() {
-		Item sek = new Item("Sek", "Currency of Sweden", 1000, null);
-		Item dollar = new Item("Dollar", "Currency of USA", 1000, null);
-		collection.add(sek);
-		collection.add(dollar);
-	}
+	/*
+	 * public void addDefaultItem() { Item sek = new Item("Sek",
+	 * "Currency of Sweden", 1000, null); Item dollar = new Item("Dollar",
+	 * "Currency of USA", 1000, null); collection.add(sek); collection.add(dollar);
+	 * }
+	 */
 }

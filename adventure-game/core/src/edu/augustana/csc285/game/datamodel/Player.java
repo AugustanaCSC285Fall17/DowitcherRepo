@@ -22,6 +22,14 @@ public class Player {
 		this.properties = properties;
 		this.gameOver = gameOver;
 		this.gender = gender;
+		PlayerHelper();
+	}
+	
+	private void PlayerHelper() {
+		Item sek = new Item("Sek", "Currency of Sweden", 1000, null);
+		Item dollar = new Item("Dollar", "Currency of USA", 1000, null);
+		inventory.addItem(sek);
+		inventory.addItem(dollar);
 	}
 
 	public Player(String name) {
