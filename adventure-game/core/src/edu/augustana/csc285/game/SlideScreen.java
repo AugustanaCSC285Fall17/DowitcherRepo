@@ -72,7 +72,7 @@ public class SlideScreen implements Screen {
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 
 		inventoryBtn.setPosition(450, 300);
-		
+
 		// Set up stage and table for buttons
 		stage = new Stage(new ScreenViewport());
 		stage.addActor(inventoryBtn);
@@ -299,9 +299,6 @@ public class SlideScreen implements Screen {
 	public void dispose() {
 		image.dispose();
 		backgroundImage.dispose();
-		inventoryImage.dispose();
-		playerStatImage.dispose();
-		settingsImage.dispose();
 		stage.dispose();
 	}
 

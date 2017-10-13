@@ -103,6 +103,8 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 
 		stage.addActor(buttonTable);
 		introduction = "Welcome to Swedish Imigration Trail";
+		//GlyphLayout layout = new GlyphLayout(font, text);
+		//float textWidth = layout.width;
 	}
 
 	@Override
@@ -120,7 +122,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.begin();
 		game.font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
-		game.font.getData().setScale(3);
+		// game.font.getData().setScale(3);
 		game.batch.draw(logo, AdventureGame.GAME_SCREEN_WIDTH - 600, 350, 454, 101);
 		game.font.draw(game.batch, introduction, 80, 330);
 		game.batch.end();
