@@ -85,7 +85,7 @@ public class MainPaneController {
     @FXML
     private void handleSaveChangesButton() {
     	//save the edited screen
-		//Story.slides.get(currentSlide.getID()) = new Slide(currentSlide);
+		Story.slides.get(currentSlide.getId());
     	new Alert(AlertType.INFORMATION,"All Changes Saved").showAndWait();
     }	
 	
