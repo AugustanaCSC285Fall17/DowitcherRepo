@@ -17,7 +17,7 @@ public class Inventory {
 	}
 
 	// Need to initialize in here so can have 0 argument constructor
-	private TreeSet<Item> collection = new TreeSet<Item>(new StringComp());
+	private TreeSet<Item> inventory = new TreeSet<Item>(new StringComp());
 
 	// cannot have calls inside of this constructor
 	public Inventory() {
@@ -28,15 +28,15 @@ public class Inventory {
 	}
 
 	public Inventory(Inventory other) {
-		this.collection = other.collection;
+		this.inventory = other.inventory;
 	}
 
 	public TreeSet<Item> getCollection() {
-		return collection;
+		return inventory;
 	}
 
 	public void setCollection(TreeSet<Item> collection) {
-		this.collection = (TreeSet<Item>) collection;
+		this.inventory = (TreeSet<Item>) collection;
 	}
 
 	/*
@@ -47,7 +47,7 @@ public class Inventory {
 		if (temp != null) {
 			temp.setQuantity(item.getQuantity() + temp.getQuantity());
 		} else {
-			collection.add(item);
+			inventory.add(item);
 		}
 	}
 
@@ -59,14 +59,14 @@ public class Inventory {
 			newQuantity = 0;
 		}
 		Item temp = new Item(item, newQuantity);
-		collection.remove(temp);
-		collection.add(temp);
+		inventory.remove(temp);
+		inventory.add(temp);
 	}
 
 	// return the quantity of an item, if the item is not in the collection then
 	// return 0
 	public int getItemQuantity(Item item) {
-		Iterator<Item> itr = this.collection.iterator();
+		Iterator<Item> itr = this.inventory.iterator();
 		while (itr.hasNext()) {
 			Item temp = itr.next();
 			if (temp.equals(item)) {
@@ -81,7 +81,7 @@ public class Inventory {
 	 * collection
 	 */
 	public void removeItem(Item item) {
-		collection.remove(item);
+		inventory.remove(item);
 	}
 
 	/*
@@ -89,10 +89,10 @@ public class Inventory {
 	 * nothing
 	 */
 	public void addInventory(Inventory other) {
-		Iterator<Item> itr = this.collection.iterator();
+		Iterator<Item> itr = this.inventory.iterator();
 		while (itr.hasNext()) {
 			Item item = itr.next();
-			if (other.collection.contains(item)) {
+			if (other.inventory.contains(item)) {
 				Item temp = other.findItem(item);
 				item.addItem(temp);
 			}
@@ -101,7 +101,7 @@ public class Inventory {
 
 	public String toString() {
 		String str = "";
-		for (Item item : this.collection) {
+		for (Item item : this.inventory) {
 			if (item.getQuantity() != 0) {
 				str += item + "\n";
 			}
@@ -112,7 +112,7 @@ public class Inventory {
 	// Find item with matched name in the inventory, return null if nothing was
 	// found
 	public Item findItem(Item other) {
-		Iterator<Item> itr = this.collection.iterator();
+		Iterator<Item> itr = this.inventory.iterator();
 		while (itr.hasNext()) {
 			Item item = itr.next();
 			if (item.equals(other)) {
