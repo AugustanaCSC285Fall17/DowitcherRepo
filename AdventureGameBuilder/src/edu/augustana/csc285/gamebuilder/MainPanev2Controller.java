@@ -58,6 +58,7 @@ public class MainPanev2Controller {
 	@FXML
 	private void initialize() {
 		currentSlide = new Slide();
+		
 
 	}
 
@@ -68,15 +69,31 @@ public class MainPanev2Controller {
 		Parent root = loader.load();
 		
 		
-		ItemLibraryController slideEditorController = loader.getController();	    
+		ItemLibraryController controller = loader.getController();	
+		controller.initData(this);
 	    
         Scene scene = new Scene(root);
     
-        stage.setTitle("<YOUR TEAM>'s Slide Editor");
+        stage.setTitle("Item Library");
         stage.setScene(scene);
         stage.show();
 	}
 	
+	
+	/**
+	 * @return the loadLibrary
+	 */
+	public MenuItem getLoadLibrary() {
+		return LoadLibrary;
+	}
+
+	/**
+	 * @param loadLibrary the loadLibrary to set
+	 */
+	public void setLoadLibrary(MenuItem loadLibrary) {
+		LoadLibrary = loadLibrary;
+	}
+
 	@FXML
 	private void handleSlideId() {
 		// String Id = slideIdField.getText()

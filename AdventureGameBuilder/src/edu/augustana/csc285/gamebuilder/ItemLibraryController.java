@@ -38,7 +38,7 @@ public class ItemLibraryController {
 	@FXML
 	private Button saveItem;
 
-	private void initData(MainPanev2Controller controller) {
+	public void initData(MainPanev2Controller controller) {
 		this.controller = controller;
 	}
 
