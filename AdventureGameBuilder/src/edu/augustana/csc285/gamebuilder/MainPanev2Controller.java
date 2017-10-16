@@ -1,13 +1,19 @@
 package edu.augustana.csc285.gamebuilder;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -17,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
+
 import edu.augustana.csc285.game.datamodel.Slide;
 import edu.augustana.csc285.game.datamodel.Story;
 
@@ -24,84 +31,85 @@ import edu.augustana.csc285.game.datamodel.Story;
 public class MainPanev2Controller {
 
 	@FXML
-	private TextField descriptionField;
+	private TextArea descriptionField;
 	@FXML
-	private ChoiceBox slideChoiceBox;
+	private TextField slideID;
+	@FXML
+	private Button saveButton;
+	@FXML
+	private Button editOptionsButton;
+	@FXML
+	private Button backButton;
+	@FXML
+	private Button addItem;
 	@FXML
 	private Button imageButton;
 	@FXML
 	private Button musicButton;
 	@FXML
-	private Button slideStatusButton;
+	private Button previewButton;
 	@FXML
-	private Button saveChangesButton;
-	@FXML
-	private Button descriptionButton;
-	@FXML
-	private Button loadLibrary;
-	
 	private Story story;
 	private Slide currentSlide;
-	// private Story story;
-	// private Slide currentSlide;
 
-	// JavaFX initialize method, called after this Pane is created.
 	@FXML
 	private void initialize() {
-		currentSlide = new Slide();
-		
+		//currentSlide = new Slide();
+
 	}
 
 	@FXML
-	private void handleSlideIdText() {
-		//Saves the Slide Id
-		
-	}
+	private void handleSlideId() {
+		//String Id = slideIdField.getText()
+		//currentSlide.setId(text);
+		}
+
 
 	@FXML
-	private void handleSelectImageButton() {
+	private void handleEditOptionsButton(ActionEvent event) throws IOException{
+		Parent advanced_options_parent = FXMLLoader.load((getClass().getResource("AdvancedOption.fxml")));
+		Scene advanced_options_scene = new Scene(advanced_options_parent);
+		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	    app_stage.setScene(advanced_options_scene );
+	    app_stage.show();
+	}
+	
+	@FXML
+	private void handleAddItem(ActionEvent event) throws IOException{
+		Parent item_library_parent = FXMLLoader.load((getClass().getResource("ItemLibrary.fxml")));
+		Scene item_library_scene = new Scene(item_library_parent);
+		Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+	    app_stage.setScene(item_library_scene );
+	    app_stage.show();
+	}
+	
+	@FXML
+	private void handleImageButton() {
 		File imageFile = getFileFromUser();
 		currentSlide.setImage(imageFile.getPath());
-		//Saves the image
-		
 	}
-	
-	@FXML
-	private void handleSelectMusicButton() {
-		//Saves the music
-		
-	}
-	
-	@FXML
-	private void handleLoadLibrary() throws IOException {
-		//new stage with 
-		Stage stage = new Stage();
-		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("ItemLibrary.fxml"));
-		Parent root = loader.load();
-		
-		ItemLibraryController controller = loader.getController();
-	}
-	
 
 	@FXML
 	public void handleSlideDescription() {
-		//Saves Description Text
 		
 	}
 	
-	@FXML
-	private void handleEditOptions() {
-		//open Options pane
-		
-	}
-	
-	
-	@FXML
+
+    @FXML
 	private void handleMusicButton() {
 		File musicFile = getFileFromUser();
 		currentSlide.setMusic(musicFile.getPath());
 	}
+    
+    @FXML
+ 	private void handleBackButton() {
+ 		
+ 	}
+    
+    @FXML
+ 	private void handleSaveButton() {
+ 		
+ 	}
 
 	@FXML
 	public void handleImage() {
@@ -115,13 +123,11 @@ public class MainPanev2Controller {
 
 	@FXML
 	private void handleSlideStatusButton() {
+    @FXML
+	private void handlePreviewButton() {
 		new Alert(AlertType.INFORMATION, currentSlide.toString()).showAndWait();
 	}
 
-	@FXML
-	private void handleDescriptionButton() {
-		currentSlide.setDesc(descriptionField.getText());
-	}
 
 	private File getFileFromUser() {
 		FileChooser fileBrowser = new FileChooser();
@@ -139,7 +145,7 @@ public class MainPanev2Controller {
 	 * Returns an array containing the story files Uses Java I/O for compatability
 	 * with gamebuilder
 	 */
-	private static File[] getStoryFiles() {
+	  private static File[] getStoryFiles() {
 		return new File("core/storyData").listFiles();
 	}
 

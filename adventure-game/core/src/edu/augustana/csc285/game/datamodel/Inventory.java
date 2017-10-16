@@ -15,7 +15,6 @@ public class Inventory {
 			return o1.getName().compareTo(o2.getName());
 		}
 	}
-	
 
 	// Need to initialize in here so can have 0 argument constructor
 	private TreeSet<Item> itemSet = new TreeSet<Item>(new StringComp());
@@ -39,7 +38,6 @@ public class Inventory {
 	public void setCollection(TreeSet<Item> collection) {
 		this.itemSet = (TreeSet<Item>) collection;
 	}
-
 
 	/*
 	 * post: add item to the inventory
@@ -79,16 +77,16 @@ public class Inventory {
 	}
 
 	/*
-	 * post: remove item from the inventory, make no change if the item is not in
-	 * collection
+	 * post: remove item from the inventory, make no change if the item is not
+	 * in collection
 	 */
 	public void removeItem(Item item) {
 		itemSet.remove(item);
 	}
 
 	/*
-	 * post: add Inventory other to this inventory if inventory other is empty, do
-	 * nothing
+	 * post: add Inventory other to this inventory if inventory other is empty,
+	 * do nothing
 	 */
 	public void addInventory(Inventory other) {
 		Iterator<Item> itr = this.itemSet.iterator();
@@ -111,6 +109,16 @@ public class Inventory {
 		return str;
 	}
 
+	public String getVisibleItemString() {
+		String str = "";
+		for (Item item : this.itemSet) {
+			if (item.getQuantity() != 0 && item.isVisible()) {
+				str += item + "\n";
+			}
+		}
+		return str;
+	}
+
 	// Find item with matched name in the inventory, return null if nothing was
 	// found
 	public Item findItem(Item other) {
@@ -127,7 +135,7 @@ public class Inventory {
 	/*
 	 * public void addDefaultItem() { Item sek = new Item("Sek",
 	 * "Currency of Sweden", 1000, null); Item dollar = new Item("Dollar",
-	 * "Currency of USA", 1000, null); collection.add(sek); collection.add(dollar);
-	 * }
+	 * "Currency of USA", 1000, null); collection.add(sek);
+	 * collection.add(dollar); }
 	 */
 }

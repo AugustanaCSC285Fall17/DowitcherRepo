@@ -8,19 +8,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class GameBuilderApplication extends Application {
+public class AdvancedOptionApplicationTest extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("MainPanev2.fxml"));
-        Scene scene = new Scene(root);
-    
-        primaryStage.setTitle("Game Builder for Swedish Immigration Trail");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+		Parent root = FXMLLoader.load(getClass().getResource("AdvancedOptions.fxml"));
+		Scene scene = new Scene(root);
+
+		primaryStage.setTitle("Game Builder for Swedish Immigration Trail");
+		primaryStage.setScene(scene);
+		primaryStage.show();
 	}
 
 	public static void main(String[] args) {
-		launch(args); 
+		launch(args);
 	}
 }

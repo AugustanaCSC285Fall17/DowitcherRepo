@@ -1,5 +1,7 @@
 package edu.augustana.csc285.game.datamodel;
 
+import java.util.ArrayList;
+
 /**
  * 
  * @author Dat Tran
@@ -24,8 +26,13 @@ public enum PropertyType {
 		return this.default_id;
 	}
 
-	public String toString() {
-		return this.name().toLowerCase();
+	public static ArrayList<String> getPropertyTypeList() {
+		ArrayList<String> propertyTypeList = new ArrayList<String>();
+		PropertyType[] propertyTypes = PropertyType.values();
+		for (PropertyType type : propertyTypes) {
+			propertyTypeList.add(type.toString());
+		}
+		return propertyTypeList;
 	}
 
 }
