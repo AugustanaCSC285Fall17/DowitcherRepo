@@ -29,9 +29,6 @@ public class ItemTester {
 
 	@Test
 	public void testContains() {
-
-		      
-		
 		Inventory inv = new Inventory();
 		bible = new Item("Bible", "A Holy book", 3);
 		book = new Item("Book", "A normal book", 1);
@@ -83,6 +80,7 @@ public class ItemTester {
 		
 		inv1.addItem(emu);
 		list1 = inv1.getCollection();
+		
 		//Failure, cannot add an item's quantity by simply adding an item with quantity
 		// 2
 		assertNotEquals(list1, list2);

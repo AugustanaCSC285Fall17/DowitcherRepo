@@ -115,11 +115,11 @@ public class GameDataTester {
 		Slide s9 = new Slide("GameData/SlideImages/slide9.jpg",
 				"To start your journey, you need a few provisions. The first and foremost being your papers. You have $70 USD worth of Kronor (Swedish money)  right now. Do you:\n",
 				null, null, "9");
-		temp = new Option("Buy official papers from your home parish 80 SEK", null, null, "10", null, null);
+		temp = new Option("Buy official papers from your home parish 80 SEK", null, "You do not have enough money!", "10", null, null);
 		temp.addFeasibleCondition(new ItemCondition(new Item(sek, 80), ConditionOperation.GREATER_OR_EQUAL));
 		temp.addEffect(new ItemEffect(officialPapers, EffectOperation.PLUS));
 		s9.addOption(temp);
-		temp = new Option("Buy forged papers 40 SEK", null, null, "10", null, null);
+		temp = new Option("Buy forged papers 40 SEK", null, "You do not have enough money!", "10", null, null);
 		temp.addFeasibleCondition(new ItemCondition(new Item(sek, 40), ConditionOperation.GREATER_OR_EQUAL));
 		temp.addEffect(new ItemEffect(forgedPapers, EffectOperation.PLUS));
 		s9.addOption(temp);
@@ -224,8 +224,8 @@ public class GameDataTester {
 
 		Slide s17 = new Slide("GameData/SlideImages/slide15.jpg", "Ticket agent \"What can I do for you?\"", null, null,
 				"17");
-		Option buyHull = new Option("Pay for transport to Hull 60 SEK", null, null, "14", null, null);
-		Option buyHullAmerica = new Option("Pay for transport to Hull through Liverpool 120 SEK", null, null, "14",
+		Option buyHull = new Option("Pay for transport to Hull 60 SEK", null, "You do not have enough money!", "14", null, null);
+		Option buyHullAmerica = new Option("Pay for transport to Hull through Liverpool 120 SEK", null, "You do not have enough money!", "14",
 				null, null);
 
 		buyHull.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
@@ -233,10 +233,10 @@ public class GameDataTester {
 		buyHull.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
 		buyHull.addEffect(new ItemEffect(new Item(sek, 60), EffectOperation.MINUS));
 
-		buyHull.addFeasibleCondition(new ItemCondition(new Item(sek, 120), ConditionOperation.GREATER_OR_EQUAL));
+		buyHullAmerica.addFeasibleCondition(new ItemCondition(new Item(sek, 120), ConditionOperation.GREATER_OR_EQUAL));
 		buyHullAmerica.addEffect(new ItemEffect(ticketToHull, EffectOperation.PLUS));
 		buyHullAmerica.addEffect(new ItemEffect(ticketToAmerica, EffectOperation.PLUS));
-		buyHull.addEffect(new ItemEffect(new Item(sek, 120), EffectOperation.MINUS));
+		buyHullAmerica.addEffect(new ItemEffect(new Item(sek, 120), EffectOperation.MINUS));
 		s17.addOption(buyHull);
 		s17.addOption(buyHullAmerica);
 
@@ -247,33 +247,34 @@ public class GameDataTester {
 		s18.addOption(new Option("Leave", null, null, "14", null, null));
 
 		Slide s19 = new Slide("GameData/SlideImages/slide10.jpg", "Choose one item to buy", null, null, "19");
-		Option buyBible = new Option("Buy Bible 20 SEK", null, null, "14", null, null);
+		
+		Option buyBible = new Option("Buy Bible 20 SEK", null, "You do not have enough money", "19", null, null);
 		buyBible.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buyBible.addEffect(new ItemEffect(bible, EffectOperation.PLUS));
 		buyBible.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));
 		s19.addOption(buyBible);
 
-		Option buyFamilyHeirloom = new Option("Buy Family Heirloom 20 SEK", null, null, "14", null, null);
+		Option buyFamilyHeirloom = new Option("Buy Family Heirloom 20 SEK", null, "You do not have enough money", "19", null, null);
 		buyFamilyHeirloom
 				.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buyFamilyHeirloom.addEffect(new ItemEffect(familyHeirloom, EffectOperation.PLUS));
 		buyFamilyHeirloom.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));
 		s19.addOption(buyFamilyHeirloom);
 
-		Option buySewingMachine = new Option("Buy Sewing Machine 20 SEK", null, null, "14", null, null);
+		Option buySewingMachine = new Option("Buy Sewing Machine 20 SEK", null, "You do not have enough money", "19", null, null);
 		buySewingMachine
 				.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buySewingMachine.addEffect(new ItemEffect(sewingMachine, EffectOperation.PLUS));
 		buySewingMachine.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));
 		s19.addOption(buySewingMachine);
 
-		Option buyMedicine = new Option("Buy Medicine 20 SEK", null, null, "14", null, null);
+		Option buyMedicine = new Option("Buy Medicine 20 SEK", null, "You do not have enough money!", "19", null, null);
 		buyMedicine.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buyMedicine.addEffect(new ItemEffect(medicine, EffectOperation.PLUS));
 		buyMedicine.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));
 		s19.addOption(buyMedicine);
 
-		Option buyCuredMeat = new Option("Buy Cured Meat 20 SEK", null, null, "14", null, null);
+		Option buyCuredMeat = new Option("Buy Cured Meat 20 SEK", null, "You do not have enough money!", "19", null, null);
 		buyCuredMeat.addFeasibleCondition(new ItemCondition(new Item(sek, 20), ConditionOperation.GREATER_OR_EQUAL));
 		buyCuredMeat.addEffect(new ItemEffect(curedMeat, EffectOperation.PLUS));
 		buyCuredMeat.addEffect(new ItemEffect(new Item(sek, 20), EffectOperation.MINUS));

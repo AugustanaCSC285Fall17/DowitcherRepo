@@ -15,9 +15,14 @@ public class Inventory {
 			return o1.getName().compareTo(o2.getName());
 		}
 	}
+	
 
 	// Need to initialize in here so can have 0 argument constructor
+<<<<<<< HEAD
+	private TreeSet<Item> itemSet = new TreeSet<Item>(new StringComp());
+=======
 	private TreeSet<Item> inventory = new TreeSet<Item>(new StringComp());
+>>>>>>> 2b3973ae6c1b4357ad90c862d79c6a3b9b8f838d
 
 	// cannot have calls inside of this constructor
 	public Inventory() {
@@ -28,6 +33,17 @@ public class Inventory {
 	}
 
 	public Inventory(Inventory other) {
+<<<<<<< HEAD
+		this.itemSet = other.itemSet;
+	}
+
+	public TreeSet<Item> getCollection() {
+		return itemSet;
+	}
+
+	public void setCollection(TreeSet<Item> collection) {
+		this.itemSet = (TreeSet<Item>) collection;
+=======
 		this.inventory = other.inventory;
 	}
 
@@ -37,17 +53,22 @@ public class Inventory {
 
 	public void setCollection(TreeSet<Item> collection) {
 		this.inventory = (TreeSet<Item>) collection;
+>>>>>>> 2b3973ae6c1b4357ad90c862d79c6a3b9b8f838d
 	}
 
 	/*
 	 * post: add item to the inventory
 	 */
 	public void addItem(Item item) {
-		Item temp = this.findItem(item);
-		if (temp != null) {
-			temp.setQuantity(item.getQuantity() + temp.getQuantity());
+		if (itemSet.contains(item)) {
+			Item itemStored = this.findItem(item);
+			itemStored.setQuantity(item.getQuantity() + itemStored.getQuantity());
 		} else {
+<<<<<<< HEAD
+			itemSet.add(item);
+=======
 			inventory.add(item);
+>>>>>>> 2b3973ae6c1b4357ad90c862d79c6a3b9b8f838d
 		}
 	}
 
@@ -59,14 +80,23 @@ public class Inventory {
 			newQuantity = 0;
 		}
 		Item temp = new Item(item, newQuantity);
+<<<<<<< HEAD
+		itemSet.remove(temp);
+		itemSet.add(temp);
+=======
 		inventory.remove(temp);
 		inventory.add(temp);
+>>>>>>> 2b3973ae6c1b4357ad90c862d79c6a3b9b8f838d
 	}
 
 	// return the quantity of an item, if the item is not in the collection then
 	// return 0
 	public int getItemQuantity(Item item) {
+<<<<<<< HEAD
+		Iterator<Item> itr = this.itemSet.iterator();
+=======
 		Iterator<Item> itr = this.inventory.iterator();
+>>>>>>> 2b3973ae6c1b4357ad90c862d79c6a3b9b8f838d
 		while (itr.hasNext()) {
 			Item temp = itr.next();
 			if (temp.equals(item)) {
@@ -81,7 +111,11 @@ public class Inventory {
 	 * collection
 	 */
 	public void removeItem(Item item) {
+<<<<<<< HEAD
+		itemSet.remove(item);
+=======
 		inventory.remove(item);
+>>>>>>> 2b3973ae6c1b4357ad90c862d79c6a3b9b8f838d
 	}
 
 	/*
@@ -89,10 +123,17 @@ public class Inventory {
 	 * nothing
 	 */
 	public void addInventory(Inventory other) {
+<<<<<<< HEAD
+		Iterator<Item> itr = this.itemSet.iterator();
+		while (itr.hasNext()) {
+			Item item = itr.next();
+			if (other.itemSet.contains(item)) {
+=======
 		Iterator<Item> itr = this.inventory.iterator();
 		while (itr.hasNext()) {
 			Item item = itr.next();
 			if (other.inventory.contains(item)) {
+>>>>>>> 2b3973ae6c1b4357ad90c862d79c6a3b9b8f838d
 				Item temp = other.findItem(item);
 				item.addItem(temp);
 			}
@@ -101,7 +142,11 @@ public class Inventory {
 
 	public String toString() {
 		String str = "";
+<<<<<<< HEAD
+		for (Item item : this.itemSet) {
+=======
 		for (Item item : this.inventory) {
+>>>>>>> 2b3973ae6c1b4357ad90c862d79c6a3b9b8f838d
 			if (item.getQuantity() != 0) {
 				str += item + "\n";
 			}
@@ -112,7 +157,11 @@ public class Inventory {
 	// Find item with matched name in the inventory, return null if nothing was
 	// found
 	public Item findItem(Item other) {
+<<<<<<< HEAD
+		Iterator<Item> itr = this.itemSet.iterator();
+=======
 		Iterator<Item> itr = this.inventory.iterator();
+>>>>>>> 2b3973ae6c1b4357ad90c862d79c6a3b9b8f838d
 		while (itr.hasNext()) {
 			Item item = itr.next();
 			if (item.equals(other)) {

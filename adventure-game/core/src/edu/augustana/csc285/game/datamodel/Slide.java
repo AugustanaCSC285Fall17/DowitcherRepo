@@ -7,7 +7,10 @@ import java.util.List;
 public class Slide {
 	private String image;
 	private String desc;
+	
+	//Deteriorated
 	private String url;
+	
 	private String music;
 	private String id;
 	ArrayList<Option> options;
@@ -85,6 +88,7 @@ public class Slide {
 
 	/**
 	 * @return the url
+	 * Deteriorated
 	 */
 	public String getUrl() {
 		return url;
