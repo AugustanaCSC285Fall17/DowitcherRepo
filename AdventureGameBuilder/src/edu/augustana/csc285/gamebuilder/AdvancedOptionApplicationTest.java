@@ -12,7 +12,7 @@ public class AdvancedOptionApplicationTest extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("ItemLibrary.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("AdvancedOptions.fxml"));
 		Scene scene = new Scene(root);
 
 		primaryStage.setTitle("Game Builder for Swedish Immigration Trail");

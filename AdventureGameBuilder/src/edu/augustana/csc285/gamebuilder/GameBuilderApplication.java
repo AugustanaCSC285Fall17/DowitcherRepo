@@ -12,7 +12,7 @@ public class GameBuilderApplication extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("AdvancedOption.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("MainPanev2.fxml"));
         Scene scene = new Scene(root);
     
         primaryStage.setTitle("Game Builder for Swedish Immigration Trail");

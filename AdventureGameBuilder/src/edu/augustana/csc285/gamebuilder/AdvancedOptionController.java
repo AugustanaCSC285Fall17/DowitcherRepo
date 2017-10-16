@@ -9,10 +9,18 @@ import edu.augustana.csc285.game.datamodel.*;
 import edu.augustana.csc285.game.datamodel.condition.*;
 import edu.augustana.csc285.game.datamodel.effect.*;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * 
@@ -157,7 +165,7 @@ public class AdvancedOptionController {
 	}
 
 	@FXML
-	private void handleAddVisibleGenderCondition() {
+	private void handleAddVisibleGenderCondition(ActionEvent event) throws IOException {    
 		GenderCondition condition = genderConditionHelper();
 		if (condition != null) {
 			option.addVisibleCondition(condition);
