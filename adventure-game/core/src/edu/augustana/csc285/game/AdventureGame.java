@@ -24,7 +24,7 @@ public class AdventureGame extends Game {
 		Story story = Story.fromJSON(Gdx.files.internal("storyData/testStory.json").readString());
 		manager = new StoryManager(story, "Unknown", story.getStartingSlideIndex());
 		batch = new SpriteBatch();
-		font = new BitmapFont();
+		font = new BitmapFont(Gdx.files.internal("fonts/testFont.fnt"), false);
 		this.setScreen(new MainMenuScreen(this));
 		testMusic = Gdx.audio.newMusic(Gdx.files.internal("theme.mp3"));
 		testMusic.setLooping(true);

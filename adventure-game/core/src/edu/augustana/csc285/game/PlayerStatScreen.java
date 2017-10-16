@@ -31,10 +31,8 @@ public class PlayerStatScreen implements Screen {
 	private OrthographicCamera camera;
 	private final AdventureGame game;
 	private Stage stage;
-	private boolean popUp;
 
-	public PlayerStatScreen(final AdventureGame game, boolean popUp) {
-		this.popUp = popUp;
+	public PlayerStatScreen(final AdventureGame game) {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
@@ -53,8 +51,8 @@ public class PlayerStatScreen implements Screen {
 		scroll.setScrollingDisabled(true, false);
 		stage.addActor(scroll);
 
-		Button button = new TextButton("Back", DEFAULT_SKIN);
-		button.addListener(new InputListener() {
+		Button backButton = new TextButton("Back", DEFAULT_SKIN);
+		backButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.setScreen(new SlideScreen(game));
@@ -68,9 +66,9 @@ public class PlayerStatScreen implements Screen {
 
 		});
 
-		button.setSize(120, 35);
-		button.setPosition(660, 430);
-		stage.addActor(button);
+		backButton.setSize(120, 35);
+		backButton.setPosition(660, 430);
+		stage.addActor(backButton);
 
 	}
 

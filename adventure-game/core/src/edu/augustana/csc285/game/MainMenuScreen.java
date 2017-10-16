@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -20,6 +21,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 	private final AdventureGame game;
 	private String introduction;
 	private Stage stage;
+	private Texture logo;
 	OrthographicCamera camera;
 
 	public MainMenuScreen(final AdventureGame game) {
@@ -27,6 +29,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
+		logo = new Texture("art/swensonlogo.png");
 
 		Table buttonTable = new Table();
 		buttonTable.setPosition(400, 200);
@@ -100,6 +103,8 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 
 		stage.addActor(buttonTable);
 		introduction = "Welcome to Swedish Imigration Trail";
+		//GlyphLayout layout = new GlyphLayout(font, text);
+		//float textWidth = layout.width;
 	}
 
 	@Override
@@ -117,7 +122,8 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.begin();
 		game.font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
-		game.font.getData().setScale(3);
+		// game.font.getData().setScale(3);
+		game.batch.draw(logo, AdventureGame.GAME_SCREEN_WIDTH - 600, 350, 454, 101);
 		game.font.draw(game.batch, introduction, 80, 330);
 		game.batch.end();
 
@@ -142,6 +148,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 	@Override
 	public void dispose() {
 		stage.dispose();
+		logo.dispose();
 	}
 
 }
