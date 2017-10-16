@@ -81,7 +81,6 @@ public class AdvancedOptionController {
 
 	@FXML
 	public void initialize() {
-
 		// For testing purpose only
 		String libraryString = "";
 		try (BufferedReader reader = new BufferedReader(new FileReader(new File("testLibrary.json")))) {
