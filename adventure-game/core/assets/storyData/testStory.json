@@ -373,6 +373,7 @@ slides: {
 		options: [
 			{
 				desc: Pay for transport to Hull 60 SEK
+				rejectMessage: You do not have enough money!
 				nextSlideIndex: 14
 				effects: [
 					{
@@ -400,15 +401,6 @@ slides: {
 						}
 						operation: MINUS
 					}
-					{
-						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
-						item: {
-							name: Sek
-							desc: Currency of Sweden
-							quantity: 120
-						}
-						operation: MINUS
-					}
 				]
 				visibleConditions: []
 				feasibleConditions: [
@@ -421,19 +413,11 @@ slides: {
 						}
 						operation: GREATER_OR_EQUAL
 					}
-					{
-						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
-						item: {
-							name: Sek
-							desc: Currency of Sweden
-							quantity: 120
-						}
-						operation: GREATER_OR_EQUAL
-					}
 				]
 			}
 			{
 				desc: Pay for transport to Hull through Liverpool 120 SEK
+				rejectMessage: You do not have enough money!
 				nextSlideIndex: 14
 				effects: [
 					{
@@ -452,9 +436,28 @@ slides: {
 						}
 						operation: PLUS
 					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Sek
+							desc: Currency of Sweden
+							quantity: 120
+						}
+						operation: MINUS
+					}
 				]
 				visibleConditions: []
-				feasibleConditions: []
+				feasibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Sek
+							desc: Currency of Sweden
+							quantity: 120
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
 			}
 		]
 	}
@@ -493,7 +496,8 @@ slides: {
 		options: [
 			{
 				desc: Buy Bible 20 SEK
-				nextSlideIndex: 14
+				rejectMessage: You do not have enough money
+				nextSlideIndex: 19
 				effects: [
 					{
 						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
@@ -528,7 +532,8 @@ slides: {
 			}
 			{
 				desc: Buy Family Heirloom 20 SEK
-				nextSlideIndex: 14
+				rejectMessage: You do not have enough money
+				nextSlideIndex: 19
 				effects: [
 					{
 						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
@@ -563,7 +568,8 @@ slides: {
 			}
 			{
 				desc: Buy Sewing Machine 20 SEK
-				nextSlideIndex: 14
+				rejectMessage: You do not have enough money
+				nextSlideIndex: 19
 				effects: [
 					{
 						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
@@ -598,7 +604,8 @@ slides: {
 			}
 			{
 				desc: Buy Medicine 20 SEK
-				nextSlideIndex: 14
+				rejectMessage: You do not have enough money!
+				nextSlideIndex: 19
 				effects: [
 					{
 						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
@@ -633,7 +640,8 @@ slides: {
 			}
 			{
 				desc: Buy Cured Meat 20 SEK
-				nextSlideIndex: 14
+				rejectMessage: You do not have enough money!
+				nextSlideIndex: 19
 				effects: [
 					{
 						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
@@ -916,6 +924,7 @@ slides: {
 		options: [
 			{
 				desc: Buy official papers from your home parish 80 SEK
+				rejectMessage: You do not have enough money!
 				nextSlideIndex: 10
 				effects: [
 					{
@@ -942,6 +951,7 @@ slides: {
 			}
 			{
 				desc: Buy forged papers 40 SEK
+				rejectMessage: You do not have enough money!
 				nextSlideIndex: 10
 				effects: [
 					{
