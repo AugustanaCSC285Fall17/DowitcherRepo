@@ -68,7 +68,7 @@ public class ItemLibraryController {
 	
 	@FXML
 	private void handleDeleteItemButton() {
-		library.removeItem(item);
+		//library.removeItem(item);
 		//TODO remove from scrollbar
 	}
 	
