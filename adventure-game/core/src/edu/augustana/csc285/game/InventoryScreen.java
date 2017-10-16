@@ -23,7 +23,6 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import edu.augustana.csc285.game.datamodel.Item;
 import edu.augustana.csc285.game.datamodel.Inventory;
 
-
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -49,7 +48,7 @@ public class InventoryScreen implements Screen {
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
 		stage = new Stage(new ScreenViewport());
-		String inventory = "You have: \n" + game.manager.getPlayer().getInventory();
+		String inventory = "You have: \n" + game.manager.getPlayer().getInventory().getVisibleItemString();
 		Label label = new Label(inventory, DEFAULT_SKIN);
 		label.setWrap(true);
 		ScrollPane scroll = new ScrollPane(label, DEFAULT_SKIN);
@@ -89,22 +88,23 @@ public class InventoryScreen implements Screen {
 		// scroll2.setScrollingDisabled(true, false);
 		// stage.addActor(scroll2);
 
-//		Table table = new Table();
-//		Table container = new Table();
-//		container.setBounds(10, 10, 400, 400);
-//		ScrollPane scroll3 = new ScrollPane(table);
-//		container.add(scroll);
-//		container.row();
-//		container.debug();
-//		table.debug();
-//		for (Item item : inventoryCollection.values()) {
-//			Label label2 = new Label(item.getName() + " x " + item.getQuantity(), DEFAULT_SKIN);
-//			label2.setAlignment(Align.right);
-//			label2.setWrap(true);
-//			table.add(label2);
-//			table.row();
-//		}
-//		stage.addActor(container);
+		// Table table = new Table();
+		// Table container = new Table();
+		// container.setBounds(10, 10, 400, 400);
+		// ScrollPane scroll3 = new ScrollPane(table);
+		// container.add(scroll);
+		// container.row();
+		// container.debug();
+		// table.debug();
+		// for (Item item : inventoryCollection.values()) {
+		// Label label2 = new Label(item.getName() + " x " + item.getQuantity(),
+		// DEFAULT_SKIN);
+		// label2.setAlignment(Align.right);
+		// label2.setWrap(true);
+		// table.add(label2);
+		// table.row();
+		// }
+		// stage.addActor(container);
 	}
 
 	@Override

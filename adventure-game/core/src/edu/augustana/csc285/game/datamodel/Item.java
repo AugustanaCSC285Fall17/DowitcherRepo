@@ -166,4 +166,16 @@ public class Item {
 		return true;
 	}
 
+	/**
+	 * pre: invisible item starts with "~"
+	 * 
+	 * @return true if the item is visible to the player
+	 */
+	public boolean isVisible() {
+		if (name.startsWith("~")) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }

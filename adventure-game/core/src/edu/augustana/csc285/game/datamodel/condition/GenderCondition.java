@@ -14,6 +14,7 @@ public class GenderCondition implements Condition {
 		this.gender = gender;
 	}
 
+	// Only going to support EQUAL and NOT_EQUAL
 	@Override
 	public boolean checkCondition(Player player) {
 		if (player.getGender() == gender) {

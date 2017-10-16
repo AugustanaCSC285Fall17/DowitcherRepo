@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class GameBuilderApplication extends Application {
+public class AdvancedOptionApplicationTest extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
