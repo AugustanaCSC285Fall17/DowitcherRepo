@@ -11,13 +11,12 @@
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
 	minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
 	tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.111"
-	xmlns:fx="http://javafx.com/fxml/1">
-	>
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.augustana.csc285.gamebuilder.AdvancedOptionController">
 	<tabs>
 		<Tab text="Effect">
 			<content>
-				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
-					prefWidth="200.0">
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="340.0"
+					prefWidth="663.0">
 					<children>
 						<TabPane layoutX="6.0" prefHeight="347.0" prefWidth="600.0"
 							tabClosingPolicy="UNAVAILABLE">
@@ -32,7 +31,7 @@
 													layoutY="18.0" />
 												<Button fx:id="createNameEffect" layoutX="134.0"
 													layoutY="74.0" mnemonicParsing="false" prefHeight="32.0"
-													prefWidth="156.0" text="Create Effect" />
+													prefWidth="156.0" text="Add Effect" />
 											</children>
 										</AnchorPane>
 									</content>
@@ -45,7 +44,7 @@
 												<Label layoutX="22.0" layoutY="21.0" text="New Gender" />
 												<Button fx:id="createGenderEffect" layoutX="134.0"
 													layoutY="74.0" mnemonicParsing="false" prefHeight="32.0"
-													prefWidth="156.0" text="Create Effect" />
+													prefWidth="156.0" text="Add Effect" />
 												<ChoiceBox fx:id="genderChoiceEffect" layoutX="134.0"
 													layoutY="18.0" prefWidth="150.0" />
 											</children>
@@ -60,7 +59,7 @@
 												<Label layoutX="22.0" layoutY="21.0" text="Item" />
 												<Button fx:id="createItemEffect" layoutX="134.0"
 													layoutY="112.0" mnemonicParsing="false" prefHeight="32.0"
-													prefWidth="149.0" text="Create Effect" />
+													prefWidth="149.0" text="Add Effect" />
 												<ChoiceBox fx:id="itemChoiceEffect" layoutX="134.0"
 													layoutY="18.0" prefWidth="150.0" />
 												<Label layoutX="22.0" layoutY="63.0" text="Operation" />
@@ -81,7 +80,7 @@
 												<Label layoutX="22.0" layoutY="21.0" text="Stat" />
 												<Button fx:id="createStatEffect" layoutX="134.0"
 													layoutY="112.0" mnemonicParsing="false" prefHeight="32.0"
-													prefWidth="149.0" text="Create Effect" />
+													prefWidth="149.0" text="Add Effect" />
 												<ChoiceBox fx:id="statChoiceEffect" layoutX="134.0"
 													layoutY="18.0" prefWidth="150.0" />
 												<Label layoutX="22.0" layoutY="63.0" text="Operation" />
@@ -100,7 +99,7 @@
 				</AnchorPane>
 			</content>
 		</Tab>
-		<Tab text="Visible Condition">
+		<Tab text="Condition">
 			<content>
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
 					prefWidth="200.0">
@@ -114,14 +113,16 @@
 											prefHeight="287.0" prefWidth="620.0">
 											<children>
 												<Label layoutX="22.0" layoutY="21.0" text="Gender" />
-												<Button layoutX="134.0" layoutY="114.0"
-													mnemonicParsing="false" prefHeight="32.0" prefWidth="156.0"
-													text="Create Effect" />
-												<ChoiceBox layoutX="134.0" layoutY="18.0"
-													prefWidth="150.0" />
-												<Label layoutX="14.0" layoutY="64.0" text="Operation" />
-												<ChoiceBox layoutX="134.0" layoutY="59.0"
-													prefWidth="150.0" />
+												<Button fx:id="addVisibleGenderCondition" layoutX="86.0"
+													layoutY="69.0" mnemonicParsing="false" prefHeight="32.0"
+													prefWidth="247.0" onAction="#handleAddVisibleGenderCondition"
+													text="Add Visible Condition" />
+												<ChoiceBox fx:id="genderChoiceCondition" layoutX="134.0"
+													layoutY="18.0" prefWidth="150.0" />
+												<Button fx:id="addFeasibleGenderCondition" layoutX="86.0"
+													layoutY="118.0" mnemonicParsing="false" prefHeight="32.0"
+													prefWidth="247.0" onAction="#handleAddFeasibleGenderCondition"
+													text="Add Feasible Condition" />
 											</children>
 										</AnchorPane>
 									</content>
@@ -132,16 +133,22 @@
 											prefHeight="287.0" prefWidth="620.0">
 											<children>
 												<Label layoutX="22.0" layoutY="21.0" text="Item" />
-												<Button layoutX="134.0" layoutY="112.0"
-													mnemonicParsing="false" prefHeight="32.0" prefWidth="149.0"
-													text="Create Effect" />
-												<ChoiceBox layoutX="134.0" layoutY="18.0"
-													prefWidth="150.0" />
+												<ChoiceBox fx:id="itemChoiceCondition" layoutX="134.0"
+													layoutY="18.0" prefWidth="150.0" />
 												<Label layoutX="22.0" layoutY="63.0" text="Operation" />
-												<ChoiceBox layoutX="134.0" layoutY="60.0"
-													prefWidth="150.0" />
+												<ChoiceBox fx:id="itemOperationCondition" layoutX="134.0"
+													layoutY="60.0" prefWidth="150.0" />
 												<Label layoutX="330.0" layoutY="21.0" text="Quantity" />
-												<TextField layoutX="404.0" layoutY="19.0" />
+												<TextField fx:id="itemQuantityCondition" layoutX="404.0"
+													layoutY="19.0" />
+												<Button fx:id="addVisibleItemCondition" layoutX="86.0"
+													layoutY="144.0" mnemonicParsing="false" prefHeight="32.0"
+													prefWidth="247.0" onAction="#handleAddVisibleItemCondition"
+													text="Add Visible Condition" />
+												<Button fx:id="addFeasibleItemCondition" layoutX="86.0"
+													layoutY="193.0" mnemonicParsing="false" prefHeight="32.0"
+													prefWidth="247.0" onAction="#handleAddFeasibleItemCondition"
+													text="Add Feasible Condition" />
 											</children>
 										</AnchorPane>
 									</content>
@@ -152,16 +159,22 @@
 											prefHeight="287.0" prefWidth="620.0">
 											<children>
 												<Label layoutX="22.0" layoutY="21.0" text="Stat" />
-												<Button layoutX="134.0" layoutY="112.0"
-													mnemonicParsing="false" prefHeight="32.0" prefWidth="149.0"
-													text="Create Effect" />
-												<ChoiceBox layoutX="134.0" layoutY="18.0"
-													prefWidth="150.0" />
+												<ChoiceBox fx:id="statChoiceCondition" layoutX="134.0"
+													layoutY="18.0" prefWidth="150.0" />
 												<Label layoutX="22.0" layoutY="63.0" text="Operation" />
-												<ChoiceBox layoutX="134.0" layoutY="60.0"
-													prefWidth="150.0" />
+												<ChoiceBox fx:id="statOperationCondition" layoutX="134.0"
+													layoutY="60.0" prefWidth="150.0" />
 												<Label layoutX="330.0" layoutY="21.0" text="Quantity" />
-												<TextField layoutX="404.0" layoutY="19.0" />
+												<TextField fx:id="statQuantityCondition" layoutX="404.0"
+													layoutY="19.0" />
+												<Button fx:id="addVisibleStatCondition" layoutX="86.0"
+													layoutY="144.0" mnemonicParsing="false" prefHeight="32.0"
+													prefWidth="247.0" onAction="#handleAddVisibleStatCondition"
+													text="Add Visible Condition" />
+												<Button fx:id="addFeasibleStatCondition" layoutX="86.0"
+													layoutY="192.0" mnemonicParsing="false" prefHeight="32.0"
+													prefWidth="247.0" onAction="#handleAddFeasibleStatCondition"
+													text="Add Feasible Condition" />
 											</children>
 										</AnchorPane>
 									</content>
@@ -172,96 +185,16 @@
 											prefHeight="287.0" prefWidth="620.0">
 											<children>
 												<Label layoutX="22.0" layoutY="21.0" text="Percentage" />
-												<TextField layoutX="134.0" layoutY="18.0" />
-												<Button layoutX="134.0" layoutY="74.0"
-													mnemonicParsing="false" prefHeight="32.0" prefWidth="156.0"
-													text="Create Effect" />
-											</children>
-										</AnchorPane>
-									</content>
-								</Tab>
-							</tabs>
-						</TabPane>
-					</children>
-				</AnchorPane>
-			</content>
-		</Tab>
-		<Tab text="Feasible Condition">
-			<content>
-				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
-					prefWidth="200.0">
-					<children>
-						<TabPane layoutX="6.0" prefHeight="347.0" prefWidth="600.0"
-							tabClosingPolicy="UNAVAILABLE">
-							<tabs>
-								<Tab text="Gender Condition">
-									<content>
-										<AnchorPane minHeight="0.0" minWidth="0.0"
-											prefHeight="287.0" prefWidth="620.0">
-											<children>
-												<Label layoutX="22.0" layoutY="21.0" text="Gender" />
-												<Button layoutX="134.0" layoutY="114.0"
-													mnemonicParsing="false" prefHeight="32.0" prefWidth="156.0"
-													text="Create Effect" />
-												<ChoiceBox layoutX="134.0" layoutY="18.0"
-													prefWidth="150.0" />
-												<Label layoutX="14.0" layoutY="64.0" text="Operation" />
-												<ChoiceBox layoutX="134.0" layoutY="59.0"
-													prefWidth="150.0" />
-											</children>
-										</AnchorPane>
-									</content>
-								</Tab>
-								<Tab text="Item Condition">
-									<content>
-										<AnchorPane minHeight="0.0" minWidth="0.0"
-											prefHeight="287.0" prefWidth="620.0">
-											<children>
-												<Label layoutX="22.0" layoutY="21.0" text="Item" />
-												<Button layoutX="134.0" layoutY="112.0"
-													mnemonicParsing="false" prefHeight="32.0" prefWidth="149.0"
-													text="Create Effect" />
-												<ChoiceBox layoutX="134.0" layoutY="18.0"
-													prefWidth="150.0" />
-												<Label layoutX="22.0" layoutY="63.0" text="Operation" />
-												<ChoiceBox layoutX="134.0" layoutY="60.0"
-													prefWidth="150.0" />
-												<Label layoutX="330.0" layoutY="21.0" text="Quantity" />
-												<TextField layoutX="404.0" layoutY="19.0" />
-											</children>
-										</AnchorPane>
-									</content>
-								</Tab>
-								<Tab text="Player Stat Condition">
-									<content>
-										<AnchorPane minHeight="0.0" minWidth="0.0"
-											prefHeight="287.0" prefWidth="620.0">
-											<children>
-												<Label layoutX="22.0" layoutY="21.0" text="Stat" />
-												<Button layoutX="134.0" layoutY="112.0"
-													mnemonicParsing="false" prefHeight="32.0" prefWidth="149.0"
-													text="Create Effect" />
-												<ChoiceBox layoutX="134.0" layoutY="18.0"
-													prefWidth="150.0" />
-												<Label layoutX="22.0" layoutY="63.0" text="Operation" />
-												<ChoiceBox layoutX="134.0" layoutY="60.0"
-													prefWidth="150.0" />
-												<Label layoutX="330.0" layoutY="21.0" text="Quantity" />
-												<TextField layoutX="404.0" layoutY="19.0" />
-											</children>
-										</AnchorPane>
-									</content>
-								</Tab>
-								<Tab text="Random Condition">
-									<content>
-										<AnchorPane minHeight="0.0" minWidth="0.0"
-											prefHeight="287.0" prefWidth="620.0">
-											<children>
-												<Label layoutX="22.0" layoutY="21.0" text="Percentage" />
-												<TextField layoutX="134.0" layoutY="18.0" />
-												<Button layoutX="134.0" layoutY="74.0"
-													mnemonicParsing="false" prefHeight="32.0" prefWidth="156.0"
-													text="Create Effect" />
+												<TextField fx:id="percentageCondition" layoutX="134.0"
+													layoutY="18.0" />
+												<Button fx:id="addVisibleRandomCondition" layoutX="87.0"
+													layoutY="84.0" mnemonicParsing="false" prefHeight="32.0"
+													prefWidth="247.0" onAction="#handleAddVisibleRandomCondition"
+													text=" Add Visible Condition " />
+												<Button fx:id="addFeasibleRandomCondition" layoutX="87.0"
+													layoutY="132.0" mnemonicParsing="false" prefHeight="32.0"
+													prefWidth="247.0" onAction="#handleAddFeasibleRandomCondition"
+													text="Add Feasible Condition" />
 											</children>
 										</AnchorPane>
 									</content>

@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 import com.badlogic.gdx.utils.Json;
-
+/**
+ * 
+ * @author Dat Tran
+ *
+ */
 public class ItemLibrary {
-	// THe map between item name and item with quantity 1
+	// The map between item name and item with quantity 1
 	TreeMap<String, Item> itemMap = new TreeMap<String, Item>();
 
 	public ItemLibrary() {
