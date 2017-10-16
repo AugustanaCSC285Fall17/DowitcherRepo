@@ -1,5 +1,7 @@
 package edu.augustana.csc285.game.datamodel.condition;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public enum ConditionOperation {
@@ -25,8 +27,17 @@ public enum ConditionOperation {
 		}
 	}
 
-	public String toString() {
-		return this.name().toLowerCase();
+	public static ArrayList<String> getConditionOperationList() {
+		ArrayList<String> list = new ArrayList<String>();
+		ConditionOperation[] operations = ConditionOperation.values();
+		for (ConditionOperation operation : operations) {
+			list.add(operation.toString());
+		}
+		return list;
 	}
 
+	public static ArrayList<String> getConditionOperationListForEqualTest() {
+		ArrayList<String> list = (ArrayList<String>) Arrays.asList(EQUAL.toString(), NOT_EQUAL.toString());
+		return list;
+	}
 }

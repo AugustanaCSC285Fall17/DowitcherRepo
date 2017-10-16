@@ -1,0 +1,74 @@
+{
+itemMap: {
+	Bible: {
+		name: Bible
+		quantity: 1
+	}
+	Cured Meat: {
+		name: Cured Meat
+		quantity: 1
+	}
+	Dollar: {
+		name: Dollar
+		desc: Currency of USA
+		quantity: 1
+	}
+	Family Heirloom: {
+		name: Family Heirloom
+		quantity: 1
+	}
+	Forged papers: {
+		name: Forged papers
+		quantity: 1
+	}
+	Illinois Letter: {
+		name: Illinois Letter
+		desc: A letter from Illinois
+		quantity: 1
+		image: GameData/SlideImages/item6.jpg
+	}
+	John Deere Letter: {
+		name: John Deere Letter
+		desc: A letter from John Deere
+		quantity: 1
+		image: GameData/SlideImages/item5.jpg
+	}
+	Medicine: {
+		name: Medicine
+		quantity: 1
+	}
+	Minnesota Letter: {
+		name: Minnesota Letter
+		desc: A letter from Minnesota
+		quantity: 1
+		image: GameData/SlideImages/item8.jpg
+	}
+	Official papers: {
+		name: Official papers
+		quantity: 1
+	}
+	Sek: {
+		name: Sek
+		desc: Currency of Sweden
+		quantity: 1
+	}
+	Sewing Machine: {
+		name: Sewing Machine
+		quantity: 1
+	}
+	Ticket to America: {
+		name: Ticket to America
+		quantity: 1
+	}
+	Ticket to Hull: {
+		name: Ticket to Hull
+		quantity: 1
+	}
+	Washington Letter: {
+		name: Washington Letter
+		desc: A letter from Washington
+		quantity: 1
+		image: GameData/SlideImages/item7.jpg
+	}
+}
+}
