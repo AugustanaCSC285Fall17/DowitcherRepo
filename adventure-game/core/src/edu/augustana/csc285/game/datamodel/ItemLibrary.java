@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 import com.badlogic.gdx.utils.Json;
+
 /**
  * 
  * @author Dat Tran
@@ -18,7 +19,6 @@ public class ItemLibrary {
 	}
 
 	public Item getItem(String itemName, int quantity) {
-		itemName = itemName.toLowerCase();
 		if (!itemMap.containsKey(itemName)) {
 			throw new IllegalArgumentException("The item is not in the library");
 		}
@@ -45,7 +45,7 @@ public class ItemLibrary {
 	 *            String to represent the location of assest
 	 */
 	public void addItem(String itemName, String description, String image) {
-		itemName = itemName.toLowerCase();
+		;
 		Item item = new Item(itemName, description, image);
 		itemMap.put(itemName, item);
 	}
@@ -60,6 +60,14 @@ public class ItemLibrary {
 	 */
 	public ArrayList<String> getItemNameList() {
 		return new ArrayList<String>(itemMap.keySet());
+	}
+
+	public void removeItem(String name) {
+		itemMap.remove(name);
+	}
+
+	public void removeItem(Item item) {
+		removeItem(item.getName());
 	}
 
 	public String toJSON() {

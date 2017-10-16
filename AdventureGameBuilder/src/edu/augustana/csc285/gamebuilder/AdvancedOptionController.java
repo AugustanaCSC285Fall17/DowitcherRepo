@@ -28,6 +28,7 @@ import javafx.stage.Stage;
  *
  */
 public class AdvancedOptionController {
+	// This should be passed in
 	private Option option = new Option();
 	private ItemLibrary itemLibrary;
 	@FXML
@@ -165,7 +166,7 @@ public class AdvancedOptionController {
 	}
 
 	@FXML
-	private void handleAddVisibleGenderCondition(ActionEvent event) throws IOException {    
+	private void handleAddVisibleGenderCondition() {
 		GenderCondition condition = genderConditionHelper();
 		if (condition != null) {
 			option.addVisibleCondition(condition);
