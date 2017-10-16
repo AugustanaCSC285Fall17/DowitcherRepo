@@ -4,6 +4,8 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -28,7 +31,7 @@ import edu.augustana.csc285.game.datamodel.Story;
 public class MainPanev2Controller {
 
 	@FXML
-	private TextField descriptionField;
+	private TextArea descriptionField;
 	@FXML
 	private TextField slideID;
 	@FXML
@@ -59,7 +62,8 @@ public class MainPanev2Controller {
 	private void handleSlideId() {
 		//String Id = slideIdField.getText()
 		//currentSlide.setId(text);
-	}
+		}
+
 
 	@FXML
 	private void handleEditOptionsButton(ActionEvent event) throws IOException{
@@ -86,17 +90,39 @@ public class MainPanev2Controller {
 	}
 
 	@FXML
-	private void handleSlideDescription() {
-		String Description = descriptionField.getText();
-		currentSlide.setDesc(Description);
+	public void handleSlideDescription() {
 		
 	}
+	
+
     @FXML
 	private void handleMusicButton() {
 		File musicFile = getFileFromUser();
 		currentSlide.setMusic(musicFile.getPath());
 	}
+    
+    @FXML
+ 	private void handleBackButton() {
+ 		
+ 	}
+    
+    @FXML
+ 	private void handleSaveButton() {
+ 		
+ 	}
 
+	@FXML
+	public void handleImage() {
+		
+	}
+
+	@FXML
+	public void handleMusic() {
+		
+	}
+
+	@FXML
+	private void handleSlideStatusButton() {
     @FXML
 	private void handlePreviewButton() {
 		new Alert(AlertType.INFORMATION, currentSlide.toString()).showAndWait();
