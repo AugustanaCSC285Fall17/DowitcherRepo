@@ -1,5 +1,7 @@
 package edu.augustana.csc285.gamebuilder;
 
+import java.awt.Desktop;
+import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
