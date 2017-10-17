@@ -49,7 +49,7 @@
 					prefWidth="64.0" text="Image" />
 				<Button fx:id="selectImage" layoutX="93.0" layoutY="237.0"
 					mnemonicParsing="false" prefHeight="25.0" prefWidth="153.0"
-					text="Select an image" />
+					onAction="#handleSelectImage" text="Select an image" />
 				<TextArea fx:id="currentImageTextArea" layoutX="93.0"
 					layoutY="159.0" prefHeight="67.0" prefWidth="153.0" />
 				<Button fx:id="saveItem" layoutX="14.0" layoutY="297.0"
