@@ -74,38 +74,39 @@ public class InventoryScreen implements Screen {
 		backButton.setSize(120, 35);
 		backButton.setPosition(660, 430);
 		stage.addActor(backButton);
-
-		// Label description = new Label("Test description", DEFAULT_SKIN);
-		// description.setWrap(true);
-		// ScrollPane scroll2 = new ScrollPane(description, DEFAULT_SKIN);
-		// scroll.setPosition((WIDTH_BUFFER * 2) + (23 *
-		// AdventureGame.GAME_SCREEN_HEIGHT) / 32,
-		// AdventureGame.GAME_SCREEN_HEIGHT - (HEIGHT_BUFFER * 2) -
-		// (AdventureGame.GAME_SCREEN_HEIGHT / 10) - ((3 *
-		// AdventureGame.GAME_SCREEN_HEIGHT) / 8));
-		// scroll2.setSize(AdventureGame.GAME_SCREEN_WIDTH / 2,
-		// AdventureGame.GAME_SCREEN_HEIGHT / 3);
-		// scroll2.setScrollingDisabled(true, false);
-		// stage.addActor(scroll2);
-
-		// Table table = new Table();
-		// Table container = new Table();
-		// container.setBounds(10, 10, 400, 400);
-		// ScrollPane scroll3 = new ScrollPane(table);
-		// container.add(scroll);
-		// container.row();
-		// container.debug();
-		// table.debug();
-		// for (Item item : inventoryCollection.values()) {
-		// Label label2 = new Label(item.getName() + " x " + item.getQuantity(),
-		// DEFAULT_SKIN);
-		// label2.setAlignment(Align.right);
-		// label2.setWrap(true);
-		// table.add(label2);
-		// table.row();
-		// }
-		// stage.addActor(container);
 	}
+
+		/* Label description = new Label("Test description", DEFAULT_SKIN);
+		 description.setWrap(true);
+		 ScrollPane scroll2 = new ScrollPane(description, DEFAULT_SKIN);
+		 scroll.setPosition((WIDTH_BUFFER * 2) + (23 *
+		 AdventureGame.GAME_SCREEN_HEIGHT) / 32,
+		 AdventureGame.GAME_SCREEN_HEIGHT - (HEIGHT_BUFFER * 2) -
+		 (AdventureGame.GAME_SCREEN_HEIGHT / 10) - ((3 *
+		 AdventureGame.GAME_SCREEN_HEIGHT) / 8));
+		 scroll2.setSize(AdventureGame.GAME_SCREEN_WIDTH / 2,
+		 AdventureGame.GAME_SCREEN_HEIGHT / 3);
+		 scroll2.setScrollingDisabled(true, false);
+		 stage.addActor(scroll2);
+
+		 Table table = new Table();
+		 Table container = new Table();
+		 container.setBounds(10, 10, 400, 400);
+		 ScrollPane scroll3 = new ScrollPane(table);
+		 container.add(scroll);
+		 container.row();
+		 container.debug();
+		 table.debug();
+		 for (Item item : inventoryCollection.values()) {
+		 Label label2 = new Label(item.getName() + " x " + item.getQuantity(),
+		 DEFAULT_SKIN);
+		 label2.setAlignment(Align.right);
+		 label2.setWrap(true);
+		 table.add(label2);
+		 table.row();
+		 }
+		 stage.addActor(container);
+	} */
 
 	@Override
 	public void show() {
