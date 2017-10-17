@@ -17,13 +17,22 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.nio.file.attribute.FileAttribute;
 import java.util.HashMap;
 
 import edu.augustana.csc285.game.datamodel.*;
@@ -45,7 +54,7 @@ public class MainPanev2Controller {
 	@FXML
 	private TextField slideId;
 	@FXML
-	private TableView optionView;
+	private TableView<?> optionView;
 	@FXML
 	private ImageView imageView;
 	@FXML
@@ -56,10 +65,10 @@ public class MainPanev2Controller {
 	private MenuItem deleteButton;
 	@FXML
 	private MenuItem aboutButton;
-	
+
 	private Story story;
 	private Slide currentSlide;
-	
+
 	public ItemLibrary getItemLibrary() {
 		return itemLibrary;
 	}
@@ -72,105 +81,119 @@ public class MainPanev2Controller {
 	private void initialize() {
 		currentSlide = new Slide();
 	}
-	
+
 	@FXML
-	private void handleSelectImage() {
-		//Slide Image button
+	private void handleSelectImage() throws IOException {
+		// Slide Image button
+		
 		File imageFile = getFileFromUser();
-		currentSlide.setImage(imageFile.getPath());
+		Path path = Paths.get("GameData/SlideImages/" + imageFile.getName());
+		
+		if (Files.notExists(path)) {
+			Files.createFile(path);
+			Files.copy(Paths.get(imageFile.getPath()), path, StandardCopyOption.REPLACE_EXISTING);
+		}
+		currentSlide.setImage(imageFile.getName());
+		InputStream input = new FileInputStream(imageFile.getPath());
+		imageView.setImage(new Image(input));
+		
 	}
-	
+
 	@FXML
-	private void handleSelectMusic() {
-		//Select Music button
+	private void handleSelectMusic() throws IOException {
+		// Select Music button
 		File musicFile = getFileFromUser();
-		currentSlide.setMusic(musicFile.getPath());
+		Path path = Paths.get("GameData/MusicFiles/" + musicFile.getName());
+		
+		if (Files.notExists(path)) {
+			Files.createFile(path);
+			Files.copy(Paths.get(musicFile.getPath()), path, StandardCopyOption.REPLACE_EXISTING);
+		}
+		currentSlide.setMusic(musicFile.getName());
 	}
-	
+
 	@FXML
 	private void handleEditOptions() throws IOException {
-		//Edit Options button
+		// Edit Options button
 		Stage stage = new Stage();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("OptionPane.fxml"));
 		Parent root = loader.load();
-		
-		
-		OptionPaneController controller = loader.getController();	
-		//controller.initData(this);
-	    
-        Scene scene = new Scene(root);
-    
-        stage.setTitle("Option editor");
-        stage.setScene(scene);
-        stage.show();
+
+		OptionPaneController controller = loader.getController();
+		// controller.initData(this);
+
+		Scene scene = new Scene(root);
+
+		stage.setTitle("Option editor");
+		stage.setScene(scene);
+		stage.show();
 	}
-	
+
 	@FXML
 	private void handleSaveButton() {
-		//Save Button
-		
+		// Save Button
+
 	}
-	
+
 	@FXML
 	private void handleBackButton() {
-		//Back Button, discard changes OR save temp slide
-		
+		// Back Button, discard changes OR save temp slide
+
 	}
-	
+
 	@FXML
 	private void handleSlideDescription() {
-		//slide description text area
-		
+		// slide description text area
+
 	}
-	
+
 	@FXML
 	private void handleSlideId() {
-		//slide ID text field
-		
+		// slide ID text field
+
 	}
-	
+
 	@FXML
 	private void handleOptionView() {
-		
+
 	}
-	
+
 	@FXML
 	private void handleImageView() {
-		
+
 	}
-	
+
 	@FXML
 	private void handleLoadLibrary() throws IOException {
 		Stage stage = new Stage();
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("ItemLibrary.fxml"));
 		Parent root = loader.load();
-		
-		
-		ItemLibraryController controller = loader.getController();	
+
+		ItemLibraryController controller = loader.getController();
 		controller.initData(this);
-	    
-        Scene scene = new Scene(root);
-    
-        stage.setTitle("Item Library");
-        stage.setScene(scene);
-        stage.show();
+
+		Scene scene = new Scene(root);
+
+		stage.setTitle("Item Library");
+		stage.setScene(scene);
+		stage.show();
 	}
-	
+
 	@FXML
 	private void handleCloseButton() {
-		
+
 	}
-	
+
 	@FXML
 	private void handleDeleteButton() {
-		
+
 	}
-	
+
 	@FXML
 	private void handleAboutButton() {
-		
+
 	}
-//End of handle Methods
+	// End of handle Methods
 
 	private File getFileFromUser() {
 		FileChooser fileBrowser = new FileChooser();
@@ -184,7 +207,7 @@ public class MainPanev2Controller {
 	private static File[] getStoryFiles() {
 		return new File("core/storyData").listFiles();
 	}
-	
+
 	/**
 	 * @return the loadLibrary
 	 */
@@ -193,7 +216,8 @@ public class MainPanev2Controller {
 	}
 
 	/**
-	 * @param loadLibrary the loadLibrary to set
+	 * @param loadLibrary
+	 *            the loadLibrary to set
 	 */
 	public void setLoadLibrary(MenuItem loadLibrary) {
 		LoadLibrary = loadLibrary;

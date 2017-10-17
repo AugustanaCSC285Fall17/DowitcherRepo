@@ -50,7 +50,8 @@ public class OptionPaneController {
 	private ChoiceBox effectTypeBox;
 
 	private Slide slide;
-
+	
+	
 	@FXML
 	private void initialize(Slide slide) {
 		this.slide = slide;
