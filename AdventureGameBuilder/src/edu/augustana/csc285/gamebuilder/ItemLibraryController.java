@@ -121,8 +121,11 @@ public class ItemLibraryController {
 
 	@FXML
 	private void handleDeleteItem() {
-		itemLibrary.removeItem(this.getCurrentItem());
-		itemListHelper();
+		Item item = this.getCurrentItem();
+		if (item != null) {
+			itemLibrary.removeItem(this.getCurrentItem());
+			itemListHelper();
+		}
 	}
 
 	@FXML
