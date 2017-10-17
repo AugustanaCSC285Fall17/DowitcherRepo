@@ -26,11 +26,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
-import edu.augustana.csc285.game.datamodel.Slide;
-import edu.augustana.csc285.game.datamodel.Story;
+import edu.augustana.csc285.game.datamodel.*;
 
 public class MainPanev2Controller {
-
+	private ItemLibrary itemLibrary;
 	@FXML
 	private Button selectImage;
 	@FXML
@@ -60,6 +59,14 @@ public class MainPanev2Controller {
 	
 	private Story story;
 	private Slide currentSlide;
+	
+	public ItemLibrary getItemLibrary() {
+		return itemLibrary;
+	}
+
+	public void setItemLibrary(ItemLibrary itemLibrary) {
+		this.itemLibrary = itemLibrary;
+	}
 
 	@FXML
 	private void initialize() {
