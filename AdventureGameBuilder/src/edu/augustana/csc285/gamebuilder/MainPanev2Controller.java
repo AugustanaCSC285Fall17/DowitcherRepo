@@ -51,6 +51,12 @@ public class MainPanev2Controller {
 	private ImageView imageView;
 	@FXML
 	private MenuItem LoadLibrary;
+	@FXML
+	private MenuItem closeButton;
+	@FXML
+	private MenuItem deleteButton;
+	@FXML
+	private MenuItem aboutButton;
 	
 	private Story story;
 	private Slide currentSlide;
@@ -58,10 +64,74 @@ public class MainPanev2Controller {
 	@FXML
 	private void initialize() {
 		currentSlide = new Slide();
-		
-
 	}
-
+	
+	@FXML
+	private void handleSelectImage() {
+		//Slide Image button
+		File imageFile = getFileFromUser();
+		currentSlide.setImage(imageFile.getPath());
+	}
+	
+	@FXML
+	private void handleSelectMusic() {
+		//Select Music button
+		File musicFile = getFileFromUser();
+		currentSlide.setMusic(musicFile.getPath());
+	}
+	
+	@FXML
+	private void handleEditOptions() throws IOException {
+		//Edit Options button
+		Stage stage = new Stage();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("OptionPane.fxml"));
+		Parent root = loader.load();
+		
+		
+		OptionPaneController controller = loader.getController();	
+		//controller.initData(this);
+	    
+        Scene scene = new Scene(root);
+    
+        stage.setTitle("Option editor");
+        stage.setScene(scene);
+        stage.show();
+	}
+	
+	@FXML
+	private void handleSaveButton() {
+		//Save Button
+		
+	}
+	
+	@FXML
+	private void handleBackButton() {
+		//Back Button, discard changes OR save temp slide
+		
+	}
+	
+	@FXML
+	private void handleSlideDescription() {
+		//slide description text area
+		
+	}
+	
+	@FXML
+	private void handleSlideId() {
+		//slide ID text field
+		
+	}
+	
+	@FXML
+	private void handleOptionView() {
+		
+	}
+	
+	@FXML
+	private void handleImageView() {
+		
+	}
+	
 	@FXML
 	private void handleLoadLibrary() throws IOException {
 		Stage stage = new Stage();
@@ -79,6 +149,34 @@ public class MainPanev2Controller {
         stage.show();
 	}
 	
+	@FXML
+	private void handleCloseButton() {
+		
+	}
+	
+	@FXML
+	private void handleDeleteButton() {
+		
+	}
+	
+	@FXML
+	private void handleAboutButton() {
+		
+	}
+//End of handle Methods
+
+	private File getFileFromUser() {
+		FileChooser fileBrowser = new FileChooser();
+		return fileBrowser.showOpenDialog(null);
+	}
+
+	/**
+	 * Returns an array containing the story files Uses Java I/O for compatability
+	 * with gamebuilder
+	 */
+	private static File[] getStoryFiles() {
+		return new File("core/storyData").listFiles();
+	}
 	
 	/**
 	 * @return the loadLibrary
@@ -92,84 +190,6 @@ public class MainPanev2Controller {
 	 */
 	public void setLoadLibrary(MenuItem loadLibrary) {
 		LoadLibrary = loadLibrary;
-	}
-
-	@FXML
-	private void handleSlideId() {
-		// String Id = slideIdField.getText()
-		// currentSlide.setId(text);
-	}
-
-	@FXML
-	private void handleEditOptionsButton(ActionEvent event) throws IOException {
-		
-	}
-
-	@FXML
-	private void handleAddItem(ActionEvent event) throws IOException {
-		
-	}
-
-	@FXML
-	private void handleImageButton() {
-		File imageFile = getFileFromUser();
-		currentSlide.setImage(imageFile.getPath());
-	}
-
-	@FXML
-	public void handleSlideDescription() {
-
-	}
-
-	@FXML
-	private void handleMusicButton() {
-		File musicFile = getFileFromUser();
-		currentSlide.setMusic(musicFile.getPath());
-	}
-
-	@FXML
-	private void handleBackButton() {
-
-	}
-
-	@FXML
-	private void handleSaveButton() {
-
-	}
-
-	@FXML
-	public void handleImage() {
-
-	}
-
-	@FXML
-	public void handleMusic() {
-
-	}
-
-	@FXML
-	private void handlePreviewButton() {
-		new Alert(AlertType.INFORMATION, currentSlide.toString()).showAndWait();
-	}
-
-	private File getFileFromUser() {
-		FileChooser fileBrowser = new FileChooser();
-		return fileBrowser.showOpenDialog(null);
-	}
-
-	@FXML
-	private void handleSaveChangesButton() {
-		// save the edited screen
-		// Story.slides.get(currentSlide.getId());
-		new Alert(AlertType.INFORMATION, "All Changes Saved").showAndWait();
-	}
-
-	/**
-	 * Returns an array containing the story files Uses Java I/O for compatability
-	 * with gamebuilder
-	 */
-	private static File[] getStoryFiles() {
-		return new File("core/storyData").listFiles();
 	}
 
 }
