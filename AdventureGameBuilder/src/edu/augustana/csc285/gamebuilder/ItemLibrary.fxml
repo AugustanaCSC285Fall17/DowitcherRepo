@@ -17,9 +17,11 @@
 			prefWidth="303.0">
 			<children>
 				<Button fx:id="loadLibrary" layoutX="7.0" layoutY="336.0"
-					mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Load Library" />
+					mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0"
+					onAction="#handleLoadLibrary" text="Load Library" />
 				<Button fx:id="saveLibrary" layoutX="100.0" layoutY="336.0"
-					mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Save Library" />
+					mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0"
+					onAction="#handleSaveLibrary" text="Save Library" />
 				<Button fx:id="deleteItem" layoutX="212.0" layoutY="111.0"
 					mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0"
 					onAction="#handleDeleteItem" text="Delete Item" />
