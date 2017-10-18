@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -42,6 +43,7 @@ public class InventoryScreen implements Screen {
 	private final AdventureGame game;
 	private OrthographicCamera camera;
 	private Stage stage;
+	private Texture backgroundImage;
 
 	public InventoryScreen(AdventureGame game) {
 		camera = new OrthographicCamera();
@@ -49,14 +51,22 @@ public class InventoryScreen implements Screen {
 		this.game = game;
 		stage = new Stage(new ScreenViewport());
 		String inventory = "You have: \n" + game.manager.getPlayer().getInventory().getVisibleItemString();
-		Label label = new Label(inventory, DEFAULT_SKIN);
-		label.setWrap(true);
-		ScrollPane scroll = new ScrollPane(label, DEFAULT_SKIN);
+		BitmapFont inventoryFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/mediumTitle.fnt"), false);		
+		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/bigTitle.fnt"), false);
+		
+		Label inventoryLabel = new Label(inventory, new Label.LabelStyle(inventoryFont, Color.BLACK));
+		inventoryLabel.setWrap(true);
+		
+		Label screenTitle = new Label("Inventory", new Label.LabelStyle(titleFont, Color.BLACK));
+		screenTitle.setPosition(WIDTH_BUFFER, (float) 0.87 * AdventureGame.GAME_SCREEN_HEIGHT);
+		stage.addActor(screenTitle);
+		
+		ScrollPane scroll = new ScrollPane(inventoryLabel, DEFAULT_SKIN);
 		scroll.setPosition(20, 20);
-		scroll.setSize(300, 300);
+		scroll.setSize(AdventureGame.GAME_SCREEN_HEIGHT - 200, 300);
 		scroll.setScrollingDisabled(true, false);
 		stage.addActor(scroll);
-
+		backgroundImage = new Texture("art/background.jpg");
 		Button backButton = new TextButton("Back", DEFAULT_SKIN);
 		backButton.addListener(new InputListener() {
 			@Override
@@ -118,6 +128,12 @@ public class InventoryScreen implements Screen {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		
+		game.batch.begin();
+		// Draw background image
+		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+		game.batch.end();
+		
 		camera.update();
 		stage.act();
 		stage.draw();

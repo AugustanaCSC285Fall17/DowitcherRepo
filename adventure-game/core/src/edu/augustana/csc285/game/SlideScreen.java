@@ -5,9 +5,12 @@ import java.util.Arrays;
 import java.util.HashSet;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -46,6 +49,7 @@ public class SlideScreen implements Screen {
 	private Stage stage;
 	private boolean popUp;
 	private String rejectMessage;
+	private BitmapFont descriptionFont;
 
 	public SlideScreen(AdventureGame game, String rejectMessage) {
 		this(game);
@@ -60,37 +64,51 @@ public class SlideScreen implements Screen {
 		slide = game.manager.getCurrentSlide();
 		image = new Texture(Gdx.files.internal(slide.getImage()));
 		backgroundImage = new Texture("art/background.jpg");
+		descriptionFont = new BitmapFont(Gdx.files.internal("fonts/DescriptionFont/descriptionText.fnt"), false);
 
-		inventoryBtn = this.addTextureRegion("icons/inventory.jpg", new InventoryScreen(game), 3);
-		// inventoryBtn.debug();
-		playerStatBtn = this.addTextureRegion("icons/player-stat.jpg", new PlayerStatScreen(game), 2);
-		// playerStatBtn.debug();
+		inventoryBtn = this.addTextureRegion("icons/inventory.png", new InventoryScreen(game), 3);
+		playerStatBtn = this.addTextureRegion("icons/player-stat.png", new PlayerStatScreen(game), 2);
 		settingsBtn = this.addTextureRegion("icons/settings.jpg", new SettingsScreen(game), 1);
-		// settingsBtn.debug();
 
 		visibleOptions = (ArrayList<Option>) slide.getVisibleOptions(game.manager.getPlayer());
 
 		// Set up camera
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+
 		// Set up stage and table for buttons
 		stage = new Stage(new ScreenViewport());
 		stage.addActor(inventoryBtn);
 		stage.addActor(playerStatBtn);
 		stage.addActor(settingsBtn);
+
 		Table buttonTable = new Table();
 
-		buttonTable.setPosition((6 * AdventureGame.GAME_SCREEN_WIDTH) / 16 + WIDTH_BUFFER,
-				AdventureGame.GAME_SCREEN_HEIGHT - ((6 * AdventureGame.GAME_SCREEN_HEIGHT) / 9) - (HEIGHT_BUFFER * 12)
-						- AdventureGame.GAME_SCREEN_HEIGHT / 24);
+		// Figures out the biggest width of all the buttons and uses this width
+		// to draw the hitboxes around all other buttons
+		double biggestButtonWidth = 0;
+		for (int i = 0; i < visibleOptions.size(); i++) {
+			Option option = visibleOptions.get(i);
+			String displayString = (i + 1) + ".  " + option.getDesc();
+			GlyphLayout layout = new GlyphLayout(descriptionFont, displayString);
+			if (layout.width > biggestButtonWidth) {
+				biggestButtonWidth = layout.width;
+			}
+
+		}
+
+		// Currently I cannot figure out how to draw all the buttons aligned to
+		// the left.. Dat??
+		buttonTable.setPosition((float) (AdventureGame.GAME_SCREEN_WIDTH / 2),
+				(float) 0.19167 * AdventureGame.GAME_SCREEN_HEIGHT);
 
 		// Create and add buttons for ActionChoices
 		for (int i = 0; i < visibleOptions.size(); i++) {
 			Option option = visibleOptions.get(i);
 			String displayString = (i + 1) + ".  " + option.getDesc();
-			TextButton button = new TextButton(displayString, DEFAULT_SKIN);
-			button.getLabel().setWrap(true);
-			button.getLabel().setFontScale((float) 0.8);
+			TextButton button = new TextButton(displayString, DEFAULT_SKIN, "default");
+			// button.getLabel().setWrap(true);
+			// button.getLabel().setFontScale((float) 0.8);
 			button.getLabel().setAlignment(Align.left);
 			button.addListener(new InputListener() {
 				public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -115,25 +133,21 @@ public class SlideScreen implements Screen {
 			// for now not measuring the width of the option string but assume
 			// they are the same
 
-			buttonTable.add(button).width((6 * AdventureGame.GAME_SCREEN_WIDTH) / 8)
-					.height(AdventureGame.GAME_SCREEN_HEIGHT / 18).padTop(HEIGHT_BUFFER).row();
+			buttonTable.add(button).width((float) biggestButtonWidth + 70)
+					.height((float) 0.0555 * AdventureGame.GAME_SCREEN_HEIGHT).padTop(HEIGHT_BUFFER).row();
 
 		}
 
 		stage.addActor(buttonTable);
 
-		Label description = new Label(slide.getDesc(), DEFAULT_SKIN);
+		Label description = new Label(slide.getDesc(), new Label.LabelStyle(descriptionFont, Color.BLACK));
 		description.setWrap(true);
 		ScrollPane scroll = new ScrollPane(description, DEFAULT_SKIN);
-		scroll.setPosition((WIDTH_BUFFER * 2) + (23 * AdventureGame.GAME_SCREEN_HEIGHT) / 32,
-				AdventureGame.GAME_SCREEN_HEIGHT - (HEIGHT_BUFFER * 2) - (AdventureGame.GAME_SCREEN_HEIGHT / 10)
-						- ((3 * AdventureGame.GAME_SCREEN_HEIGHT) / 8));
-		scroll.setSize(AdventureGame.GAME_SCREEN_WIDTH / 2, AdventureGame.GAME_SCREEN_HEIGHT / 3);
+		scroll.setPosition((float) 0.45125 * AdventureGame.GAME_SCREEN_WIDTH,
+				(float) 0.38 * AdventureGame.GAME_SCREEN_HEIGHT);
+		scroll.setSize((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.45 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setScrollingDisabled(true, false);
 		stage.addActor(scroll);
-
-		// create buttons for top right of screen (Inventory, Player Stats,
-		// Settings)
 	}
 
 	@Override
@@ -141,8 +155,8 @@ public class SlideScreen implements Screen {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		game.batch.begin();
 		// Draw background image
+		game.batch.begin();
 		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		game.batch.end();
 

@@ -2,9 +2,11 @@ package edu.augustana.csc285.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -26,11 +28,14 @@ public class SettingsScreen implements Screen {
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
 	public static final int GAME_SCREEN_WIDTH = 800;
 	public static final int GA5ME_SCREEN_HEIGHT = 480;
+	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
+	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
 	private Stage stage;
 	private OrthographicCamera camera;
 	private AdventureGame game;
 	private Texture img;
 	private String text;
+	private Texture backgroundImage;
 	
 	
 	public SettingsScreen(AdventureGame game) {
@@ -38,6 +43,8 @@ public class SettingsScreen implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
+		backgroundImage = new Texture("art/background.jpg");
+		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/bigTitle.fnt"), false);
 		
 		Button backButton = new TextButton("Back", DEFAULT_SKIN);
 		backButton.addListener(new InputListener() {
@@ -93,24 +100,26 @@ public class SettingsScreen implements Screen {
 			}
 
 		});
-		
 		indextable.add(button2).width(200).height(30).pad(5).row();
-		 text = "Settings";
-	
 		stage.addActor(indextable);
 		
+		Label screenTitle = new Label("Settings", new Label.LabelStyle(titleFont, Color.BLACK));
+		screenTitle.setPosition(WIDTH_BUFFER, (float) 0.87 * AdventureGame.GAME_SCREEN_HEIGHT);
+		stage.addActor(screenTitle);		
 	}
 	
 	@Override
 	public void render (float delta) {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		game.batch.begin();
+		// Draw background image
+		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+		game.batch.end();
+		
 		camera.update();
 		stage.act();
 		stage.draw();
-		game.batch.begin();
-		game.font.draw(game.batch, text, 320, 300);
-		game.batch.end();
 		
 	}
 	

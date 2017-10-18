@@ -1,13 +1,13 @@
 {
 com.badlogic.gdx.graphics.g2d.BitmapFont: {
 	button: {
-		file: font-button-export.fnt
+		file: actionChoice.fnt
 	}
 	font: {
-		file: font-export.fnt
+		file: actionChoice.fnt
 	}
 	title: {
-		file: font-title-export.fnt
+		file: actionChoice.fnt
 	}
 }
 com.badlogic.gdx.graphics.Color: {
@@ -18,15 +18,15 @@ com.badlogic.gdx.graphics.Color: {
 		a: 1
 	}
 	color: {
-		r: 0.5
-		g: 0.5
-		b: 0.5
-		a: 1
+		r: 0
+		g: 0
+		b: 0
+		a: 0
 	}
 	gray: {
-		r: 0.5
-		g: 0.5
-		b: 0.5
+		r: 0
+		g: 0
+		b: 0
 		a: 1
 	}
 	highlight: {
@@ -48,9 +48,9 @@ com.badlogic.gdx.graphics.Color: {
 		a: 1
 	}
 	white: {
-		r: 1
-		g: 1
-		b: 1
+		r: 0
+		g: 0
+		b: 0
 		a: 1
 	}
 	window: {

@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -23,6 +24,7 @@ public class CreditsScreen implements Screen {
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
 	private final AdventureGame game;
 	private OrthographicCamera camera;
+	private Texture backgroundImage;
 	private Stage stage;
 
 	public CreditsScreen(AdventureGame game) {
@@ -30,7 +32,7 @@ public class CreditsScreen implements Screen {
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
 		stage = new Stage(new ScreenViewport());
-
+		backgroundImage = new Texture("art/background.jpg");
 		String credits = "Game designed by Dr. Forrest Stonedahl's Software Development CSC 285 students and Dr. Brian Leech's history students Abigail Buchanan, Brooks Fielder, and Katie "
 				+ "Laschanzky for the for the Swenson Swedish Immigration Research Center at Augustana College in Rock Island, Illinois, 2017. ";
 
@@ -70,6 +72,12 @@ public class CreditsScreen implements Screen {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		game.batch.begin();
+		
+		// Draw background image
+		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+		game.batch.end();
+		
 		camera.update();
 		stage.act();
 		stage.draw();

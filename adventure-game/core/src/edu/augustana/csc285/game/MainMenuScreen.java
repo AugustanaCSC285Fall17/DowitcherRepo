@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -21,16 +23,22 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 	private final AdventureGame game;
 	private String introduction;
 	private Stage stage;
+	private GlyphLayout layout;
 	private Texture logo;
+	private Texture backgroundImage;
 	OrthographicCamera camera;
-
+	private BitmapFont titleFont;
+	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
+	
 	public MainMenuScreen(final AdventureGame game) {
 		this.game = game;
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
 		logo = new Texture("art/swensonlogo.png");
-
+		backgroundImage = new Texture("art/background.jpg");
+		titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/title.fnt"), false);
+		
 		Table buttonTable = new Table();
 		buttonTable.setPosition(400, 200);
 
@@ -48,7 +56,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 
 		});
-		buttonTable.add(button).width(200).height(30).pad(5).row();
+		buttonTable.add(button).width(150).height(30).pad(5).row();
 
 		button = new TextButton("Credit", DEFAULT_SKIN, "default");
 		button.setSize(50, 50);
@@ -66,7 +74,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 
 		});
-		buttonTable.add(button).width(200).height(30).pad(5).row();
+		buttonTable.add(button).width(150).height(30).pad(5).row();
 
 		button = new TextButton("Settings", DEFAULT_SKIN, "default");
 		button.setSize(50, 50);
@@ -82,7 +90,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 		});
 
-		buttonTable.add(button).width(200).height(30).pad(5).row();
+		buttonTable.add(button).width(150).height(30).pad(5).row();
 
 		button = new TextButton("Exit", DEFAULT_SKIN, "default");
 		button.setSize(50, 50);
@@ -99,12 +107,13 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 
 		});
-		buttonTable.add(button).width(200).height(30).pad(5).row();
+		buttonTable.add(button).width(150).height(30).pad(5).row();
 
 		stage.addActor(buttonTable);
-		introduction = "Welcome to Swedish Imigration Trail";
-		//GlyphLayout layout = new GlyphLayout(font, text);
-		//float textWidth = layout.width;
+		introduction = "Welcome to Swedish Immigration Trail";
+		layout = new GlyphLayout(titleFont, introduction);
+		float textWidth = layout.width;
+		float textHeight = layout.height;
 	}
 
 	@Override
@@ -116,15 +125,19 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		game.batch.begin();
+		// Draw background image
+		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+		game.batch.end();
+		
 		stage.act();
 		stage.draw();
 		camera.update();
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.begin();
-		game.font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
-		// game.font.getData().setScale(3);
-		game.batch.draw(logo, AdventureGame.GAME_SCREEN_WIDTH - 600, 350, 454, 101);
-		game.font.draw(game.batch, introduction, 80, 330);
+		game.batch.draw(logo, (float) 0.22 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.78 * AdventureGame.GAME_SCREEN_HEIGHT, logo.getWidth() / 2, logo.getHeight() / 2);
+		titleFont.draw(game.batch, introduction, (float) 0.19875 * AdventureGame.GAME_SCREEN_WIDTH, 
+				(float) (AdventureGame.GAME_SCREEN_HEIGHT * 0.72));
 		game.batch.end();
 
 	}
