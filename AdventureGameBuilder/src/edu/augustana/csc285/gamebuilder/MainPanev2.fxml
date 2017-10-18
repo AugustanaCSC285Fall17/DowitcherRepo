@@ -36,7 +36,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Button fx:id="editOptions" layoutX="376.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleEditOptions" text="Edit Options" />
+      <Button fx:id="editOptions" layoutX="476.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleEditOptions" text="Edit Options" />
       <TableView fx:id="optionView" layoutX="376.0" layoutY="72.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn prefWidth="93.0" text="Option Name" />
@@ -45,5 +45,6 @@
       </TableView>
       <TextField fx:id="slideId" layoutX="229.0" layoutY="272.0" onAction="#handleSlideId" prefHeight="27.0" prefWidth="114.0" promptText="Slide ID" />
       <Button fx:id="saveButton" layoutX="469.0" layoutY="356.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save" />
+      <Button fx:id="addOptions" layoutX="376.0" layoutY="39.0" mnemonicParsing="false" text="Add Option" />
    </children>
 </Pane>
