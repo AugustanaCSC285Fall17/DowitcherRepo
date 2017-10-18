@@ -14,6 +14,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -46,6 +47,8 @@ public class MainPanev2Controller {
 	@FXML
 	private Button editOptions;
 	@FXML
+	private Button addOptions;
+	@FXML
 	private Button saveButton;
 	@FXML
 	private Button backButton;
@@ -55,6 +58,10 @@ public class MainPanev2Controller {
 	private TextField slideId;
 	@FXML
 	private TableView<?> optionView;
+	@FXML
+	private TableColumn nextSlideView;
+	@FXML
+	private TableColumn optionDescView;
 	@FXML
 	private ImageView imageView;
 	@FXML
@@ -96,7 +103,6 @@ public class MainPanev2Controller {
 		currentSlide.setImage(imageFile.getName());
 		InputStream input = new FileInputStream(imageFile.getPath());
 		imageView.setImage(new Image(input));
-		
 	}
 
 	@FXML
@@ -120,7 +126,7 @@ public class MainPanev2Controller {
 		Parent root = loader.load();
 
 		OptionPaneController controller = loader.getController();
-		// controller.initData(this);
+		//controller.initData(this);
 
 		Scene scene = new Scene(root);
 
@@ -129,6 +135,32 @@ public class MainPanev2Controller {
 		stage.show();
 	}
 
+	@FXML
+	private void handleAddOptions() throws IOException{
+		// Edit Options button
+		
+				currentSlide.addOption(new Option());
+				
+				
+				Stage stage = new Stage();
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("OptionPane.fxml"));
+				Parent root = loader.load();
+
+				OptionPaneController controller = loader.getController();
+				//controller.initData(this);
+				
+
+				Scene scene = new Scene(root);
+
+				stage.setTitle("Option editor");
+				stage.setScene(scene);
+				stage.show();
+		
+				
+				//nextSlideView.getColumns().add();
+				//optionDescView.
+				
+	}
 	@FXML
 	private void handleSaveButton() {
 		// Save Button
