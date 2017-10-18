@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -20,9 +21,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileInputStream;
@@ -57,7 +62,7 @@ public class MainPanev2Controller {
 	@FXML
 	private TextField slideId;
 	@FXML
-	private TableView<?> optionView;
+	private TableView<Option> optionView;
 	@FXML
 	private TableColumn nextSlideView;
 	@FXML
@@ -94,7 +99,7 @@ public class MainPanev2Controller {
 		// Slide Image button
 		
 		File imageFile = getFileFromUser();
-		Path path = Paths.get("GameData/SlideImages/" + imageFile.getName());
+		Path path = Paths.get(imageFile.getName());
 		
 		if (Files.notExists(path)) {
 			Files.createFile(path);
@@ -103,13 +108,21 @@ public class MainPanev2Controller {
 		currentSlide.setImage(imageFile.getName());
 		InputStream input = new FileInputStream(imageFile.getPath());
 		imageView.setImage(new Image(input));
+		
+		   /*Text inftx = new Text("Infrastructure");
+		    StackPane pane = new StackPane();
+
+		    pane.getChildren().add(path);
+		    pane.getChildren().add(inftx);
+
+		    pane.setAlignment(Pos.CENTER);*/
 	}
 
 	@FXML
 	private void handleSelectMusic() throws IOException {
 		// Select Music button
 		File musicFile = getFileFromUser();
-		Path path = Paths.get("GameData/MusicFiles/" + musicFile.getName());
+		Path path = Paths.get(musicFile.getName());
 		
 		if (Files.notExists(path)) {
 			Files.createFile(path);
@@ -175,7 +188,15 @@ public class MainPanev2Controller {
 
 	@FXML
 	private void handleSlideDescription() {
-		// slide description text area
+		
+	    Text text = new Text(slideDescription.getText());
+	    //text.setFont(Font.font ("Arial", 27));
+	    HBox root = new HBox();
+
+
+        //root.getChildren().add(iv1);
+        root.getChildren().add(text);
+        
 
 	}
 
@@ -213,17 +234,21 @@ public class MainPanev2Controller {
 
 	@FXML
 	private void handleCloseButton() {
-
+    Platform.exit();
 	}
 
 	@FXML
 	private void handleDeleteButton() {
-
+		imageView.setImage(null);
 	}
 
 	@FXML
 	private void handleAboutButton() {
-
+		Alert a = new Alert(AlertType.INFORMATION);
+        a.setTitle("About GameBuilder");
+        a.setHeaderText("Application to help with creating/editing slides for the Swedish Immigration Trail.");
+        a.getDialogPane().setPrefSize(480, 120);
+        a.showAndWait();
 	}
 	// End of handle Methods
 
