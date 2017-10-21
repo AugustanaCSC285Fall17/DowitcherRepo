@@ -178,6 +178,21 @@ public class Option {
 		}
 	}
 
+	public Effect getEffect(int index) {
+		this.checkIndex(index, this.effects);
+		return effects.get(index);
+	}
+
+	public Condition getVisibleCondition(int index) {
+		this.checkIndex(index, this.visibleConditions);
+		return visibleConditions.get(index);
+	}
+
+	public Condition getFeasibleCondition(int index) {
+		this.checkIndex(index, feasibleConditions);
+		return feasibleConditions.get(index);
+	}
+
 	public String toString() {
 		String output = "Next Slide: " + nextSlideIndex + "\t";
 
@@ -205,6 +220,21 @@ public class Option {
 			output = output + "Music file: " + sound + "\t";
 
 		return output;
+	}
+
+	public void setEffect(int index, Effect effect) {
+		this.checkIndex(index, effects);
+		effects.set(index, effect);
+	}
+
+	public void setVisibleCondition(int index, Condition condition) {
+		this.checkIndex(index, visibleConditions);
+		visibleConditions.set(index, condition);
+	}
+
+	public void setFeasibleCondition(int index, Condition condition) {
+		this.checkIndex(index, feasibleConditions);
+		feasibleConditions.set(index, condition);
 	}
 
 }

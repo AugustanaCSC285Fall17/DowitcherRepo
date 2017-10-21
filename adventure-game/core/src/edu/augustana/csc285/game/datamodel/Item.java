@@ -141,7 +141,7 @@ public class Item {
 	}
 
 	public String toString() {
-		return name + ": " + quantity;
+		return name;
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package edu.augustana.csc285.gamebuilder;
+package edu.augustana.csc285.gamebuilder.effect;
 
 import java.io.IOException;
 
@@ -8,11 +8,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class AdvancedOptionApplicationTest extends Application {
+public class TestingConditionApplication extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("OptionEditorPane.fxml"));
+//		Parent root = FXMLLoader.load(getClass().getResource("GenderEffect.fxml"));
+//		Parent root = FXMLLoader.load(getClass().getResource("ItemEffect.fxml"));
+//		Parent root = FXMLLoader.load(getClass().getResource("PlayerStatEffect.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("NameEffect.fxml"));
 		Scene scene = new Scene(root);
 
 		primaryStage.setTitle("Game Builder for Swedish Immigration Trail");

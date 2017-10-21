@@ -6,6 +6,7 @@ import edu.augustana.csc285.game.datamodel.Property;
 public class PropertyEffect implements Effect {
 	private Property property;
 	private EffectOperation operation;
+	private String effectType = "Player Stat Effect";
 
 	public PropertyEffect() {
 
@@ -24,6 +25,10 @@ public class PropertyEffect implements Effect {
 		this.property = property;
 	}
 
+	public String getEffectType() {
+		return effectType;
+	}
+
 	public EffectOperation getOperation() {
 		return operation;
 	}
@@ -39,7 +44,8 @@ public class PropertyEffect implements Effect {
 	}
 
 	public String toString() {
-		return (operation + " with property " + property);
+		return effectType + ": " + property.getType() + " (qty: " + property.getQuantity() + ") with Operation: "
+				+ operation;
 	}
 
 }

@@ -7,6 +7,8 @@ public class PropertyCondition implements Condition {
 	private Property property;
 	private ConditionOperation operation;
 
+	private String conditionType = "Player Stat Condition";
+
 	public PropertyCondition() {
 
 	}
@@ -24,6 +26,10 @@ public class PropertyCondition implements Condition {
 		this.property = property;
 	}
 
+	public String getConditionType() {
+		return conditionType;
+	}
+
 	public ConditionOperation getOperation() {
 		return operation;
 	}
@@ -38,7 +44,7 @@ public class PropertyCondition implements Condition {
 	}
 
 	public String toString() {
-		return (operation + " with property " + property);
+		return conditionType + ": " + property.getType() + " (qty: " + property.getQuantity() + ") with Operation: "
+				+ operation;
 	}
-
 }

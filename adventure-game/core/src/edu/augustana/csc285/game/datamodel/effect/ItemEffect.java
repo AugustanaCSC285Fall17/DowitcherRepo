@@ -6,6 +6,7 @@ import edu.augustana.csc285.game.datamodel.Player;
 public class ItemEffect implements Effect {
 	private Item item;
 	private EffectOperation operation;
+	private String effectType = "Item Effect";
 
 	public ItemEffect() {
 
@@ -14,6 +15,10 @@ public class ItemEffect implements Effect {
 	public ItemEffect(Item item, EffectOperation operation) {
 		this.item = item;
 		this.operation = operation;
+	}
+
+	public String getEffectType() {
+		return effectType;
 	}
 
 	public Item getItem() {
@@ -39,7 +44,6 @@ public class ItemEffect implements Effect {
 	}
 
 	public String toString() {
-		return (operation + " with item " + item);
+		return effectType + ": " + item.getName() + " (qty: " + item.getQuantity() + ") with Operation: " + operation;
 	}
-
 }
