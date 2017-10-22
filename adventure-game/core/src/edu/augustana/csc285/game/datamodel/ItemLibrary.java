@@ -1,6 +1,8 @@
 package edu.augustana.csc285.game.datamodel;
 
+import java.awt.ItemSelectable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.TreeMap;
 
 import com.badlogic.gdx.utils.Json;
@@ -76,6 +78,10 @@ public class ItemLibrary {
 
 	public static ItemLibrary fromJSON(String jsonData) {
 		return new Json().fromJson(ItemLibrary.class, jsonData);
+	}
+
+	public Collection<Item> getItems() {
+		return itemMap.values();
 	}
 
 	public static void main(String[] args) {

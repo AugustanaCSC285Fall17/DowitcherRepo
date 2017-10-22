@@ -6,6 +6,7 @@ import edu.augustana.csc285.game.datamodel.Player;
 public class ItemCondition implements Condition {
 	private Item item;
 	private ConditionOperation operation;
+	private String conditionType = "Item Condition";
 
 	public ItemCondition() {
 
@@ -24,6 +25,10 @@ public class ItemCondition implements Condition {
 		this.item = item;
 	}
 
+	public String getConditionType() {
+		return conditionType;
+	}
+
 	public ConditionOperation getOperation() {
 		return operation;
 	}
@@ -38,6 +43,7 @@ public class ItemCondition implements Condition {
 	}
 
 	public String toString() {
-		return (operation + " with item " + item);
+		return conditionType + ": " + item.getName() + " (qty: " + item.getQuantity() + ") with Operation: "
+				+ operation;
 	}
 }

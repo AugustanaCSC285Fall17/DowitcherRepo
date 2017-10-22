@@ -5,47 +5,64 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.augustana.csc285.gamebuilder.MainPanev2Controller">
-   <children>
-      <ImageView fx:id="imageView" fitHeight="236.0" fitWidth="356.0" layoutX="13.0" layoutY="29.0" pickOnBounds="true">
-         <image>
-            <Image url="@iu-15.jpeg" />
-         </image>
-      </ImageView>
-      <Button fx:id="selectImage" layoutX="14.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleSelectImage" text="Select Image" />
-      <Button fx:id="selectMusic" layoutX="122.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleSelectMusic" text="Select Music" />
-      <TextArea fx:id="slideDescription" layoutX="15.0" layoutY="316.0" prefHeight="67.0" prefWidth="440.0" promptText="Enter Description" />
-      <Button fx:id="backButton" layoutX="537.0" layoutY="356.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
-      <MenuBar prefHeight="27.0" prefWidth="600.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-                  <MenuItem fx:id="loadLibrary1" mnemonicParsing="false" onAction="#handleLoadLibrary" text="Load Story" />
-                  <MenuItem fx:id="loadLibrary" mnemonicParsing="false" onAction="#handleLoadLibrary" text="Load Items" />
-              <MenuItem fx:id="closeButton" mnemonicParsing="false" onAction="#handleCloseButton" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem fx:id="aboutButton" mnemonicParsing="false" onAction="#handleAboutButton" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <Button fx:id="editOptions" layoutX="476.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleEditOptions" text="Edit Options" />
-      <TableView fx:id="optionView" layoutX="376.0" layoutY="72.0" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn prefWidth="93.0" text="Option Name" />
-          <TableColumn prefWidth="70.0" text="Next Slide" />
-        </columns>
-      </TableView>
-      <TextField fx:id="slideId" layoutX="229.0" layoutY="272.0" onAction="#handleSlideId" prefHeight="27.0" prefWidth="114.0" promptText="Slide ID" />
-      <Button fx:id="saveButton" layoutX="469.0" layoutY="356.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save" />
-      <Button fx:id="addOptions" layoutX="376.0" layoutY="39.0" mnemonicParsing="false" text="Add Option" />
-   </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+	minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="edu.augustana.csc285.gamebuilder.MainPanev2Controller">
+	<children>
+		<ImageView fx:id="imageView" fitHeight="236.0" fitWidth="356.0"
+			layoutX="13.0" layoutY="29.0" pickOnBounds="true">
+			<image>
+				<Image url="@iu-15.jpeg" />
+			</image>
+		</ImageView>
+		<Button fx:id="selectImage" layoutX="14.0" layoutY="272.0"
+			mnemonicParsing="false" onAction="#handleSelectImage" text="Select Image" />
+		<Button fx:id="selectMusic" layoutX="122.0" layoutY="272.0"
+			mnemonicParsing="false" onAction="#handleSelectMusic" text="Select Music" />
+		<TextArea fx:id="slideDescription" layoutX="15.0" layoutY="316.0"
+			prefHeight="67.0" prefWidth="440.0" promptText="Enter Description" />
+		<Button fx:id="backButton" layoutX="537.0" layoutY="356.0"
+			mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+		<MenuBar prefHeight="27.0" prefWidth="600.0">
+			<menus>
+				<Menu mnemonicParsing="false" text="File">
+					<items>
+						<MenuItem fx:id="loadLibrary" mnemonicParsing="false"
+							onAction="#handleLoadLibrary" text="Load Library" />
+						<MenuItem fx:id="closeButton" mnemonicParsing="false"
+							onAction="#handleCloseButton" text="Close" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Edit">
+					<items>
+						<MenuItem fx:id="deleteButton" mnemonicParsing="false"
+							onAction="#handleDeleteButton" text="Delete" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Help">
+					<items>
+						<MenuItem fx:id="aboutButton" mnemonicParsing="false"
+							onAction="#handleAboutButton" text="About" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+		<Button fx:id="editOptions" layoutX="476.0" layoutY="39.0"
+			mnemonicParsing="false" onAction="#handleEditOptions" text="Edit Options" />
+		<TableView fx:id="optionView" layoutX="376.0" layoutY="72.0"
+			prefHeight="200.0" prefWidth="200.0">
+			<columns>
+				<TableColumn prefWidth="93.0" text="Option Name" />
+				<TableColumn prefWidth="70.0" text="Next Slide" />
+			</columns>
+		</TableView>
+		<TextField fx:id="slideId" layoutX="229.0" layoutY="272.0"
+			onAction="#handleSlideId" prefHeight="27.0" prefWidth="114.0"
+			promptText="Slide ID" />
+		<Button fx:id="saveButton" layoutX="469.0" layoutY="356.0"
+			mnemonicParsing="false" onAction="#handleSaveButton" text="Save" />
+		<Button fx:id="addOptions" layoutX="376.0" layoutY="39.0"
+			mnemonicParsing="false" text="Add Option" />
+	</children>
 </Pane>

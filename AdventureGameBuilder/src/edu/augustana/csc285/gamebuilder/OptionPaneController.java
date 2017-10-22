@@ -91,9 +91,9 @@ public class OptionPaneController {
 		} else if (choice == itemButton) {
 			effects.add(new ItemEffect());
 		} else if (choice == nameButton) {
-			effects.add(new NameEffect());
+			effects.add(new RandomCondition());
 		} else if (choice == propertyButton) {
-			effects.add(new PropertyEffect());
+			effects.add(new PropertyCondition());
 		}
 	}
 

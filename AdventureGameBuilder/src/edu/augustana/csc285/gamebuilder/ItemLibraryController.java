@@ -1,7 +1,5 @@
 package edu.augustana.csc285.gamebuilder;
 
-import java.awt.Desktop;
-import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -53,6 +51,10 @@ public class ItemLibraryController {
 
 	@FXML
 	private void initialize() {
+		if (controller.getItemLibrary() != null) {
+			this.itemLibrary = controller.getItemLibrary();
+			this.itemListHelper();
+		}
 	}
 
 	@FXML // Source from
@@ -107,6 +109,7 @@ public class ItemLibraryController {
 		Stage stage = new Stage();
 		FileChooser fileChooser = new FileChooser();
 		saveLibrary.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
 			public void handle(ActionEvent e) {
 				configureFileChooser("Saving Library", fileChooser, new FileChooser.ExtensionFilter("JSON", "*.json"));
 				File file = fileChooser.showSaveDialog(stage);
@@ -154,7 +157,7 @@ public class ItemLibraryController {
 		String name = nameTextField.getText();
 		String desc = descTextField.getText();
 		String image = currentImageTextArea.getText();
-		if (this.checkLegalString(name)) {
+		if (Helper.checkLegalString(name)) {
 			itemLibrary.addItem(name, desc, image);
 			itemListHelper();
 		}
@@ -173,7 +176,7 @@ public class ItemLibraryController {
 				configureFileChooser("Select an image", fileChooser, filters);
 				File file = fileChooser.showOpenDialog(stage);
 				if (file != null) {
-					currentImageTextArea.setText(file.getAbsolutePath());
+					currentImageTextArea.setText(file.getName());
 				}
 			}
 		});
@@ -195,30 +198,6 @@ public class ItemLibraryController {
 
 	private void updateMainPaneLibrary() {
 		this.controller.setItemLibrary(this.itemLibrary);
-	}
-
-	private boolean checkLegalString(String str) {
-		if (str == null || str.equals("")) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-	private boolean checkLegalInt(String str) {
-		if (str != null && !str.equals("") && str.matches("[0-9]+")) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	private boolean checkLegalDouble(String str) {
-		if (str != null && !str.equals("") && str.matches("([0-9]*)\\.([0-9]*)")) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 }

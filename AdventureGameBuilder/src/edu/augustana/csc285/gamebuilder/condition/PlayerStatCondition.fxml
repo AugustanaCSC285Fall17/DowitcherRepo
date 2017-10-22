@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="163.0"
+	prefWidth="260.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="edu.augustana.csc285.gamebuilder.condition.PlayerStatConditionController">
+	<children>
+		<Label layoutX="12.0" layoutY="9.0" text="Stat" />
+		<ChoiceBox fx:id="statChoiceCondition" layoutX="94.0"
+			layoutY="6.0" prefWidth="150.0" />
+		<Label layoutX="12.0" layoutY="41.0" text="Operation" />
+		<ChoiceBox fx:id="statOperationCondition" layoutX="94.0"
+			layoutY="38.0" prefWidth="150.0" />
+		<Label layoutX="10.0" layoutY="73.0" text="Quantity" />
+		<TextField fx:id="statQuantityCondition" layoutX="93.0"
+			layoutY="69.0" />
+		<Button fx:id="addStatCondition" layoutX="93.0" layoutY="105.0"
+			mnemonicParsing="false" onAction="#handleAddStatCondition"
+			prefHeight="32.0" prefWidth="149.0" text="Add Condition" />
+	</children>
+</AnchorPane>

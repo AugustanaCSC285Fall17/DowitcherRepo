@@ -5,6 +5,7 @@ import edu.augustana.csc285.game.datamodel.Player;
 
 public class GenderEffect implements Effect {
 	private Gender gender;
+	private String effectType = "Gender Effect";
 
 	public GenderEffect() {
 
@@ -12,6 +13,10 @@ public class GenderEffect implements Effect {
 
 	public GenderEffect(Gender gender) {
 		this.gender = gender;
+	}
+
+	public String getEffectType() {
+		return effectType;
 	}
 
 	@Override
@@ -25,6 +30,10 @@ public class GenderEffect implements Effect {
 
 	public void setGender(Gender gender) {
 		this.gender = gender;
+	}
+
+	public String toString() {
+		return effectType + ": " + gender;
 	}
 
 }

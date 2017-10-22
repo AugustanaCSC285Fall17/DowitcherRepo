@@ -105,17 +105,17 @@ public class AdvancedOptionController {
 
 		this.genderChoiceEffect.setItems(FXCollections.observableArrayList(Gender.getGenders()));
 		this.itemChoiceEffect.setItems(FXCollections.observableArrayList(itemLibrary.getItemNameList()));
-		this.itemOperationEffect.setItems(FXCollections.observableArrayList(EffectOperation.getEffectOperationList()));
+		this.itemOperationEffect.setItems(FXCollections.observableArrayList(ConditionOperation.getEffectOperationList()));
 		this.statChoiceEffect.setItems(FXCollections.observableArrayList(PropertyType.getPropertyTypeList()));
-		this.statOperationEffect.setItems(FXCollections.observableArrayList(EffectOperation.getEffectOperationList()));
+		this.statOperationEffect.setItems(FXCollections.observableArrayList(ConditionOperation.getEffectOperationList()));
 
 		this.genderChoiceCondition.setItems(FXCollections.observableArrayList(Gender.getGenders()));
 		this.itemChoiceCondition.setItems(FXCollections.observableArrayList(itemLibrary.getItemNameList()));
 		this.itemOperationCondition
-				.setItems(FXCollections.observableArrayList(EffectOperation.getEffectOperationList()));
+				.setItems(FXCollections.observableArrayList(ConditionOperation.getEffectOperationList()));
 		this.statChoiceCondition.setItems(FXCollections.observableArrayList(PropertyType.getPropertyTypeList()));
 		this.statOperationCondition
-				.setItems(FXCollections.observableArrayList(EffectOperation.getEffectOperationList()));
+				.setItems(FXCollections.observableArrayList(ConditionOperation.getEffectOperationList()));
 
 	}
 
@@ -126,7 +126,7 @@ public class AdvancedOptionController {
 
 	@FXML
 	private void handleAddNameEffect() {
-		option.addEffect(new NameEffect(nameEffectTextField.getText()));
+		option.addEffect(new RandomCondition(nameEffectTextField.getText()));
 	}
 
 	@FXML
@@ -146,7 +146,7 @@ public class AdvancedOptionController {
 		if (this.checkLegalString(itemChoiceString) && this.checkLegalString(itemOperationString)
 				&& this.checkLegalInt(itemQuantityString)) {
 			Item item = itemLibrary.getItem(itemChoiceString, Integer.parseInt(itemQuantityString));
-			EffectOperation operation = EffectOperation.valueOf(itemOperationString);
+			ConditionOperation operation = ConditionOperation.valueOf(itemOperationString);
 			option.addEffect(new ItemEffect(item, operation));
 		}
 	}
@@ -160,8 +160,8 @@ public class AdvancedOptionController {
 				&& this.checkLegalInt(statQuantityString)) {
 			Property property = new Property(PropertyType.valueOf(statChoiceString),
 					Integer.parseInt(statQuantityString));
-			EffectOperation operation = EffectOperation.valueOf(statOperationString);
-			option.addEffect(new PropertyEffect(property, operation));
+			ConditionOperation operation = ConditionOperation.valueOf(statOperationString);
+			option.addEffect(new PropertyCondition(property, operation));
 		}
 	}
 
