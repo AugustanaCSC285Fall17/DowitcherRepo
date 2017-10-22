@@ -70,6 +70,8 @@ public class MainPanev2Controller {
 	@FXML
 	private ImageView imageView;
 	@FXML
+	private MenuItem LoadStory;
+	@FXML
 	private MenuItem LoadLibrary;
 	@FXML
 	private MenuItem closeButton;
@@ -177,13 +179,13 @@ public class MainPanev2Controller {
 	@FXML
 	private void handleSaveButton() {
 		// Save Button
-
+		
 	}
 
 	@FXML
 	private void handleBackButton() {
 		// Back Button, discard changes OR save temp slide
-
+		
 	}
 
 	@FXML
@@ -214,6 +216,22 @@ public class MainPanev2Controller {
 	@FXML
 	private void handleImageView() {
 
+	}
+	
+	@FXML
+	private void handleLoadStory() throws IOException {
+		Stage stage = new Stage();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("StoryLibrary.fxml"));
+		Parent root = loader.load();
+
+		StoryLibrary controller = loader.getController();
+		//controller.initData(this);
+
+		Scene scene = new Scene(root);
+
+		stage.setTitle("Story Library");
+		stage.setScene(scene);
+		stage.show();
 	}
 
 	@FXML
