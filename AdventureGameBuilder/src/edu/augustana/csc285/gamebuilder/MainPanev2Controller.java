@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -28,6 +29,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Scanner;
+
 import edu.augustana.csc285.game.datamodel.*;
 
 public class MainPanev2Controller {
@@ -67,12 +70,15 @@ public class MainPanev2Controller {
 	private MenuItem deleteButton;
 	@FXML
 	private MenuItem aboutButton;
+	@FXML
+	private ChoiceBox slideSelection;
 
-	private Story story;
+	private Story currentStory;
 	private Slide currentSlide;
+	private Path storyJSONPath;
 	
 	public Story getStory() {
-		return story;
+		return currentStory;
 	}
 
 	public Slide getCurrentSlide() {
@@ -216,18 +222,21 @@ public class MainPanev2Controller {
 	
 	@FXML
 	private void handleLoadStory() throws IOException {
-		Stage stage = new Stage();
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("StoryLibrary.fxml"));
-		Parent root = loader.load();
-
-		StoryLibrary controller = loader.getController();
-		//controller.initData(this);
-
-		Scene scene = new Scene(root);
-
-		stage.setTitle("Story Library");
-		stage.setScene(scene);
-		stage.show();
+		File jsonFile = getFileFromUser();
+		storyJSONPath = Paths.get(jsonFile.getName());
+		
+		if (Files.notExists(storyJSONPath)) {
+			Files.createFile(storyJSONPath);
+			Files.copy(Paths.get(jsonFile.getPath()), storyJSONPath, StandardCopyOption.REPLACE_EXISTING);
+		}
+		String jsonString = "";
+		Scanner fileParse = new Scanner(jsonFile);
+		while(fileParse.hasNextLine()) {
+			jsonString = jsonString + fileParse.nextLine();
+		}
+		fileParse.close();
+		currentStory = Story.fromJSON(jsonString);
+		//currentSlide.setMusic(musicFile.getName());
 	}
 
 	@FXML
@@ -263,6 +272,11 @@ public class MainPanev2Controller {
         a.setHeaderText("Application to help with creating/editing slides for the Swedish Immigration Trail.");
         a.getDialogPane().setPrefSize(480, 120);
         a.showAndWait();
+	}
+	
+	@FXML
+	private void handleSlideSelectionChoiceBox() {
+		
 	}
 	// End of handle Methods
 
