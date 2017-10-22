@@ -36,10 +36,23 @@ public class SettingsScreen implements Screen {
 	private Texture img;
 	private String text;
 	private Texture backgroundImage;
+	private boolean fromMenuScreen = false;
 	
 	
+	// First constructor for regular slide screen settings
 	public SettingsScreen(AdventureGame game) {
 		this.game = game;
+		setUpSettingsScreen();
+	}
+	
+	// Second constructor to allow for back button to go back to main menu
+	public SettingsScreen(AdventureGame game2, boolean fromMenuScreen) {
+		this.fromMenuScreen = fromMenuScreen;
+		this.game = game2;
+		setUpSettingsScreen();
+	}
+	
+	public void setUpSettingsScreen() {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
@@ -50,7 +63,12 @@ public class SettingsScreen implements Screen {
 		backButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.setScreen(new SlideScreen(game));
+				if (fromMenuScreen) {
+					game.setScreen(new MainMenuScreen(game));
+				} else {
+					game.setScreen(new SlideScreen(game));
+
+				}
 			}
 
 			@Override
@@ -105,9 +123,9 @@ public class SettingsScreen implements Screen {
 		
 		Label screenTitle = new Label("Settings", new Label.LabelStyle(titleFont, Color.BLACK));
 		screenTitle.setPosition(WIDTH_BUFFER, (float) 0.87 * AdventureGame.GAME_SCREEN_HEIGHT);
-		stage.addActor(screenTitle);		
+		stage.addActor(screenTitle);	
 	}
-	
+
 	@Override
 	public void render (float delta) {
 		Gdx.gl.glClearColor(1, 1, 1, 1);

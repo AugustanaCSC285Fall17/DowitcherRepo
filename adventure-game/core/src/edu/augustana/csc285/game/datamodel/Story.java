@@ -172,12 +172,12 @@ public class Story {
 
 		Story story = new Story("0");
 		Slide s0 = new Slide("GameData/SlideImages/slide0.jpg",
-				"You're young Swedish Immigrat to America in 1880. You've made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?\n",
+				"You're young Swedish Immigrant to America in 1880. You've made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?\n",
 				null, null, "0");
 		s0.addOption(new Option("Take the Journey", "You have embarked on a journey!", null, "1", null, null));
 		Slide s1 = new Slide("GameData/SlideImages/slide1.jpg",
 				"It's the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. \nWho are you?",
-				null, null, "1");
+				null, null, "1", "Choose Your Character");
 		Option temp = new Option("Anders Bengtsson ", "You choose Anders Bengtsson", null, "2", null, null);
 		Effect effect = new GenderEffect(Gender.MALE);
 		temp.addEffect(effect);
@@ -193,7 +193,7 @@ public class Story {
 
 		Slide s2 = new Slide("GameData/SlideImages/slide2.jpg",
 				"You are an 18 year-old male from Mellby Parish, Småland. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. ",
-				null, null, "2");
+				null, null, "2", "Anders Bengtsson");
 		s2.addOption(new Option("Continue", null, null, "4", null, null));
 
 		Slide s3 = new Slide("GameData/SlideImages/slide3.jpg",
