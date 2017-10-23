@@ -30,7 +30,6 @@ public abstract class GeneralEffectController {
 		this.initDataTemplate(controller, effect);
 		this.index = index;
 	}
-
 	// For creating new condition
 	public void initData(OptionEditorController controller) {
 		this.initDataTemplate(controller, null);
@@ -39,6 +38,7 @@ public abstract class GeneralEffectController {
 	// To help add the new condition to the option
 	public void helpAddEffect(Button button, Effect effect) {
 		if (this.effect == null) {
+			System.out.println(controller.getOption());
 			controller.getOption().addEffect(effect);
 		} else {
 			System.out.println("Here");

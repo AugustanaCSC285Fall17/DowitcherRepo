@@ -5,6 +5,7 @@ import java.util.*;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -51,15 +52,16 @@ public class InventoryScreen implements Screen {
 		this.game = game;
 		stage = new Stage(new ScreenViewport());
 		String inventory = "You have: \n" + game.manager.getPlayer().getInventory().getVisibleItemString();
-		BitmapFont inventoryFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/mediumTitle.fnt"), false);		
+		BitmapFont inventoryFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/mediumTitle.fnt"), false);
 		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/bigTitle.fnt"), false);
+
 		Label inventoryLabel = new Label(inventory, new Label.LabelStyle(inventoryFont, Color.BLACK));
 		inventoryLabel.setWrap(true);
-		
+
 		Label screenTitle = new Label("Inventory", new Label.LabelStyle(titleFont, Color.BLACK));
 		screenTitle.setPosition(WIDTH_BUFFER, (float) 0.87 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(screenTitle);
-		
+
 		ScrollPane scroll = new ScrollPane(inventoryLabel, DEFAULT_SKIN);
 		scroll.setPosition(20, 20);
 		scroll.setSize(AdventureGame.GAME_SCREEN_HEIGHT - 200, 300);
@@ -87,37 +89,27 @@ public class InventoryScreen implements Screen {
 		stage.addActor(backButton);
 	}
 
-		/* Label description = new Label("Test description", DEFAULT_SKIN);
-		 description.setWrap(true);
-		 ScrollPane scroll2 = new ScrollPane(description, DEFAULT_SKIN);
-		 scroll.setPosition((WIDTH_BUFFER * 2) + (23 *
-		 AdventureGame.GAME_SCREEN_HEIGHT) / 32,
-		 AdventureGame.GAME_SCREEN_HEIGHT - (HEIGHT_BUFFER * 2) -
-		 (AdventureGame.GAME_SCREEN_HEIGHT / 10) - ((3 *
-		 AdventureGame.GAME_SCREEN_HEIGHT) / 8));
-		 scroll2.setSize(AdventureGame.GAME_SCREEN_WIDTH / 2,
-		 AdventureGame.GAME_SCREEN_HEIGHT / 3);
-		 scroll2.setScrollingDisabled(true, false);
-		 stage.addActor(scroll2);
-
-		 Table table = new Table();
-		 Table container = new Table();
-		 container.setBounds(10, 10, 400, 400);
-		 ScrollPane scroll3 = new ScrollPane(table);
-		 container.add(scroll);
-		 container.row();
-		 container.debug();
-		 table.debug();
-		 for (Item item : inventoryCollection.values()) {
-		 Label label2 = new Label(item.getName() + " x " + item.getQuantity(),
-		 DEFAULT_SKIN);
-		 label2.setAlignment(Align.right);
-		 label2.setWrap(true);
-		 table.add(label2);
-		 table.row();
-		 }
-		 stage.addActor(container);
-	} */
+	/*
+	 * Label description = new Label("Test description", DEFAULT_SKIN);
+	 * description.setWrap(true); ScrollPane scroll2 = new
+	 * ScrollPane(description, DEFAULT_SKIN); scroll.setPosition((WIDTH_BUFFER *
+	 * 2) + (23 * AdventureGame.GAME_SCREEN_HEIGHT) / 32,
+	 * AdventureGame.GAME_SCREEN_HEIGHT - (HEIGHT_BUFFER * 2) -
+	 * (AdventureGame.GAME_SCREEN_HEIGHT / 10) - ((3 *
+	 * AdventureGame.GAME_SCREEN_HEIGHT) / 8));
+	 * scroll2.setSize(AdventureGame.GAME_SCREEN_WIDTH / 2,
+	 * AdventureGame.GAME_SCREEN_HEIGHT / 3); scroll2.setScrollingDisabled(true,
+	 * false); stage.addActor(scroll2);
+	 * 
+	 * Table table = new Table(); Table container = new Table();
+	 * container.setBounds(10, 10, 400, 400); ScrollPane scroll3 = new
+	 * ScrollPane(table); container.add(scroll); container.row();
+	 * container.debug(); table.debug(); for (Item item :
+	 * inventoryCollection.values()) { Label label2 = new Label(item.getName() +
+	 * " x " + item.getQuantity(), DEFAULT_SKIN);
+	 * label2.setAlignment(Align.right); label2.setWrap(true);
+	 * table.add(label2); table.row(); } stage.addActor(container); }
+	 */
 
 	@Override
 	public void show() {
@@ -129,12 +121,17 @@ public class InventoryScreen implements Screen {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
+
+		// Go back to slide screen
+		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE)) {
+			game.setScreen(new SlideScreen(game));
+			dispose();
+		}
 		game.batch.begin();
 		// Draw background image
 		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		game.batch.end();
-		
+
 		camera.update();
 		stage.act();
 		stage.draw();

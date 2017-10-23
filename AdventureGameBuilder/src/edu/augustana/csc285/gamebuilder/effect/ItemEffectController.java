@@ -20,6 +20,10 @@ public class ItemEffectController extends GeneralEffectController {
 	private Button addItemEffect;
 
 	public void updateFields() {
+		if (itemLibrary != null) {
+			this.itemChoiceEffect.setItems(FXCollections.observableArrayList(itemLibrary.getItems()));
+			this.itemOperationEffect.setItems(FXCollections.observableArrayList(EffectOperation.values()));
+		}
 		if (effect != null) {
 			ItemEffect itemEffect = (ItemEffect) effect;
 			itemChoiceEffect.getSelectionModel().select(itemEffect.getItem());
@@ -31,8 +35,6 @@ public class ItemEffectController extends GeneralEffectController {
 
 	@FXML
 	private void initialize() {
-		this.itemChoiceEffect.setItems(FXCollections.observableArrayList(itemLibrary.getItems()));
-		this.itemOperationEffect.setItems(FXCollections.observableArrayList(EffectOperation.values()));
 	}
 
 	@FXML

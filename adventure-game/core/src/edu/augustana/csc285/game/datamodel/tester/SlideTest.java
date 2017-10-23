@@ -61,10 +61,6 @@ public class SlideTest {
 				// slides.add(new Slide(tempStr, tempStr2));
 				System.out.println("SUCCESS");
 
-				tempStr = fileIn.nextLine();
-				System.out.print("Assigning the URL: " + tempStr + " to the slide = ");
-				slides.get(slideCount).setUrl(tempStr);
-				System.out.println("SUCCESS");
 
 				tempStr = fileIn.nextLine();
 				System.out.print("Assigning the music: " + tempStr + " to the slide = ");

@@ -7,10 +7,7 @@ import java.util.List;
 public class Slide {
 	private String image;
 	private String desc;
-	
-	//Deteriorated
-	private String url;
-	
+
 	private String music;
 	private String id;
 	private String title;
@@ -35,10 +32,9 @@ public class Slide {
 	 *            is the group of options the player could have access to on
 	 *            this slide
 	 */
-	public Slide(String image, String desc, String url, String music, String id) {
+	public Slide(String image, String desc, String music, String id) {
 		this.image = image;
 		this.desc = desc;
-		this.url = url;
 		this.music = music;
 		this.id = id;
 		this.options = new ArrayList<Option>();
@@ -72,8 +68,13 @@ public class Slide {
 		this.title = title;
 	}
 
+<<<<<<< HEAD
 	public Slide(String image, String desc, String id, String title) {
 		this(image, desc, "", null, id, title);
+=======
+	public Slide(String image, String desc, String id) {
+		this(image, desc, null, id);
+>>>>>>> 2deb3d8a8f0f8df0563132ac62c0e26f61119274
 	}
 
 	/**
@@ -81,7 +82,11 @@ public class Slide {
 	 */
 
 	public Slide(Slide other) {
+<<<<<<< HEAD
 		this(other.image, other.desc, other.url, other.music, other.id, other.title);
+=======
+		this(other.image, other.desc, other.music, other.id);
+>>>>>>> 2deb3d8a8f0f8df0563132ac62c0e26f61119274
 		this.options = new ArrayList<Option>(other.options);
 	}
 
@@ -90,6 +95,11 @@ public class Slide {
 	 */
 	public String getImage() {
 		return image;
+	}
+	
+
+	public ArrayList<Option> getOptions() {
+		return options;
 	}
 
 	/**
@@ -113,22 +123,6 @@ public class Slide {
 	 */
 	public void setDesc(String desc) {
 		this.desc = desc;
-	}
-
-	/**
-	 * @return the url
-	 * Deteriorated
-	 */
-	public String getUrl() {
-		return url;
-	}
-
-	/**
-	 * @param url
-	 *            the url to set
-	 */
-	public void setUrl(String url) {
-		this.url = url;
 	}
 
 	/**
@@ -234,6 +228,11 @@ public class Slide {
 		}
 
 		return output;
+	}
+
+	public void setOption(int index, Option option) {
+		this.checkIndex(index);
+		options.set(index, option);
 	}
 
 }
