@@ -113,7 +113,7 @@ public class Inventory {
 		String str = "";
 		for (Item item : this.itemSet) {
 			if (item.getQuantity() != 0 && item.isVisible()) {
-				str += item + "\n";
+				str += item + ": " + item.getQuantity() + "\n";
 			}
 		}
 		return str;
