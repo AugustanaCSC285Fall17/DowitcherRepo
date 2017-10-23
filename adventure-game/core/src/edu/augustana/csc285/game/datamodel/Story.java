@@ -155,21 +155,22 @@ public class Story {
 	public static void main(String[] args) {
 		Item sek = new Item("Sek", "Currency of Sweden", 1, null);
 		Item dollar = new Item("Dollar", "Currency of USA", 1, null);
-		Item medicine = new Item("Medicine", null, 1, null);
-		Item jDLetter = new Item("John Deere Letter", "A letter from John Deere", 1, "GameData/SlideImages/item5.jpg");
-		Item iLetter = new Item("Illinois Letter", "A letter from Illinois", 1, "GameData/SlideImages/item6.jpg");
-		Item wLetter = new Item("Washington Letter", "A letter from Washington", 1, "GameData/SlideImages/item7.jpg");
-		Item mLetter = new Item("Minnesota Letter", "A letter from Minnesota", 1, "GameData/SlideImages/item8.jpg");
-		Item officialPapers = new Item("Official papers", null, 1, null);
-		Item forgedPapers = new Item("Forged papers", null, 1, null);
-		Item bible = new Item("Bible", null, 1, null);
-		Item familyHeirloom = new Item("Family Heirloom", null, 1, null);
-		Item sewingMachine = new Item("Sewing Machine", null, 1, null);
-		Item curedMeat = new Item("Cured Meat", null, 1, null);
-		Item ticketToHull = new Item("Ticket to Hull", null, 1, null);
-		Item ticketToAmerica = new Item("Ticket to America", null, 1, null);
+		Item medicine = new Item("Medicine", null, 1, "icons/medicine.jpg");
+		Item jDLetter = new Item("John Deere Letter", "A letter from John Deere", 1, "icons/letter.jpg");
+		Item iLetter = new Item("Illinois Letter", "A letter from Illinois", 1, "icons/letter.jpg");
+		Item wLetter = new Item("Washington Letter", "A letter from Washington", 1, "icons/letter.jpg");
+		Item mLetter = new Item("Minnesota Letter", "A letter from Minnesota", 1, "icons/letter.jpg");
+		Item officialPapers = new Item("Official papers", null, 1, "icons/official-papers.jpg");
+		Item forgedPapers = new Item("Forged papers", null, 1, "icons/forged-paper.jpg");
+		Item bible = new Item("Bible", null, 1, "icons/bible.jpg");
+		Item familyHeirloom = new Item("Family Heirloom", null, 1, "icons/familyheirloom.jpg");
+		Item sewingMachine = new Item("Sewing Machine", null, 1, "icons/sewing-machine.jpg");
+		Item curedMeat = new Item("Cured Meat", null, 1, "icons/meat.jpg");
+		Item ticketToHull = new Item("Ticket to Hull", null, 1, "icons/ticket.jpg");
+		Item ticketToAmerica = new Item("Ticket to America", null, 1, "icons/ticket.jpg");
 		// Item
 
+		// I've only added the title parameter to the first 2 slides (1 & 2) btw
 		Story story = new Story("0");
 		Slide s0 = new Slide("GameData/SlideImages/slide0.jpg",
 				"You're young Swedish Immigrant to America in 1880. You've made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?\n",

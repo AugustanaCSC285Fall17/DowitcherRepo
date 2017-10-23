@@ -35,8 +35,8 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
-		logo = new Texture("art/swensonlogo.png");
-		backgroundImage = new Texture("art/background.jpg");
+		logo = new Texture("GameData/swensonlogo.png");
+		backgroundImage = new Texture("GameData/background.jpg");
 		titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/title.fnt"), false);
 		BitmapFont mediumTitleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/mediumTitle.fnt"), false);
 

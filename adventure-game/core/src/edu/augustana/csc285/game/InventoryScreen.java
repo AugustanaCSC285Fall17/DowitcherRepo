@@ -53,7 +53,6 @@ public class InventoryScreen implements Screen {
 		String inventory = "You have: \n" + game.manager.getPlayer().getInventory().getVisibleItemString();
 		BitmapFont inventoryFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/mediumTitle.fnt"), false);		
 		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/bigTitle.fnt"), false);
-		
 		Label inventoryLabel = new Label(inventory, new Label.LabelStyle(inventoryFont, Color.BLACK));
 		inventoryLabel.setWrap(true);
 		
@@ -66,7 +65,9 @@ public class InventoryScreen implements Screen {
 		scroll.setSize(AdventureGame.GAME_SCREEN_HEIGHT - 200, 300);
 		scroll.setScrollingDisabled(true, false);
 		stage.addActor(scroll);
-		backgroundImage = new Texture("art/background.jpg");
+		backgroundImage = new Texture("GameData/background.jpg");
+		
+		
 		Button backButton = new TextButton("Back", DEFAULT_SKIN);
 		backButton.addListener(new InputListener() {
 			@Override
@@ -168,6 +169,7 @@ public class InventoryScreen implements Screen {
 	@Override
 	public void dispose() {
 		stage.dispose();
+		backgroundImage.dispose();
 	}
 
 }

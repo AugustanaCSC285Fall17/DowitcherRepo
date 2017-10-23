@@ -59,12 +59,12 @@ public class SlideScreen implements Screen {
 		this.game = game;
 		slide = game.manager.getCurrentSlide();
 		image = new Texture(Gdx.files.internal(slide.getImage()));
-		backgroundImage = new Texture("art/background.jpg");
+		backgroundImage = new Texture("GameData/background.jpg");
 		BitmapFont descriptionFont = new BitmapFont(Gdx.files.internal("fonts/DescriptionFont/descriptionText.fnt"), false);
 		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/Title.fnt"), false);
-		Button inventoryBtn = this.addTextureRegion("icons/inventory.png", new InventoryScreen(game), 3);
-		Button playerStatBtn = this.addTextureRegion("icons/player-stat.png", new PlayerStatScreen(game), 2);
-		Button settingsBtn = this.addTextureRegion("icons/settings.jpg", new SettingsScreen(game), 1);
+		Button inventoryBtn = this.addTextureRegion("GameData/icons/inventory.png", new InventoryScreen(game), 3);
+		Button playerStatBtn = this.addTextureRegion("GameData/icons/player-stat.png", new PlayerStatScreen(game), 2);
+		Button settingsBtn = this.addTextureRegion("GameData/icons/settings.jpg", new SettingsScreen(game), 1);
 
 		visibleOptions = (ArrayList<Option>) slide.getVisibleOptions(game.manager.getPlayer());
 		
@@ -138,6 +138,8 @@ public class SlideScreen implements Screen {
 		slideTitle.setPosition((float) 0.42 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.87 * AdventureGame.GAME_SCREEN_HEIGHT); 
 		stage.addActor(slideTitle);
 		
+		
+		// Set up the scroll pane with slide description
 		Label description = new Label(slide.getDesc(), new Label.LabelStyle(descriptionFont, Color.BLACK));
 		description.setWrap(true);
 		ScrollPane scroll = new ScrollPane(description, DEFAULT_SKIN);
