@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 import java.awt.List;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -87,7 +88,7 @@ public class MainPanev2Controller {
 	@FXML
 	private Button newSlideButton;
 	@FXML
-	private MenuItem saveLibrary;
+	private MenuItem saveStory;
 
 	private Story currentStory;
 	private Slide currentSlide;
@@ -128,7 +129,13 @@ public class MainPanev2Controller {
 			this.optionView.setItems(FXCollections.observableArrayList(currentSlide.getOptions()));
 			this.slideId.setText(currentSlide.getId());
 			this.slideDescription.setText(currentSlide.getDesc());
+			updateSlideChoiceBox();
 		}
+	}
+	
+	@FXML
+	private void handleSaveStory() {
+		
 	}
 
 	@FXML
@@ -291,7 +298,7 @@ public class MainPanev2Controller {
 
 	@FXML
 	private void handleSlideSelectionChoiceBox() {
-		populateSlideChoice();
+		updateSlideChoiceBox();
 	}
 
 	@FXML
@@ -342,6 +349,7 @@ public class MainPanev2Controller {
 		slideId.setPromptText("Enter Slide Description");
 		ObservableList<Option> options = FXCollections.emptyObservableList();
 		optionView.setItems(options);
+		slideSelection.setValue(null);
 
 		// optionView.set
 	}
@@ -357,6 +365,8 @@ public class MainPanev2Controller {
 		currentSlide.setDesc(slideDescription.getText());
 		currentSlide.setId(slideId.getText());
 		currentStory.addSlide(currentSlide);
+		
+		updateSlideChoiceBox();
 
 	}
 
@@ -367,10 +377,42 @@ public class MainPanev2Controller {
 		}
 
 	}
+	
+	private void updateSlideChoiceBox() {
+		ObservableList<String> choiceboxSlideID = FXCollections.observableArrayList();
+		for(Slide index : currentStory.getSlides()) {
+			choiceboxSlideID.add(index.getId());
+		}
+		slideSelection.setItems(choiceboxSlideID);
+	}
+
+	@FXML
+	private void handleSlideSelection() throws FileNotFoundException {
+		if(slideSelection.getValue() != null) {
+		handleSlideChange(slideSelection.getValue());
+		}
+	}
+	
+	private void handleSlideChange(String text) throws FileNotFoundException {
+		// TODO Auto-generated method stub
+		//int value = Integer.getInteger(text);
+		currentSlide = currentStory.getSlide(text);
+		slideDescription.setText(currentSlide.getDesc());
+		slideId.setText(currentSlide.getId());
+		InputStream input = new FileInputStream(currentSlide.getImage());
+		imageView.setImage(new Image(input));
+		
+		
+
+//		currentSlide.setImage(imageFile.getName());
+//		InputStream input = new FileInputStream(imageFile.getPath());
+//		imageView.setImage(new Image(input));
+		
+	}
 
 	@FXML
 	private void handleSlideId() {
-
+		
 	}
 
 	/**
