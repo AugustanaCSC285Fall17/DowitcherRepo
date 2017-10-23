@@ -32,9 +32,8 @@ import javafx.stage.Stage;
 public class OptionEditorController {
 	private MainPanev2Controller controller;
 	// To do note you don't need story and slide since it is in controller
-	private Story story;
 	private Option option;
-	private boolean existedOption;
+	private int index;
 	@FXML
 	private TextField descTextField;
 	@FXML
@@ -81,20 +80,21 @@ public class OptionEditorController {
 	@FXML
 	private void initialize() {
 		// To test
-		this.controller = new MainPanev2Controller();
-		ItemLibrary itemLibrary = new ItemLibrary();
-		Item sek = new Item("Sek", "Currency of Sweden", 1, null);
-		Item dollar = new Item("Dollar", "Currency of USA", 1, null);
-		Item medicine = new Item("Medicine", null, 1, null);
-		controller.setItemLibrary(itemLibrary);
-		this.story = new Story("0");
-		this.option = new Option("Medicine", null, null, "11", null, null);
-		this.option.addFeasibleCondition(new ItemCondition(medicine, ConditionOperation.SMALLER));
-		this.option.addFeasibleCondition(new GenderCondition(Gender.MALE));
-		this.option.addVisibleCondition(new ItemCondition(medicine, ConditionOperation.SMALLER));
-		this.option.addEffect(new GenderEffect(Gender.MALE));
-		this.option.addEffect(new NameEffect("Dat"));
-		this.updateFields();
+		// this.controller = new MainPanev2Controller();
+		// ItemLibrary itemLibrary = new ItemLibrary();
+		// Item sek = new Item("Sek", "Currency of Sweden", 1, null);
+		// Item dollar = new Item("Dollar", "Currency of USA", 1, null);
+		// Item medicine = new Item("Medicine", null, 1, null);
+		// controller.setItemLibrary(itemLibrary);
+		// this.option = new Option("Medicine", null, null, "11", null, null);
+		// this.option.addFeasibleCondition(new ItemCondition(medicine,
+		// ConditionOperation.SMALLER));
+		// this.option.addFeasibleCondition(new GenderCondition(Gender.MALE));
+		// this.option.addVisibleCondition(new ItemCondition(medicine,
+		// ConditionOperation.SMALLER));
+		// this.option.addEffect(new GenderEffect(Gender.MALE));
+		// this.option.addEffect(new NameEffect("Dat"));
+		// this.updateFields();
 
 		// This is beginning of real stuff
 		String[] effectTypes = { "Name Effect", "Gender Effect", "Item Effect", "Player Stat Effect" };
@@ -129,22 +129,19 @@ public class OptionEditorController {
 		this.updateEffectListView();
 		this.updateFeasibleConditionListView();
 		this.updateVisibleConditionListView();
-
 	}
 
 	// To edit existing option
-	private void initData(MainPanev2Controller controller, Option option) {
+	public void initData(MainPanev2Controller controller, Option option, int index) {
 		this.controller = controller;
-		this.story = controller.getStory();
 		this.option = option;
-		this.existedOption = true;
+		this.index = index;
+		this.updateFields();
 	}
 
 	// To create a new option
-	private void initData(MainPanev2Controller controller) {
-		initData(controller, null);
-		this.option = new Option();
-		this.existedOption = false;
+	public void initData(MainPanev2Controller controller) {
+		initData(controller, new Option(), -1);
 	}
 
 	@FXML
@@ -155,8 +152,10 @@ public class OptionEditorController {
 			if (this.rejectMessageTextField.getText() != null) {
 				option.setRejectMessage(this.rejectMessageTextField.getText());
 			}
-			if (!existedOption) {
+			if (index == -1) {
 				this.controller.getCurrentSlide().addOption(option);
+			} else {
+				this.controller.getCurrentSlide().setOption(index, option);
 			}
 			this.closeStage(createOption);
 		}
@@ -267,20 +266,26 @@ public class OptionEditorController {
 
 	// Update the value in list view
 	public void updateEffectListView() {
-		ObservableList<Effect> effects = FXCollections.observableArrayList(this.option.getEffects());
-		this.effectListView.setItems(effects);
+		if (this.option != null) {
+			ObservableList<Effect> effects = FXCollections.observableArrayList(this.option.getEffects());
+			this.effectListView.setItems(effects);
+		}
 	}
 
 	public void updateVisibleConditionListView() {
-		ObservableList<Condition> visibleConditions = FXCollections
-				.observableArrayList(this.option.getVisibleConditions());
-		this.visibleConditionListView.setItems(visibleConditions);
+		if (this.option != null) {
+			ObservableList<Condition> visibleConditions = FXCollections
+					.observableArrayList(this.option.getVisibleConditions());
+			this.visibleConditionListView.setItems(visibleConditions);
+		}
 	}
 
 	public void updateFeasibleConditionListView() {
-		ObservableList<Condition> feasibleConditions = FXCollections
-				.observableArrayList(this.option.getFeasibleConditions());
-		this.feasibleConditionListView.setItems(feasibleConditions);
+		if (this.option != null) {
+			ObservableList<Condition> feasibleConditions = FXCollections
+					.observableArrayList(this.option.getFeasibleConditions());
+			this.feasibleConditionListView.setItems(feasibleConditions);
+		}
 	}
 
 	private void updateBasicInformation() {
@@ -294,7 +299,7 @@ public class OptionEditorController {
 	private void updateSlideCreated() {
 		String toSlideString = this.toSlideTextField.getText();
 		if (Helper.checkLegalInt(toSlideString)) {
-			this.slidedCreatedLabel.setText(String.valueOf(this.story.contains(toSlideString)));
+			this.slidedCreatedLabel.setText(String.valueOf(this.controller.getStory().contains(toSlideString)));
 		}
 	}
 

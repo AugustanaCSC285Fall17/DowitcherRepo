@@ -7,7 +7,7 @@ import java.util.List;
 public class Slide {
 	private String image;
 	private String desc;
-	
+
 	private String music;
 	private String id;
 	ArrayList<Option> options;
@@ -57,6 +57,11 @@ public class Slide {
 	 */
 	public String getImage() {
 		return image;
+	}
+	
+
+	public ArrayList<Option> getOptions() {
+		return options;
 	}
 
 	/**
@@ -167,6 +172,11 @@ public class Slide {
 		}
 
 		return output;
+	}
+
+	public void setOption(int index, Option option) {
+		this.checkIndex(index);
+		options.set(index, option);
 	}
 
 }

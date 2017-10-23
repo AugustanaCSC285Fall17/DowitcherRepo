@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.augustana.csc285.gamebuilder.MainPanev2Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.augustana.csc285.gamebuilder.MainPanev2Controller">
 	<children>
 		<ImageView fx:id="imageView" fitHeight="162.0" fitWidth="284.0" layoutX="14.0" layoutY="101.0" pickOnBounds="true">
 			<image>
@@ -39,16 +47,16 @@
 			</menus>
 		</MenuBar>
 		<Button fx:id="editOptions" layoutX="470.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleEditOptions" text="Edit Options" />
-		<TableView fx:id="optionView" layoutX="376.0" layoutY="144.0" prefHeight="128.0" prefWidth="200.0">
+		<TableView fx:id="optionView" layoutX="350.0" layoutY="144.0" prefHeight="128.0" prefWidth="247.0">
 			<columns>
-				<TableColumn prefWidth="93.0" text="Option Name" />
-				<TableColumn prefWidth="70.0" text="Next Slide" />
+				<TableColumn fx:id="optionDescView" prefWidth="176.0" text="Option Name" />
+				<TableColumn fx:id="nextSlideView" prefWidth="70.0" text="Next Slide" />
 			</columns>
 		</TableView>
 		<TextField fx:id="slideId" layoutX="229.0" layoutY="272.0" onAction="#handleSlideId" prefHeight="27.0" prefWidth="114.0" promptText="Slide ID" />
 		<Button fx:id="saveButton" layoutX="469.0" layoutY="356.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save" />
 		<Button fx:id="addOptions" layoutX="376.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleAddOptions" text="Add Option" />
-      <ChoiceBox fx:id="slideSelection" layoutX="156.0" layoutY="41.0" prefHeight="27.0" prefWidth="125.0" />
-      <Button fx:id="newSlideButton" layoutX="15.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleNewSlideButton" prefHeight="27.0" prefWidth="125.0" text="New Slide" />
+		<ChoiceBox fx:id="slideSelection" layoutX="156.0" layoutY="41.0" prefHeight="27.0" prefWidth="125.0" />
+		<Button fx:id="newSlideButton" layoutX="15.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleNewSlideButton" prefHeight="27.0" prefWidth="125.0" text="New Slide" />
 	</children>
 </Pane>

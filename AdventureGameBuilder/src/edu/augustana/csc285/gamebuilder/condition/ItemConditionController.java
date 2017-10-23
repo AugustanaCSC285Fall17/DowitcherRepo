@@ -22,6 +22,10 @@ public class ItemConditionController extends GeneralConditionController {
 	private Button addItemCondition;
 
 	public void updateFields() {
+		if (itemLibrary != null) {
+			this.itemChoiceCondition.setItems(FXCollections.observableArrayList(getItemLibrary().getItems()));
+			this.itemOperationCondition.setItems(FXCollections.observableArrayList(ConditionOperation.values()));
+		}
 		if (this.getCondition() != null) {
 			ItemCondition itemCondition = (ItemCondition) this.getCondition();
 			itemChoiceCondition.getSelectionModel().select(itemCondition.getItem());
@@ -32,18 +36,6 @@ public class ItemConditionController extends GeneralConditionController {
 
 	@FXML
 	private void initialize() {
-		// For testing
-		// this.itemLibrary = new ItemLibrary();
-		// Item sek = new Item("Sek", "Currency of Sweden", 1, null);
-		// Item dollar = new Item("Dollar", "Currency of USA", 1, null);
-		// Item medicine = new Item("Medicine", null, 1, null);
-		// itemLibrary.addItem(sek);
-		// itemLibrary.addItem(dollar);
-		// itemLibrary.addItem(medicine);
-
-		this.itemChoiceCondition.setItems(FXCollections.observableArrayList(getItemLibrary().getItems()));
-		this.itemOperationCondition.setItems(FXCollections.observableArrayList(ConditionOperation.values()));
-
 	}
 
 	@FXML
