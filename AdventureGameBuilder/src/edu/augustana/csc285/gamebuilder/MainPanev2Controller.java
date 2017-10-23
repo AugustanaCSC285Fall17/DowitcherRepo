@@ -78,6 +78,8 @@ public class MainPanev2Controller {
 	private ChoiceBox<String> slideSelection;
 	@FXML
 	private Button newSlideButton;
+	@FXML
+	private MenuItem saveLibrary;
 
 	private Story currentStory;
 	private Slide currentSlide;
@@ -254,14 +256,11 @@ public class MainPanev2Controller {
 	@FXML
 	private void handleSlideSelectionChoiceBox() {
 		populateSlideChoice();
-		
-		
 	}
 
 	@FXML
 	private void handleNewSlideButton() {
 		clearMainPane();
-		
 	}
 	// End of handle Methods
 
