@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -39,7 +40,6 @@ public class PlayerStatScreen implements Screen {
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
 	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
 
-
 	public PlayerStatScreen(final AdventureGame game) {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
@@ -47,15 +47,15 @@ public class PlayerStatScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		backgroundImage = new Texture("art/background.jpg");
 		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/bigTitle.fnt"), false);
-		
+
 		Map<String, Property> properties = game.manager.getPlayer().getProperties().getProperties();
 		String propertyString = "You are: " + game.manager.getPlayer().getName() + "\n";
 		propertyString += "Gender: " + game.manager.getPlayer().getGender() + "\n";
-		
+
 		for (Property property : properties.values()) {
 			propertyString += property.getType().toString() + ": " + property.getQuantity() + "\n";
 		}
-		
+
 		playerFont = new BitmapFont(Gdx.files.internal("fonts/DescriptionFont/DescriptionText.fnt"), false);
 		Label label = new Label(propertyString, new Label.LabelStyle(playerFont, Color.BLACK));
 		label.setWrap(true);
@@ -68,7 +68,7 @@ public class PlayerStatScreen implements Screen {
 		Label screenTitle = new Label("Player Stats", new Label.LabelStyle(titleFont, Color.BLACK));
 		screenTitle.setPosition(WIDTH_BUFFER, (float) 0.87 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(screenTitle);
-		
+
 		Button backButton = new TextButton("Back", DEFAULT_SKIN);
 		backButton.addListener(new InputListener() {
 			@Override
@@ -94,6 +94,11 @@ public class PlayerStatScreen implements Screen {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		// Go back to slide screen
+		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE)) {
+			game.setScreen(new SlideScreen(game));
+			dispose();
+		}
 		game.batch.begin();
 		// Draw background image
 		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);

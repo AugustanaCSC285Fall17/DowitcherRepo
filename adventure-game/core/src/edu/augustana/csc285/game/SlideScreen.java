@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -58,6 +59,8 @@ public class SlideScreen implements Screen {
 	}
 
 	public SlideScreen(AdventureGame game) {
+		// Giant to do note: Set up checking for multiple layout
+
 		// Set up data fields
 		this.popUp = false;
 		this.game = game;
@@ -185,6 +188,16 @@ public class SlideScreen implements Screen {
 					}
 				}
 			}
+		}
+		// Change to inventory screen
+		if (Gdx.input.isKeyJustPressed(Keys.I)) {
+			game.setScreen(new InventoryScreen(game));
+			dispose();
+		}
+		// Change to player stat screen
+		if (Gdx.input.isKeyJustPressed(Keys.S)) {
+			game.setScreen(new PlayerStatScreen(game));
+			dispose();
 		}
 
 		game.batch.setProjectionMatrix(camera.combined);
