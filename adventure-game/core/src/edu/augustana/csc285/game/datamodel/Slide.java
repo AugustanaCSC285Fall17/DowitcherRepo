@@ -8,9 +8,6 @@ public class Slide {
 	private String image;
 	private String desc;
 	
-	//Deteriorated
-	private String url;
-	
 	private String music;
 	private String id;
 	ArrayList<Option> options;
@@ -34,17 +31,16 @@ public class Slide {
 	 *            is the group of options the player could have access to on
 	 *            this slide
 	 */
-	public Slide(String image, String desc, String url, String music, String id) {
+	public Slide(String image, String desc, String music, String id) {
 		this.image = image;
 		this.desc = desc;
-		this.url = url;
 		this.music = music;
 		this.id = id;
 		this.options = new ArrayList<Option>();
 	}
 
 	public Slide(String image, String desc, String id) {
-		this(image, desc, "", null, id);
+		this(image, desc, null, id);
 	}
 
 	/**
@@ -52,7 +48,7 @@ public class Slide {
 	 */
 
 	public Slide(Slide other) {
-		this(other.image, other.desc, other.url, other.music, other.id);
+		this(other.image, other.desc, other.music, other.id);
 		this.options = new ArrayList<Option>(other.options);
 	}
 
@@ -84,22 +80,6 @@ public class Slide {
 	 */
 	public void setDesc(String desc) {
 		this.desc = desc;
-	}
-
-	/**
-	 * @return the url
-	 * Deteriorated
-	 */
-	public String getUrl() {
-		return url;
-	}
-
-	/**
-	 * @param url
-	 *            the url to set
-	 */
-	public void setUrl(String url) {
-		this.url = url;
 	}
 
 	/**

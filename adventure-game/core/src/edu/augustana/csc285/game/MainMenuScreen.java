@@ -18,6 +18,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
+import edu.augustana.csc285.game.datamodel.Notification;
+
 public class MainMenuScreen extends ScreenAdapter implements Screen {
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
 	private final AdventureGame game;
@@ -80,8 +82,11 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		button.setSize(50, 50);
 		button.addListener(new InputListener() {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.setScreen(new SettingsScreen(game));
-				dispose();
+				//For testing with notification
+				Notification not = new Notification("You received:");
+				stage.addActor(not);
+				//game.setScreen(new SettingsScreen(game));
+				//dispose();
 
 			}
 

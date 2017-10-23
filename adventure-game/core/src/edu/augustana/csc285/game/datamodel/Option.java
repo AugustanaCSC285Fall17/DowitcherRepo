@@ -72,7 +72,7 @@ public class Option {
 		return transitionMessage;
 	}
 
-	public void setTransitionMessage(String transitionMessage) {
+	public void setTransitionMessage( String transitionMessage) {
 		this.transitionMessage = transitionMessage;
 	}
 
