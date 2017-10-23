@@ -45,15 +45,11 @@ public class SlideScreen implements Screen {
 	private Slide slide;
 	private ArrayList<Option> visibleOptions;
 	private Texture image;
-	private Button inventoryBtn;
-	private Button playerStatBtn;
-	private Button settingsBtn;
 	private Texture backgroundImage;
 	private OrthographicCamera camera;
 	private Stage stage;
 	private boolean popUp;
 	private String rejectMessage;
-	private BitmapFont descriptionFont;
 
 	public SlideScreen(AdventureGame game, String rejectMessage) {
 		this(game);
@@ -69,15 +65,15 @@ public class SlideScreen implements Screen {
 		this.game = game;
 		slide = game.manager.getCurrentSlide();
 		image = new Texture(Gdx.files.internal(slide.getImage()));
-		backgroundImage = new Texture("art/background.jpg");
-		descriptionFont = new BitmapFont(Gdx.files.internal("fonts/DescriptionFont/descriptionText.fnt"), false);
-
-		inventoryBtn = this.addTextureRegion("icons/inventory.png", new InventoryScreen(game), 3);
-		playerStatBtn = this.addTextureRegion("icons/player-stat.png", new PlayerStatScreen(game), 2);
-		settingsBtn = this.addTextureRegion("icons/settings.jpg", new SettingsScreen(game), 1);
+		backgroundImage = new Texture("GameData/background.jpg");
+		BitmapFont descriptionFont = new BitmapFont(Gdx.files.internal("fonts/DescriptionFont/descriptionText.fnt"), false);
+		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/Title.fnt"), false);
+		Button inventoryBtn = this.addTextureRegion("GameData/icons/inventory.png", new InventoryScreen(game), 3);
+		Button playerStatBtn = this.addTextureRegion("GameData/icons/player-stat.png", new PlayerStatScreen(game), 2);
+		Button settingsBtn = this.addTextureRegion("GameData/icons/settings.jpg", new SettingsScreen(game), 1);
 
 		visibleOptions = (ArrayList<Option>) slide.getVisibleOptions(game.manager.getPlayer());
-
+		
 		// Set up camera
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
@@ -136,8 +132,6 @@ public class SlideScreen implements Screen {
 					return true;
 				}
 			});
-			// for now not measuring the width of the option string but assume
-			// they are the same
 
 			buttonTable.add(button).width((float) biggestButtonWidth + 70)
 					.height((float) 0.0555 * AdventureGame.GAME_SCREEN_HEIGHT).padTop(HEIGHT_BUFFER).row();
@@ -146,6 +140,12 @@ public class SlideScreen implements Screen {
 
 		stage.addActor(buttonTable);
 
+		Label slideTitle = new Label(slide.getTitle(), new Label.LabelStyle(titleFont, Color.BLACK));
+		slideTitle.setPosition((float) 0.42 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.87 * AdventureGame.GAME_SCREEN_HEIGHT); 
+		stage.addActor(slideTitle);
+		
+		
+		// Set up the scroll pane with slide description
 		Label description = new Label(slide.getDesc(), new Label.LabelStyle(descriptionFont, Color.BLACK));
 		description.setWrap(true);
 		Skin scrollSkin = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));

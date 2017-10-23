@@ -36,21 +36,39 @@ public class SettingsScreen implements Screen {
 	private Texture img;
 	private String text;
 	private Texture backgroundImage;
+	private boolean fromMenuScreen = false;
 	
 	
+	// First constructor for regular slide screen settings
 	public SettingsScreen(AdventureGame game) {
 		this.game = game;
+		setUpSettingsScreen();
+	}
+	
+	// Second constructor to allow for back button to go back to main menu
+	public SettingsScreen(AdventureGame game2, boolean fromMenuScreen) {
+		this.fromMenuScreen = fromMenuScreen;
+		this.game = game2;
+		setUpSettingsScreen();
+	}
+	
+	public void setUpSettingsScreen() {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
-		backgroundImage = new Texture("art/background.jpg");
+		backgroundImage = new Texture("GameData/background.jpg");
 		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/bigTitle.fnt"), false);
 		
 		Button backButton = new TextButton("Back", DEFAULT_SKIN);
 		backButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.setScreen(new SlideScreen(game));
+				if (fromMenuScreen) {
+					game.setScreen(new MainMenuScreen(game));
+				} else {
+					game.setScreen(new SlideScreen(game));
+
+				}
 			}
 
 			@Override
@@ -64,15 +82,17 @@ public class SettingsScreen implements Screen {
 		stage.addActor(backButton);
 	
 		
+		Table settingsTable = new Table();
+		settingsTable.setPosition(AdventureGame.GAME_SCREEN_WIDTH / 2, (float) 0.4 * AdventureGame.GAME_SCREEN_WIDTH);
 		
-		Table indextable = new Table();
-		indextable.setPosition(400, 200);
-
+		
+		Label screenTitle = new Label("Settings", new Label.LabelStyle(titleFont, Color.BLACK));
+		settingsTable.add(screenTitle).pad(10).row();
 	    
 
 		
-		Button button1 = new TextButton("Music On", DEFAULT_SKIN, "default");
-		button1.addListener(new InputListener() {
+		Button musicOnButton = new TextButton("Music On", DEFAULT_SKIN, "default");
+		musicOnButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.testMusic.play();
@@ -85,10 +105,10 @@ public class SettingsScreen implements Screen {
 
 		});
 		
-		indextable.add(button1).width(200).height(30).pad(5).row();
+		settingsTable.add(musicOnButton).width(200).height(30).pad(5).row();
 		
-		Button button2 = new TextButton("Music Off", DEFAULT_SKIN, "default");
-		button2.addListener(new InputListener() {
+		Button musicOffButton = new TextButton("Music Off", DEFAULT_SKIN, "default");
+		musicOffButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.testMusic.pause();
@@ -100,14 +120,10 @@ public class SettingsScreen implements Screen {
 			}
 
 		});
-		indextable.add(button2).width(200).height(30).pad(5).row();
-		stage.addActor(indextable);
-		
-		Label screenTitle = new Label("Settings", new Label.LabelStyle(titleFont, Color.BLACK));
-		screenTitle.setPosition(WIDTH_BUFFER, (float) 0.87 * AdventureGame.GAME_SCREEN_HEIGHT);
-		stage.addActor(screenTitle);		
+		settingsTable.add(musicOffButton).width(200).height(30).pad(5).row();
+		stage.addActor(settingsTable);	
 	}
-	
+
 	@Override
 	public void render (float delta) {
 		Gdx.gl.glClearColor(1, 1, 1, 1);

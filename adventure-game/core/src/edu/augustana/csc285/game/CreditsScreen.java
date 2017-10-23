@@ -2,9 +2,11 @@ package edu.augustana.csc285.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -18,7 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 /*
  * To create a CreditsScreen.
- * @author faisal  
+ * @author faisal, Lars Harvey  
  */
 public class CreditsScreen implements Screen {
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
@@ -31,19 +33,25 @@ public class CreditsScreen implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
+		BitmapFont creditsFont = new BitmapFont(Gdx.files.internal("fonts/DescriptionFont/DescriptionText.fnt"), false);
 		stage = new Stage(new ScreenViewport());
-		backgroundImage = new Texture("art/background.jpg");
-		String credits = "Game designed by Dr. Forrest Stonedahl's Software Development CSC 285 students and Dr. Brian Leech's history students Abigail Buchanan, Brooks Fielder, and Katie "
-				+ "Laschanzky for the for the Swenson Swedish Immigration Research Center at Augustana College in Rock Island, Illinois, 2017. ";
-
-		Label label = new Label(credits, DEFAULT_SKIN);
-		label.setWrap(true);
-		ScrollPane scroll = new ScrollPane(label, DEFAULT_SKIN);
-		scroll.setPosition(150, 10);
-		scroll.setSize(500, 500);
+		backgroundImage = new Texture("GameData/background.jpg");
 		
-		stage.addActor(scroll);
+		Label creditsTitle = new Label("Credits", new Label.LabelStyle(new BitmapFont(Gdx.files.internal("fonts/TitleFont/BigTitle.fnt"), false), Color.BLACK));
+		
+		String credits = "Game designed by Dr. Forrest Stonedahl's Software Development CSC 285 students, Dat Tran, Daniel Zweiner, Lars Harvey, Faisal Nawaz, and Ryan Philp as well as Dr. Brian Leech's history students, Abigail Buchanan, Brooks Fielder, and Katie Laschanzky for the for the Swenson Swedish Immigration Research Center at Augustana College in Rock Island, Illinois, 2017. ";
+		// Wrap text so it doesn't go off the screen using support class
+		SupportMethod sm = new SupportMethod();
+		credits = sm.wrapString(credits, 80);
+		Label creditsLabel = new Label(credits, new Label.LabelStyle(creditsFont, Color.BLACK));
+		Table creditsTable = new Table();
+		creditsTable.setPosition(AdventureGame.GAME_SCREEN_WIDTH / 2, (float) 0.4 * AdventureGame.GAME_SCREEN_WIDTH);
+		creditsTable.add(creditsTitle).pad(10).row();
+		creditsTable.add(creditsLabel).pad(10).row();
+		
+		stage.addActor(creditsTable);
 
+	
 		Button button = new TextButton("Back", DEFAULT_SKIN);
 		button.addListener(new InputListener() {
 			@Override

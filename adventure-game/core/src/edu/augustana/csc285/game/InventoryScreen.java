@@ -67,7 +67,9 @@ public class InventoryScreen implements Screen {
 		scroll.setSize(AdventureGame.GAME_SCREEN_HEIGHT - 200, 300);
 		scroll.setScrollingDisabled(true, false);
 		stage.addActor(scroll);
-		backgroundImage = new Texture("art/background.jpg");
+		backgroundImage = new Texture("GameData/background.jpg");
+		
+		
 		Button backButton = new TextButton("Back", DEFAULT_SKIN);
 		backButton.addListener(new InputListener() {
 			@Override
@@ -164,6 +166,7 @@ public class InventoryScreen implements Screen {
 	@Override
 	public void dispose() {
 		stage.dispose();
+		backgroundImage.dispose();
 	}
 
 }

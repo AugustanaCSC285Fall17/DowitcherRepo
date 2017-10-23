@@ -174,29 +174,40 @@ public class Story {
 	public static void main(String[] args) {
 		Item sek = new Item("Sek", "Currency of Sweden", 1, null);
 		Item dollar = new Item("Dollar", "Currency of USA", 1, null);
-		Item medicine = new Item("Medicine", null, 1, null);
-		Item jDLetter = new Item("John Deere Letter", "A letter from John Deere", 1, "GameData/SlideImages/item5.jpg");
-		Item iLetter = new Item("Illinois Letter", "A letter from Illinois", 1, "GameData/SlideImages/item6.jpg");
-		Item wLetter = new Item("Washington Letter", "A letter from Washington", 1, "GameData/SlideImages/item7.jpg");
-		Item mLetter = new Item("Minnesota Letter", "A letter from Minnesota", 1, "GameData/SlideImages/item8.jpg");
-		Item officialPapers = new Item("Official papers", null, 1, null);
-		Item forgedPapers = new Item("Forged papers", null, 1, null);
-		Item bible = new Item("Bible", null, 1, null);
-		Item familyHeirloom = new Item("Family Heirloom", null, 1, null);
-		Item sewingMachine = new Item("Sewing Machine", null, 1, null);
-		Item curedMeat = new Item("Cured Meat", null, 1, null);
-		Item ticketToHull = new Item("Ticket to Hull", null, 1, null);
-		Item ticketToAmerica = new Item("Ticket to America", null, 1, null);
+		Item medicine = new Item("Medicine", null, 1, "icons/medicine.jpg");
+		Item jDLetter = new Item("John Deere Letter", "A letter from John Deere", 1, "icons/letter.jpg");
+		Item iLetter = new Item("Illinois Letter", "A letter from Illinois", 1, "icons/letter.jpg");
+		Item wLetter = new Item("Washington Letter", "A letter from Washington", 1, "icons/letter.jpg");
+		Item mLetter = new Item("Minnesota Letter", "A letter from Minnesota", 1, "icons/letter.jpg");
+		Item officialPapers = new Item("Official papers", null, 1, "icons/official-papers.jpg");
+		Item forgedPapers = new Item("Forged papers", null, 1, "icons/forged-paper.jpg");
+		Item bible = new Item("Bible", null, 1, "icons/bible.jpg");
+		Item familyHeirloom = new Item("Family Heirloom", null, 1, "icons/familyheirloom.jpg");
+		Item sewingMachine = new Item("Sewing Machine", null, 1, "icons/sewing-machine.jpg");
+		Item curedMeat = new Item("Cured Meat", null, 1, "icons/meat.jpg");
+		Item ticketToHull = new Item("Ticket to Hull", null, 1, "icons/ticket.jpg");
+		Item ticketToAmerica = new Item("Ticket to America", null, 1, "icons/ticket.jpg");
 		// Item
 
+		// I've only added the title parameter to the first 2 slides (1 & 2) btw
 		Story story = new Story("0");
 		Slide s0 = new Slide("GameData/SlideImages/slide0.jpg",
+<<<<<<< HEAD
+				"You're young Swedish Immigrant to America in 1880. You've made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?\n",
+				null, null, "0");
+		s0.addOption(new Option("Take the Journey", "You have embarked on a journey!", null, "1", null, null));
+		Slide s1 = new Slide("GameData/SlideImages/slide1.jpg",
+				"It's the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. \nWho are you?",
+				null, null, "1", "Choose Your Character");
+		Option temp = new Option("Anders Bengtsson ", "You choose Anders Bengtsson", null, "2", null, null);
+=======
 				"You're young Swedish Immigrat to America in 1880. You've made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?\n", null, "0");
 		s0.addOption(new Option("Take the Journey", null, null, "1", null, null));
 		Slide s1 = new Slide("GameData/SlideImages/slide1.jpg",
 				"It's the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. \nWho are you?",
 				null, "1");
 		Option temp = new Option("Anders Bengtsson ", null, null, "2", null, null);
+>>>>>>> 2deb3d8a8f0f8df0563132ac62c0e26f61119274
 		Effect effect = new GenderEffect(Gender.MALE);
 		temp.addEffect(effect);
 		effect = new NameEffect("Anders Bengtsson");
@@ -211,7 +222,11 @@ public class Story {
 
 		Slide s2 = new Slide("GameData/SlideImages/slide2.jpg",
 				"You are an 18 year-old male from Mellby Parish, Småland. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. ",
+<<<<<<< HEAD
+				null, null, "2", "Anders Bengtsson");
+=======
 				null, "2");
+>>>>>>> 2deb3d8a8f0f8df0563132ac62c0e26f61119274
 		s2.addOption(new Option("Continue", null, null, "4", null, null));
 
 		Slide s3 = new Slide("GameData/SlideImages/slide3.jpg",
