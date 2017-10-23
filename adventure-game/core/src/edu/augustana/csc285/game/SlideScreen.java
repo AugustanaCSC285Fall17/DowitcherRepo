@@ -150,6 +150,7 @@ public class SlideScreen implements Screen {
 				(float) 0.38 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setSize((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.45 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setScrollingDisabled(true, false);
+		scroll.setFadeScrollBars(false);
 		stage.addActor(scroll);
 	}
 
@@ -157,17 +158,22 @@ public class SlideScreen implements Screen {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-		// Draw background image
-		game.batch.begin();
-		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
-		game.batch.end();
-
 		// tell the camera to update its matrices.
 		camera.update();
+		// Draw background image
+		game.batch.setProjectionMatrix(camera.combined);
+		game.batch.begin();
+		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+		// Draw the slide images
+		game.batch.draw(image, WIDTH_BUFFER,
+				Math.round(0.3583333333 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())),
+
+				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT),
+				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())));
+		game.batch.end();
+
 		stage.act();
 		stage.draw();
-
 		// Draw ActionChoices
 		for (int temp : KEY_SET) {
 			if (Gdx.input.isKeyJustPressed(temp)) {
@@ -200,17 +206,6 @@ public class SlideScreen implements Screen {
 			dispose();
 		}
 
-		game.batch.setProjectionMatrix(camera.combined);
-		game.batch.begin();
-
-		// Draw the slide images
-		game.batch.draw(image, WIDTH_BUFFER,
-				Math.round(0.3583333333 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())),
-
-				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT),
-				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())));
-
-		game.batch.end();
 	}
 
 	public Button addTextureRegion(String skinLocation, Screen screen, int locationInt) {

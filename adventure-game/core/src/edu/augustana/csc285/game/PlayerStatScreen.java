@@ -63,6 +63,7 @@ public class PlayerStatScreen implements Screen {
 		scroll.setPosition(20, 20);
 		scroll.setSize(300, 300);
 		scroll.setScrollingDisabled(true, false);
+		scroll.setFadeScrollBars(false);
 		stage.addActor(scroll);
 
 		Label screenTitle = new Label("Player Stats", new Label.LabelStyle(titleFont, Color.BLACK));
