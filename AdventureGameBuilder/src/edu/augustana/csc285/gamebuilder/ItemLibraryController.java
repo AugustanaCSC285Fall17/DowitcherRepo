@@ -47,14 +47,11 @@ public class ItemLibraryController {
 
 	public void initData(MainPanev2Controller controller) {
 		this.controller = controller;
+		this.itemListHelper();
 	}
 
 	@FXML
 	private void initialize() {
-		if (controller.getItemLibrary() != null) {
-			this.itemLibrary = controller.getItemLibrary();
-			this.itemListHelper();
-		}
 	}
 
 	@FXML // Source from
@@ -72,6 +69,10 @@ public class ItemLibraryController {
 				}
 			}
 		});
+	}
+
+	public ItemLibrary getItemLibrary() {
+		return itemLibrary;
 	}
 
 	private void readLibrary(File file) {
@@ -184,8 +185,10 @@ public class ItemLibraryController {
 	}
 
 	private void itemListHelper() {
-		ArrayList<String> itemStringList = itemLibrary.getItemNameList();
-		this.itemList.setItems(FXCollections.observableArrayList(itemStringList));
+		if (itemLibrary != null) {
+			ArrayList<String> itemStringList = itemLibrary.getItemNameList();
+			this.itemList.setItems(FXCollections.observableArrayList(itemStringList));
+		}
 	}
 
 	private Item getCurrentItem() {

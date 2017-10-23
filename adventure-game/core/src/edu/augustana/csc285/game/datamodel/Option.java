@@ -17,9 +17,9 @@ public class Option {
 	private String transitionMessage;
 	private String rejectMessage;
 	private String nextSlideIndex;
-	private ArrayList<Effect> effects;
-	private ArrayList<Condition> visibleConditions;
-	private ArrayList<Condition> feasibleConditions;
+	private ArrayList<Effect> effects = new ArrayList<Effect>();
+	private ArrayList<Condition> visibleConditions = new ArrayList<Condition>();
+	private ArrayList<Condition> feasibleConditions = new ArrayList<Condition>();
 	private String image;
 	private String sound;
 
@@ -72,7 +72,7 @@ public class Option {
 		return transitionMessage;
 	}
 
-	public void setTransitionMessage( String transitionMessage) {
+	public void setTransitionMessage(String transitionMessage) {
 		this.transitionMessage = transitionMessage;
 	}
 
@@ -137,7 +137,7 @@ public class Option {
 
 	// don't parameterize list
 	public void checkIndex(int index, ArrayList list) {
-		if (index < 0 || index >= list.size()) {
+		if (index < 0 || index > list.size()) {
 			throw new IllegalArgumentException("index: " + index + " is out of bound");
 		}
 	}
