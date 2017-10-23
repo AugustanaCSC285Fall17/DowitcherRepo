@@ -150,7 +150,7 @@ public class SlideScreen implements Screen {
 				(float) 0.38 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setSize((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.45 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setScrollingDisabled(true, false);
-		scroll.setFadeScrollBars(false);
+		scroll.setFadeScrollBars(true);
 		stage.addActor(scroll);
 	}
 
