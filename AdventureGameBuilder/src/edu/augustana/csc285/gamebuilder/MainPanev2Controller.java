@@ -292,19 +292,11 @@ public class MainPanev2Controller {
 	@FXML
 	private void handleSlideSelectionChoiceBox() {
 		populateSlideChoice();
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b10b3ca9f87e6902cbeb8c3eb505df9af5dce6c
 	}
 
 	@FXML
 	private void handleNewSlideButton() {
 		clearMainPane();
-<<<<<<< HEAD
-=======
-
->>>>>>> 8b10b3ca9f87e6902cbeb8c3eb505df9af5dce6c
 	}
 	// End of handle Methods
 
