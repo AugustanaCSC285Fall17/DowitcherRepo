@@ -39,8 +39,9 @@ public class Slide {
 		this.id = id;
 		this.options = new ArrayList<Option>();
 	}
-	
-	/**This is a second constructor that includes the title of the slide
+
+	/**
+	 * This is a second constructor that includes the title of the slide
 	 * 
 	 * @param image
 	 *            is the name of the image
@@ -56,25 +57,19 @@ public class Slide {
 	 *            is the group of options the player could have access to on
 	 *            this slide
 	 * @param title
-	 * 			  is the title of the slide
+	 *            is the title of the slide
 	 */
 	public Slide(String image, String desc, String url, String music, String id, String title) {
 		this.image = image;
 		this.desc = desc;
-		this.url = url;
 		this.music = music;
 		this.id = id;
 		this.options = new ArrayList<Option>();
 		this.title = title;
 	}
 
-<<<<<<< HEAD
-	public Slide(String image, String desc, String id, String title) {
-		this(image, desc, "", null, id, title);
-=======
 	public Slide(String image, String desc, String id) {
 		this(image, desc, null, id);
->>>>>>> 2deb3d8a8f0f8df0563132ac62c0e26f61119274
 	}
 
 	/**
@@ -82,11 +77,7 @@ public class Slide {
 	 */
 
 	public Slide(Slide other) {
-<<<<<<< HEAD
-		this(other.image, other.desc, other.url, other.music, other.id, other.title);
-=======
 		this(other.image, other.desc, other.music, other.id);
->>>>>>> 2deb3d8a8f0f8df0563132ac62c0e26f61119274
 		this.options = new ArrayList<Option>(other.options);
 	}
 
@@ -96,7 +87,6 @@ public class Slide {
 	public String getImage() {
 		return image;
 	}
-	
 
 	public ArrayList<Option> getOptions() {
 		return options;
@@ -154,7 +144,7 @@ public class Slide {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	/**
 	 * 
 	 * @return the title
@@ -162,13 +152,13 @@ public class Slide {
 	public String getTitle() {
 		return title;
 	}
-	
+
 	/**
 	 * 
 	 * @param title
-	 * 				the title to set
+	 *            the title to set
 	 */
-	
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
