@@ -18,29 +18,7 @@ public class Slide {
 	}
 
 	/**
-	 * @param image
-	 *            is the name of the image
-	 * @param desc
-	 *            is the description of the slide that will appear on the screen
-	 * @param url
-	 *            is the link to the more information page on each slide
-	 * @param music
-	 *            is the name of the music file
-	 * @param id
-	 *            is the unique identifier for the slide
-	 * @param options
-	 *            is the group of options the player could have access to on
-	 *            this slide
-	 */
-	public Slide(String image, String desc, String music, String id) {
-		this.image = image;
-		this.desc = desc;
-		this.music = music;
-		this.id = id;
-		this.options = new ArrayList<Option>();
-	}
-	
-	/**This is a second constructor that includes the title of the slide
+	 * This is a second constructor that includes the title of the slide
 	 * 
 	 * @param image
 	 *            is the name of the image
@@ -56,9 +34,9 @@ public class Slide {
 	 *            is the group of options the player could have access to on
 	 *            this slide
 	 * @param title
-	 * 			  is the title of the slide
+	 *            is the title of the slide
 	 */
-	public Slide(String image, String desc, String music, String id, String title) {
+	public Slide(String image, String desc, String id, String title, String music) {
 		this.image = image;
 		this.desc = desc;
 		this.music = music;
@@ -67,9 +45,8 @@ public class Slide {
 		this.title = title;
 	}
 
-
-	public Slide(String image, String desc, String id) {
-		this(image, desc, "", null, id);
+	public Slide(String image, String desc, String id, String title) {
+		this(image, desc, id, title, null);
 	}
 
 	/**
@@ -77,7 +54,7 @@ public class Slide {
 	 */
 
 	public Slide(Slide other) {
-		this(other.image, other.desc, other.music, other.id, other.title);
+		this(other.image, other.desc, other.id, other.title, other.music);
 		this.options = new ArrayList<Option>(other.options);
 	}
 
@@ -87,7 +64,6 @@ public class Slide {
 	public String getImage() {
 		return image;
 	}
-	
 
 	public ArrayList<Option> getOptions() {
 		return options;
@@ -145,7 +121,7 @@ public class Slide {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	/**
 	 * 
 	 * @return the title
@@ -153,13 +129,13 @@ public class Slide {
 	public String getTitle() {
 		return title;
 	}
-	
+
 	/**
 	 * 
 	 * @param title
-	 * 				the title to set
+	 *            the title to set
 	 */
-	
+
 	public void setTitle(String title) {
 		this.title = title;
 	}

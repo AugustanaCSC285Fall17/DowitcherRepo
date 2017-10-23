@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -21,9 +22,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane.ScrollPaneStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -145,12 +148,14 @@ public class SlideScreen implements Screen {
 		// Set up the scroll pane with slide description
 		Label description = new Label(slide.getDesc(), new Label.LabelStyle(descriptionFont, Color.BLACK));
 		description.setWrap(true);
-		ScrollPane scroll = new ScrollPane(description, DEFAULT_SKIN);
+		Skin scrollSkin = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
+		ScrollPane scroll = new ScrollPane(description, scrollSkin);
 		scroll.setPosition((float) 0.45125 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) 0.38 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setSize((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.45 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setScrollingDisabled(true, false);
 		scroll.setFadeScrollBars(false);
+		scroll.setScrollbarsOnTop(true);
 		stage.addActor(scroll);
 	}
 
@@ -158,17 +163,22 @@ public class SlideScreen implements Screen {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-		// Draw background image
-		game.batch.begin();
-		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
-		game.batch.end();
-
 		// tell the camera to update its matrices.
 		camera.update();
+		// Draw background image
+		game.batch.setProjectionMatrix(camera.combined);
+		game.batch.begin();
+		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+		// Draw the slide images
+		game.batch.draw(image, WIDTH_BUFFER,
+				Math.round(0.3583333333 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())),
+
+				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT),
+				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())));
+		game.batch.end();
+
 		stage.act();
 		stage.draw();
-
 		// Draw ActionChoices
 		for (int temp : KEY_SET) {
 			if (Gdx.input.isKeyJustPressed(temp)) {
@@ -201,17 +211,6 @@ public class SlideScreen implements Screen {
 			dispose();
 		}
 
-		game.batch.setProjectionMatrix(camera.combined);
-		game.batch.begin();
-
-		// Draw the slide images
-		game.batch.draw(image, WIDTH_BUFFER,
-				Math.round(0.3583333333 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())),
-
-				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT),
-				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())));
-
-		game.batch.end();
 	}
 
 	public Button addTextureRegion(String skinLocation, Screen screen, int locationInt) {

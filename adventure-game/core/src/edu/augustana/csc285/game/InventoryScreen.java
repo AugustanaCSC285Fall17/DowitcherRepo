@@ -66,6 +66,7 @@ public class InventoryScreen implements Screen {
 		scroll.setPosition(20, 20);
 		scroll.setSize(AdventureGame.GAME_SCREEN_HEIGHT - 200, 300);
 		scroll.setScrollingDisabled(true, false);
+		scroll.setFadeScrollBars(false);
 		stage.addActor(scroll);
 		backgroundImage = new Texture("GameData/background.jpg");
 		
