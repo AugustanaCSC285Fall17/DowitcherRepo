@@ -47,6 +47,7 @@ public class ItemLibraryController {
 
 	public void initData(MainPanev2Controller controller) {
 		this.controller = controller;
+		this.itemLibrary = controller.getItemLibrary();
 		this.itemListHelper();
 	}
 
