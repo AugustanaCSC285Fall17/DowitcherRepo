@@ -58,23 +58,18 @@ public class Slide {
 	 * @param title
 	 * 			  is the title of the slide
 	 */
-	public Slide(String image, String desc, String url, String music, String id, String title) {
+	public Slide(String image, String desc, String music, String id, String title) {
 		this.image = image;
 		this.desc = desc;
-		this.url = url;
 		this.music = music;
 		this.id = id;
 		this.options = new ArrayList<Option>();
 		this.title = title;
 	}
 
-<<<<<<< HEAD
-	public Slide(String image, String desc, String id, String title) {
-		this(image, desc, "", null, id, title);
-=======
+
 	public Slide(String image, String desc, String id) {
-		this(image, desc, null, id);
->>>>>>> 2deb3d8a8f0f8df0563132ac62c0e26f61119274
+		this(image, desc, "", null, id);
 	}
 
 	/**
@@ -82,11 +77,7 @@ public class Slide {
 	 */
 
 	public Slide(Slide other) {
-<<<<<<< HEAD
-		this(other.image, other.desc, other.url, other.music, other.id, other.title);
-=======
-		this(other.image, other.desc, other.music, other.id);
->>>>>>> 2deb3d8a8f0f8df0563132ac62c0e26f61119274
+		this(other.image, other.desc, other.music, other.id, other.title);
 		this.options = new ArrayList<Option>(other.options);
 	}
 
