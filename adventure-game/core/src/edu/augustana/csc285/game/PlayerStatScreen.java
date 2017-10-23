@@ -45,7 +45,7 @@ public class PlayerStatScreen implements Screen {
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
 		stage = new Stage(new ScreenViewport());
-		backgroundImage = new Texture("art/background.jpg");
+		backgroundImage = new Texture("GameData/background.jpg");
 		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/bigTitle.fnt"), false);
 
 		Map<String, Property> properties = game.manager.getPlayer().getProperties().getProperties();
