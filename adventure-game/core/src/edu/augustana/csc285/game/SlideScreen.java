@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -21,9 +22,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane.ScrollPaneStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -145,12 +148,16 @@ public class SlideScreen implements Screen {
 
 		Label description = new Label(slide.getDesc(), new Label.LabelStyle(descriptionFont, Color.BLACK));
 		description.setWrap(true);
-		ScrollPane scroll = new ScrollPane(description, DEFAULT_SKIN);
+		Skin scrollSkin = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
+		ScrollPane scroll = new ScrollPane(description, scrollSkin);
 		scroll.setPosition((float) 0.45125 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) 0.38 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setSize((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.45 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setScrollingDisabled(true, false);
 		scroll.setFadeScrollBars(false);
+		scroll.setScrollbarsOnTop(true);
+		
+
 		stage.addActor(scroll);
 	}
 
