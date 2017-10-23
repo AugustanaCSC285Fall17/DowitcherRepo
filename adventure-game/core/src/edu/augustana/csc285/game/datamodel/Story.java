@@ -55,8 +55,7 @@ public class Story {
 	 */
 	public List<Slide> getSlides(){
 		ArrayList<Slide> output = new ArrayList<Slide>();
-		TreeSet<String> keys = (TreeSet<String>) slides.keySet();
-		for(String index: keys) {
+		for(String index: slides.keySet()) {
 			output.add(slides.get(index));
 		}
 		return output;
