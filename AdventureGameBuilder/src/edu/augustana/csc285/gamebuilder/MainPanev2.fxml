@@ -45,7 +45,8 @@
 		</TableView>
 		<TextField fx:id="slideId" layoutX="229.0" layoutY="272.0" onAction="#handleSlideId" prefHeight="27.0" prefWidth="114.0" promptText="Slide ID" />
 		<Button fx:id="saveButton" layoutX="469.0" layoutY="356.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save" />
-		<Button fx:id="addOptions" layoutX="376.0" layoutY="101.0" mnemonicParsing="false" text="Add Option" />
-      <ChoiceBox layoutX="462.0" layoutY="316.0" prefHeight="27.0" prefWidth="125.0" />
+		<Button fx:id="addOptions" layoutX="376.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleAddOptions" text="Add Option" />
+      <ChoiceBox fx:id="slideSelection" layoutX="156.0" layoutY="41.0" prefHeight="27.0" prefWidth="125.0" />
+      <Button fx:id="newSlideButton" layoutX="15.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleNewSlideButton" prefHeight="27.0" prefWidth="125.0" text="New Slide" />
 	</children>
 </Pane>

@@ -1,7 +1,11 @@
 package edu.augustana.csc285.game.datamodel;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.utils.Json;
@@ -44,6 +48,20 @@ public class Story {
 			throw new IllegalStateException("There is no default music");
 		}
 		return defaultMusic;
+	}
+	
+	/*
+	 * Returns a list of slides, used for MainPanev2
+	 */
+	public List<Slide> getSlides(){
+		ArrayList<Slide> output = new ArrayList<Slide>();
+		TreeSet<String> keys = (TreeSet<String>) slides.keySet();
+		for(String index: keys) {
+			output.add(slides.get(index));
+		}
+		return output;
+		
+		
 	}
 
 	public void setDefaultMusic(String defaultMusic) {
@@ -115,6 +133,8 @@ public class Story {
 			throw new IllegalArgumentException("id: " + id + " is not valid");
 		}
 	}
+	
+	
 
 	public String toString() {
 		String str = "";
