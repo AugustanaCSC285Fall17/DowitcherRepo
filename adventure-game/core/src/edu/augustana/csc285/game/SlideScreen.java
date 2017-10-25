@@ -38,7 +38,8 @@ public class SlideScreen implements Screen {
 	public static final HashSet<Integer> KEY_SET = new HashSet<Integer>(
 			Arrays.asList(8, 9, 10, 11, 12, 13, 14, 15, 16)); // 1
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
-	// 9
+	public static final Skin SCROLL_SKIN = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
+	
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
 	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
 	private final AdventureGame game;
@@ -148,11 +149,10 @@ public class SlideScreen implements Screen {
 		// Set up the scroll pane with slide description
 		Label description = new Label(slide.getDesc(), new Label.LabelStyle(descriptionFont, Color.BLACK));
 		description.setWrap(true);
-		Skin scrollSkin = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
-		ScrollPane scroll = new ScrollPane(description, scrollSkin);
-		scroll.setPosition((float) 0.45125 * AdventureGame.GAME_SCREEN_WIDTH,
+		ScrollPane scroll = new ScrollPane(description, SCROLL_SKIN);
+		scroll.setPosition((float) 0.48 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) 0.38 * AdventureGame.GAME_SCREEN_HEIGHT);
-		scroll.setSize((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.45 * AdventureGame.GAME_SCREEN_HEIGHT);
+		scroll.setSize((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.48 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setScrollingDisabled(true, false);
 		scroll.setFadeScrollBars(false);
 		scroll.setScrollbarsOnTop(true);
@@ -169,12 +169,15 @@ public class SlideScreen implements Screen {
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.begin();
 		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+		
 		// Draw the slide images
 		game.batch.draw(image, WIDTH_BUFFER,
-				Math.round(0.3583333333 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())),
+				Math.round(0.25 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())),
 
-				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT),
-				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())));
+				Math.round(350),
+				Math.round(350));
+		
+		
 		game.batch.end();
 
 		stage.act();
