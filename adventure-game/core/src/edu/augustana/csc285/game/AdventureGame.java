@@ -29,7 +29,6 @@ public class AdventureGame extends Game {
 		testMusic = Gdx.audio.newMusic(Gdx.files.internal("theme.mp3"));
 		testMusic.setLooping(true);
 		testMusic.play();
-
 	}
 
 	public void render() {
