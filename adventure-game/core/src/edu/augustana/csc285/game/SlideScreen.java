@@ -61,17 +61,25 @@ public class SlideScreen implements Screen {
 	}
 
 	public SlideScreen(AdventureGame game) {
-		// Giant to do note: Set up checking for multiple layout
+		BitmapFont defaultFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
+		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/secondaryTitle.fnt"), false);
+
 		// Set up data fields
 		this.popUp = false;
 		this.game = game;
-		slide = game.manager.getCurrentSlide();
+		slide = new Slide("GameData/SlideImages/slide1.jpg", "this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string ", null, null, null);
+		slide.addOption(new Option("Take the Journey", null, null, "1", null, null));
+		//slide = game.manager.getCurrentSlide();
 		if (slide.getImage() != null && slide.getImage() != "") {
 			image = new Texture(Gdx.files.internal(slide.getImage()));
 		}
 		if (slide.getDesc() != null && slide.getDesc() != "") {
 			desc = slide.getDesc();
 		}
+		// NOTE:
+		// layout 0: regular slide
+		// layout 1: description and no image slide
+		// layout 2: image and no description slide
 		if (image != null) {
 			if (desc != null) {
 				layout = 0;
@@ -82,13 +90,22 @@ public class SlideScreen implements Screen {
 			layout = 1;
 		}
 		backgroundImage = new Texture("GameData/background.jpg");
-		BitmapFont defaultFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
-		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/secondaryTitle.fnt"), false);
-		Button inventoryBtn = this.addTextureRegion("GameData/icons/inventory.png", new InventoryScreen(game), 3);
-		Button playerStatBtn = this.addTextureRegion("GameData/icons/player-stat.png", new PlayerStatScreen(game), 2);
-		Button settingsBtn = this.addTextureRegion("GameData/icons/settings.jpg", new SettingsScreen(game), 1);
 
-		visibleOptions = (ArrayList<Option>) slide.getVisibleOptions(game.manager.getPlayer());
+		// Button inventoryBtn =
+		// this.addTextureRegion("GameData/icons/inventory.png", new
+		// InventoryScreen(game), 3);
+		// Button playerStatBtn =
+		// this.addTextureRegion("GameData/icons/player-stat.png", new
+		// PlayerStatScreen(game), 2);
+		// Button settingsBtn =
+		// this.addTextureRegion("GameData/icons/settings.jpg", new
+		// SettingsScreen(game), 1);
+
+		// visibleOptions = (ArrayList<Option>)
+		// slide.getVisibleOptions(game.manager.getPlayer());
+		visibleOptions = (ArrayList<Option>) slide.getOptions();
+		//visibleOptions = (ArrayList<Option>) slide.getVisibibleOptions();
+
 
 		// Set up camera
 		camera = new OrthographicCamera();
@@ -96,9 +113,9 @@ public class SlideScreen implements Screen {
 
 		// Set up stage and table for buttons
 		stage = new Stage(new ScreenViewport());
-		stage.addActor(inventoryBtn);
-		stage.addActor(playerStatBtn);
-		stage.addActor(settingsBtn);
+		// stage.addActor(inventoryBtn);
+		// stage.addActor(playerStatBtn);
+		// stage.addActor(settingsBtn);
 
 		Table buttonTable = new Table();
 
@@ -115,10 +132,19 @@ public class SlideScreen implements Screen {
 
 		}
 
-		buttonTable.setPosition((float) 0.755 * AdventureGame.GAME_SCREEN_WIDTH,
-				(float) 0.20 * AdventureGame.GAME_SCREEN_HEIGHT);
-
 		// Create and add buttons for ActionChoices
+		// Put buttons in middle if layout 1
+		if (layout == 0) {
+			buttonTable.setPosition((float) 0.755 * AdventureGame.GAME_SCREEN_WIDTH,
+					(float) 0.20 * AdventureGame.GAME_SCREEN_HEIGHT);
+		} else if (layout == 1) {
+			buttonTable.setPosition((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH,
+					(float) 0.20 * AdventureGame.GAME_SCREEN_HEIGHT);
+		} else if (layout == 2) {
+			buttonTable.setPosition((float) 0.755 * AdventureGame.GAME_SCREEN_WIDTH,
+					(float) 0.50 * AdventureGame.GAME_SCREEN_HEIGHT);
+		}
+
 		for (int i = 0; i < visibleOptions.size(); i++) {
 			Option option = visibleOptions.get(i);
 			String displayString = (i + 1) + ".  " + option.getDesc();
@@ -152,22 +178,33 @@ public class SlideScreen implements Screen {
 		}
 		stage.addActor(buttonTable);
 
+		// Set up slide title
 		Label slideTitle = new Label(desc, new Label.LabelStyle(titleFont, Color.BLACK));
-		slideTitle.setPosition((float) 0.42 * AdventureGame.GAME_SCREEN_WIDTH,
+		slideTitle.setPosition((float) 0.40 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) 0.90 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(slideTitle);
 
-		// Set up the scroll pane with slide description
-		Label description = new Label(slide.getDesc(), new Label.LabelStyle(defaultFont, Color.BLACK));
-		description.setWrap(true);
-		ScrollPane scroll = new ScrollPane(description, SCROLL_SKIN);
-		scroll.setPosition((float) 0.54 * AdventureGame.GAME_SCREEN_WIDTH,
-				(float) 0.35 * AdventureGame.GAME_SCREEN_HEIGHT);
-		scroll.setSize((float) 0.45 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.50 * AdventureGame.GAME_SCREEN_HEIGHT);
-		scroll.setScrollingDisabled(true, false);
-		scroll.setFadeScrollBars(false);
-		scroll.setScrollbarsOnTop(true);
-		stage.addActor(scroll);
+		if (layout == 0 || layout == 1) {
+			// Set up the scroll pane with slide description
+			Label description = new Label(slide.getDesc(), new Label.LabelStyle(defaultFont, Color.BLACK));
+			description.setWrap(true);
+			ScrollPane scroll = new ScrollPane(description, SCROLL_SKIN);
+			scroll.setScrollingDisabled(true, false);
+			scroll.setFadeScrollBars(false);
+			scroll.setScrollbarsOnTop(true);
+			if (layout == 0) {
+				scroll.setPosition((float) 0.54 * AdventureGame.GAME_SCREEN_WIDTH,
+						(float) 0.35 * AdventureGame.GAME_SCREEN_HEIGHT);
+				scroll.setSize((float) 0.45 * AdventureGame.GAME_SCREEN_WIDTH,
+						(float) 0.50 * AdventureGame.GAME_SCREEN_HEIGHT);
+			} else if (layout == 1) {
+				scroll.setPosition((float) 0.2 * AdventureGame.GAME_SCREEN_WIDTH,
+						(float) 0.35 * AdventureGame.GAME_SCREEN_HEIGHT);
+				scroll.setSize((float) 0.65 * AdventureGame.GAME_SCREEN_WIDTH,
+						(float) 0.50 * AdventureGame.GAME_SCREEN_HEIGHT);
+			}
+			stage.addActor(scroll);
+		}
 	}
 
 	@Override
@@ -181,9 +218,12 @@ public class SlideScreen implements Screen {
 		game.batch.begin();
 		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 
-		// Draw the slide images
-
-		game.batch.draw(image, WIDTH_BUFFER, Math.round(WIDTH_BUFFER), 600, 600);
+		// Draw the slide image
+		if (layout == 0) {
+			game.batch.draw(image, WIDTH_BUFFER, WIDTH_BUFFER, 600, 600);
+		} else if (layout == 2 ) {
+			game.batch.draw(image, WIDTH_BUFFER, 60, 600, 600);
+		}
 
 		game.batch.end();
 
