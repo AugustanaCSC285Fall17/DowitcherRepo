@@ -21,7 +21,7 @@ public class AdventureGame extends Game {
 	Music defaultMusic;
 	
 	public void create() {
-		story = Story.fromJSON(Gdx.files.internal("storyData/testStory.json").readString());
+		story = Story.fromJSON(Gdx.files.internal("storyData/testCreatedByBuilder.json").readString());
 		batch = new SpriteBatch();
 		font = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
 		defaultMusic = Gdx.audio.newMusic(Gdx.files.internal("theme.mp3"));
