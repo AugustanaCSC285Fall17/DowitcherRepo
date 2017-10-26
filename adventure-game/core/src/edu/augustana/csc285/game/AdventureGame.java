@@ -12,23 +12,23 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import edu.augustana.csc285.game.datamodel.*;
 
 public class AdventureGame extends Game {
-	public static final int GAME_SCREEN_WIDTH = 800;
-	public static final int GAME_SCREEN_HEIGHT = 480;
+	public static final int GAME_SCREEN_WIDTH = 1200;
+	public static final int GAME_SCREEN_HEIGHT = 720;
 	StoryManager manager;
 	SpriteBatch batch;
 	BitmapFont font;
-	Music testMusic;
+	Music defaultMusic;
 
 	public void create() {
 		// Define Items
 		Story story = Story.fromJSON(Gdx.files.internal("storyData/testStory.json").readString());
 		manager = new StoryManager(story, "Unknown", story.getStartingSlideIndex());
 		batch = new SpriteBatch();
-		font = new BitmapFont(Gdx.files.internal("fonts/testFont.fnt"), false);
+		font = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
 		this.setScreen(new MainMenuScreen(this));
-		testMusic = Gdx.audio.newMusic(Gdx.files.internal("theme.mp3"));
-		testMusic.setLooping(true);
-		testMusic.play();
+		defaultMusic = Gdx.audio.newMusic(Gdx.files.internal("theme.mp3"));
+		defaultMusic.setLooping(true);
+		defaultMusic.play();
 
 	}
 

@@ -38,7 +38,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
  * 
  */
 public class InventoryScreen implements Screen {
-	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
+	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
 	public static final Skin SCROLL_SKIN = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
 
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
@@ -54,15 +54,15 @@ public class InventoryScreen implements Screen {
 		this.game = game;
 		backgroundImage = new Texture("GameData/background.jpg");
 		stage = new Stage(new ScreenViewport());
-		BitmapFont inventoryFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/mediumTitle.fnt"), false);
-		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/bigTitle.fnt"), false);
+		BitmapFont inventoryFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
+		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
 		
 		String inventory = "You have: \n" + game.manager.getPlayer().getInventory().getVisibleItemString();
 		Label inventoryLabel = new Label(inventory, new Label.LabelStyle(inventoryFont, Color.BLACK));
 		inventoryLabel.setWrap(true);
 
 		Label screenTitle = new Label("Inventory", new Label.LabelStyle(titleFont, Color.BLACK));
-		screenTitle.setPosition(AdventureGame.GAME_SCREEN_WIDTH / 2, (float) 0.7 * AdventureGame.GAME_SCREEN_WIDTH);
+		screenTitle.setPosition((float)0.4 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.8 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(screenTitle);
 
 		ScrollPane scroll = new ScrollPane(inventoryLabel, SCROLL_SKIN);

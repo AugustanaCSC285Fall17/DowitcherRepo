@@ -23,7 +23,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
  * @author faisal, Lars Harvey  
  */
 public class CreditsScreen implements Screen {
-	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
+	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
 	private final AdventureGame game;
 	private OrthographicCamera camera;
 	private Texture backgroundImage;
@@ -33,11 +33,11 @@ public class CreditsScreen implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
-		BitmapFont creditsFont = new BitmapFont(Gdx.files.internal("fonts/DescriptionFont/DescriptionText.fnt"), false);
+		BitmapFont creditsFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
 		stage = new Stage(new ScreenViewport());
 		backgroundImage = new Texture("GameData/background.jpg");
 		
-		Label creditsTitle = new Label("Credits", new Label.LabelStyle(new BitmapFont(Gdx.files.internal("fonts/TitleFont/BigTitle.fnt"), false), Color.BLACK));
+		Label creditsTitle = new Label("Credits", new Label.LabelStyle(new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false), Color.BLACK));
 		
 		String credits = "Game designed by Dr. Forrest Stonedahl's Software Development CSC 285 students, Dat Tran, Daniel Zweiner, Lars Harvey, Faisal Nawaz, and Ryan Philp as well as Dr. Brian Leech's history students, Abigail Buchanan, Brooks Fielder, and Katie Laschanzky for the for the Swenson Swedish Immigration Research Center at Augustana College in Rock Island, Illinois, 2017. ";
 		// Wrap text so it doesn't go off the screen using support class

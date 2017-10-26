@@ -1,4 +1,0 @@
-LibGDX provides a tool for converting regular system fonts into the "BITMAP" fonts that are needed for libGDX running in the Browser.
-
-See: https://github.com/libgdx/libgdx/wiki/Hiero
-

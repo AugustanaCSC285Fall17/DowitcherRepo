@@ -1,7 +1,0 @@
-Eventually, put additional art images for your game in this folder...
-
-!!! WARNING !!!
-
-Make sure to carefully document all of your sources and the LICENSES for any creative works you use.
-
-Otherwise, we (and the Swenson Center) could be breaking international copyright law by posting your games online, and could be sued!
