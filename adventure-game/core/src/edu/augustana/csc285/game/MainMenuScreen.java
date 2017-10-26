@@ -30,7 +30,6 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 	private Texture backgroundImage;
 	private BitmapFont titleFont;
 	OrthographicCamera camera;
-	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
 	
 	public MainMenuScreen(final AdventureGame game) {
 		this.game = game;
@@ -42,7 +41,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
 		
 		Table buttonTable = new Table();
-		buttonTable.setPosition(400, 200);
+		buttonTable.setPosition((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.45 * AdventureGame.GAME_SCREEN_HEIGHT);
 
 		TextButton newGameButton = new TextButton("New Game", MENU_SKIN, "default");
 		newGameButton.addListener(new InputListener() {
@@ -59,11 +58,10 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 
 		});
-		buttonTable.add(newGameButton).width(150).height(30).pad(5).row();
+		buttonTable.add(newGameButton).width(170).height(50).pad(5).row();
 
 		TextButton creditButton = new TextButton("Credit", MENU_SKIN, "default");
-		creditButton.setSize(50, 50);
-		creditButton.setPosition(50, 50);
+		creditButton.setSize(180, 70);
 		creditButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -77,10 +75,9 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 
 		});
-		buttonTable.add(creditButton).width(150).height(30).pad(5).row();
+		buttonTable.add(creditButton).width(180).height(50).pad(5).row();
 
 		TextButton settingsButton = new TextButton("Settings", MENU_SKIN, "default");
-		settingsButton.setSize(50, 50);
 		boolean fromMenuScreen = true;
 		settingsButton.addListener(new InputListener() {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -99,11 +96,9 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 		});
 
-		buttonTable.add(settingsButton).width(150).height(30).pad(5).row();
+		buttonTable.add(settingsButton).width(170).height(50).pad(5).row();
 
 		TextButton exitButton = new TextButton("Exit", MENU_SKIN, "default");
-		exitButton.setSize(50, 50);
-		exitButton.setPosition(50, 50);
 		exitButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -116,10 +111,10 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 
 		});
-		buttonTable.add(exitButton).width(150).height(30).pad(5).row();
+		buttonTable.add(exitButton).width(170).height(50).pad(5).row();
 
 		stage.addActor(buttonTable);
-		introduction = "Welcome to Swedish Immigration Trail";
+		introduction = "Welcome to Swedish Settler Trail";
 		layout = new GlyphLayout(titleFont, introduction);
 		float textWidth = layout.width;
 		float textHeight = layout.height;
@@ -144,8 +139,8 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		camera.update();
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.begin();
-		game.batch.draw(logo, (float) 0.22 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.78 * AdventureGame.GAME_SCREEN_HEIGHT, logo.getWidth() / 2, logo.getHeight() / 2);
-		titleFont.draw(game.batch, introduction, (float) 0.19875 * AdventureGame.GAME_SCREEN_WIDTH, 
+		game.batch.draw(logo, (float) 0.32 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.8 * AdventureGame.GAME_SCREEN_HEIGHT, (float) 0.5 * logo.getWidth(), (float) 0.5 * logo.getHeight());
+		titleFont.draw(game.batch, introduction, (float) 0.27 * AdventureGame.GAME_SCREEN_WIDTH, 
 				(float) (AdventureGame.GAME_SCREEN_HEIGHT * 0.72));
 		game.batch.end();
 
