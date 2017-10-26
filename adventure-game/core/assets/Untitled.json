@@ -1,0 +1,87 @@
+{
+slides: {
+	12: {
+		image: Screen Shot 2017-10-13 at 1.46.29 PM.png
+		desc: This is a slide
+		id: 12
+		options: []
+	}
+	9: {
+		image: GameData/SlideImages/slide9.jpg
+		desc: "To start your journey, you need a few provisions. The first and foremost being your papers. You have $70 USD worth of Kronor (Swedish money)  right now. Do you:"
+		id: 9
+		title: First Slide
+		options: [
+			{
+				desc: Buy official papers from your home parish 80 SEK
+				nextSlideIndex: 10
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Official papers
+							quantity: 1
+						}
+						operation: PLUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Sek
+							desc: Currency of Sweden
+							quantity: 80
+						}
+						operation: MINUS
+					}
+				]
+				feasibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Sek
+							desc: Currency of Sweden
+							quantity: 80
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
+			}
+			{
+				desc: Buy forged papers 40 SEK
+				nextSlideIndex: 10
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Forged papers
+							quantity: 1
+						}
+						operation: PLUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Sek
+							desc: Currency of Sweden
+							quantity: 40
+						}
+						operation: MINUS
+					}
+				]
+				feasibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Sek
+							desc: Currency of Sweden
+							quantity: 40
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
+			}
+		]
+	}
+}
+startingSlideIndex: 0
+}

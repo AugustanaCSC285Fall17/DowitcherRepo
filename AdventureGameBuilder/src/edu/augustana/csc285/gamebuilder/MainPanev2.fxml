@@ -26,7 +26,6 @@
 		</ImageView>
 		<Button fx:id="selectImage" layoutX="14.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleSelectImage" text="Select Image" />
 		<Button fx:id="selectMusic" layoutX="122.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleSelectMusic" text="Select Music" />
-		<TextArea fx:id="slideDescription" layoutX="15.0" layoutY="316.0" prefHeight="67.0" prefWidth="440.0" promptText="Enter Description" />
 		<Button fx:id="backButton" layoutX="537.0" layoutY="356.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
 		<MenuBar prefHeight="27.0" prefWidth="600.0">
 			<menus>
@@ -50,17 +49,19 @@
 				</Menu>
 			</menus>
 		</MenuBar>
-		<Button fx:id="editOptions" layoutX="470.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleEditOptions" text="Edit Options" />
-		<TableView fx:id="optionView" layoutX="350.0" layoutY="144.0" prefHeight="128.0" prefWidth="247.0">
+		<Button fx:id="editOptions" layoutX="470.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleEditOptions" text="Edit Options" />
+		<TableView fx:id="optionView" layoutX="330.0" layoutY="128.0" prefHeight="128.0" prefWidth="247.0">
 			<columns>
 				<TableColumn fx:id="optionDescView" prefWidth="176.0" text="Option Name" />
 				<TableColumn fx:id="nextSlideView" prefWidth="70.0" text="Next Slide" />
 			</columns>
 		</TableView>
-		<TextField fx:id="slideId" layoutX="229.0" layoutY="272.0" onAction="#handleSlideId" prefHeight="27.0" prefWidth="114.0" promptText="Slide ID" />
+		<TextField fx:id="slideId" layoutX="229.0" layoutY="272.0" prefHeight="27.0" prefWidth="97.0" promptText="Slide ID" />
 		<Button fx:id="saveButton" layoutX="469.0" layoutY="356.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save" />
-		<Button fx:id="addOptions" layoutX="376.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleAddOptions" text="Add Option" />
-		<ChoiceBox fx:id="slideSelection" layoutX="156.0" layoutY="41.0" onMouseClicked="#handleSlideSelection" onMouseEntered="#handleSlideSelection" prefHeight="27.0" prefWidth="125.0" />
+		<Button fx:id="addOptions" layoutX="366.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleAddOptions" text="Add Option" />
+		<ChoiceBox fx:id="slideSelection" layoutX="156.0" layoutY="41.0" prefHeight="27.0" prefWidth="125.0" />
 		<Button fx:id="newSlideButton" layoutX="15.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleNewSlideButton" prefHeight="27.0" prefWidth="125.0" text="New Slide" />
+      <TextField fx:id="slideDescription" alignment="TOP_LEFT" layoutX="14.0" layoutY="307.0" onAction="#handleSlideDescription" prefHeight="76.0" prefWidth="396.0" promptText="Slide Description" />
+      <TextField fx:id="slideTitle" layoutX="334.0" layoutY="272.0" prefHeight="27.0" prefWidth="97.0" promptText="Slide Title" />
 	</children>
 </Pane>

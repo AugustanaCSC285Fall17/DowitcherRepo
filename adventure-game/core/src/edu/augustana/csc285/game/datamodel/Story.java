@@ -81,6 +81,11 @@ public class Story {
 			slides.put(slide.getId(), new Slide(slide));
 		}
 	}
+	
+	public void addSlideOverride(Slide currentSlide) {
+		slides.put(currentSlide.getId(), new Slide(currentSlide));
+		
+	}
 
 	/**
 	 * 
@@ -108,7 +113,6 @@ public class Story {
 	 *             if id is not in the story
 	 */
 	public Slide getSlide(String id) {
-		checkID(id);
 		return slides.get(id);
 	}
 
@@ -654,5 +658,7 @@ public class Story {
 	//
 	// System.out.println(story.toJSON());
 	// }
+
+
 
 }
