@@ -89,7 +89,8 @@ public class SettingsScreen implements Screen {
 		Label screenTitle = new Label("Settings", new Label.LabelStyle(titleFont, Color.BLACK));
 		settingsTable.add(screenTitle).pad(10).row();
 
-		Button musicOnButton = new TextButton("Music On", DEFAULT_SKIN, "default");
+		// Add music on button to table
+		Button musicOnButton = new TextButton("Music On", BACK_BUTTON_SKIN, "default");
 		musicOnButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -102,10 +103,10 @@ public class SettingsScreen implements Screen {
 			}
 
 		});
+		settingsTable.add(musicOnButton).width(200).height(50).pad(5).row();
 
-		settingsTable.add(musicOnButton).width(200).height(30).pad(5).row();
-
-		Button musicOffButton = new TextButton("Music Off", DEFAULT_SKIN, "default");
+		// Add music off button to table
+		Button musicOffButton = new TextButton("Music Off", BACK_BUTTON_SKIN, "default");
 		musicOffButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -116,10 +117,25 @@ public class SettingsScreen implements Screen {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				return true;
 			}
-
 		});
-		settingsTable.add(musicOffButton).width(200).height(30).pad(5).row();
+		settingsTable.add(musicOffButton).width(200).height(50).pad(5).row();
+		
+		// Add exit to menu button to table
+		Button exitToMenuButton = new TextButton("Exit to Menu", BACK_BUTTON_SKIN, "default");
+		exitToMenuButton.addListener(new InputListener() {
+			@Override
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				game.setScreen(new MainMenuScreen(game));
+			}
+
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+		});
+		settingsTable.add(exitToMenuButton).width(200).height(50).pad(5).row();
 		stage.addActor(settingsTable);
+		
 	}
 
 	@Override
