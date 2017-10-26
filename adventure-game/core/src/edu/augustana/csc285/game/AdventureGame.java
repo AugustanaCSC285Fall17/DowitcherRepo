@@ -27,7 +27,7 @@ public class AdventureGame extends Game {
 		defaultMusic = Gdx.audio.newMusic(Gdx.files.internal("theme.mp3"));
 		defaultMusic.setLooping(true);
 		defaultMusic.play();
-		this.setScreen(new EndScreen(this));
+		this.setScreen(new MainMenuScreen(this));
 	}
 	public void initializeManager() {
 		manager = new StoryManager(story, "Unknown", story.getStartingSlideIndex());
