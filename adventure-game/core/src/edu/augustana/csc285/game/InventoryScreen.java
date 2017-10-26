@@ -40,7 +40,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 public class InventoryScreen implements Screen {
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
 	public static final Skin SCROLL_SKIN = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
-
+	public static final Skin BACK_BUTTON_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/flat-earth-ui.json"));
+	
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
 	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
 	private final AdventureGame game;
@@ -73,7 +74,7 @@ public class InventoryScreen implements Screen {
 		stage.addActor(scroll);
 		
 		
-		Button backButton = new TextButton("Back", DEFAULT_SKIN);
+		Button backButton = new TextButton("Back", BACK_BUTTON_SKIN);
 		backButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -87,32 +88,10 @@ public class InventoryScreen implements Screen {
 			}
 
 		});
-		backButton.setSize(120, 35);
-		backButton.setPosition((float) 0.825 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.896 * AdventureGame.GAME_SCREEN_HEIGHT);
+		backButton.setSize(180, 50);
+		backButton.setPosition(1000, 650);
 		stage.addActor(backButton);
 	}
-
-	/*
-	 * Label description = new Label("Test description", DEFAULT_SKIN);
-	 * description.setWrap(true); ScrollPane scroll2 = new
-	 * ScrollPane(description, DEFAULT_SKIN); scroll.setPosition((WIDTH_BUFFER *
-	 * 2) + (23 * AdventureGame.GAME_SCREEN_HEIGHT) / 32,
-	 * AdventureGame.GAME_SCREEN_HEIGHT - (HEIGHT_BUFFER * 2) -
-	 * (AdventureGame.GAME_SCREEN_HEIGHT / 10) - ((3 *
-	 * AdventureGame.GAME_SCREEN_HEIGHT) / 8));
-	 * scroll2.setSize(AdventureGame.GAME_SCREEN_WIDTH / 2,
-	 * AdventureGame.GAME_SCREEN_HEIGHT / 3); scroll2.setScrollingDisabled(true,
-	 * false); stage.addActor(scroll2);
-	 * 
-	 * Table table = new Table(); Table container = new Table();
-	 * container.setBounds(10, 10, 400, 400); ScrollPane scroll3 = new
-	 * ScrollPane(table); container.add(scroll); container.row();
-	 * container.debug(); table.debug(); for (Item item :
-	 * inventoryCollection.values()) { Label label2 = new Label(item.getName() +
-	 * " x " + item.getQuantity(), DEFAULT_SKIN);
-	 * label2.setAlignment(Align.right); label2.setWrap(true);
-	 * table.add(label2); table.row(); } stage.addActor(container); }
-	 */
 
 	@Override
 	public void show() {

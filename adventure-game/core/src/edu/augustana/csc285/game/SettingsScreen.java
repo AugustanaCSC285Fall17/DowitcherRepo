@@ -27,6 +27,7 @@ import edu.augustana.csc285.game.datamodel.Player;
 
 public class SettingsScreen implements Screen {
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
+	public static final Skin BACK_BUTTON_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/flat-earth-ui.json"));
 	public static final int GAME_SCREEN_WIDTH = 800;
 	public static final int GA5ME_SCREEN_HEIGHT = 480;
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
@@ -59,7 +60,7 @@ public class SettingsScreen implements Screen {
 		backgroundImage = new Texture("GameData/background.jpg");
 		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
 
-		Button backButton = new TextButton("Back", DEFAULT_SKIN);
+		Button backButton = new TextButton("Back", BACK_BUTTON_SKIN);
 		backButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -77,8 +78,9 @@ public class SettingsScreen implements Screen {
 			}
 
 		});
-		backButton.setSize(120, 35);
-		backButton.setPosition(660, 430);
+		
+		backButton.setSize(180, 50);
+		backButton.setPosition(1000, 650);
 		stage.addActor(backButton);
 
 		Table settingsTable = new Table();

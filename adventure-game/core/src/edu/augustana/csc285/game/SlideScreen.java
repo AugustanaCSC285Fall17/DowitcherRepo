@@ -39,10 +39,10 @@ public class SlideScreen implements Screen {
 			Arrays.asList(8, 9, 10, 11, 12, 13, 14, 15, 16)); // 1
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
 	public static final Skin SCROLL_SKIN = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
-
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
 	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
 	private final AdventureGame game;
+
 	private Slide slide;
 	private ArrayList<Option> visibleOptions;
 	private Texture image;
@@ -153,9 +153,8 @@ public class SlideScreen implements Screen {
 		stage.addActor(buttonTable);
 
 		Label slideTitle = new Label(desc, new Label.LabelStyle(titleFont, Color.BLACK));
-
 		slideTitle.setPosition((float) 0.42 * AdventureGame.GAME_SCREEN_WIDTH,
-				(float) 0.87 * AdventureGame.GAME_SCREEN_HEIGHT);
+				(float) 0.90 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(slideTitle);
 
 		// Set up the scroll pane with slide description
@@ -183,7 +182,8 @@ public class SlideScreen implements Screen {
 		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 
 		// Draw the slide images
-		game.batch.draw(image, WIDTH_BUFFER, Math.round(0.15 * AdventureGame.GAME_SCREEN_HEIGHT), 600, 600);
+
+		game.batch.draw(image, WIDTH_BUFFER, Math.round(WIDTH_BUFFER), 600, 600);
 
 		game.batch.end();
 

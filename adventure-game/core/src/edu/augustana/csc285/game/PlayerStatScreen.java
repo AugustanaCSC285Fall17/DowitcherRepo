@@ -30,6 +30,7 @@ import edu.augustana.csc285.game.datamodel.Property;
 
 public class PlayerStatScreen implements Screen {
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
+	public static final Skin BACK_BUTTON_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/flat-earth-ui.json"));
 	public static final int GAME_SCREEN_WIDTH = 800;
 	public static final int GAME_SCREEN_HEIGHT = 480;
 	private OrthographicCamera camera;
@@ -69,7 +70,8 @@ public class PlayerStatScreen implements Screen {
 		Label screenTitle = new Label("Player Stats", new Label.LabelStyle(titleFont, Color.BLACK));
 		screenTitle.setPosition(WIDTH_BUFFER, (float) 0.87 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(screenTitle);
-		Button backButton = new TextButton("Back", DEFAULT_SKIN);
+		
+		Button backButton = new TextButton("Back", BACK_BUTTON_SKIN);
 		backButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -84,8 +86,8 @@ public class PlayerStatScreen implements Screen {
 
 		});
 
-		backButton.setSize(120, 35);
-		backButton.setPosition(660, 430);
+		backButton.setSize(180, 50);
+		backButton.setPosition(1000, 650);
 		stage.addActor(backButton);
 
 	}
