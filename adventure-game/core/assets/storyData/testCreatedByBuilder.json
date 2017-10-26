@@ -23,10 +23,32 @@ slides: {
 		]
 	}
 	3: {
-		image: image/slide/3.jpg
+		image: 3.jpg
 		desc: "It’s the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. Who are you?"
 		id: 3
 		title: Choose Your Character
+		options: [
+			{
+				desc: "Anders Bengtsson "
+				nextSlideIndex: 4
+			}
+			{
+				desc: Lovisa Eriksdotter
+				nextSlideIndex: 5
+			}
+		]
+	}
+	4: {
+		image: 4.jpg
+		desc: "You are an 18 year-old male from Mellby Parish, Småland. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. "
+		id: 4
+		title: Anders Bengtsson
+	}
+	5: {
+		image: 5.jpg
+		desc: You are an 18 year-old female maid from Stockholm. You dislike your job as maid and can’t seem to find a better one because there is too much competition (population has been booming in the city and countryside). You decide to seek better employment in America.\n
+		id: 5
+		title: Lovisa Eriksdotter
 	}
 }
 startingSlideIndex: 1

@@ -28,7 +28,7 @@ public class StoryManager {
 	public StoryManager(Story story, Player player, String index) {
 		this.story = story;
 		this.player = player;
-		//story.checkID(index);
+		story.checkID(index);
 		currentSlide = this.story.getSlide(index);
 	}
 

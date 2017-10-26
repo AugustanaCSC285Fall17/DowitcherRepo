@@ -20,7 +20,7 @@ import edu.augustana.csc285.game.datamodel.condition.*;
  *
  */
 public class Story {
-	public HashMap<String, Slide> slides;
+	public HashMap<String, Slide> slides = new HashMap<String,Slide> ();
 	private String defaultMusic;
 	private String startingSlideIndex;
 	// Never use -1 since that is the ending indicator
@@ -30,7 +30,6 @@ public class Story {
 	}
 
 	public Story(String startingSlideIndex) {
-		slides = new HashMap<String, Slide>();
 		this.startingSlideIndex = startingSlideIndex;
 	}
 

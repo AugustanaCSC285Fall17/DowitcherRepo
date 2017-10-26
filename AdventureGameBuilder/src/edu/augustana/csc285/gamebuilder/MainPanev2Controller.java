@@ -18,6 +18,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -68,7 +69,7 @@ public class MainPanev2Controller {
 	@FXML
 	private Button backButton;
 	@FXML
-	private TextField slideDescription;
+	private TextArea slideDescription;
 	@FXML
 	private TextField slideId;
 	@FXML
@@ -125,6 +126,7 @@ public class MainPanev2Controller {
 			}
 		});
 		updateFields();
+		this.slideDescription.setWrapText(true);
 	}
 
 	private void updateFields() throws FileNotFoundException {
@@ -148,7 +150,7 @@ public class MainPanev2Controller {
 				imageView.setVisible(false);
 			} else {
 				imageView.setVisible(true);
-				InputStream input = new FileInputStream(currentSlide.getImage());
+				InputStream input = new FileInputStream("image/slide/"+currentSlide.getImage());
 				imageView.setImage(new Image(input));
 			}
 		}
@@ -205,7 +207,7 @@ public class MainPanev2Controller {
 			Files.createFile(path);
 			Files.copy(Paths.get(imageFile.getPath()), path, StandardCopyOption.REPLACE_EXISTING);
 		}
-		currentSlide.setImage("image/slide/" + imageFile.getName());
+		currentSlide.setImage(imageFile.getName());
 		InputStream input = new FileInputStream(imageFile.getPath());
 		imageView.setImage(new Image(input));
 	}
@@ -275,33 +277,10 @@ public class MainPanev2Controller {
 	private void handleSlideDescription() {
 
 		Text text = new Text(slideDescription.getText());
-		// text.setFont(Font.font ("Arial", 27));
 		HBox root = new HBox();
-
-		// root.getChildren().add(iv1);
 		root.getChildren().add(text);
 
 	}
-
-	// @FXML
-	// private void handleLoadStory() throws IOException {
-	// JSONFile = getFileFromUser();
-	// storyJSONPath = Paths.get(JSONFile.getName());
-	//
-	// if (Files.notExists(storyJSONPath)) {
-	// Files.createFile(storyJSONPath);
-	// Files.copy(Paths.get(JSONFile.getPath()), storyJSONPath,
-	// StandardCopyOption.REPLACE_EXISTING);
-	// }
-	//
-	// String jsonString = "";
-	// Scanner fileParse = new Scanner(JSONFile);
-	// while (fileParse.hasNextLine()) {
-	// jsonString = jsonString + fileParse.nextLine();
-	// }
-	// fileParse.close();
-	// currentStory = Story.fromJSON(jsonString);
-	// }
 
 	// Source from
 	// http://docs.oracle.com/javafx/2/ui_controls/file-chooser.htm
