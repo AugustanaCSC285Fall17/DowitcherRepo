@@ -21,7 +21,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 //import edu.augustana.csc285.game.datamodel.Notification;
 
 public class MainMenuScreen extends ScreenAdapter implements Screen {
-	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
+	public static final Skin MENU_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/flat-earth-ui.json"));
 	private final AdventureGame game;
 	private String introduction;
 	private Stage stage;
@@ -39,14 +39,12 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		stage = new Stage(new ScreenViewport());
 		logo = new Texture("GameData/swensonlogo.png");
 		backgroundImage = new Texture("GameData/background.jpg");
-		titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/title.fnt"), false);
-		BitmapFont mediumTitleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/mediumTitle.fnt"), false);
-
+		titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
 		
 		Table buttonTable = new Table();
 		buttonTable.setPosition(400, 200);
 
-		TextButton newGameButton = new TextButton("New Game", DEFAULT_SKIN, "default");
+		TextButton newGameButton = new TextButton("New Game", MENU_SKIN, "default");
 		newGameButton.addListener(new InputListener() {
 
 			@Override
@@ -63,7 +61,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		});
 		buttonTable.add(newGameButton).width(150).height(30).pad(5).row();
 
-		TextButton creditButton = new TextButton("Credit", DEFAULT_SKIN, "default");
+		TextButton creditButton = new TextButton("Credit", MENU_SKIN, "default");
 		creditButton.setSize(50, 50);
 		creditButton.setPosition(50, 50);
 		creditButton.addListener(new InputListener() {
@@ -81,7 +79,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		});
 		buttonTable.add(creditButton).width(150).height(30).pad(5).row();
 
-		TextButton settingsButton = new TextButton("Settings", DEFAULT_SKIN, "default");
+		TextButton settingsButton = new TextButton("Settings", MENU_SKIN, "default");
 		settingsButton.setSize(50, 50);
 		boolean fromMenuScreen = true;
 		settingsButton.addListener(new InputListener() {
@@ -98,7 +96,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 
 		buttonTable.add(settingsButton).width(150).height(30).pad(5).row();
 
-		TextButton exitButton = new TextButton("Exit", DEFAULT_SKIN, "default");
+		TextButton exitButton = new TextButton("Exit", MENU_SKIN, "default");
 		exitButton.setSize(50, 50);
 		exitButton.setPosition(50, 50);
 		exitButton.addListener(new InputListener() {

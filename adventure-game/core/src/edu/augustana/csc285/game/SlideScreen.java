@@ -37,8 +37,9 @@ import edu.augustana.csc285.game.datamodel.Slide;
 public class SlideScreen implements Screen {
 	public static final HashSet<Integer> KEY_SET = new HashSet<Integer>(
 			Arrays.asList(8, 9, 10, 11, 12, 13, 14, 15, 16)); // 1
-	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
-	// 9
+	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
+	public static final Skin SCROLL_SKIN = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
+	
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
 	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
 	private final AdventureGame game;
@@ -59,15 +60,15 @@ public class SlideScreen implements Screen {
 
 	public SlideScreen(AdventureGame game) {
 		// Giant to do note: Set up checking for multiple layout
-
+		
 		// Set up data fields
 		this.popUp = false;
 		this.game = game;
 		slide = game.manager.getCurrentSlide();
 		image = new Texture(Gdx.files.internal(slide.getImage()));
 		backgroundImage = new Texture("GameData/background.jpg");
-		BitmapFont descriptionFont = new BitmapFont(Gdx.files.internal("fonts/DescriptionFont/descriptionText.fnt"), false);
-		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/Title.fnt"), false);
+		BitmapFont defaultFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
+		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/secondaryTitle.fnt"), false);
 		Button inventoryBtn = this.addTextureRegion("GameData/icons/inventory.png", new InventoryScreen(game), 3);
 		Button playerStatBtn = this.addTextureRegion("GameData/icons/player-stat.png", new PlayerStatScreen(game), 2);
 		Button settingsBtn = this.addTextureRegion("GameData/icons/settings.jpg", new SettingsScreen(game), 1);
@@ -92,25 +93,21 @@ public class SlideScreen implements Screen {
 		for (int i = 0; i < visibleOptions.size(); i++) {
 			Option option = visibleOptions.get(i);
 			String displayString = (i + 1) + ".  " + option.getDesc();
-			GlyphLayout layout = new GlyphLayout(descriptionFont, displayString);
+			GlyphLayout layout = new GlyphLayout(defaultFont, displayString);
 			if (layout.width > biggestButtonWidth) {
 				biggestButtonWidth = layout.width;
 			}
 
 		}
 
-		// Currently I cannot figure out how to draw all the buttons aligned to
-		// the left.. Dat??
-		buttonTable.setPosition((float) (AdventureGame.GAME_SCREEN_WIDTH / 2),
-				(float) 0.19167 * AdventureGame.GAME_SCREEN_HEIGHT);
+		buttonTable.setPosition((float) 0.755 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.20 * AdventureGame.GAME_SCREEN_HEIGHT);
 
 		// Create and add buttons for ActionChoices
 		for (int i = 0; i < visibleOptions.size(); i++) {
 			Option option = visibleOptions.get(i);
 			String displayString = (i + 1) + ".  " + option.getDesc();
 			TextButton button = new TextButton(displayString, DEFAULT_SKIN, "default");
-			// button.getLabel().setWrap(true);
-			// button.getLabel().setFontScale((float) 0.8);
+
 			button.getLabel().setAlignment(Align.left);
 			button.addListener(new InputListener() {
 				public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -137,22 +134,21 @@ public class SlideScreen implements Screen {
 					.height((float) 0.0555 * AdventureGame.GAME_SCREEN_HEIGHT).padTop(HEIGHT_BUFFER).row();
 
 		}
-
 		stage.addActor(buttonTable);
 
-		Label slideTitle = new Label(slide.getTitle(), new Label.LabelStyle(titleFont, Color.BLACK));
+		Label slideTitle = new Label("slide.getTitle()", new Label.LabelStyle(titleFont, Color.BLACK));
+
 		slideTitle.setPosition((float) 0.42 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.87 * AdventureGame.GAME_SCREEN_HEIGHT); 
 		stage.addActor(slideTitle);
 		
 		
 		// Set up the scroll pane with slide description
-		Label description = new Label(slide.getDesc(), new Label.LabelStyle(descriptionFont, Color.BLACK));
+		Label description = new Label(slide.getDesc(), new Label.LabelStyle(defaultFont, Color.BLACK));
 		description.setWrap(true);
-		Skin scrollSkin = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
-		ScrollPane scroll = new ScrollPane(description, scrollSkin);
-		scroll.setPosition((float) 0.45125 * AdventureGame.GAME_SCREEN_WIDTH,
-				(float) 0.38 * AdventureGame.GAME_SCREEN_HEIGHT);
-		scroll.setSize((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.45 * AdventureGame.GAME_SCREEN_HEIGHT);
+		ScrollPane scroll = new ScrollPane(description, SCROLL_SKIN);
+		scroll.setPosition((float) 0.54 * AdventureGame.GAME_SCREEN_WIDTH,
+				(float) 0.35 * AdventureGame.GAME_SCREEN_HEIGHT);
+		scroll.setSize((float) 0.45 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.50 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setScrollingDisabled(true, false);
 		scroll.setFadeScrollBars(false);
 		scroll.setScrollbarsOnTop(true);
@@ -169,12 +165,11 @@ public class SlideScreen implements Screen {
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.begin();
 		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+		
 		// Draw the slide images
 		game.batch.draw(image, WIDTH_BUFFER,
-				Math.round(0.3583333333 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())),
+				Math.round(0.15 * AdventureGame.GAME_SCREEN_HEIGHT), 600, 600);
 
-				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT),
-				Math.round(0.625 * AdventureGame.GAME_SCREEN_HEIGHT * (image.getWidth() / image.getHeight())));
 		game.batch.end();
 
 		stage.act();
@@ -219,7 +214,7 @@ public class SlideScreen implements Screen {
 		TextureRegion textureRegion = new TextureRegion(textureImage);
 		TextureRegionDrawable textureRegionDrawable = new TextureRegionDrawable(textureRegion);
 		Button button = new ImageButton(textureRegionDrawable);
-		button.setSize(50, 50);
+		button.setSize(75, 75);
 		button.setPosition(AdventureGame.GAME_SCREEN_WIDTH - (button.getWidth() + WIDTH_BUFFER) * locationInt,
 				AdventureGame.GAME_SCREEN_HEIGHT - HEIGHT_BUFFER - button.getHeight());
 		button.addListener(new InputListener() {
@@ -232,7 +227,6 @@ public class SlideScreen implements Screen {
 			}
 		});
 		return button;
-
 	}
 
 	@Override

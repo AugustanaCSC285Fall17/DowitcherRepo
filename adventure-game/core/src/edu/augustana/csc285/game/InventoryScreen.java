@@ -38,7 +38,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
  * 
  */
 public class InventoryScreen implements Screen {
-	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
+	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
+	public static final Skin SCROLL_SKIN = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
+
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
 	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
 	private final AdventureGame game;
@@ -50,25 +52,25 @@ public class InventoryScreen implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
+		backgroundImage = new Texture("GameData/background.jpg");
 		stage = new Stage(new ScreenViewport());
+		BitmapFont inventoryFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
+		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
+		
 		String inventory = "You have: \n" + game.manager.getPlayer().getInventory().getVisibleItemString();
-		BitmapFont inventoryFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/mediumTitle.fnt"), false);
-		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/bigTitle.fnt"), false);
-
 		Label inventoryLabel = new Label(inventory, new Label.LabelStyle(inventoryFont, Color.BLACK));
 		inventoryLabel.setWrap(true);
 
 		Label screenTitle = new Label("Inventory", new Label.LabelStyle(titleFont, Color.BLACK));
-		screenTitle.setPosition(WIDTH_BUFFER, (float) 0.87 * AdventureGame.GAME_SCREEN_HEIGHT);
+		screenTitle.setPosition((float)0.4 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.8 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(screenTitle);
 
-		ScrollPane scroll = new ScrollPane(inventoryLabel, DEFAULT_SKIN);
-		scroll.setPosition(20, 20);
+		ScrollPane scroll = new ScrollPane(inventoryLabel, SCROLL_SKIN);
+		scroll.setPosition((float) 0.45 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.3 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setSize(AdventureGame.GAME_SCREEN_HEIGHT - 200, 300);
 		scroll.setScrollingDisabled(true, false);
 		scroll.setFadeScrollBars(false);
 		stage.addActor(scroll);
-		backgroundImage = new Texture("GameData/background.jpg");
 		
 		
 		Button backButton = new TextButton("Back", DEFAULT_SKIN);
@@ -86,7 +88,7 @@ public class InventoryScreen implements Screen {
 
 		});
 		backButton.setSize(120, 35);
-		backButton.setPosition(660, 430);
+		backButton.setPosition((float) 0.825 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.896 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(backButton);
 	}
 
@@ -131,6 +133,12 @@ public class InventoryScreen implements Screen {
 		game.batch.begin();
 		// Draw background image
 		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+		
+		for (int i = 0; i < 4; i++) {
+			Texture itemIcon = new Texture(Gdx.files.internal("GameData/icons/bible.jpg"));
+			game.batch.draw(itemIcon, (float) 0.3575 * AdventureGame.GAME_SCREEN_WIDTH, (float) (0.6 * AdventureGame.GAME_SCREEN_HEIGHT - i * (0.1 * AdventureGame.GAME_SCREEN_HEIGHT)), 40, 40);
+		}
+		
 		game.batch.end();
 
 		camera.update();

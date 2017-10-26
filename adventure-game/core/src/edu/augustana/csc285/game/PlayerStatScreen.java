@@ -29,7 +29,7 @@ import edu.augustana.csc285.game.datamodel.Player;
 import edu.augustana.csc285.game.datamodel.Property;
 
 public class PlayerStatScreen implements Screen {
-	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
+	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
 	public static final int GAME_SCREEN_WIDTH = 800;
 	public static final int GAME_SCREEN_HEIGHT = 480;
 	private OrthographicCamera camera;
@@ -46,7 +46,7 @@ public class PlayerStatScreen implements Screen {
 		this.game = game;
 		stage = new Stage(new ScreenViewport());
 		backgroundImage = new Texture("GameData/background.jpg");
-		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/bigTitle.fnt"), false);
+		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
 
 		Map<String, Property> properties = game.manager.getPlayer().getProperties().getProperties();
 		String propertyString = "You are: " + game.manager.getPlayer().getName() + "\n";
@@ -56,7 +56,7 @@ public class PlayerStatScreen implements Screen {
 			propertyString += property.getType().toString() + ": " + property.getQuantity() + "\n";
 		}
 
-		playerFont = new BitmapFont(Gdx.files.internal("fonts/DescriptionFont/DescriptionText.fnt"), false);
+		playerFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
 		Label label = new Label(propertyString, new Label.LabelStyle(playerFont, Color.BLACK));
 		label.setWrap(true);
 		ScrollPane scroll = new ScrollPane(label, DEFAULT_SKIN);
@@ -69,7 +69,6 @@ public class PlayerStatScreen implements Screen {
 		Label screenTitle = new Label("Player Stats", new Label.LabelStyle(titleFont, Color.BLACK));
 		screenTitle.setPosition(WIDTH_BUFFER, (float) 0.87 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(screenTitle);
-
 		Button backButton = new TextButton("Back", DEFAULT_SKIN);
 		backButton.addListener(new InputListener() {
 			@Override

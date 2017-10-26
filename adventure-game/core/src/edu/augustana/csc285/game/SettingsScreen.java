@@ -26,7 +26,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import edu.augustana.csc285.game.datamodel.Player;
 
 public class SettingsScreen implements Screen {
-	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/flat-earth-ui.json"));
+	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
 	public static final int GAME_SCREEN_WIDTH = 800;
 	public static final int GA5ME_SCREEN_HEIGHT = 480;
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
@@ -57,7 +57,7 @@ public class SettingsScreen implements Screen {
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
 		backgroundImage = new Texture("GameData/background.jpg");
-		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/TitleFont/bigTitle.fnt"), false);
+		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
 
 		Button backButton = new TextButton("Back", DEFAULT_SKIN);
 		backButton.addListener(new InputListener() {
@@ -91,7 +91,7 @@ public class SettingsScreen implements Screen {
 		musicOnButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.testMusic.play();
+				game.defaultMusic.play();
 			}
 
 			@Override
@@ -107,7 +107,7 @@ public class SettingsScreen implements Screen {
 		musicOffButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.testMusic.pause();
+				game.defaultMusic.pause();
 			}
 
 			@Override
