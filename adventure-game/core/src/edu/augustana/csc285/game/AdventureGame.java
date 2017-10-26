@@ -26,10 +26,10 @@ public class AdventureGame extends Game {
 		batch = new SpriteBatch();
 		font = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
 		this.setScreen(new MainMenuScreen(this));
+		
 		defaultMusic = Gdx.audio.newMusic(Gdx.files.internal("theme.mp3"));
 		defaultMusic.setLooping(true);
 		defaultMusic.play();
-
 	}
 
 	public void render() {

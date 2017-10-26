@@ -60,7 +60,7 @@ public class SlideScreen implements Screen {
 
 	public SlideScreen(AdventureGame game) {
 		// Giant to do note: Set up checking for multiple layout
-
+		
 		// Set up data fields
 		this.popUp = false;
 		this.game = game;
@@ -134,10 +134,10 @@ public class SlideScreen implements Screen {
 					.height((float) 0.0555 * AdventureGame.GAME_SCREEN_HEIGHT).padTop(HEIGHT_BUFFER).row();
 
 		}
-
 		stage.addActor(buttonTable);
 
 		Label slideTitle = new Label("slide.getTitle()", new Label.LabelStyle(titleFont, Color.BLACK));
+
 		slideTitle.setPosition((float) 0.42 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.87 * AdventureGame.GAME_SCREEN_HEIGHT); 
 		stage.addActor(slideTitle);
 		
@@ -168,8 +168,8 @@ public class SlideScreen implements Screen {
 		
 		// Draw the slide images
 		game.batch.draw(image, WIDTH_BUFFER,
-				Math.round(0.15 * AdventureGame.GAME_SCREEN_HEIGHT),
-				Math.round(600),Math.round(600));
+				Math.round(0.15 * AdventureGame.GAME_SCREEN_HEIGHT), 600, 600);
+
 		game.batch.end();
 
 		stage.act();
@@ -227,7 +227,6 @@ public class SlideScreen implements Screen {
 			}
 		});
 		return button;
-
 	}
 
 	@Override
