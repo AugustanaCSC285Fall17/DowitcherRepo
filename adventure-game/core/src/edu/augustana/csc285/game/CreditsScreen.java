@@ -24,6 +24,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
  */
 public class CreditsScreen implements Screen {
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
+	public static final Skin BACK_BUTTON_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/flat-earth-ui.json"));
 	private final AdventureGame game;
 	private OrthographicCamera camera;
 	private Texture backgroundImage;
@@ -52,8 +53,8 @@ public class CreditsScreen implements Screen {
 		stage.addActor(creditsTable);
 
 	
-		Button button = new TextButton("Back", DEFAULT_SKIN);
-		button.addListener(new InputListener() {
+		Button backButton = new TextButton("Back", BACK_BUTTON_SKIN);
+		backButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.setScreen(new MainMenuScreen(game));
@@ -65,9 +66,10 @@ public class CreditsScreen implements Screen {
 			}
 
 		});
-		button.setSize(120, 35);
-		button.setPosition(660, 430);
-		stage.addActor(button);
+		
+		backButton.setSize(180, 50);
+		backButton.setPosition(1000, 650);
+		stage.addActor(backButton);
 	}
 
 	@Override

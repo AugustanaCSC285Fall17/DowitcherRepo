@@ -14,24 +14,24 @@ import edu.augustana.csc285.game.datamodel.*;
 public class AdventureGame extends Game {
 	public static final int GAME_SCREEN_WIDTH = 1200;
 	public static final int GAME_SCREEN_HEIGHT = 720;
+	Story story;
 	StoryManager manager;
 	SpriteBatch batch;
 	BitmapFont font;
 	Music defaultMusic;
-
+	
 	public void create() {
-		// Define Items
-		Story story = Story.fromJSON(Gdx.files.internal("storyData/testStory.json").readString());
-		manager = new StoryManager(story, "Unknown", story.getStartingSlideIndex());
+		story = Story.fromJSON(Gdx.files.internal("storyData/testStory.json").readString());
 		batch = new SpriteBatch();
 		font = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
-		this.setScreen(new MainMenuScreen(this));
-		
 		defaultMusic = Gdx.audio.newMusic(Gdx.files.internal("theme.mp3"));
 		defaultMusic.setLooping(true);
 		defaultMusic.play();
+		this.setScreen(new EndScreen(this));
 	}
-
+	public void initializeManager() {
+		manager = new StoryManager(story, "Unknown", story.getStartingSlideIndex());
+	}
 	public void render() {
 		super.render(); // important!
 	}
