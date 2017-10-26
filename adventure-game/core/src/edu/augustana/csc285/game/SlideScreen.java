@@ -42,7 +42,7 @@ public class SlideScreen implements Screen {
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
 	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
 	private final AdventureGame game;
-	
+
 	private Slide slide;
 	private ArrayList<Option> visibleOptions;
 	private Texture image;
@@ -51,6 +51,8 @@ public class SlideScreen implements Screen {
 	private Stage stage;
 	private boolean popUp;
 	private String rejectMessage;
+	private int layout;
+	private String desc;
 
 	public SlideScreen(AdventureGame game, String rejectMessage) {
 		this(game);
@@ -60,12 +62,25 @@ public class SlideScreen implements Screen {
 
 	public SlideScreen(AdventureGame game) {
 		// Giant to do note: Set up checking for multiple layout
-		
 		// Set up data fields
 		this.popUp = false;
 		this.game = game;
 		slide = game.manager.getCurrentSlide();
-		image = new Texture(Gdx.files.internal(slide.getImage()));
+		if (slide.getImage() != null && slide.getImage() != "") {
+			image = new Texture(Gdx.files.internal(slide.getImage()));
+		}
+		if (slide.getDesc() != null && slide.getDesc() != "") {
+			desc = slide.getDesc();
+		}
+		if (image != null) {
+			if (desc != null) {
+				layout = 0;
+			} else {
+				layout = 2;
+			}
+		} else {
+			layout = 1;
+		}
 		backgroundImage = new Texture("GameData/background.jpg");
 		BitmapFont defaultFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
 		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/secondaryTitle.fnt"), false);
@@ -74,7 +89,7 @@ public class SlideScreen implements Screen {
 		Button settingsBtn = this.addTextureRegion("GameData/icons/settings.jpg", new SettingsScreen(game), 1);
 
 		visibleOptions = (ArrayList<Option>) slide.getVisibleOptions(game.manager.getPlayer());
-		
+
 		// Set up camera
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
@@ -100,7 +115,8 @@ public class SlideScreen implements Screen {
 
 		}
 
-		buttonTable.setPosition((float) 0.755 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.20 * AdventureGame.GAME_SCREEN_HEIGHT);
+		buttonTable.setPosition((float) 0.755 * AdventureGame.GAME_SCREEN_WIDTH,
+				(float) 0.20 * AdventureGame.GAME_SCREEN_HEIGHT);
 
 		// Create and add buttons for ActionChoices
 		for (int i = 0; i < visibleOptions.size(); i++) {
@@ -136,12 +152,11 @@ public class SlideScreen implements Screen {
 		}
 		stage.addActor(buttonTable);
 
-		Label slideTitle = new Label("slide.getTitle()", new Label.LabelStyle(titleFont, Color.BLACK));
-
-		slideTitle.setPosition((float) 0.42 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.90 * AdventureGame.GAME_SCREEN_HEIGHT); 
+		Label slideTitle = new Label(desc, new Label.LabelStyle(titleFont, Color.BLACK));
+		slideTitle.setPosition((float) 0.42 * AdventureGame.GAME_SCREEN_WIDTH,
+				(float) 0.90 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(slideTitle);
-		
-		
+
 		// Set up the scroll pane with slide description
 		Label description = new Label(slide.getDesc(), new Label.LabelStyle(defaultFont, Color.BLACK));
 		description.setWrap(true);
@@ -165,10 +180,10 @@ public class SlideScreen implements Screen {
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.begin();
 		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
-		
+
 		// Draw the slide images
-		game.batch.draw(image, WIDTH_BUFFER,
-				Math.round(WIDTH_BUFFER), 600, 600);
+
+		game.batch.draw(image, WIDTH_BUFFER, Math.round(WIDTH_BUFFER), 600, 600);
 
 		game.batch.end();
 

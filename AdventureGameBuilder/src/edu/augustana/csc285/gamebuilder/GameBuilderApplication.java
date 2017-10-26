@@ -21,6 +21,6 @@ public class GameBuilderApplication extends Application {
 	}
 
 	public static void main(String[] args) {
-		launch(args); 
+		launch(args);
 	}
 }
