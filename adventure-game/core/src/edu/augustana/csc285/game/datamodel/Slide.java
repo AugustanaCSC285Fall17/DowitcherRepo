@@ -11,7 +11,7 @@ public class Slide {
 	private String music;
 	private String id;
 	private String title;
-	ArrayList<Option> options;
+	ArrayList<Option> options = new ArrayList<Option>();
 
 	public Slide() {
 
@@ -41,10 +41,9 @@ public class Slide {
 		this.desc = desc;
 		this.music = music;
 		this.id = id;
-		this.options = new ArrayList<Option>();
 		this.title = title;
 	}
-
+		
 	public Slide(String image, String desc, String id, String title) {
 		this(image, desc, id, title, null);
 	}

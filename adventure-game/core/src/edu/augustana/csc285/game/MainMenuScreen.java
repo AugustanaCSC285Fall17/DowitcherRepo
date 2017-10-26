@@ -86,11 +86,6 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.setScreen(new SettingsScreen(game, fromMenuScreen));
 				dispose();
-				//For testing with notification
-//				Notification not = new Notification("You received:");
-//				stage.addActor(not);
-				//game.setScreen(new SettingsScreen(game));
-				//dispose();
 
 			}
 
@@ -107,7 +102,9 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		exitButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				Gdx.app.exit();
+				//To test with the end screen
+				game.setScreen(new EndScreen(game));
+				//Gdx.app.exit();
 			}
 
 			@Override
