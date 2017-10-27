@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -71,6 +72,25 @@ public class InventoryScreen implements Screen {
 		inventoryTable.setPosition(500, 500);
 		inventoryTable.setSkin(DEFAULT_SKIN);
 		
+		TreeSet<Item> itemSet = game.manager.getPlayer().getInventory().getCollection();
+		Item[] items = itemSet.toArray(new Item[itemSet.size()]);;
+		
+		for(Item item : items) {
+			/*
+			 * TODO Add images for all items
+			 * 		Replace itemIcon with item.getImage()
+			 */
+			NinePatch patch = new NinePatch(itemIcon); 
+			inventoryTable.add(new Image(patch)); 
+			
+			Label nameLabel = new Label(item.getName(),SCROLL_SKIN);
+			nameLabel.setColor(Color.BLACK);
+			inventoryLabel.setWrap(true);
+			inventoryTable.add(nameLabel);
+			
+			inventoryTable.row();
+		}
+		
 //		for (String str : game.manager.getPlayer().getInventory().getVisibleItemStringList()) {
 //			Label label = new Label(str, DEFAULT_SKIN);
 //			inventoryTable.add(label).row();
@@ -82,10 +102,10 @@ public class InventoryScreen implements Screen {
 				(float) 0.8 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(screenTitle);
 
-		ScrollPane scroll = new ScrollPane(inventoryLabel, SCROLL_SKIN);
+	//	ScrollPane scroll = new ScrollPane(inventoryLabel, SCROLL_SKIN);
 
-//		ScrollPane scroll = new ScrollPane(inventoryTable, SCROLL_SKIN);
-		scroll.setPosition((float) 0.45 * AdventureGame.GAME_SCREEN_WIDTH,
+	ScrollPane scroll = new ScrollPane(inventoryTable, SCROLL_SKIN);
+		scroll.setPosition((float) 0.15 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) 0.3 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setSize(AdventureGame.GAME_SCREEN_HEIGHT - 200, 300);
 		scroll.setScrollingDisabled(true, false);
