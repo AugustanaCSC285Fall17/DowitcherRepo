@@ -2,6 +2,7 @@ package edu.augustana.csc285.game.datamodel;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -19,7 +20,7 @@ import edu.augustana.csc285.game.datamodel.condition.*;
  *
  */
 public class Story {
-	public HashMap<String, Slide> slides;
+	public HashMap<String, Slide> slides = new HashMap<String, Slide>();
 	private String defaultMusic;
 	private String startingSlideIndex;
 	// Never use -1 since that is the ending indicator
@@ -29,7 +30,6 @@ public class Story {
 	}
 
 	public Story(String startingSlideIndex) {
-		slides = new HashMap<String, Slide>();
 		this.startingSlideIndex = startingSlideIndex;
 	}
 
@@ -81,10 +81,10 @@ public class Story {
 			slides.put(slide.getId(), new Slide(slide));
 		}
 	}
-	
+
 	public void addSlideOverride(Slide currentSlide) {
 		slides.put(currentSlide.getId(), new Slide(currentSlide));
-		
+
 	}
 
 	/**
@@ -170,6 +170,13 @@ public class Story {
 	 */
 	public static Story fromJSON(String jsonData) {
 		return new Json().fromJson(Story.class, jsonData);
+	}
+
+	public ArrayList<String> getSlideIds() {
+		ArrayList<String> ids = new ArrayList<String>(slides.size());
+		ids.addAll((this.slides.keySet()));
+		Collections.sort(ids, new ComparatorForStringID());
+		return ids;
 	}
 	//
 	// public static void main(String[] args) {
@@ -658,7 +665,5 @@ public class Story {
 	//
 	// System.out.println(story.toJSON());
 	// }
-
-
 
 }

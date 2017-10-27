@@ -67,12 +67,11 @@ public class SlideScreen implements Screen {
 		// Set up data fields
 		this.popUp = false;
 		this.game = game;
-		slide = new Slide("GameData/SlideImages/slide1.jpg", "this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string ", 
-				null, "this is the slide title", null);
-		slide.addOption(new Option("Take the Journey", null, null, "1", null, null));
-		//slide = game.manager.getCurrentSlide();
+
+		slide = game.manager.getCurrentSlide();
+		
 		if (slide.getImage() != null && slide.getImage() != "") {
-			image = new Texture(Gdx.files.internal(slide.getImage()));
+			image = new Texture(Gdx.files.internal("image/slide/"+slide.getImage()));
 		}
 		if (slide.getDesc() != null && slide.getDesc() != "") {
 			desc = slide.getDesc();
@@ -104,9 +103,7 @@ public class SlideScreen implements Screen {
 
 		// visibleOptions = (ArrayList<Option>)
 		// slide.getVisibleOptions(game.manager.getPlayer());
-		visibleOptions = (ArrayList<Option>) slide.getOptions();
-		//visibleOptions = (ArrayList<Option>) slide.getVisibibleOptions();
-
+		visibleOptions = slide.getVisibleOptions(game.manager.getPlayer());
 
 		// Set up camera
 		camera = new OrthographicCamera();
@@ -181,9 +178,11 @@ public class SlideScreen implements Screen {
 
 		// Set up slide title
 		Label slideTitle = new Label(this.slide.getTitle(), new Label.LabelStyle(titleFont, Color.BLACK));
+
 		GlyphLayout titleLength = new GlyphLayout(defaultFont, slideTitle.toString());
 		
 		slideTitle.setPosition((float) 0.5 * (AdventureGame.GAME_SCREEN_WIDTH - titleLength.width),
+
 				(float) 0.90 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(slideTitle);
 
@@ -224,7 +223,7 @@ public class SlideScreen implements Screen {
 		// Draw the slide image
 		if (layout == 0) {
 			game.batch.draw(image, WIDTH_BUFFER, WIDTH_BUFFER, 600, 600);
-		} else if (layout == 2 ) {
+		} else if (layout == 2) {
 			game.batch.draw(image, WIDTH_BUFFER, 60, 600, 600);
 		}
 
@@ -324,7 +323,9 @@ public class SlideScreen implements Screen {
 
 	@Override
 	public void dispose() {
-		image.dispose();
+		if (image != null) {
+			image.dispose();
+		}
 		backgroundImage.dispose();
 		stage.dispose();
 	}

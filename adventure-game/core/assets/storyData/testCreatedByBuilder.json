@@ -1,0 +1,55 @@
+{
+slides: {
+	1: {
+		desc: You’re a young Swedish immigrant to America in 1880. You’ve made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?
+		id: 1
+		title: The Swedish Immigrant Trail
+		options: [
+			{
+				desc: Take the Journey
+				nextSlideIndex: 2
+			}
+		]
+	}
+	2: {
+		desc: "Between 1850 and 1930, over 1.3 million Swedes immigrated to the United States. At the same time, over 50 million Europeans left Europe. Several factors “pushed” Swedes to leave their homeland while others “pulled\" them to America. Population growth in Sweden led to less available land for farming and crop failure in the late 1860s put pressure on the agrarian society. That, paired with the availability of cheap land for farming and the Homestead Act of 1862 in the United States, caused many Swedes to seek a new life in America. Once Swedish immigrants found themselves here, they wrote letters back home describing their experiences, often in overly positive terms. These so-called “America letters” proved important in establishing migration channels for new immigrants to come and join their family and friends in America. Religious and political reasons played a much smaller role for the move to America, although it was critical in some cases.This Trans-Atlantic mass exodus was one of the major events in Swedish history during the last two centuries. This immense network of contacts established across the Atlantic has influenced the ways in which Swedish society then and now is oriented towards the United States."
+		id: 2
+		title: Historical Note: Swedish Immigration
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 3
+			}
+		]
+	}
+	3: {
+		image: 3.jpg
+		desc: "It’s the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. Who are you?"
+		id: 3
+		title: Choose Your Character
+		options: [
+			{
+				desc: "Anders Bengtsson "
+				nextSlideIndex: 4
+			}
+			{
+				desc: Lovisa Eriksdotter
+				nextSlideIndex: 5
+			}
+		]
+	}
+	4: {
+		image: 4.jpg
+		desc: "You are an 18 year-old male from Mellby Parish, Småland. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. "
+		id: 4
+		title: Anders Bengtsson
+	}
+	5: {
+		image: 5.jpg
+		desc: You are an 18 year-old female maid from Stockholm. You dislike your job as maid and can’t seem to find a better one because there is too much competition (population has been booming in the city and countryside). You decide to seek better employment in America.\n
+		id: 5
+		title: Lovisa Eriksdotter
+	}
+}
+startingSlideIndex: 1
+}

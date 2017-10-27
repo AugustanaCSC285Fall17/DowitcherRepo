@@ -1,0 +1,1527 @@
+{
+slides: {
+	44: {
+		image: 44.jpg
+		desc: "He makes a gesture for his superior officer to come over. The superior officer glances at the papers and murmurs instructions to his subordinate. The superior officer makes some sharp remarks to you and hands you over to the police for forgery. You are immediately deported and put on a watch list for travelling in England. Your hopes of making it to America are squandered and now must live the rest of your days finding work in Sweden.  "
+		id: 44
+		title: Don’t bribe him
+	}
+	45: {
+		image: 45.jpg
+		desc: "You present your papers. You start to become nervous as he eyes them. He makes a gesture for his superior officer to come over. The superior officer glances at the papers and murmurs instructions to his subordinate. The superior officer nods his head and presents you with a stamped ticket and papers. Happy to have made it thus far, you proceed onto the boat. "
+		id: 45
+		title: Present your papers
+	}
+	46: {
+		desc: "Making friends along the journey, especially with crewmen, would have been advantageous. Some immigrants expressed discomfort with their new surroundings. One immigrant, Swen Magnus Swensson, remembers how the food and coffee served onboard were bland and unappealing. Some of the passengers would bribe the crew for more food and helped out in the kitchens to receive an extra serving or barter for different items. "
+		id: 46
+		title: "Historical Note: Taking a Boat to America "
+	}
+	47: {
+		image: 47.jpg
+		desc: On the boat You made it on the boat!
+		id: 47
+		title: On the Boat to America
+	}
+	48: {
+		desc: The narrow walkway smells like old fish and urine. This is not a nice place. You should go back.
+		id: 48
+		title: Yuck!
+	}
+	49: {
+		image: 49.jpg
+		desc: You meet a lone crew member prepping the dining hall. He stares at you curiously and asks what are you doing here.\n
+		id: 49
+		title: You’re in the Dining Room
+	}
+	50: {
+		desc: The crew member smiles and and accepts the gift. In return he presents you with an American almanac (+American Almanac in inventory). This might come in handy in the future!
+		id: 50
+		title: Thanks for the gift
+	}
+	51: {
+		desc: "The crew member glances at you strangely and swiftly rejects you before attending to his duties. "
+		id: 51
+		title: No more rations for you
+	}
+	52: {
+		image: 52.jpg
+		id: 52
+		title: You’re in the reading room
+	}
+	53: {
+		desc: "You spend a while with some of the passengers: exchanging stories, sharing meals, and playing music. However, you are now feeling sick…"
+		id: 53
+		title: Interact with passengers
+	}
+	10: {
+		image: 10.jpg
+		desc: "Dear Cousin,\nI have been blessed to have found a place I can call home. My journeys were long, and at times I had felt grief for leaving my beautiful Sweden. I remember so clearly how it felt to be a stranger in a strange place. Only having a small trunk and broken English left me apprehensive of my surroundings. I am thankful that I have experienced no ill wills on my passage to America. I had heard some of my kin had travelled to the far west of this vast country, in a place called Washington state. My family settled near Tacoma and are now prosperous farmers and fishermen! I decided to try my hand for this place. I took the Walla Walla railroad instead of the Northern Pacific, as it was the cheaper option. I was taken to Seattle and found a boardinghouse for Swedes. Within a month I had found employment as a maid to one of the founding families. They treat me well despite some language barrier, but I am becoming more proficient and feel more confident in my new home.\nI do wish you well and hope someday to meet you again in my new home! Give my love to my family and friends!\n\nLinnea Parsson\n"
+		id: 10
+		title: Washington letter
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 12
+			}
+		]
+	}
+	54: {
+		desc: "One of the dangers of being onboard is being exposed to germs and disease, partly from traveling in close quarters to others. Cramped living spaces, a lack of access to medical care, and the lack of a clean plumbing system were not ideal conditions. If a person did not bring along home remedies, have additional money to pay for nursing services or contracted something prior to boarding, then passengers had to fend for themselves. Combined with seasickness, the journey could be physically exhausting. "
+		id: 54
+		title: "Historical Note: Illness and Travel "
+	}
+	11: {
+		image: 11.jpg
+		desc: "Dear Cousin,\nI am content to report that I have found steady employment as my own master. I had arrived only two months in St. Paul, working odds and ends in the town when I noticed an advertisement of purchasable land not far from my lodgings. Land is so cheap here in America! I saved enough to buy my own lot and have begun to till and grind the land. My hope is to grow peas and potatoes and sell them at market. Let us pray for a good harvest this next season!\nLife has treated me well. The journey is hard on everyone, harder for others. My companion on the trip to America arrived well but I have received word that he has fallen into poverty. He was swindled by a false recruiter at the docks. He is struggling to find employment in the city but, God willing, I hope he will find something soon!\nAs you make the journey, make sure to bring plenty of food. They treat you well on the ships and trains but the journey alone can make one homesick. A little piece of home can appease the qualms of the stomach and might make you a friend or two!\nGodspeed dear cousin! \nArvid Lothbrok"
+		id: 11
+		title: Minnesota letter
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 12
+			}
+		]
+	}
+	55: {
+		desc: You begin to cough uncontrollably. Other passengers stop what they’re doing and look at you. What do you do?
+		id: 55
+		title: You fell ill!
+	}
+	12: {
+		desc: "Immigrants were inspired to move to America not only by “push” factors that pushed them to leave their country of origin, but by “pull” factors that suggested the United States would offer great opportunities. Many immigrants found out about these opportunities from family and friends, then they often followed those family and friends to places where they had already become established--a process called chain migration. Letters from the U.S. to Sweden provided lots of advice about the long journey as well as information about opportunities in their new American homes and sometimes encouragement to join them. Other immigrants were recruited in Sweden to go straight to particular jobs in the United States. John Deere, in Moline, Illinois, was well known for recruiting Swedes for its growing factory operation. "
+		id: 12
+		title: "Historical Note: the Pull of America "
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 13
+			}
+		]
+	}
+	56: {
+		desc: "All better! Thankfully you brought along some remedies from home. "
+		id: 56
+		title: Take Medicine
+	}
+	13: {
+		image: 13.jpg
+		desc: "To start your journey, you need a few provisions. The first and foremost being your papers. Check your inventory to see how much money you currently have.  Do you:"
+		id: 13
+		title: "Travel Papers "
+		options: [
+			{
+				desc: Buy official papers from your home parish for 80 Kronor
+				nextSlideIndex: 14
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 80
+							image: ""
+						}
+						operation: MINUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Official Papers
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				feasibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 80
+							image: ""
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
+			}
+			{
+				desc: Buy forged papers for 40 Kronor
+				nextSlideIndex: 14
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Forged Papers
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 40
+							image: ""
+						}
+						operation: MINUS
+					}
+				]
+				feasibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 40
+							image: ""
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
+			}
+		]
+	}
+	57: {
+		desc: You seem to be getting worse. What do you do?
+		id: 57
+		title: Suffer and hope it goes away
+	}
+	14: {
+		desc: "Immigrants from Sweden usually gained needed papers for travel from their Parish. Tickets were costly; $30 USD in 1880 is the equivalent of $775 USD in 2017. Forging papers was not typical for immigrants; however, one letter, translated by the Swenson Center and sent to a Mr. Hjalmar Andersson, mentions that Swedish men were drafted in the military when they turned 18. In order for these men to migrate, they needed to find alternative ways to seek passage and documentation, so the letter writer suggests pursuing a forgery. \n"
+		id: 14
+		title: Historical Note: Getting Papers for Travel
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 15
+			}
+		]
+	}
+	58: {
+		desc: "You get better but unfortunately you are quarantined for the rest of your journey. You may have missed seeing your first glimpse from afar of America but at least you are alive and well. "
+		id: 58
+		title: Pay for a physician
+	}
+	15: {
+		desc: "Excellent. You are the first in your family to take on this journey. They are counting on your success in America. Your family has pooled enough money for passage, thankfully. You cannot take very much with you, so you must choose carefully which items to bring. Some items are more useful than others but even the smallest, trivial item can lead to unexpected use. Remember, you have some money left after purchasing papers. \nChoose one item:"
+		id: 15
+		title: Choose your Inventory items
+		options: [
+			{
+				desc: Bible
+				nextSlideIndex: 16
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Bible
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+			}
+			{
+				desc: Family Heirloom
+				nextSlideIndex: 16
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Family Heirloom
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+			}
+			{
+				desc: Sewing Materials
+				nextSlideIndex: 16
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Sewing Materials
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+			}
+			{
+				desc: Medicine
+				nextSlideIndex: 16
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Medicine
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+			}
+			{
+				desc: Cured Meat
+				nextSlideIndex: 16
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Cured Meat
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+			}
+		]
+	}
+	59: {
+		desc: "You are denied medical care. Unfortunately, you died before you reached New York. "
+		id: 59
+		title: Quarantine
+	}
+	16: {
+		desc: "Excellent. You are the first in your family to take on this journey. They are counting on your success in America. Your family has pooled enough money for passage, thankfully. You cannot take very much with you, so you must choose carefully which items to bring. Some items are more useful than others but even the smallest, trivial item can lead to unexpected use. "
+		id: 16
+		title: Choose another Inventory item
+		options: [
+			{
+				desc: Bible
+				nextSlideIndex: 17
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Bible
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Bible
+							desc: ""
+							image: ""
+						}
+						operation: EQUAL
+					}
+				]
+			}
+			{
+				desc: Family Heirloom
+				nextSlideIndex: 17
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Family Heirloom
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Family Heirloom
+							desc: ""
+							image: ""
+						}
+						operation: EQUAL
+					}
+				]
+			}
+			{
+				desc: Sewing Materials
+				nextSlideIndex: 17
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Sewing Materials
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Sewing Materials
+							desc: ""
+							image: ""
+						}
+						operation: EQUAL
+					}
+				]
+			}
+			{
+				desc: Medicine
+				nextSlideIndex: 17
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Medicine
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Medicine
+							desc: ""
+							image: ""
+						}
+						operation: EQUAL
+					}
+				]
+			}
+			{
+				desc: Cured Meat
+				nextSlideIndex: 17
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Cured Meat
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Cured Meat
+							desc: ""
+							image: ""
+						}
+						operation: EQUAL
+					}
+				]
+			}
+		]
+	}
+	17: {
+		desc: "Excellent. You are the first in your family to take on this journey. They are counting on your success in America. Your family has pooled enough money for passage, thankfully. You cannot take very much with you, so you must choose carefully which items to bring. Some items are more useful than others but even the smallest, trivial item can lead to unexpected use. "
+		id: 17
+		title: Choose your final Inventory item
+		options: [
+			{
+				desc: Bible
+				nextSlideIndex: 18
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Bible
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Bible
+							desc: ""
+							image: ""
+						}
+						operation: EQUAL
+					}
+				]
+			}
+			{
+				desc: Family Heirloom
+				nextSlideIndex: 18
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Family Heirloom
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Family Heirloom
+							desc: ""
+							image: ""
+						}
+						operation: EQUAL
+					}
+				]
+			}
+			{
+				desc: Sewing Materials
+				nextSlideIndex: 18
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Sewing Materials
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Sewing Materials
+							desc: ""
+							image: ""
+						}
+						operation: EQUAL
+					}
+				]
+			}
+			{
+				desc: Medicine
+				nextSlideIndex: 18
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Medicine
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Medicine
+							desc: ""
+							image: ""
+						}
+						operation: EQUAL
+					}
+				]
+			}
+			{
+				desc: Cured Meat
+				nextSlideIndex: 18
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Cured Meat
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Cured Meat
+							desc: ""
+							image: ""
+						}
+						operation: EQUAL
+					}
+				]
+			}
+		]
+	}
+	18: {
+		desc: Many immigrants sold much of what they owned both in order to pay for the immense travel fees. Others planned to start over in America and so liquidated all their assets.
+		id: 18
+		title: "Historical Note: Inventory "
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 19
+			}
+		]
+	}
+	19: {
+		image: 19.jpg
+		desc: "You take a wagon to the port city of Gothenburg. You walk along Sillgatan or “Herring Street” where there were many emigrant agents, hotels, shops, and taverns. Here you wait to board a ship to England."
+		id: 19
+		title: Transport to Gothenburg
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 20
+			}
+		]
+	}
+	1: {
+		desc: You’re a young Swedish immigrant to America in 1880. You’ve made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?
+		id: 1
+		title: The Swedish Immigrant Trail
+		options: [
+			{
+				desc: Take the Journey
+				nextSlideIndex: 2
+			}
+		]
+	}
+	2: {
+		desc: "Between 1850 and 1930, over 1.3 million Swedes immigrated to the United States. At the same time, over 50 million Europeans left Europe. Several factors “pushed” Swedes to leave their homeland while others “pulled\" them to America. Population growth in Sweden led to less available land for farming and crop failure in the late 1860s put pressure on the agrarian society. That, paired with the availability of cheap land for farming and the Homestead Act of 1862 in the United States, caused many Swedes to seek a new life in America. Once Swedish immigrants found themselves here, they wrote letters back home describing their experiences, often in overly positive terms. These so-called “America letters” proved important in establishing migration channels for new immigrants to come and join their family and friends in America. Religious and political reasons played a much smaller role for the move to America, although it was critical in some cases.This Trans-Atlantic mass exodus was one of the major events in Swedish history during the last two centuries. This immense network of contacts established across the Atlantic has influenced the ways in which Swedish society then and now is oriented towards the United States."
+		id: 2
+		title: Historical Note: Swedish Immigration
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 3
+			}
+		]
+	}
+	3: {
+		image: 3.jpg
+		desc: "It’s the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. Who are you?"
+		id: 3
+		title: Choose Your Character
+		options: [
+			{
+				desc: "Anders Bengtsson "
+				nextSlideIndex: 4
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.NameEffect
+						name: Anders Bengtsson
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 280
+							image: ""
+						}
+						operation: PLUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.GenderEffect
+						gender: MALE
+					}
+				]
+			}
+			{
+				desc: Lovisa Eriksdotter
+				nextSlideIndex: 5
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.NameEffect
+						name: Lovisa Eriksdotter
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.GenderEffect
+						gender: FEMALE
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 280
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+			}
+		]
+	}
+	4: {
+		image: 4.jpg
+		desc: "You are an 18 year-old male from Mellby Parish, Småland. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. "
+		id: 4
+		title: Anders Bengtsson
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 6
+			}
+		]
+	}
+	5: {
+		image: 5.jpg
+		desc: You are an 18 year-old female maid from Stockholm. You dislike your job as maid and can’t seem to find a better one because there is too much competition (population has been booming in the city and countryside). You decide to seek better employment in America.\n
+		id: 5
+		title: Lovisa Eriksdotter
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 6
+			}
+		]
+	}
+	6: {
+		desc: "Sweden followed a patronymic naming system until the late 19th-century. For example, Anders Bengtsson was so named because he was Anders, the son of Bengt. His son might be named Nils Andersson. A daughter could be Britta Andersdotter (dotter = daughter). Exceptions to this include nobility and clergy. Priests would often combine Greek or Roman endings -ander or -ius to names of parishes to form new names (for example, Eric Norelius). "
+		id: 6
+		title: Historical Note: Swedish Names
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 8
+			}
+		]
+	}
+	7: {
+		image: 7.jpg
+		desc: "To Whom It May Concern,\nWe hope you find this letter in good spirits. On behalf of the John Deere Company, you have been selected for a position at the Moline factory site. We are looking forward to seeing you again and have safe travels. Please bring this notarized letter with you to our recruitment office.\nGodspeed,\nFrom the Office of John Deere, President of John Deere Co."
+		id: 7
+		title: John Deere letter
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 12
+			}
+		]
+	}
+	8: {
+		image: 8.jpg
+		desc: "Receiving letters from those who journeyed to America prompted many of your family friends to pursue their own journey over. Life must be treating them well in America— economic opportunities, building their own legacy and family. The American Dream is a strong pull for Swedes, yourself included. \n\nChoose a letter to read:"
+		id: 8
+		title: You’ve received a letter from America.
+		options: [
+			{
+				desc: John Deere letter
+				nextSlideIndex: 7
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: John Deere letter
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.GenderCondition
+						gender: MALE
+					}
+				]
+			}
+			{
+				desc: Illinois letter
+				nextSlideIndex: 9
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Illinois letter
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+			}
+			{
+				desc: Washington letter
+				nextSlideIndex: 10
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Washington letter
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.GenderCondition
+						gender: FEMALE
+					}
+				]
+			}
+			{
+				desc: Minnesota letter
+				nextSlideIndex: 11
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Minnesota letter
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.GenderCondition
+						gender: MALE
+					}
+				]
+			}
+		]
+	}
+	9: {
+		image: 9.jpg
+		desc: "Dear Cousin,\nMay God find you well, dear friend! God is good and God is plentiful. He has shown me the way to a brighter future here in America. My journey has led my travelling companions and myself to a quaint town in the state of Illinois called Moline. It may be quaint now but we are fortunate to have factories and farming jobs available for the people. I have friends all over Illinois including Rockford and Chicago! We stay in touch through correspondence and the occasional social visit when we can. My piece of advice for you, should you make the journey, is to find peace with yourself and our loving God. For He is the way and will guide you! The Christian faith has given me hope and salvation along my journey. My fellow companions and I attend the Lutheran service held by a pastor who is also from Sweden. It is wonderful to have familiarity in a strange place. Services are something to look forward to as it brings us closer to our Maker and builds a strong sense of community. I pray for all the success in the world for you as you make your own journey. \nLovingly,\nErika Leiffson"
+		id: 9
+		title: Illinois letter
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 12
+			}
+		]
+	}
+	60: {
+		desc: "You spend some time to yourself— exploring the ship, reading the few materials on the ship, reflecting on how far you have come and thinking about the journey still to come."
+		id: 60
+		title: Read to yourself
+	}
+	61: {
+		desc: What do you want to do?\n
+		id: 61
+		title: You’re on the Deck
+	}
+	62: {
+		image: 62.jpg
+		desc: "You situate yourself near the railing of the deck. Your face feels the gentle breeze and you can smell the salty air. The sea is roaring with life as you make your way to America. The weather is fair and your spirits lift as you see the sun glisten onto the shining waters. From the corner of your eye, you notice a shiny glimpse beside you. On one of the lounge chairs there are some small coins. You inspect and find $5 or 20 SEK (+$5 or 20 SEK)! How fortunate! "
+		id: 62
+		title: Oceanside
+	}
+	63: {
+		image: 63.jpg
+		desc: "You notice the gate is wide open to the upper decks. Hoping to sneak a better glimpse of the vast ocean, you climb your way up the steps. Before you could find your balance onto the final step, the first officer rounds the corner and catches you. He gives you a sharp warning and orders you to head back to your deck."
+		id: 63
+		title: First class deck
+	}
+	20: {
+		desc: "Over a million Swedish immigrants left through the port of Gothenburg in southwest Sweden. Many American genealogists believe their ancestors lived in Gothenburg, when really this was just the port they left through. Provinces of Sweden including Småland, Västergötland, Dalsland, Värmland, and Öland saw large numbers emigrate. "
+		id: 20
+		title: Historical Note: Gothenburg Port
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 21
+			}
+		]
+	}
+	64: {
+		image: 64.jpg
+		desc: You can hear some lively discussion ahead. However you can also see the entrance to a peaceful cabin room. What do you decide to do?
+		id: 64
+		title: Social Floor
+	}
+	21: {
+		desc: "After the American Civil War, big steamship companies like the White Star Line organized emigrant travel. For Swedes, this often meant traveling to Gothenburg, taking a ship to Hull, England, crossing England by train, and taking a steamliner from Liverpool to New York. During World War I, the Swedish American Line was established with a direct route from Gothenburg to New York and Swedish immigrants no longer had to travel through England. "
+		id: 21
+		title: Historical Note: The Travel Route
+		options: [
+			{
+				desc: Continue
+				nextSlideIndex: 22
+			}
+		]
+	}
+	65: {
+		image: 65.jpg
+		desc: "You meet and socialize with other passengers, exchanging stories of the journey thus far. You are both excited and scared when the boat docks in New York"
+		id: 65
+		title: Chat with other passengers
+	}
+	22: {
+		image: 22.jpg
+		desc: You have arrived at Gothenburg port. The port of Gothenburg promises good sailing today. You need to find the ticket agent for the White Star Line.
+		id: 22
+		title: Gothenburg Port
+		options: [
+			{
+				desc: Go left
+				nextSlideIndex: 23
+			}
+			{
+				desc: Go straight to ship
+				nextSlideIndex: 29
+			}
+			{
+				desc: Go right
+				nextSlideIndex: 32
+			}
+		]
+	}
+	66: {
+		image: 66.jpg
+		desc: "You encounter a priest reading some psalms and verses to himself. He notices you and begs you to come closer. Interested, you sit beside him and he tells you about the word of God and the inspiration of men like Moses, Noah, and Job— all who were tested on their journeys. Through faith in the Lord, they were triumphant and lived peacefully preaching the word of God."
+		id: 66
+		title: Discuss Scripture
+	}
+	23: {
+		image: 23.jpg
+		desc: You see a market at the end of the lane. Do you wish to shop here?
+		id: 23
+		title: Market
+		options: [
+			{
+				desc: Yes
+				nextSlideIndex: 24
+			}
+			{
+				desc: No
+				nextSlideIndex: 22
+			}
+		]
+	}
+	67: {
+		image: 67.jpg
+		desc: "You reflect on his words and feel a sense of belonging with these stories. You hope you too will find success on your journey. Perhaps God has a special plan for you in America. "
+		id: 67
+		title: Scripture
+	}
+	24: {
+		image: 24.jpg
+		desc: You’re in the shop. What would you like to do?
+		id: 24
+		title: Shop
+		options: [
+			{
+				desc: Buy
+				nextSlideIndex: 25
+			}
+			{
+				desc: Sell
+				nextSlideIndex: 27
+			}
+			{
+				desc: Leave
+				nextSlideIndex: 22
+			}
+		]
+	}
+	68: {
+		desc: "Although dwarfed by economic reasons, another push factor inspiring immigrants to leave Europe was religious persecution. During the 18th century, official laws forbade Swedes from any religion outside of a recognized Lutheran parish. Around 1860, the Church of Sweden relinquished some of the restrictions and allowed Swedes to practice other denominations. "
+		id: 68
+		title: "Historical Note: Religion and Immigration "
+	}
+	25: {
+		id: 25
+		title: Choose one item to buy
+		options: [
+			{
+				desc: Bible
+				nextSlideIndex: 26
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Bible
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 20
+							image: ""
+						}
+						operation: MINUS
+					}
+				]
+				feasibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 20
+							image: ""
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
+			}
+			{
+				desc: Family Heirloom
+				nextSlideIndex: 26
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Family Heirloom
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 20
+							image: ""
+						}
+						operation: MINUS
+					}
+				]
+				feasibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 20
+							image: ""
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
+			}
+			{
+				desc: Sewing Materials
+				nextSlideIndex: 26
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Sewing Materials
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 20
+							image: ""
+						}
+						operation: MINUS
+					}
+				]
+				feasibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 20
+							image: ""
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
+			}
+			{
+				desc: Medicine
+				nextSlideIndex: 26
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Medicine
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 20
+							image: ""
+						}
+						operation: MINUS
+					}
+				]
+				feasibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 20
+							image: ""
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
+			}
+			{
+				desc: Cured Meat
+				nextSlideIndex: 26
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Cured Meat
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 20
+							image: ""
+						}
+						operation: MINUS
+					}
+				]
+				feasibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 20
+							image: ""
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
+			}
+			{
+				desc: Back
+				nextSlideIndex: 24
+			}
+		]
+	}
+	69: {
+		desc: You reflect on his words and feel a sense of belonging with these stories. You hope you too will find success on your journey.
+		id: 69
+		title: Scripture
+	}
+	26: {
+		desc: "The shopkeeper is grateful to sell another item and hands it to you. You’re sure it will help you on the long journey ahead. You wrap it, put it into your luggage, and head back to the street."
+		id: 26
+		title: "Thank you for your purchase! "
+		options: [
+			{
+				desc: Buy another item
+				nextSlideIndex: 25
+			}
+			{
+				desc: Continue
+				nextSlideIndex: 22
+			}
+		]
+	}
+	27: {
+		id: 27
+		title: Choose One Item to Sell
+		options: [
+			{
+				desc: Bible
+				nextSlideIndex: 28
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Bible
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: MINUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 15
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Bible
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
+			}
+			{
+				desc: Family Heirloom
+				nextSlideIndex: 28
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Family Heirloom
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: MINUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 15
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Family Heirloom
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
+			}
+			{
+				desc: Sewing Materials
+				nextSlideIndex: 28
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Sewing Materials
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: MINUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 15
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Sewing Materials
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
+			}
+			{
+				desc: Medicine
+				nextSlideIndex: 28
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Medicine
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: MINUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 15
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Medicine
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
+			}
+			{
+				desc: Cured Meat
+				nextSlideIndex: 28
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Cured Meat
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: MINUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Swedish Kronor
+							desc: ""
+							quantity: 15
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Cured Meat
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: GREATER_OR_EQUAL
+					}
+				]
+			}
+			{
+				desc: Back
+				nextSlideIndex: 24
+			}
+		]
+	}
+	28: {
+		desc: The shopkeeper pays you for your item. You’re happy to have a bit more cash on hand for the journey ahead. It may come in handy. \nYou head back into the street.\n
+		id: 28
+		title: Just what we needed for the store
+		options: [
+			{
+				desc: Sell another item
+				nextSlideIndex: 27
+			}
+			{
+				desc: Continue
+				nextSlideIndex: 22
+			}
+		]
+	}
+	29: {
+		image: 29.jpg
+		desc: "Inspection After passing initial health inspection, the ticketmaster asks for your papers. Do you have your ticket?"
+		id: 29
+		title: Go Straight To Ship
+	}
+	70: {
+		image: 70.jpg
+		desc: "Go below [boiler room] You creep down to the belly of the ship and find a world of coal and fire. Men all around are keeping the boilers running. The squeals and churnings of the machine were matched with the yells of crew men giving out orders. Amidst all the noise, someone notices your presence.\n"
+		id: 70
+		title: Go below to the boiler room
+	}
+	71: {
+		image: 71.jpg
+		desc: "You meet a disgruntled boilerman hard at work. He eyes you and starts yelling and pointing for you to get out of there. \nQuickly,"
+		id: 71
+		title: Boiler Room
+	}
+	72: {
+		image: 72.jpg
+		desc: "The boilerman mistakes you for a worker, forces you to work. The boilerman eyes you and makes gestures to pick up a shovel and work. What do you do?"
+		id: 72
+		title: Boiler Room
+	}
+	73: {
+		image: 73.jpg
+		desc: "You shake your head and try your best to explain you are a passenger. The boilerman yells at you, presumably to get out."
+		id: 73
+		title: Say you’re a passenger
+	}
+	30: {
+		image: 30.jpg
+		desc: "“Seems to be in order. Proceed.” You board the ship for Hull, England.  "
+		id: 30
+		title: Board Ship for Hull
+	}
+	74: {
+		image: 74.jpg
+		desc: "Confused and afraid, you don’t say anything. He points to a boiler to work on and orders you to shovel the coal into the fire pit. You try to walk away but he pushes you back to the boiler. You hesitantly do as he says. He orders you to fix the gears on the pressure system when you are done. Because of your lack of engineering skills, you fiddle with the gears which causes great amounts of pressure. So much pressure that you cause the boiler to implode. One by one, the boilers catch on fire and cause the room to collapse. The ship sinks into the abyss, lost forever."
+		id: 74
+		title: You cause the boat to sink!
+	}
+	31: {
+		desc: “No ticket? What are you doing here?? Go back and get a ticket. Next!”
+		id: 31
+		title: No Ticket
+	}
+	75: {
+		image: 75.jpg
+		desc: "Arrived! You’ve arrived at Castle Garden in New York City. Before 1890, the federal government practiced some oversight of immigration to the U.S., but it largely contracted out the duties. The famous Ellis Island did not open as the country’s primary immigration center until 1892. From 1855 to 1890, more than 8 million immigrants who arrived in New York City were instead processed at Castle Garden, America’s first official immigration center, by New York state officials. "
+		id: 75
+		title: "Arrived! Castle Garden, New York City"
+	}
+	32: {
+		image: 32.jpg
+		desc: Ticket agent “What can I do for you?”
+		id: 32
+		title: You Found the Ticket Agent
+	}
+	76: {
+		desc: "After authorities examined the sanitary conditions of the boat, passengers were brought from their ships on barges to Castle Garden. If medical examiners believed a migrant was likely to become a public charge, either due to disease or a perception of helplessness, then they would be quarantined until officials could arrange for deportation. Each person was individually registered by a clerk, then moved to the next desk, where transportation companies’ clerks would determine where the migrant was traveling, lay out maps to view the route ahead, and figure out the price for their next stage of the journey. Immigrants would have their bags checked, pay the requisite costs, and then a steamboat would take them to the starting points for various railroad and steamboat lines."
+		id: 76
+		title: Historical Note: Castle Garden
+	}
+	33: {
+		desc: "You put the ticket into your pocket. "
+		id: 33
+		title: Pay for ticket to Hull
+	}
+	34: {
+		desc: You put both tickets into your pocket.
+		id: 34
+		title: Pay for ticket to Hull with connection to Liverpool
+	}
+	35: {
+		desc: "Tickets were usually purchased from a Swedish emigration agent who booked their passage all the way from Gothenburg to the emigrant’s destination city in America (such as Chicago or Lindsborg, Kansas). Companies with strong economic interests in emigrants (like railroad companies or manufacturers like John Deere) were eager to attract new workers to their areas."
+		id: 35
+		title: Historical Note: Buying Tickets
+	}
+	36: {
+		image: 36.jpg
+		desc: "After a relatively smooth journey, you make it to Hull, England— a thriving port and the next step in your journey. In order to proceed, you need to buy passage to Liverpool. "
+		id: 36
+		title: "Arrive in Hull, England "
+	}
+	37: {
+		desc: Ticket agent “Welcome to Hull. What are you looking for?”
+		id: 37
+		title: You Found the Ticket Agent
+	}
+	38: {
+		desc: "You find nothing of interest. "
+		id: 38
+		title: Nothing to See
+	}
+	39: {
+		image: 39.jpg
+		desc: A sign above you says Liverpool station. A ticketmaster is inspecting tickets in front out you.\nBoard Liverpool train
+		id: 39
+		title: Train to Liverpool
+	}
+	40: {
+		image: 40.jpg
+		desc: "Made it to Liverpool The journey to Liverpool went well. Aside from the uncomfortable seating on the train and the occasional strange looks from the English, you feel more confident about your travels. Liverpool is known as a waypoint for immigrants seeking passage to America."
+		id: 40
+		title: "Arrive in Liverpool, England "
+	}
+	41: {
+		desc: Inspection You encounter the ticketmaster inspecting the passengers. You present him your ticket. He nods and gestures for your papers.
+		id: 41
+		title: You Found the Inspection Line
+	}
+	42: {
+		desc: You present your papers and hope they will pay off. You start to become nervous as he eyes them. Perhaps you can silence his questioning glance…
+		id: 42
+		title: Forged Papers
+	}
+	43: {
+		image: 43.jpg
+		desc: He makes a gesture for his superior officer to come over. The superior officer glances at the papers and murmurs instructions to his subordinate. The superior officer makes some sharp remarks to you and hands you over to the police for forgery and bribing an officer. You are immediately put in prison for your crimes and are stripped of all your belongings. You must now wait to serve your sentence before you attempt to make it to America.
+		id: 43
+		title: Bribe him
+	}
+}
+startingSlideIndex: 1
+}

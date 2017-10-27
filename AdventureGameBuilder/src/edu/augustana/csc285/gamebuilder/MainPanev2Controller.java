@@ -18,6 +18,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -28,10 +29,12 @@ import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -42,6 +45,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 import edu.augustana.csc285.game.datamodel.*;
@@ -66,7 +70,7 @@ public class MainPanev2Controller {
 	@FXML
 	private Button backButton;
 	@FXML
-	private TextField slideDescription;
+	private TextArea slideDescription;
 	@FXML
 	private TextField slideId;
 	@FXML
@@ -103,14 +107,12 @@ public class MainPanev2Controller {
 
 	@FXML
 	private void initialize() throws FileNotFoundException {
-		currentStory = new Story("0");
-		currentStory.addSlide(new Slide(null, null, "0", null));
-//		currentSlide = new Slide(null, null, null, null);
+		currentStory = new Story("1");
 		slideSelection.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 				try {
-					if (newValue!=null) {
+					if (newValue != null) {
 						if (!newValue.equals(oldValue)) {
 							System.out.println("Listener: " + newValue);
 							currentSlide = currentStory.getSlide(newValue);
@@ -125,6 +127,7 @@ public class MainPanev2Controller {
 			}
 		});
 		updateFields();
+		this.slideDescription.setWrapText(true);
 	}
 
 	private void updateFields() throws FileNotFoundException {
@@ -139,17 +142,17 @@ public class MainPanev2Controller {
 			slideId.setText(currentSlide.getId());
 			slideDescription.setText(currentSlide.getDesc());
 			slideTitle.setText(currentSlide.getTitle());
-			ObservableList<String> choiceboxSlideID = FXCollections.observableArrayList();
-			for (Slide index : currentStory.getSlides()) {
-				choiceboxSlideID.add(index.getId());
-			}
+			ObservableList<String> choiceboxSlideID = FXCollections.observableArrayList(currentStory.getSlideIds());
+//			ObservableList<String> choiceboxSlideID = FXCollections.observableArrayList();
+//			for (Slide index : currentStory.getSlides()) {
+//				choiceboxSlideID.add(index.getId());
+//			}
 			slideSelection.setItems(choiceboxSlideID);
 			if (currentSlide.getImage() == null || currentSlide.getImage().equals("")) {
 				imageView.setVisible(false);
-			} 
-			else {
+			} else {
 				imageView.setVisible(true);
-				InputStream input = new FileInputStream(currentSlide.getImage());
+				InputStream input = new FileInputStream("image/slide/"+currentSlide.getImage());
 				imageView.setImage(new Image(input));
 			}
 		}
@@ -169,22 +172,22 @@ public class MainPanev2Controller {
 				}
 			}
 		});
-		
+
 	}
-	
+
 	private static void configureFileChooser(String title, FileChooser fileChooser,
 			FileChooser.ExtensionFilter filter) {
 		FileChooser.ExtensionFilter[] filters = { filter };
 		configureFileChooser(title, fileChooser, filters);
 	}
-	
+
 	private static void configureFileChooser(String title, FileChooser fileChooser,
 			FileChooser.ExtensionFilter[] filter) {
 		fileChooser.setTitle(title);
 		fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
 		fileChooser.getExtensionFilters().addAll(Arrays.asList(filter));
 	}
-	
+
 	private void saveFile(String content, File file) {
 		try {
 			FileWriter fileWriter = new FileWriter(file);
@@ -194,8 +197,6 @@ public class MainPanev2Controller {
 			ex.printStackTrace();
 		}
 	}
-	
-
 
 	@FXML
 	private void handleSelectImage() throws IOException {
@@ -278,31 +279,50 @@ public class MainPanev2Controller {
 	private void handleSlideDescription() {
 
 		Text text = new Text(slideDescription.getText());
-		// text.setFont(Font.font ("Arial", 27));
 		HBox root = new HBox();
-
-		// root.getChildren().add(iv1);
 		root.getChildren().add(text);
 
 	}
 
+	// Source from
+	// http://docs.oracle.com/javafx/2/ui_controls/file-chooser.htm
 	@FXML
-	private void handleLoadStory() throws IOException {
-		JSONFile = getFileFromUser();
-		storyJSONPath = Paths.get(JSONFile.getName());
+	private void handleLoadStory() {
+		Stage stage = new Stage();
+		FileChooser fileChooser = new FileChooser();
+		this.LoadStory.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(final ActionEvent e) {
+				configureFileChooser("Loading Story", fileChooser, new FileChooser.ExtensionFilter("JSON", "*.json"));
+				File file = fileChooser.showOpenDialog(stage);
+				if (file != null) {
+					readStory(file);
+				}
+			}
+		});
+	}
 
-		if (Files.notExists(storyJSONPath)) {
-			Files.createFile(storyJSONPath);
-			Files.copy(Paths.get(JSONFile.getPath()), storyJSONPath, StandardCopyOption.REPLACE_EXISTING);
-		}
+	private void readStory(File file) {
+		String storyString = "";
+		try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
 
-		String jsonString = "";
-		Scanner fileParse = new Scanner(JSONFile);
-		while (fileParse.hasNextLine()) {
-			jsonString = jsonString + fileParse.nextLine();
+			String line;
+			while ((line = reader.readLine()) != null)
+				storyString += line + "\n";
+
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		fileParse.close();
-		currentStory = Story.fromJSON(jsonString);
+		this.currentStory = Story.fromJSON(storyString);
+		this.slideSelectionHelper();
+
+	}
+
+	private void slideSelectionHelper() {
+		if (currentStory != null) {
+			ArrayList<String> slideIDStringList = currentStory.getSlideIds();
+			this.slideSelection.setItems(FXCollections.observableArrayList(slideIDStringList));
+		}
 	}
 
 	@FXML
@@ -381,8 +401,8 @@ public class MainPanev2Controller {
 	}
 
 	/**
-	 * Returns an array containing the story files Uses Java I/O for compatability
-	 * with gamebuilder
+	 * Returns an array containing the story files Uses Java I/O for
+	 * compatability with gamebuilder
 	 */
 	private static File[] getStoryFiles() {
 		return new File("core/storyData").listFiles();
@@ -406,13 +426,13 @@ public class MainPanev2Controller {
 	}
 
 	/*
-	 * public static void addTextLimiter(final TextField tf, final int maxLength) {
-	 * tf.textProperty().addListener(new ChangeListener<String>() {
+	 * public static void addTextLimiter(final TextField tf, final int
+	 * maxLength) { tf.textProperty().addListener(new ChangeListener<String>() {
 	 * 
 	 * @Override public void changed(final ObservableValue<? extends String> ov,
-	 * final String oldValue, final String newValue) { if (tf.getText().length() >
-	 * maxLength) { String s = tf.getText().substring(0, maxLength); tf.setText(s);
-	 * } } }); }
+	 * final String oldValue, final String newValue) { if (tf.getText().length()
+	 * > maxLength) { String s = tf.getText().substring(0, maxLength);
+	 * tf.setText(s); } } }); }
 	 */
 
 	/**
