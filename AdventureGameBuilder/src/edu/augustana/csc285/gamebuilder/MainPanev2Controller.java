@@ -130,7 +130,7 @@ public class MainPanev2Controller {
 		this.slideDescription.setWrapText(true);
 	}
 
-	private void updateFields() throws FileNotFoundException {
+	public void updateFields() throws FileNotFoundException {
 		if (currentSlide != null) {
 			nextSlideView.setCellValueFactory(new PropertyValueFactory<Option, String>("nextSlideIndex"));
 			optionDescView.setCellValueFactory(new PropertyValueFactory<Option, String>("desc"));

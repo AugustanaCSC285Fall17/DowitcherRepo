@@ -1,5 +1,10 @@
 {
 itemMap: {
+	" ~quarantine ": {
+		name: " ~quarantine "
+		desc: ""
+		image: ""
+	}
 	Bible: {
 		name: Bible
 		desc: ""
