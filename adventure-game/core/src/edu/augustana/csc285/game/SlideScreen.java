@@ -91,18 +91,16 @@ public class SlideScreen implements Screen {
 		}
 		backgroundImage = new Texture("GameData/background.jpg");
 
-		// Button inventoryBtn =
-		// this.addTextureRegion("GameData/icons/inventory.png", new
-		// InventoryScreen(game), 3);
-		// Button playerStatBtn =
-		// this.addTextureRegion("GameData/icons/player-stat.png", new
-		// PlayerStatScreen(game), 2);
-		// Button settingsBtn =
-		// this.addTextureRegion("GameData/icons/settings.jpg", new
-		// SettingsScreen(game), 1);
+		Button inventoryBtn =
+		this.addTextureRegion("GameData/icons/inventory.png", new
+		InventoryScreen(game), 3);
+		Button playerStatBtn =
+		this.addTextureRegion("GameData/icons/player-stat.png", new
+		PlayerStatScreen(game), 2);
+		Button settingsBtn =
+		this.addTextureRegion("GameData/icons/settings.jpg", new
+		SettingsScreen(game), 1);
 
-		// visibleOptions = (ArrayList<Option>)
-		// slide.getVisibleOptions(game.manager.getPlayer());
 		visibleOptions = slide.getVisibleOptions(game.manager.getPlayer());
 
 		// Set up camera
@@ -111,9 +109,9 @@ public class SlideScreen implements Screen {
 
 		// Set up stage and table for buttons
 		stage = new Stage(new ScreenViewport());
-		// stage.addActor(inventoryBtn);
-		// stage.addActor(playerStatBtn);
-		// stage.addActor(settingsBtn);
+		stage.addActor(inventoryBtn);
+		stage.addActor(playerStatBtn);
+		stage.addActor(settingsBtn);
 
 		Table buttonTable = new Table();
 

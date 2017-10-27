@@ -80,7 +80,7 @@ public class SettingsScreen implements Screen {
 			}
 
 		});
-		settingsTable.add(musicOnButton).width(200).height(50).pad(5).row();
+		settingsTable.add(musicOnButton).width(175).height(45).pad(5).row();
 
 		// Add music off button to table
 		Button musicOffButton = new TextButton("Music Off", BACK_BUTTON_SKIN, "default");
@@ -95,31 +95,17 @@ public class SettingsScreen implements Screen {
 				return true;
 			}
 		});
-		settingsTable.add(musicOffButton).width(200).height(50).pad(5).row();
+		settingsTable.add(musicOffButton).width(175).height(45).pad(5).row();
 		
 		Button backButton = new TextButton("Back", BACK_BUTTON_SKIN);
 		backButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				if (fromMenuScreen) {
-					game.setScreen(new MainMenuScreen(game));
+					game.setScreen(new MainMenuScreen(game, false));
 				} else {
 					game.setScreen(new SlideScreen(game));
-					// Add exit to menu button to table
-					Button exitToMenuButton = new TextButton("Exit to Menu", BACK_BUTTON_SKIN, "default");
-					exitToMenuButton.addListener(new InputListener() {
-						@Override
-						public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-							game.setScreen(new MainMenuScreen(game));
-						}
-
-						@Override
-						public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-							return true;
-						}
-					});
-					settingsTable.add(exitToMenuButton).width(200).height(50).pad(5).row();
-
+					
 				}
 			}
 
@@ -130,7 +116,24 @@ public class SettingsScreen implements Screen {
 
 		});
 		
-		backButton.setSize(180, 50);
+		if (!fromMenuScreen) {
+		// Add exit to menu button to table
+		Button exitToMenuButton = new TextButton("Exit to Menu", BACK_BUTTON_SKIN, "default");
+		exitToMenuButton.addListener(new InputListener() {
+			@Override
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				game.setScreen(new MainMenuScreen(game, true));
+			}
+
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+		});
+		settingsTable.add(exitToMenuButton).width(200).height(50).pad(5).row();
+		}
+		
+		backButton.setSize(130, 45);
 		backButton.setPosition(1000, 650);
 		stage.addActor(backButton);
 		stage.addActor(settingsTable);

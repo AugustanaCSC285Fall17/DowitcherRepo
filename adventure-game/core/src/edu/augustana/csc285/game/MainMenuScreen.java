@@ -29,9 +29,10 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 	private Texture logo;
 	private Texture backgroundImage;
 	private BitmapFont titleFont;
+	private boolean resumeGame;
 	OrthographicCamera camera;
-	
-	public MainMenuScreen(final AdventureGame game) {
+
+	public MainMenuScreen(final AdventureGame game, boolean resumeGame) {
 		this.game = game;
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
@@ -39,11 +40,17 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		logo = new Texture("GameData/swensonlogo.png");
 		backgroundImage = new Texture("GameData/background.jpg");
 		titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
-		
-		Table buttonTable = new Table();
-		buttonTable.setPosition((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.45 * AdventureGame.GAME_SCREEN_HEIGHT);
 
-		TextButton newGameButton = new TextButton("New Game", MENU_SKIN, "default");
+		Table buttonTable = new Table();
+		buttonTable.setPosition((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH,
+				(float) 0.45 * AdventureGame.GAME_SCREEN_HEIGHT);
+		
+		TextButton newGameButton;
+		if (resumeGame) {
+			newGameButton = new TextButton("Resume Game", MENU_SKIN, "default");
+		} else {
+			newGameButton = new TextButton("New Game", MENU_SKIN, "default");
+		}
 		newGameButton.addListener(new InputListener() {
 
 			@Override
@@ -58,10 +65,13 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 
 		});
-		buttonTable.add(newGameButton).width(170).height(50).pad(5).row();
-
+		if (resumeGame) {
+			buttonTable.add(newGameButton).width(210).height(50).pad(5).row();
+		} else {
+			buttonTable.add(newGameButton).width(175).height(45).pad(5).row();
+		}
+		
 		TextButton creditButton = new TextButton("Credit", MENU_SKIN, "default");
-		creditButton.setSize(180, 70);
 		creditButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -75,7 +85,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 
 		});
-		buttonTable.add(creditButton).width(180).height(50).pad(5).row();
+		buttonTable.add(creditButton).width(125).height(45).pad(5).row();
 
 		TextButton settingsButton = new TextButton("Settings", MENU_SKIN, "default");
 		boolean fromMenuScreen = true;
@@ -91,14 +101,14 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 		});
 
-		buttonTable.add(settingsButton).width(170).height(50).pad(5).row();
+		buttonTable.add(settingsButton).width(145).height(45).pad(5).row();
 
 		TextButton exitButton = new TextButton("Exit", MENU_SKIN, "default");
 		exitButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.setScreen(new EndScreen(game));
-				//Gdx.app.exit();
+				// Gdx.app.exit();
 			}
 
 			@Override
@@ -107,7 +117,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 
 		});
-		buttonTable.add(exitButton).width(170).height(50).pad(5).row();
+		buttonTable.add(exitButton).width(115).height(45).pad(5).row();
 
 		stage.addActor(buttonTable);
 		introduction = "Welcome to Swedish Settler Trail";
@@ -129,14 +139,16 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		// Draw background image
 		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		game.batch.end();
-		
+
 		stage.act();
 		stage.draw();
 		camera.update();
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.begin();
-		game.batch.draw(logo, (float) 0.32 * AdventureGame.GAME_SCREEN_WIDTH, (float) 0.8 * AdventureGame.GAME_SCREEN_HEIGHT, (float) 0.5 * logo.getWidth(), (float) 0.5 * logo.getHeight());
-		titleFont.draw(game.batch, introduction, (float) 0.27 * AdventureGame.GAME_SCREEN_WIDTH, 
+		game.batch.draw(logo, (float) 0.32 * AdventureGame.GAME_SCREEN_WIDTH,
+				(float) 0.8 * AdventureGame.GAME_SCREEN_HEIGHT, (float) 0.5 * logo.getWidth(),
+				(float) 0.5 * logo.getHeight());
+		titleFont.draw(game.batch, introduction, (float) 0.27 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) (AdventureGame.GAME_SCREEN_HEIGHT * 0.72));
 		game.batch.end();
 

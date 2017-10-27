@@ -1,5 +1,7 @@
 package edu.augustana.csc285.game.datamodel;
 
+import java.util.ArrayList;
+
 /**
  * author: Dat Tran
  */
@@ -109,14 +111,14 @@ public class Inventory {
 		return str;
 	}
 
-	public String getVisibleItemString() {
-		String str = "";
+	public ArrayList<String> getVisibleItemStringList() {
+		ArrayList<String> list = new ArrayList<String> ();
 		for (Item item : this.itemSet) {
 			if (item.getQuantity() != 0 && item.isVisible()) {
-				str += item + ": " + item.getQuantity() + "\n";
+				list.add(item.getQuantity()+" x " +item);
 			}
 		}
-		return str;
+		return list;
 	}
 
 	// Find item with matched name in the inventory, return null if nothing was

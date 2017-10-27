@@ -42,7 +42,7 @@ public class EndScreen implements Screen {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.initializeManager();
-				game.setScreen(new MainMenuScreen(game));
+				game.setScreen(new MainMenuScreen(game, false));
 				dispose();
 			}
 

@@ -57,7 +57,7 @@ public class CreditsScreen implements Screen {
 		backButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.setScreen(new MainMenuScreen(game));
+				game.setScreen(new MainMenuScreen(game, false));
 			}
 
 			@Override
@@ -67,7 +67,7 @@ public class CreditsScreen implements Screen {
 
 		});
 		
-		backButton.setSize(180, 50);
+		backButton.setSize(130, 45);
 		backButton.setPosition(1000, 650);
 		stage.addActor(backButton);
 	}
