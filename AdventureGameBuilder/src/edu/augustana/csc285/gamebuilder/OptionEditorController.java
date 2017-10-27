@@ -1,5 +1,6 @@
 package edu.augustana.csc285.gamebuilder;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -145,7 +146,7 @@ public class OptionEditorController {
 	}
 
 	@FXML
-	private void handleCreateOption() {
+	private void handleCreateOption() throws FileNotFoundException {
 		if (this.checkConditionForBasicInformation()) {
 			option.setDesc(this.descTextField.getText());
 			option.setNextSlideIndex(this.toSlideTextField.getText());
@@ -158,6 +159,7 @@ public class OptionEditorController {
 				this.controller.getCurrentSlide().setOption(index, option);
 			}
 			this.closeStage(createOption);
+			controller.updateFields();
 		}
 	}
 
