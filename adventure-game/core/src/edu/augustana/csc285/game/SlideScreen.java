@@ -101,8 +101,7 @@ public class SlideScreen implements Screen {
 
 		// visibleOptions = (ArrayList<Option>)
 		// slide.getVisibleOptions(game.manager.getPlayer());
-		visibleOptions = (ArrayList<Option>) slide.getOptions();
-		// visibleOptions = (ArrayList<Option>) slide.getVisibibleOptions();
+		visibleOptions = slide.getVisibleOptions(game.manager.getPlayer());
 
 		// Set up camera
 		camera = new OrthographicCamera();

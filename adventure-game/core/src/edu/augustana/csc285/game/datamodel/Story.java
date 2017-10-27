@@ -20,7 +20,7 @@ import edu.augustana.csc285.game.datamodel.condition.*;
  *
  */
 public class Story {
-	public HashMap<String, Slide> slides = new HashMap<String,Slide> ();
+	public HashMap<String, Slide> slides = new HashMap<String, Slide>();
 	private String defaultMusic;
 	private String startingSlideIndex;
 	// Never use -1 since that is the ending indicator
@@ -174,7 +174,8 @@ public class Story {
 
 	public ArrayList<String> getSlideIds() {
 		ArrayList<String> ids = new ArrayList<String>(slides.size());
-		ids.addAll(this.slides.keySet());
+		ids.addAll((this.slides.keySet()));
+		Collections.sort(ids, new ComparatorForStringID());
 		return ids;
 	}
 	//

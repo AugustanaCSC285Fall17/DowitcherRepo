@@ -176,8 +176,8 @@ public class Slide {
 		options.remove(index);
 	}
 
-	public List<Option> getVisibleOptions(Player player) {
-		List<Option> visibleOptions = new ArrayList<Option>();
+	public ArrayList<Option> getVisibleOptions(Player player) {
+		ArrayList<Option> visibleOptions = new ArrayList<Option>();
 		for (Option option : options) {
 			if (option.isVisible(player)) {
 				visibleOptions.add(option);

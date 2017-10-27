@@ -1,0 +1,64 @@
+{
+itemMap: {
+	Bible: {
+		name: Bible
+		desc: ""
+		image: ""
+	}
+	Cured Meat: {
+		name: Cured Meat
+		desc: ""
+		image: ""
+	}
+	Family Heirloom: {
+		name: Family Heirloom
+		desc: ""
+		image: ""
+	}
+	Forged Papers: {
+		name: Forged Papers
+		desc: ""
+		image: ""
+	}
+	Illinois letter: {
+		name: Illinois letter
+		desc: ""
+		image: ""
+	}
+	John Deere letter: {
+		name: John Deere letter
+		desc: ""
+		image: ""
+	}
+	Medicine: {
+		name: Medicine
+		desc: ""
+		image: ""
+	}
+	Minnesota letter: {
+		name: Minnesota letter
+		desc: ""
+		image: ""
+	}
+	Official Papers: {
+		name: Official Papers
+		desc: ""
+		image: ""
+	}
+	Sewing Materials: {
+		name: Sewing Materials
+		desc: ""
+		image: ""
+	}
+	Swedish Kronor: {
+		name: Swedish Kronor
+		desc: ""
+		image: ""
+	}
+	Washington letter: {
+		name: Washington letter
+		desc: ""
+		image: ""
+	}
+}
+}

@@ -45,6 +45,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 import edu.augustana.csc285.game.datamodel.*;
@@ -141,10 +142,11 @@ public class MainPanev2Controller {
 			slideId.setText(currentSlide.getId());
 			slideDescription.setText(currentSlide.getDesc());
 			slideTitle.setText(currentSlide.getTitle());
-			ObservableList<String> choiceboxSlideID = FXCollections.observableArrayList();
-			for (Slide index : currentStory.getSlides()) {
-				choiceboxSlideID.add(index.getId());
-			}
+			ObservableList<String> choiceboxSlideID = FXCollections.observableArrayList(currentStory.getSlideIds());
+//			ObservableList<String> choiceboxSlideID = FXCollections.observableArrayList();
+//			for (Slide index : currentStory.getSlides()) {
+//				choiceboxSlideID.add(index.getId());
+//			}
 			slideSelection.setItems(choiceboxSlideID);
 			if (currentSlide.getImage() == null || currentSlide.getImage().equals("")) {
 				imageView.setVisible(false);
