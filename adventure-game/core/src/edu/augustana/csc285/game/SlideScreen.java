@@ -67,7 +67,8 @@ public class SlideScreen implements Screen {
 		// Set up data fields
 		this.popUp = false;
 		this.game = game;
-		slide = new Slide("GameData/SlideImages/slide1.jpg", "this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string ", null, null, null);
+		slide = new Slide("GameData/SlideImages/slide1.jpg", "this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string this is a very long string ", 
+				null, "this is the slide title", null);
 		slide.addOption(new Option("Take the Journey", null, null, "1", null, null));
 		//slide = game.manager.getCurrentSlide();
 		if (slide.getImage() != null && slide.getImage() != "") {
@@ -179,8 +180,10 @@ public class SlideScreen implements Screen {
 		stage.addActor(buttonTable);
 
 		// Set up slide title
-		Label slideTitle = new Label(desc, new Label.LabelStyle(titleFont, Color.BLACK));
-		slideTitle.setPosition((float) 0.40 * AdventureGame.GAME_SCREEN_WIDTH,
+		Label slideTitle = new Label(this.slide.getTitle(), new Label.LabelStyle(titleFont, Color.BLACK));
+		GlyphLayout titleLength = new GlyphLayout(defaultFont, slideTitle.toString());
+		
+		slideTitle.setPosition((float) 0.5 * (AdventureGame.GAME_SCREEN_WIDTH - titleLength.width),
 				(float) 0.90 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(slideTitle);
 
