@@ -37,16 +37,13 @@ import edu.augustana.csc285.game.datamodel.Slide;
 public class SlideScreen implements Screen {
 	public static final HashSet<Integer> KEY_SET = new HashSet<Integer>(
 			Arrays.asList(8, 9, 10, 11, 12, 13, 14, 15, 16)); // 1
-	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
-	public static final Skin SCROLL_SKIN = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
 	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
-	private final AdventureGame game;
+	private AdventureGame game;
 
 	private Slide slide;
 	private ArrayList<Option> visibleOptions;
 	private Texture image;
-	private Texture backgroundImage;
 	private OrthographicCamera camera;
 	private Stage stage;
 	private boolean popUp;
@@ -89,11 +86,12 @@ public class SlideScreen implements Screen {
 		} else {
 			layout = 1;
 		}
-		backgroundImage = new Texture("GameData/background.jpg");
 
-		Button inventoryBtn = this.addTextureRegion("GameData/icons/inventory.png", new InventoryScreen(game), 3);
-		Button playerStatBtn = this.addTextureRegion("GameData/icons/player-stat.png", new PlayerStatScreen(game), 2);
-		Button settingsBtn = this.addTextureRegion("GameData/icons/settings.png", new SettingsScreen(game), 1);
+		Button inventoryBtn = this.addTextureRegion("image/icon/other/inventory.png", new InventoryScreen(game), 2);
+		// Button playerStatBtn =
+		// this.addTextureRegion("GameData/icons/player-stat.png", new
+		// PlayerStatScreen(game), 2);
+		Button settingsBtn = this.addTextureRegion("image/icon/other/settings.png", new SettingsScreen(game), 1);
 
 		visibleOptions = slide.getVisibleOptions(game.manager.getPlayer());
 
@@ -104,7 +102,7 @@ public class SlideScreen implements Screen {
 		// Set up stage and table for buttons
 		stage = new Stage(new ScreenViewport());
 		stage.addActor(inventoryBtn);
-		stage.addActor(playerStatBtn);
+		// stage.addActor(playerStatBtn);
 		stage.addActor(settingsBtn);
 
 		Table buttonTable = new Table();
@@ -136,7 +134,7 @@ public class SlideScreen implements Screen {
 		for (int i = 0; i < visibleOptions.size(); i++) {
 			Option option = visibleOptions.get(i);
 			String displayString = (i + 1) + ".  " + option.getDesc();
-			TextButton button = new TextButton(displayString, DEFAULT_SKIN, "default");
+			TextButton button = new TextButton(displayString, game.defaultSkin, "default");
 
 			// button.getLabel().setAlignment(Align.left);
 			button.addListener(new InputListener() {
@@ -145,14 +143,15 @@ public class SlideScreen implements Screen {
 						if (option.isFeasible(game.manager.getPlayer())) {
 							game.manager.applyOption(option);
 							game.setScreen(new SlideScreen(game));
-							dispose();
+
 						} else {
 							game.setScreen(new SlideScreen(game, option.getRejectMessage()));
 						}
 					} else {
 						game.setScreen(new EndScreen(game));
-						dispose();
+
 					}
+					dispose();
 				}
 
 				public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -180,7 +179,7 @@ public class SlideScreen implements Screen {
 			// Set up the scroll pane with slide description
 			Label description = new Label(slide.getDesc(), new Label.LabelStyle(defaultFont, Color.BLACK));
 			description.setWrap(true);
-			ScrollPane scroll = new ScrollPane(description, SCROLL_SKIN);
+			ScrollPane scroll = new ScrollPane(description, game.scrollSkin);
 			scroll.setScrollingDisabled(true, false);
 			scroll.setFadeScrollBars(false);
 			scroll.setScrollbarsOnTop(true);
@@ -208,7 +207,7 @@ public class SlideScreen implements Screen {
 		// Draw background image
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.begin();
-		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+		game.batch.draw(game.backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 
 		// Draw the slide image
 		if (layout == 0) {
@@ -234,6 +233,7 @@ public class SlideScreen implements Screen {
 							dispose();
 						} else {
 							game.setScreen(new SlideScreen(game, option.getRejectMessage()));
+							dispose();
 						}
 					} else {
 						game.setScreen(new EndScreen(game));
@@ -267,6 +267,7 @@ public class SlideScreen implements Screen {
 		button.addListener(new InputListener() {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.setScreen(screen);
+				dispose();
 			}
 
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -280,7 +281,7 @@ public class SlideScreen implements Screen {
 	public void show() {
 		Gdx.input.setInputProcessor(stage);
 		if (popUp) {
-			new Dialog("You cannot do this", DEFAULT_SKIN) {
+			new Dialog("You cannot do this", game.defaultSkin) {
 
 				{
 					text(rejectMessage);
@@ -290,6 +291,7 @@ public class SlideScreen implements Screen {
 				@Override
 				protected void result(final Object object) {
 					game.setScreen(new SlideScreen(game));
+					dispose();
 				}
 			}.show(stage);
 		}
@@ -316,7 +318,6 @@ public class SlideScreen implements Screen {
 		if (image != null) {
 			image.dispose();
 		}
-		backgroundImage.dispose();
 		stage.dispose();
 	}
 

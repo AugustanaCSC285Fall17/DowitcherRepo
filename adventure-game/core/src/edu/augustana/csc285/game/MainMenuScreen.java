@@ -21,13 +21,11 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 //import edu.augustana.csc285.game.datamodel.Notification;
 
 public class MainMenuScreen extends ScreenAdapter implements Screen {
-	public static final Skin MENU_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/cloud-form-ui.json"));
-	private final AdventureGame game;
+	private AdventureGame game;
 	private String introduction;
 	private Stage stage;
 	private GlyphLayout layout;
 	private Texture logo;
-	private Texture backgroundImage;
 	private BitmapFont titleFont;
 	OrthographicCamera camera;
 
@@ -37,7 +35,6 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
 		logo = new Texture("GameData/swensonlogo.png");
-		backgroundImage = new Texture("GameData/background.jpg");
 		titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
 
 		Table buttonTable = new Table();
@@ -46,9 +43,9 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 
 		TextButton newGameButton;
 		if (resumeGame) {
-			newGameButton = new TextButton("Resume Game", MENU_SKIN, "default");
+			newGameButton = new TextButton("Resume Game", game.defaultSkin, "default");
 		} else {
-			newGameButton = new TextButton("New Game", MENU_SKIN, "default");
+			newGameButton = new TextButton("New Game", game.defaultSkin, "default");
 		}
 		newGameButton.addListener(new InputListener() {
 
@@ -70,7 +67,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			buttonTable.add(newGameButton).width(175).height(45).pad(5).row();
 		}
 
-		TextButton creditButton = new TextButton("Credit", MENU_SKIN, "default");
+		TextButton creditButton = new TextButton("Credit", game.defaultSkin, "default");
 		creditButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -85,7 +82,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 
 		});
 
-		TextButton settingsButton = new TextButton("Settings", MENU_SKIN, "default");
+		TextButton settingsButton = new TextButton("Settings", game.defaultSkin, "default");
 		boolean fromMenuScreen = true;
 		settingsButton.addListener(new InputListener() {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -120,7 +117,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		game.batch.begin();
 		// Draw background image
-		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+		game.batch.draw(game.backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		game.batch.end();
 
 		stage.act();
@@ -157,7 +154,6 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 	public void dispose() {
 		stage.dispose();
 		logo.dispose();
-		backgroundImage.dispose();
 		titleFont.dispose();
 	}
 

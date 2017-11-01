@@ -24,7 +24,9 @@ public class Option {
 	private String sound;
 
 	public Option() {
-
+		if (rejectMessage == null) {
+			rejectMessage = DEFAULT_REJECT_MESSAGE;
+		}
 	}
 
 	/**
