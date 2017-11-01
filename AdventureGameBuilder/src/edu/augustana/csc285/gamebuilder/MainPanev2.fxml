@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Menu?>
@@ -13,7 +17,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.augustana.csc285.gamebuilder.MainPanev2Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.augustana.csc285.gamebuilder.MainPanev2Controller">
 	<children>
 		<ImageView fx:id="imageView" fitHeight="162.0" fitWidth="284.0" layoutX="14.0" layoutY="101.0" pickOnBounds="true">
 			<image>
@@ -22,7 +26,7 @@
 		</ImageView>
 		<Button fx:id="selectImage" layoutX="14.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleSelectImage" text="Select Image" />
 		<Button fx:id="selectMusic" layoutX="122.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleSelectMusic" text="Select Music" />
-		<Button fx:id="backButton" layoutX="537.0" layoutY="356.0" mnemonicParsing="false" onAction="#handleBackButton" text="Back" />
+		<Button fx:id="deleteButton" layoutX="528.0" layoutY="356.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete" />
 		<MenuBar prefHeight="27.0" prefWidth="600.0">
 			<menus>
 				<Menu mnemonicParsing="false" text="File">
@@ -35,7 +39,7 @@
 				</Menu>
 				<Menu mnemonicParsing="false" text="Edit">
 					<items>
-						<MenuItem fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete" />
+						<MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" onAction="#handleDeleteMenuItem" text="Delete" />
 					</items>
 				</Menu>
 				<Menu mnemonicParsing="false" text="Help">
@@ -45,19 +49,20 @@
 				</Menu>
 			</menus>
 		</MenuBar>
-		<Button fx:id="editOptions" layoutX="470.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleEditOptions" text="Edit Options" />
-		<TableView fx:id="optionView" layoutX="330.0" layoutY="128.0" prefHeight="128.0" prefWidth="247.0">
+		<Button fx:id="editOptions" layoutX="391.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleEditOptions" text="Edit Option" />
+		<TableView fx:id="optionView" layoutX="311.0" layoutY="128.0" prefHeight="132.0" prefWidth="276.0">
 			<columns>
-				<TableColumn fx:id="optionDescView" prefWidth="176.0" text="Option Name" />
-				<TableColumn fx:id="nextSlideView" prefWidth="70.0" text="Next Slide" />
+				<TableColumn fx:id="optionDescView" prefWidth="199.0" text="Option Name" />
+				<TableColumn fx:id="nextSlideView" prefWidth="76.0" text="Next Slide" />
 			</columns>
 		</TableView>
 		<TextField fx:id="slideId" layoutX="229.0" layoutY="272.0" prefHeight="27.0" prefWidth="97.0" promptText="Slide ID" />
 		<Button fx:id="saveButton" layoutX="469.0" layoutY="356.0" mnemonicParsing="false" onAction="#handleSaveButton" text="Save" />
-		<Button fx:id="addOptions" layoutX="366.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleAddOptions" text="Add Option" />
+		<Button fx:id="addOptions" layoutX="300.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleAddOptions" text="Add Option" />
 		<ChoiceBox fx:id="slideSelection" layoutX="156.0" layoutY="41.0" prefHeight="27.0" prefWidth="125.0" />
 		<Button fx:id="newSlideButton" layoutX="15.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleNewSlideButton" prefHeight="27.0" prefWidth="125.0" text="New Slide" />
       <TextField fx:id="slideTitle" layoutX="334.0" layoutY="272.0" prefHeight="27.0" prefWidth="97.0" promptText="Slide Title" />
       <TextArea fx:id="slideDescription" layoutX="12.0" layoutY="308.0" prefHeight="82.0" prefWidth="422.0" />
+      <Button fx:id="deleteOptions" layoutX="485.0" layoutY="88.0" mnemonicParsing="false" onAction="#handleDeleteOptions" text="Delete Option" />
 	</children>
 </Pane>
