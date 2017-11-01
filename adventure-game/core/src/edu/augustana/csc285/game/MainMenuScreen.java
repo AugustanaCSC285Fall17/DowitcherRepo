@@ -29,7 +29,6 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 	private Texture logo;
 	private Texture backgroundImage;
 	private BitmapFont titleFont;
-	private boolean resumeGame;
 	OrthographicCamera camera;
 
 	public MainMenuScreen(final AdventureGame game, boolean resumeGame) {
@@ -103,7 +102,6 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		buttonTable.add(settingsButton).width(145).height(45).pad(5).row();
 		buttonTable.add(creditButton).width(125).height(45).pad(5).row();
 
-		
 		stage.addActor(buttonTable);
 		introduction = "Welcome to Swedish Settler Trail";
 		layout = new GlyphLayout(titleFont, introduction);
@@ -159,6 +157,8 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 	public void dispose() {
 		stage.dispose();
 		logo.dispose();
+		backgroundImage.dispose();
+		titleFont.dispose();
 	}
 
 }

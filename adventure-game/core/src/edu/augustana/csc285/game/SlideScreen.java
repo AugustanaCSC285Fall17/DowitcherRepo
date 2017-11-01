@@ -69,9 +69,9 @@ public class SlideScreen implements Screen {
 		this.game = game;
 
 		slide = game.manager.getCurrentSlide();
-		
+
 		if (slide.getImage() != null && slide.getImage() != "") {
-			image = new Texture(Gdx.files.internal("image/slide/"+slide.getImage()));
+			image = new Texture(Gdx.files.internal("image/slide/" + slide.getImage()));
 		}
 		if (slide.getDesc() != null && slide.getDesc() != "") {
 			desc = slide.getDesc();
@@ -91,15 +91,9 @@ public class SlideScreen implements Screen {
 		}
 		backgroundImage = new Texture("GameData/background.jpg");
 
-		Button inventoryBtn =
-		this.addTextureRegion("GameData/icons/inventory.png", new
-		InventoryScreen(game), 3);
-		Button playerStatBtn =
-		this.addTextureRegion("GameData/icons/player-stat.png", new
-		PlayerStatScreen(game), 2);
-		Button settingsBtn =
-		this.addTextureRegion("GameData/icons/settings.png", new
-		SettingsScreen(game), 1);
+		Button inventoryBtn = this.addTextureRegion("GameData/icons/inventory.png", new InventoryScreen(game), 3);
+		Button playerStatBtn = this.addTextureRegion("GameData/icons/player-stat.png", new PlayerStatScreen(game), 2);
+		Button settingsBtn = this.addTextureRegion("GameData/icons/settings.png", new SettingsScreen(game), 1);
 
 		visibleOptions = slide.getVisibleOptions(game.manager.getPlayer());
 
@@ -144,7 +138,7 @@ public class SlideScreen implements Screen {
 			String displayString = (i + 1) + ".  " + option.getDesc();
 			TextButton button = new TextButton(displayString, DEFAULT_SKIN, "default");
 
-			//button.getLabel().setAlignment(Align.left);
+			// button.getLabel().setAlignment(Align.left);
 			button.addListener(new InputListener() {
 				public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 					if (option.getNextSlideIndex() != "0") {
@@ -176,7 +170,7 @@ public class SlideScreen implements Screen {
 		Label slideTitle = new Label(this.slide.getTitle(), new Label.LabelStyle(titleFont, Color.BLACK));
 
 		GlyphLayout titleLength = new GlyphLayout(defaultFont, slideTitle.toString());
-		
+
 		slideTitle.setPosition((float) 0.5 * (AdventureGame.GAME_SCREEN_WIDTH - titleLength.width),
 
 				(float) 0.90 * AdventureGame.GAME_SCREEN_HEIGHT);

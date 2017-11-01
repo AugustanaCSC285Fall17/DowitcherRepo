@@ -65,13 +65,26 @@ public class SettingsScreen implements Screen {
 
 		Label screenTitle = new Label("Settings", new Label.LabelStyle(titleFont, Color.BLACK));
 		settingsTable.add(screenTitle).pad(10).row();
+		settingsTable.row();
 
+		String str = "";
 		// Add music on button to table
-		Button musicOnButton = new TextButton("Music On", BACK_BUTTON_SKIN, "default");
-		musicOnButton.addListener(new InputListener() {
+		if (game.defaultMusic.isPlaying()) {
+			str = "Music Off";
+		} else {
+			str = "Music On";
+		}
+		Button musicButton = new TextButton(str, BACK_BUTTON_SKIN, "default");
+		musicButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.defaultMusic.play();
+				if (game.defaultMusic.isPlaying()) {
+					game.defaultMusic.pause();
+
+				} else {
+					game.defaultMusic.play();
+				}
+				game.setScreen(new SettingsScreen(game, fromMenuScreen));
 			}
 
 			@Override
@@ -80,37 +93,25 @@ public class SettingsScreen implements Screen {
 			}
 
 		});
-		settingsTable.add(musicOnButton).width(175).height(45).pad(5).row();
+		settingsTable.add(musicButton).width(175).height(45).pad(5).row();
 
-		// Add music off button to table
-		Button musicOffButton = new TextButton("Music Off", BACK_BUTTON_SKIN, "default");
-		musicOffButton.addListener(new InputListener() {
-			@Override
-			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.defaultMusic.pause();
-			}
+		// TextButton exitButton = new TextButton("Quit", BACK_BUTTON_SKIN,
+		// "default");
+		// exitButton.addListener(new InputListener() {
+		// @Override
+		// public void touchUp(InputEvent event, float x, float y, int pointer,
+		// int button) {
+		// game.setScreen(new MainMenuScreen(game, false));
+		// }
+		//
+		// @Override
+		// public boolean touchDown(InputEvent event, float x, float y, int
+		// pointer, int button) {
+		// return true;
+		// }
+		//
+		// });
 
-			@Override
-			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				return true;
-			}
-		});
-		settingsTable.add(musicOffButton).width(175).height(45).pad(5).row();
-		
-		TextButton exitButton = new TextButton("Quit", BACK_BUTTON_SKIN, "default");
-		exitButton.addListener(new InputListener() {
-			@Override
-			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.setScreen(new MainMenuScreen(game, false));
-			}
-
-			@Override
-			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				return true;
-			}
-
-		});
-		
 		Button backButton = new TextButton("Back", BACK_BUTTON_SKIN);
 		backButton.addListener(new InputListener() {
 			@Override
@@ -119,7 +120,7 @@ public class SettingsScreen implements Screen {
 					game.setScreen(new MainMenuScreen(game, false));
 				} else {
 					game.setScreen(new SlideScreen(game));
-					
+
 				}
 			}
 
@@ -129,26 +130,26 @@ public class SettingsScreen implements Screen {
 			}
 
 		});
-		
-		if (!fromMenuScreen) {
-		// Add exit to menu button to table
-		Button exitToMenuButton = new TextButton("Exit to Menu", BACK_BUTTON_SKIN, "default");
-		exitToMenuButton.addListener(new InputListener() {
-			@Override
-			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.setScreen(new MainMenuScreen(game, true));
-			}
 
-			@Override
-			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				return true;
-			}
-		});
-		settingsTable.add(exitToMenuButton).width(200).height(50).pad(5).row();
-		settingsTable.add(exitButton).width(115).height(45).pad(5).row();
+		if (!fromMenuScreen) {
+			// Add exit to menu button to table
+			Button exitToMenuButton = new TextButton("Exit to Menu", BACK_BUTTON_SKIN, "default");
+			exitToMenuButton.addListener(new InputListener() {
+				@Override
+				public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+					game.setScreen(new MainMenuScreen(game, false));
+				}
+
+				@Override
+				public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+					return true;
+				}
+			});
+			settingsTable.add(exitToMenuButton).width(200).height(50).pad(5).row();
+			// settingsTable.add(exitButton).width(115).height(45).pad(5).row();
 
 		}
-		
+
 		backButton.setSize(130, 45);
 		backButton.setPosition(1000, 650);
 		stage.addActor(backButton);
@@ -202,6 +203,8 @@ public class SettingsScreen implements Screen {
 
 	@Override
 	public void dispose() {
+		stage.dispose();
 		img.dispose();
+		backgroundImage.dispose();
 	}
 }
