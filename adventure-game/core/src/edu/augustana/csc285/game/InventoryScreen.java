@@ -66,8 +66,7 @@ public class InventoryScreen implements Screen {
 		Label inventoryLabel = new Label(inventory, new
 		Label.LabelStyle(inventoryFont, Color.BLACK));
 		inventoryLabel.setWrap(true);
-		Texture itemIcon = new Texture(Gdx.files.internal("GameData/icons/bible.jpg"));
-		Image icon = new Image(itemIcon);
+		Texture itemIcon = new Texture(Gdx.files.internal("GameData/icons/bible.png"));
 		Table inventoryTable = new Table();
 		inventoryTable.setPosition(500, 500);
 		inventoryTable.setSkin(DEFAULT_SKIN);
@@ -91,18 +90,10 @@ public class InventoryScreen implements Screen {
 			inventoryTable.row();
 		}
 		
-//		for (String str : game.manager.getPlayer().getInventory().getVisibleItemStringList()) {
-//			Label label = new Label(str, DEFAULT_SKIN);
-//			inventoryTable.add(label).row();
-//			inventoryTable.add(icon).row();
-//		}
-		
 		Label screenTitle = new Label("Inventory", new Label.LabelStyle(titleFont, Color.BLACK));
 		screenTitle.setPosition((float) 0.4 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) 0.8 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(screenTitle);
-
-	//	ScrollPane scroll = new ScrollPane(inventoryLabel, SCROLL_SKIN);
 
 	ScrollPane scroll = new ScrollPane(inventoryTable, SCROLL_SKIN);
 		scroll.setPosition((float) 0.15 * AdventureGame.GAME_SCREEN_WIDTH,

@@ -37,7 +37,7 @@ import edu.augustana.csc285.game.datamodel.Slide;
 public class SlideScreen implements Screen {
 	public static final HashSet<Integer> KEY_SET = new HashSet<Integer>(
 			Arrays.asList(8, 9, 10, 11, 12, 13, 14, 15, 16)); // 1
-	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
+	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form.json"));
 	public static final Skin SCROLL_SKIN = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
 	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
@@ -98,7 +98,7 @@ public class SlideScreen implements Screen {
 		this.addTextureRegion("GameData/icons/player-stat.png", new
 		PlayerStatScreen(game), 2);
 		Button settingsBtn =
-		this.addTextureRegion("GameData/icons/settings.jpg", new
+		this.addTextureRegion("GameData/icons/settings.png", new
 		SettingsScreen(game), 1);
 
 		visibleOptions = slide.getVisibleOptions(game.manager.getPlayer());
