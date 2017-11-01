@@ -3,6 +3,7 @@ package edu.augustana.csc285.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -23,8 +24,14 @@ public class AdventureGame extends Game {
 	Skin defaultSkin;
 	Skin scrollSkin;
 	Texture backgroundImage;
+	Sound buttonPressed;
+	BitmapFont descFont;
+	int size;
 
 	public void create() {
+		descFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
+		size = 3;
+		buttonPressed = Gdx.audio.newSound(Gdx.files.internal("music/sound/button_press.wav"));
 		story = Story.fromJSON(Gdx.files.internal("storyData/officialStory.json").readString());
 		this.initializeManager();
 		defaultSkin = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
@@ -37,6 +44,13 @@ public class AdventureGame extends Game {
 		defaultMusic.setLooping(true);
 		defaultMusic.play();
 		this.setScreen(new MainMenuScreen(this, false));
+	}
+
+	public void setDescFont(int size) {
+		if (size != this.size) {
+			this.size = size;
+			descFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
+		}
 	}
 
 	public void initializeManager() {
@@ -54,5 +68,6 @@ public class AdventureGame extends Game {
 		defaultSkin.dispose();
 		scrollSkin.dispose();
 		backgroundImage.dispose();
+		buttonPressed.dispose();
 	}
 }

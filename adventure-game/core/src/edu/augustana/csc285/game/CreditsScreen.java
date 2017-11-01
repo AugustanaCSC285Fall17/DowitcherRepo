@@ -38,7 +38,7 @@ public class CreditsScreen implements Screen {
 		this.game = game;
 		titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
 		BitmapFont creditsFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
-		
+
 		stage = new Stage(new ScreenViewport());
 
 		Label creditsTitle = new Label("Credits",
@@ -46,23 +46,12 @@ public class CreditsScreen implements Screen {
 
 		credits = "Game designed by Dr. Forrest Stonedahl's Software Development CSC 285 students, Dat Tran, Daniel Zweiner, Lars Harvey, Faisal Nawaz, and Ryan Philp as well as Dr. Brian Leech's history students, Abigail Buchanan, Brooks Fielder, and Katie Laschanzky for the for the Swenson Swedish Immigration Research Center at Augustana College in Rock Island, Illinois, 2017. ";
 		credits = SupportMethod.wrapString(credits, 80);
-		// Wrap text so it doesn't go off the screen using support class
-		// Label creditsLabel = new Label(credits, new
-		// Label.LabelStyle(creditsFont, Color.BLACK));
-		// creditsLabel.setWrap(true);
-		// Table creditsTable = new Table();
-		// creditsTable.setPosition(AdventureGame.GAME_SCREEN_WIDTH / 2, (float)
-		// 0.4 * AdventureGame.GAME_SCREEN_WIDTH);
-		// creditsTable.add(creditsTitle).pad(10).row();
-		// creditsTable.add(creditsLabel).pad(10).row();
-
-		// stage.addActor(creditsTable);
-
 		Button backButton = new TextButton("Back", game.defaultSkin);
 		backButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.setScreen(new MainMenuScreen(game, false));
+				dispose();
 			}
 
 			@Override
@@ -71,6 +60,7 @@ public class CreditsScreen implements Screen {
 			}
 
 		});
+		
 
 		backButton.setSize(130, 45);
 		backButton.setPosition(1000, 650);

@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -177,7 +178,7 @@ public class SlideScreen implements Screen {
 
 		if (layout == 0 || layout == 1) {
 			// Set up the scroll pane with slide description
-			Label description = new Label(slide.getDesc(), new Label.LabelStyle(defaultFont, Color.BLACK));
+			Label description = new Label(slide.getDesc(), new Label.LabelStyle(game.descFont, Color.BLACK));
 			description.setWrap(true);
 			ScrollPane scroll = new ScrollPane(description, game.scrollSkin);
 			scroll.setScrollingDisabled(true, false);
@@ -281,7 +282,7 @@ public class SlideScreen implements Screen {
 	public void show() {
 		Gdx.input.setInputProcessor(stage);
 		if (popUp) {
-			new Dialog("You cannot do this", game.defaultSkin) {
+			new Dialog("", game.defaultSkin) {
 
 				{
 					text(rejectMessage);

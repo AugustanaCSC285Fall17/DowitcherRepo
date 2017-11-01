@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Value;
@@ -30,9 +31,11 @@ public class SettingsScreen implements Screen {
 	private OrthographicCamera camera;
 	private AdventureGame game;
 	private boolean fromMenuScreen;
+	private int size;
 
 	// Second constructor to allow for back button to go back to main menu
 	public SettingsScreen(AdventureGame game, boolean fromMenuScreen) {
+		size = game.size;
 		this.game = game;
 		this.fromMenuScreen = fromMenuScreen;
 		setUpSettingsScreen();
@@ -50,11 +53,12 @@ public class SettingsScreen implements Screen {
 		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
 
 		Table settingsTable = new Table();
-		settingsTable.setPosition(AdventureGame.GAME_SCREEN_WIDTH / 2, (float) 0.4 * AdventureGame.GAME_SCREEN_WIDTH);
+		settingsTable.setPosition((float) (AdventureGame.GAME_SCREEN_WIDTH / 2),
+				(float) 0.4 * AdventureGame.GAME_SCREEN_WIDTH);
 
 		Label screenTitle = new Label("Settings", new Label.LabelStyle(titleFont, Color.BLACK));
-		settingsTable.add(screenTitle).pad(10).row();
 		settingsTable.row();
+		settingsTable.add(screenTitle).pad(10).colspan(3).center();
 
 		String str = "";
 		// Add music on button to table
@@ -67,6 +71,7 @@ public class SettingsScreen implements Screen {
 		musicButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				game.buttonPressed.play();
 				if (game.defaultMusic.isPlaying()) {
 					game.defaultMusic.pause();
 				} else {
@@ -81,7 +86,6 @@ public class SettingsScreen implements Screen {
 			}
 
 		});
-		settingsTable.add(musicButton).width(175).height(45).pad(5).row();
 
 		Button backButton = new TextButton("Back", game.defaultSkin);
 		backButton.addListener(new InputListener() {
@@ -102,12 +106,62 @@ public class SettingsScreen implements Screen {
 
 		});
 
+		Button decreaseButton = new TextButton("Decrease", game.defaultSkin, "default");
+		decreaseButton.addListener(new InputListener() {
+			@Override
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				game.buttonPressed.play();
+				if (size > 1) {
+					size--;
+				}
+				game.setDescFont(size);
+				game.setScreen(new SettingsScreen(game, fromMenuScreen));
+				dispose();
+
+			}
+
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+
+		});
+		Button increaseButton = new TextButton("Increase", game.defaultSkin, "default");
+		increaseButton.addListener(new InputListener() {
+			@Override
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				game.buttonPressed.play();
+				if (size < 5) {
+					size++;
+				}
+				game.setDescFont(size);
+				game.setScreen(new SettingsScreen(game, fromMenuScreen));
+				dispose();
+			}
+
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+
+		});
+		settingsTable.center().bottom();
+		Label sizeLabel = new Label("" + game.size, game.defaultSkin);
+		settingsTable.row();
+		settingsTable.add(musicButton).width(175).height(45).pad(5).colspan(3).center();
+		settingsTable.row();
+		settingsTable.add(decreaseButton).width(175).height(45).pad(5);
+		settingsTable.add(sizeLabel);
+		settingsTable.add(increaseButton).width(175).height(45).pad(5);
+		settingsTable.row();
+
 		if (!fromMenuScreen) {
 			// Add exit to menu button to table
 			Button exitToMenuButton = new TextButton("Exit to Menu", game.defaultSkin, "default");
 			exitToMenuButton.addListener(new InputListener() {
 				@Override
 				public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+					game.buttonPressed.play();
 					game.setScreen(new MainMenuScreen(game, false));
 					game.initializeManager();
 					dispose();
@@ -118,11 +172,8 @@ public class SettingsScreen implements Screen {
 					return true;
 				}
 			});
-			settingsTable.add(exitToMenuButton).width(200).height(50).pad(5).row();
-			// settingsTable.add(exitButton).width(115).height(45).pad(5).row();
-
+			settingsTable.add(exitToMenuButton).width(200).height(50).pad(5).colspan(3).center();
 		}
-
 		backButton.setSize(130, 45);
 		backButton.setPosition(1000, 650);
 		stage.addActor(backButton);
