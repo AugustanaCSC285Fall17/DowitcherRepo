@@ -111,11 +111,11 @@ public class Inventory {
 		return str;
 	}
 
-	public ArrayList<String> getVisibleItemStringList() {
-		ArrayList<String> list = new ArrayList<String> ();
+	public ArrayList<Item> getVisibleItemList() {
+		ArrayList<Item> list = new ArrayList<Item>();
 		for (Item item : this.itemSet) {
-			if (item.getQuantity() != 0 && item.isVisible()) {
-				list.add(item.getQuantity()+" x " +item);
+			if (item.getQuantity() > 0 && item.isVisible()) {
+				list.add(item);
 			}
 		}
 		return list;

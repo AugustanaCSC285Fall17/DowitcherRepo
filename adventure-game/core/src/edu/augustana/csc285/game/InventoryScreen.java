@@ -41,9 +41,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
  * 
  */
 public class InventoryScreen implements Screen {
-	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
+	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
 	public static final Skin SCROLL_SKIN = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
-	public static final Skin BACK_BUTTON_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/flat-earth-ui.json"));
+	public static final Skin BACK_BUTTON_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/cloud-form-ui.json"));
 
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
 	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
@@ -61,50 +61,37 @@ public class InventoryScreen implements Screen {
 		BitmapFont inventoryFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
 		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
 
-		String inventory = "You have: \n" +
-		game.manager.getPlayer().getInventory().getVisibleItemStringList();
-		Label inventoryLabel = new Label(inventory, new
-		Label.LabelStyle(inventoryFont, Color.BLACK));
+		String inventory = "You have: \n";
+		Label inventoryLabel = new Label(inventory, new Label.LabelStyle(inventoryFont, Color.BLACK));
 		inventoryLabel.setWrap(true);
-		Texture itemIcon = new Texture(Gdx.files.internal("GameData/icons/bible.jpg"));
-		Image icon = new Image(itemIcon);
 		Table inventoryTable = new Table();
 		inventoryTable.setPosition(500, 500);
 		inventoryTable.setSkin(DEFAULT_SKIN);
-		
-		TreeSet<Item> itemSet = game.manager.getPlayer().getInventory().getCollection();
-		Item[] items = itemSet.toArray(new Item[itemSet.size()]);;
-		
-		for(Item item : items) {
+
+		ArrayList<Item> items = game.manager.getPlayer().getInventory().getVisibleItemList();
+		for (Item item : items) {
 			/*
-			 * TODO Add images for all items
-			 * 		Replace itemIcon with item.getImage()
+			 * TODO Add images for all items Replace itemIcon with
+			 * item.getImage()
 			 */
-			NinePatch patch = new NinePatch(itemIcon); 
-			inventoryTable.add(new Image(patch)); 
-			
-			Label nameLabel = new Label(item.getName(),SCROLL_SKIN);
+			Texture itemIcon = new Texture(Gdx.files.internal("image/icon/inventory/" + item.getImage()));
+			NinePatch patch = new NinePatch(itemIcon);
+			inventoryTable.add(new Image(patch));
+
+			Label nameLabel = new Label(item.getQuantity() + " x " + item.getName(), SCROLL_SKIN);
 			nameLabel.setColor(Color.BLACK);
 			inventoryLabel.setWrap(true);
 			inventoryTable.add(nameLabel);
-			
+
 			inventoryTable.row();
 		}
-		
-//		for (String str : game.manager.getPlayer().getInventory().getVisibleItemStringList()) {
-//			Label label = new Label(str, DEFAULT_SKIN);
-//			inventoryTable.add(label).row();
-//			inventoryTable.add(icon).row();
-//		}
-		
+
 		Label screenTitle = new Label("Inventory", new Label.LabelStyle(titleFont, Color.BLACK));
 		screenTitle.setPosition((float) 0.4 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) 0.8 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(screenTitle);
 
-	//	ScrollPane scroll = new ScrollPane(inventoryLabel, SCROLL_SKIN);
-
-	ScrollPane scroll = new ScrollPane(inventoryTable, SCROLL_SKIN);
+		ScrollPane scroll = new ScrollPane(inventoryTable, SCROLL_SKIN);
 		scroll.setPosition((float) 0.15 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) 0.3 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setSize(AdventureGame.GAME_SCREEN_HEIGHT - 200, 300);

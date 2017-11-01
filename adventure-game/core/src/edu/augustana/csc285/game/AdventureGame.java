@@ -31,7 +31,7 @@ public class AdventureGame extends Game {
 		this.setScreen(new MainMenuScreen(this, false));
 	}
 	public void initializeManager() {
-		manager = new StoryManager(story, "Unknown", story.getStartingSlideIndex());
+		manager = new StoryManager(story, "", story.getStartingSlideIndex());
 	}
 	public void render() {
 		super.render(); // important!

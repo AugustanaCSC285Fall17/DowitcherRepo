@@ -21,7 +21,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 //import edu.augustana.csc285.game.datamodel.Notification;
 
 public class MainMenuScreen extends ScreenAdapter implements Screen {
-	public static final Skin MENU_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/flat-earth-ui.json"));
+	public static final Skin MENU_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/cloud-form-ui.json"));
 	private final AdventureGame game;
 	private String introduction;
 	private Stage stage;
@@ -29,7 +29,6 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 	private Texture logo;
 	private Texture backgroundImage;
 	private BitmapFont titleFont;
-	private boolean resumeGame;
 	OrthographicCamera camera;
 
 	public MainMenuScreen(final AdventureGame game, boolean resumeGame) {
@@ -44,7 +43,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		Table buttonTable = new Table();
 		buttonTable.setPosition((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) 0.45 * AdventureGame.GAME_SCREEN_HEIGHT);
-		
+
 		TextButton newGameButton;
 		if (resumeGame) {
 			newGameButton = new TextButton("Resume Game", MENU_SKIN, "default");
@@ -70,7 +69,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		} else {
 			buttonTable.add(newGameButton).width(175).height(45).pad(5).row();
 		}
-		
+
 		TextButton creditButton = new TextButton("Credit", MENU_SKIN, "default");
 		creditButton.addListener(new InputListener() {
 			@Override
@@ -85,7 +84,6 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 
 		});
-		buttonTable.add(creditButton).width(125).height(45).pad(5).row();
 
 		TextButton settingsButton = new TextButton("Settings", MENU_SKIN, "default");
 		boolean fromMenuScreen = true;
@@ -102,22 +100,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		});
 
 		buttonTable.add(settingsButton).width(145).height(45).pad(5).row();
-
-		TextButton exitButton = new TextButton("Exit", MENU_SKIN, "default");
-		exitButton.addListener(new InputListener() {
-			@Override
-			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.setScreen(new EndScreen(game));
-				// Gdx.app.exit();
-			}
-
-			@Override
-			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				return true;
-			}
-
-		});
-		buttonTable.add(exitButton).width(115).height(45).pad(5).row();
+		buttonTable.add(creditButton).width(125).height(45).pad(5).row();
 
 		stage.addActor(buttonTable);
 		introduction = "Welcome to Swedish Settler Trail";
@@ -174,6 +157,8 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 	public void dispose() {
 		stage.dispose();
 		logo.dispose();
+		backgroundImage.dispose();
+		titleFont.dispose();
 	}
 
 }

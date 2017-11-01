@@ -5,64 +5,89 @@ itemMap: {
 		desc: ""
 		image: ""
 	}
+	American Dollar: {
+		name: American Dollar
+		desc: ""
+		image: dollar.png
+	}
+	American almanac: {
+		name: American almanac
+		desc: ""
+		image: ""
+	}
 	Bible: {
 		name: Bible
 		desc: ""
-		image: ""
+		image: bible.png
 	}
 	Cured Meat: {
 		name: Cured Meat
 		desc: ""
-		image: ""
+		image: meat.png
 	}
 	Family Heirloom: {
 		name: Family Heirloom
 		desc: ""
-		image: ""
+		image: familyheirloom.png
 	}
 	Forged Papers: {
 		name: Forged Papers
 		desc: ""
-		image: ""
+		image: forged-papers.png
 	}
 	Illinois letter: {
 		name: Illinois letter
 		desc: ""
-		image: ""
+		image: letter.png
 	}
 	John Deere letter: {
 		name: John Deere letter
 		desc: ""
-		image: ""
+		image: letter.png
 	}
 	Medicine: {
 		name: Medicine
 		desc: ""
-		image: ""
+		image: meat.png
 	}
 	Minnesota letter: {
 		name: Minnesota letter
 		desc: ""
-		image: ""
+		image: letter.png
 	}
 	Official Papers: {
 		name: Official Papers
 		desc: ""
-		image: ""
+		image: official-papers.png
 	}
 	Sewing Materials: {
 		name: Sewing Materials
 		desc: ""
-		image: ""
+		image: sewing-machine.png
 	}
 	Swedish Kronor: {
 		name: Swedish Kronor
 		desc: ""
-		image: ""
+		image: kronor.png
+	}
+	Ticket to America: {
+		name: Ticket to America
+		desc: ""
+		image: ticket.png
+	}
+	Ticket to Hull: {
+		name: Ticket to Hull
+		desc: ""
+		image: ticket.png
 	}
 	Washington letter: {
 		name: Washington letter
 		desc: ""
+		image: letter.png
+	}
+	~oceanside: {
+		name: ~oceanside
+		desc: To prevent them from going to ocean side multiple times
 		image: ""
 	}
 }
