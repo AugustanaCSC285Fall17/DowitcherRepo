@@ -125,9 +125,7 @@ public class SlideScreen implements Screen {
 			if (layout.width > biggestButtonWidth) {
 				biggestButtonWidth = layout.width;
 			}
-
 		}
-
 		// Create and add buttons for ActionChoices
 		// Put buttons in middle if layout 1
 		if (layout == 0) {

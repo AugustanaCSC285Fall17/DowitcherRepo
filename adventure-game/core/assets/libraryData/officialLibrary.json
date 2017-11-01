@@ -65,5 +65,10 @@ itemMap: {
 		desc: ""
 		image: ""
 	}
+	~oceanside: {
+		name: ~oceanside
+		desc: To prevent them from going to ocean side multiple times
+		image: ""
+	}
 }
 }
