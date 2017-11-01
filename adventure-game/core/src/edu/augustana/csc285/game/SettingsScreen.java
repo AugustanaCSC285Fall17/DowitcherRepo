@@ -26,7 +26,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import edu.augustana.csc285.game.datamodel.Player;
 
 public class SettingsScreen implements Screen {
-	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
+	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
 	public static final Skin BACK_BUTTON_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/flat-earth-ui.json"));
 	public static final int GAME_SCREEN_WIDTH = 800;
 	public static final int GA5ME_SCREEN_HEIGHT = 480;
