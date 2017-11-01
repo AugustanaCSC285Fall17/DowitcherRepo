@@ -27,7 +27,7 @@ import edu.augustana.csc285.game.datamodel.Player;
 
 public class SettingsScreen implements Screen {
 	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
-	public static final Skin BACK_BUTTON_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/flat-earth-ui.json"));
+	public static final Skin BACK_BUTTON_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/cloud-form-ui.json"));
 	public static final int GAME_SCREEN_WIDTH = 800;
 	public static final int GA5ME_SCREEN_HEIGHT = 480;
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
@@ -97,6 +97,20 @@ public class SettingsScreen implements Screen {
 		});
 		settingsTable.add(musicOffButton).width(175).height(45).pad(5).row();
 		
+		TextButton exitButton = new TextButton("Quit", BACK_BUTTON_SKIN, "default");
+		exitButton.addListener(new InputListener() {
+			@Override
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				game.setScreen(new MainMenuScreen(game, false));
+			}
+
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+
+		});
+		
 		Button backButton = new TextButton("Back", BACK_BUTTON_SKIN);
 		backButton.addListener(new InputListener() {
 			@Override
@@ -131,6 +145,8 @@ public class SettingsScreen implements Screen {
 			}
 		});
 		settingsTable.add(exitToMenuButton).width(200).height(50).pad(5).row();
+		settingsTable.add(exitButton).width(115).height(45).pad(5).row();
+
 		}
 		
 		backButton.setSize(130, 45);
