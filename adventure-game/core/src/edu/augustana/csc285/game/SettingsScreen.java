@@ -80,7 +80,7 @@ public class SettingsScreen implements Screen {
 			}
 
 		});
-		settingsTable.add(musicOnButton).width(175).height(45).pad(5).row();
+		settingsTable.add(musicOnButton).width(175).height(50).pad(5).row();
 
 		// Add music off button to table
 		Button musicOffButton = new TextButton("Music Off", BACK_BUTTON_SKIN, "default");
@@ -95,7 +95,7 @@ public class SettingsScreen implements Screen {
 				return true;
 			}
 		});
-		settingsTable.add(musicOffButton).width(175).height(45).pad(5).row();
+		settingsTable.add(musicOffButton).width(175).height(50).pad(5).row();
 		
 		TextButton exitButton = new TextButton("Quit", BACK_BUTTON_SKIN, "default");
 		exitButton.addListener(new InputListener() {
@@ -145,12 +145,12 @@ public class SettingsScreen implements Screen {
 			}
 		});
 		settingsTable.add(exitToMenuButton).width(200).height(50).pad(5).row();
-		settingsTable.add(exitButton).width(115).height(45).pad(5).row();
+		settingsTable.add(exitButton).width(115).height(50).pad(5).row();
 
 		}
 		
-		backButton.setSize(130, 45);
-		backButton.setPosition(1000, 650);
+		backButton.setSize(130, 50);
+		backButton.setPosition(1050, 650);
 		stage.addActor(backButton);
 		stage.addActor(settingsTable);
 	}

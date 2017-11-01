@@ -93,10 +93,7 @@ public class SlideScreen implements Screen {
 
 		Button inventoryBtn =
 		this.addTextureRegion("GameData/icons/inventory.png", new
-		InventoryScreen(game), 3);
-		Button playerStatBtn =
-		this.addTextureRegion("GameData/icons/player-stat.png", new
-		PlayerStatScreen(game), 2);
+		InventoryScreen(game), 2);
 		Button settingsBtn =
 		this.addTextureRegion("GameData/icons/settings.png", new
 		SettingsScreen(game), 1);
@@ -110,7 +107,6 @@ public class SlideScreen implements Screen {
 		// Set up stage and table for buttons
 		stage = new Stage(new ScreenViewport());
 		stage.addActor(inventoryBtn);
-		stage.addActor(playerStatBtn);
 		stage.addActor(settingsBtn);
 
 		Table buttonTable = new Table();
@@ -255,12 +251,6 @@ public class SlideScreen implements Screen {
 			game.setScreen(new InventoryScreen(game));
 			dispose();
 		}
-		// Change to player stat screen
-		if (Gdx.input.isKeyJustPressed(Keys.S)) {
-			game.setScreen(new PlayerStatScreen(game));
-			dispose();
-		}
-
 	}
 
 	public Button addTextureRegion(String skinLocation, Screen screen, int locationInt) {
@@ -269,7 +259,6 @@ public class SlideScreen implements Screen {
 		TextureRegion textureRegion = new TextureRegion(textureImage);
 		TextureRegionDrawable textureRegionDrawable = new TextureRegionDrawable(textureRegion);
 		Button button = new ImageButton(textureRegionDrawable);
-		button.setSize(75, 75);
 		button.setPosition(AdventureGame.GAME_SCREEN_WIDTH - (button.getWidth() + WIDTH_BUFFER) * locationInt,
 				AdventureGame.GAME_SCREEN_HEIGHT - HEIGHT_BUFFER - button.getHeight());
 		button.addListener(new InputListener() {

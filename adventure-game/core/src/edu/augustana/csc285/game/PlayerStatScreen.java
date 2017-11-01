@@ -86,8 +86,8 @@ public class PlayerStatScreen implements Screen {
 
 		});
 
-		backButton.setSize(130, 45);
-		backButton.setPosition(1000, 650);
+		backButton.setSize(130, 50);
+		backButton.setPosition(1050, 650);
 		stage.addActor(backButton);
 
 	}

@@ -67,7 +67,7 @@ public class CreditsScreen implements Screen {
 
 		});
 		
-		backButton.setSize(130, 45);
+		backButton.setSize(130, 50);
 		backButton.setPosition(1000, 650);
 		stage.addActor(backButton);
 	}

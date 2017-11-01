@@ -39,11 +39,11 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		stage = new Stage(new ScreenViewport());
 		logo = new Texture("GameData/swensonlogo.png");
 		backgroundImage = new Texture("GameData/background.jpg");
-		titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
+		titleFont = new BitmapFont(Gdx.files.internal("fonts/menuTitle.fnt"), false);
 
 		Table buttonTable = new Table();
 		buttonTable.setPosition((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH,
-				(float) 0.45 * AdventureGame.GAME_SCREEN_HEIGHT);
+				(float) 0.50 * AdventureGame.GAME_SCREEN_HEIGHT);
 
 		TextButton newGameButton;
 		if (resumeGame) {
@@ -68,7 +68,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		if (resumeGame) {
 			buttonTable.add(newGameButton).width(210).height(50).pad(5).row();
 		} else {
-			buttonTable.add(newGameButton).width(175).height(45).pad(5).row();
+			buttonTable.add(newGameButton).width(175).height(50).pad(5).row();
 		}
 
 		TextButton creditButton = new TextButton("Credit", MENU_SKIN, "default");
@@ -92,7 +92,6 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.setScreen(new SettingsScreen(game, fromMenuScreen));
 				dispose();
-
 			}
 
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -100,12 +99,12 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 		});
 
-		buttonTable.add(settingsButton).width(145).height(45).pad(5).row();
-		buttonTable.add(creditButton).width(125).height(45).pad(5).row();
+		buttonTable.add(settingsButton).width(145).height(50).pad(5).row();
+		buttonTable.add(creditButton).width(125).height(50).pad(5).row();
 
 		
 		stage.addActor(buttonTable);
-		introduction = "Welcome to Swedish Settler Trail";
+		introduction = "Swedish Immigration Trail";
 		layout = new GlyphLayout(titleFont, introduction);
 		float textWidth = layout.width;
 		float textHeight = layout.height;
@@ -133,7 +132,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		game.batch.draw(logo, (float) 0.32 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) 0.8 * AdventureGame.GAME_SCREEN_HEIGHT, (float) 0.5 * logo.getWidth(),
 				(float) 0.5 * logo.getHeight());
-		titleFont.draw(game.batch, introduction, (float) 0.27 * AdventureGame.GAME_SCREEN_WIDTH,
+		titleFont.draw(game.batch, introduction, (float) 0.23 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) (AdventureGame.GAME_SCREEN_HEIGHT * 0.72));
 		game.batch.end();
 

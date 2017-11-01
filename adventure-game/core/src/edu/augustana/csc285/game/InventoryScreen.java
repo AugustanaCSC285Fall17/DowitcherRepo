@@ -91,8 +91,8 @@ public class InventoryScreen implements Screen {
 		}
 		
 		Label screenTitle = new Label("Inventory", new Label.LabelStyle(titleFont, Color.BLACK));
-		screenTitle.setPosition((float) 0.4 * AdventureGame.GAME_SCREEN_WIDTH,
-				(float) 0.8 * AdventureGame.GAME_SCREEN_HEIGHT);
+		screenTitle.setPosition((float) 0.33 * AdventureGame.GAME_SCREEN_WIDTH,
+				(float) 0.75 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(screenTitle);
 
 	ScrollPane scroll = new ScrollPane(inventoryTable, SCROLL_SKIN);
@@ -117,8 +117,8 @@ public class InventoryScreen implements Screen {
 			}
 
 		});
-		backButton.setSize(130, 45);
-		backButton.setPosition(1000, 650);
+		backButton.setSize(130, 50);
+		backButton.setPosition(1050, 650);
 		stage.addActor(backButton);
 	}
 
