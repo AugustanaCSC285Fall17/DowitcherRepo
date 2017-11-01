@@ -21,7 +21,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 //import edu.augustana.csc285.game.datamodel.Notification;
 
 public class MainMenuScreen extends ScreenAdapter implements Screen {
-	public static final Skin MENU_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/flat-earth-ui.json"));
+	public static final Skin MENU_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/cloud-form-ui.json"));
 	private final AdventureGame game;
 	private String introduction;
 	private Stage stage;

@@ -1,10 +1,10 @@
 {
 com.badlogic.gdx.graphics.g2d.BitmapFont: {
 	font: {
-		file: actionChoice.fnt
+		file: menuActionChoice.fnt
 	}
 	title: {
-		file: actionChoice.fnt
+		file: menuActionChoice.fnt
 	}
 }
 com.badlogic.gdx.graphics.Color: {
@@ -25,10 +25,10 @@ com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable: {
 	background: {
 		name: white
 		color: {
-			r: 0
-			g: 0
-			b: 0
-			a: 0
+			r: 1
+			g: 1
+			b: 1
+			a: 0.7733333
 		}
 	}
 	black: {
@@ -37,7 +37,7 @@ com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable: {
 			r: 0
 			g: 0
 			b: 0
-			a: 0
+			a: 1
 		}
 	}
 	highlight: {

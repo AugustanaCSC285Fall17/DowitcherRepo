@@ -37,7 +37,7 @@ import edu.augustana.csc285.game.datamodel.Slide;
 public class SlideScreen implements Screen {
 	public static final HashSet<Integer> KEY_SET = new HashSet<Integer>(
 			Arrays.asList(8, 9, 10, 11, 12, 13, 14, 15, 16)); // 1
-	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form.json"));
+	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
 	public static final Skin SCROLL_SKIN = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
 	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
@@ -146,7 +146,7 @@ public class SlideScreen implements Screen {
 			String displayString = (i + 1) + ".  " + option.getDesc();
 			TextButton button = new TextButton(displayString, DEFAULT_SKIN, "default");
 
-			button.getLabel().setAlignment(Align.left);
+			//button.getLabel().setAlignment(Align.left);
 			button.addListener(new InputListener() {
 				public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 					if (option.getNextSlideIndex() != "0") {
@@ -168,7 +168,7 @@ public class SlideScreen implements Screen {
 				}
 			});
 
-			buttonTable.add(button).width((float) biggestButtonWidth + 70)
+			buttonTable.add(button).width((float) biggestButtonWidth + 50)
 					.height((float) 0.0555 * AdventureGame.GAME_SCREEN_HEIGHT).padTop(HEIGHT_BUFFER).row();
 
 		}

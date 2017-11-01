@@ -41,9 +41,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
  * 
  */
 public class InventoryScreen implements Screen {
-	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/flat-earth-ui.json"));
+	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
 	public static final Skin SCROLL_SKIN = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
-	public static final Skin BACK_BUTTON_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/flat-earth-ui.json"));
+	public static final Skin BACK_BUTTON_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/cloud-form-ui.json"));
 
 	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
 	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
