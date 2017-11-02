@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -13,26 +12,19 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
-import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
-import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane.ScrollPaneStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Text;
 
 import edu.augustana.csc285.game.datamodel.Option;
 import edu.augustana.csc285.game.datamodel.Slide;
@@ -102,8 +94,8 @@ public class SlideScreen implements Screen {
 		// Set up stage and table for buttons
 		stage = new Stage(new ScreenViewport());
 		stage.addActor(inventoryBtn);
-		//stage.addActor(playerImg);
-		//stage.addActor(playerStat);
+		// stage.addActor(playerImg);
+		// stage.addActor(playerStat);
 		stage.addActor(settingsBtn);
 
 		Table buttonTable = new Table();
@@ -278,18 +270,16 @@ public class SlideScreen implements Screen {
 		return button;
 	}
 
-/*	public Image addTexture(String skinLocation) {
-		Texture textureImage = new Texture(skinLocation);
-		TextureRegion textureRegion = new TextureRegion(textureImage);
-		TextureRegionDrawable textureRegionDrawable = new TextureRegionDrawable(textureRegion);
-		Image playerImg = new Image(textureRegionDrawable);
-		playerImg.setSize(75, 75);
-		playerImg.setPosition(AdventureGame.GAME_SCREEN_WIDTH - 200,
-				AdventureGame.GAME_SCREEN_HEIGHT - 200);
-		return playerImg;
-	} 
-	*/
-	
+	/*
+	 * public Image addTexture(String skinLocation) { Texture textureImage = new
+	 * Texture(skinLocation); TextureRegion textureRegion = new
+	 * TextureRegion(textureImage); TextureRegionDrawable textureRegionDrawable
+	 * = new TextureRegionDrawable(textureRegion); Image playerImg = new
+	 * Image(textureRegionDrawable); playerImg.setSize(75, 75);
+	 * playerImg.setPosition(AdventureGame.GAME_SCREEN_WIDTH - 200,
+	 * AdventureGame.GAME_SCREEN_HEIGHT - 200); return playerImg; }
+	 */
+
 	@Override
 	public void show() {
 		Gdx.input.setInputProcessor(stage);
