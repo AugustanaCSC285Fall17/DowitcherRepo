@@ -52,10 +52,13 @@ public class InventoryScreen implements Screen {
 		if (game.manager.getPlayer().getName() != null && !game.manager.getPlayer().getName().equalsIgnoreCase("")) {
 			playerName = game.manager.getPlayer().getName();
 			playerGender = game.manager.getPlayer().getGender().toString();
-			System.out.println("Here");
-			// Todo note: Add the texture
-			//playerIcon = new Texture("");
+			if (playerGender == "MALE") {
+				playerIcon = new Texture(Gdx.files.internal("image/icon/other/male.jpg"));
+			} else if (playerGender == "FEMALE") {
+				playerIcon = new Texture(Gdx.files.internal("image/icon/other/female.jpg"));
+			}
 		}
+		
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
@@ -67,7 +70,7 @@ public class InventoryScreen implements Screen {
 		Label inventoryLabel = new Label(inventory, new Label.LabelStyle(inventoryFont, Color.BLACK));
 		inventoryLabel.setWrap(true);
 		Table inventoryTable = new Table();
-		inventoryTable.setPosition(500, 500);
+		inventoryTable.setPosition(100, 500);
 		inventoryTable.setSkin(game.defaultSkin);
 
 		ArrayList<Item> items = game.manager.getPlayer().getInventory().getVisibleItemList();
@@ -80,7 +83,7 @@ public class InventoryScreen implements Screen {
 			NinePatch patch = new NinePatch(itemIcon);
 			inventoryTable.add(new Image(patch));
 
-			Label nameLabel = new Label(item.getQuantity() + " x " + item.getName(), game.scrollSkin);
+			Label nameLabel = new Label("   " + item.getQuantity() + " x " + item.getName(), game.menuSkin);
 			nameLabel.setColor(Color.BLACK);
 			inventoryLabel.setWrap(true);
 			inventoryTable.add(nameLabel);
@@ -89,13 +92,13 @@ public class InventoryScreen implements Screen {
 		}
 
 		Label screenTitle = new Label("Inventory", new Label.LabelStyle(titleFont, Color.BLACK));
-		screenTitle.setPosition((float) 0.33 * AdventureGame.GAME_SCREEN_WIDTH,
-				(float) 0.75 * AdventureGame.GAME_SCREEN_HEIGHT);
+		screenTitle.setPosition((float) 0.06 * AdventureGame.GAME_SCREEN_WIDTH,
+				(float) 0.7 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(screenTitle);
 
 		ScrollPane scroll = new ScrollPane(inventoryTable, game.scrollSkin);
-		scroll.setPosition((float) 0.15 * AdventureGame.GAME_SCREEN_WIDTH,
-				(float) 0.3 * AdventureGame.GAME_SCREEN_HEIGHT);
+		scroll.setPosition((float) 0.0 * AdventureGame.GAME_SCREEN_WIDTH,
+				(float) 0.25 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setSize(AdventureGame.GAME_SCREEN_HEIGHT - 200, 300);
 		scroll.setScrollingDisabled(true, false);
 		scroll.setFadeScrollBars(false);
@@ -141,7 +144,9 @@ public class InventoryScreen implements Screen {
 		game.batch.draw(game.backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 
 		if (playerIcon != null) {
-			// Draw the stuff
+			game.batch.draw(playerIcon, 750, 280);
+			game.font.draw(game.batch, playerName.toString(), 810, 250);
+			game.font.draw(game.batch, playerGender.toString(), 810, 210);
 		}
 
 		game.batch.end();

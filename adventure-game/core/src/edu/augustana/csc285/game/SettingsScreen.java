@@ -77,7 +77,7 @@ public class SettingsScreen implements Screen {
 		} else {
 			str = "Music On";
 		}
-		Button musicButton = new TextButton(str, game.defaultSkin, "default");
+		Button musicButton = new TextButton(str, game.menuSkin, "default");
 		musicButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -97,7 +97,7 @@ public class SettingsScreen implements Screen {
 
 		});
 
-		Button backButton = new TextButton("Back", game.defaultSkin);
+		Button backButton = new TextButton("Back", game.menuSkin);
 		backButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -116,7 +116,7 @@ public class SettingsScreen implements Screen {
 
 		});
 
-		Button decreaseSizeButton = new TextButton("-", game.defaultSkin, "default");
+		Button decreaseSizeButton = new TextButton("-", game.menuSkin, "default");
 		decreaseSizeButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -136,7 +136,7 @@ public class SettingsScreen implements Screen {
 			}
 
 		});
-		Button increaseSizeButton = new TextButton("+", game.defaultSkin, "default");
+		Button increaseSizeButton = new TextButton("+", game.menuSkin, "default");
 		increaseSizeButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -156,7 +156,7 @@ public class SettingsScreen implements Screen {
 
 		});
 
-		Button increaseVolButton = new TextButton("+", game.defaultSkin, "default");
+		Button increaseVolButton = new TextButton("+", game.menuSkin, "default");
 		increaseVolButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -176,7 +176,7 @@ public class SettingsScreen implements Screen {
 
 		});
 
-		Button decreaseVolButton = new TextButton("-", game.defaultSkin, "default");
+		Button decreaseVolButton = new TextButton("-", game.menuSkin, "default");
 		decreaseVolButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -197,10 +197,10 @@ public class SettingsScreen implements Screen {
 		});
 
 		settingsTable.center().bottom();
-		Label sizeLabel = new Label("" + game.size, game.defaultSkin);
-		Label volumeLevelLabel = new Label("" + game.volumeLevel, game.defaultSkin);
-		Label textSize = new Label("Text Size", game.defaultSkin);
-		Label volLevel = new Label("Volume", game.defaultSkin);
+		Label sizeLabel = new Label("" + game.size, game.menuSkin);
+		Label volumeLevelLabel = new Label("" + game.volumeLevel, game.menuSkin);
+		Label textSize = new Label("Text Size", game.menuSkin);
+		Label volLevel = new Label("Volume", game.menuSkin);
 		settingsTable.row();
 		settingsTable.add(musicButton).width(175).height(45).pad(5).colspan(4).center();
 		settingsTable.row();
@@ -217,7 +217,7 @@ public class SettingsScreen implements Screen {
 
 		if (!fromMenuScreen) {
 			// Add exit to menu button to table
-			Button exitToMenuButton = new TextButton("Exit to Menu", game.defaultSkin, "default");
+			Button exitToMenuButton = new TextButton("Exit to Menu", game.menuSkin, "default");
 			exitToMenuButton.addListener(new InputListener() {
 				@Override
 				public void touchUp(InputEvent event, float x, float y, int pointer, int button) {

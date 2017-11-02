@@ -242,10 +242,10 @@ public class SlideScreen implements Screen {
 
 	public Button addTextureRegion(String textureLocation, Screen screen, int locationInt) {
 		Texture textureImage = new Texture(textureLocation);
-
 		TextureRegion textureRegion = new TextureRegion(textureImage);
 		TextureRegionDrawable textureRegionDrawable = new TextureRegionDrawable(textureRegion);
 		Button button = new ImageButton(textureRegionDrawable);
+		button.setSize(75, 75);
 		button.setPosition(AdventureGame.GAME_SCREEN_WIDTH - (button.getWidth() + WIDTH_BUFFER) * locationInt,
 				AdventureGame.GAME_SCREEN_HEIGHT - HEIGHT_BUFFER - button.getHeight());
 		button.addListener(new InputListener() {

@@ -36,7 +36,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		stage = new Stage(new ScreenViewport());
 
 		logo = new Texture("image/icon/other/swensonlogo.png");
-		titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
+		titleFont = new BitmapFont(Gdx.files.internal("fonts/menuTitle.fnt"), false);
 
 		Table buttonTable = new Table();
 		buttonTable.setPosition((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH,
