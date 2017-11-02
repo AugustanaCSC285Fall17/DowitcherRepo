@@ -32,10 +32,12 @@ public class SettingsScreen implements Screen {
 	private AdventureGame game;
 	private boolean fromMenuScreen;
 	private int size;
+	private int volumeLevel;
 
 	// Second constructor to allow for back button to go back to main menu
 	public SettingsScreen(AdventureGame game, boolean fromMenuScreen) {
 		size = game.size;
+		volumeLevel = game.volumeLevel;
 		this.game = game;
 		this.fromMenuScreen = fromMenuScreen;
 		setUpSettingsScreen();
@@ -108,8 +110,8 @@ public class SettingsScreen implements Screen {
 
 		});
 
-		Button decreaseButton = new TextButton("Decrease", game.defaultSkin, "default");
-		decreaseButton.addListener(new InputListener() {
+		Button decreaseSizeButton = new TextButton("-", game.defaultSkin, "default");
+		decreaseSizeButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.buttonPressed.play();
@@ -128,8 +130,8 @@ public class SettingsScreen implements Screen {
 			}
 
 		});
-		Button increaseButton = new TextButton("Increase", game.defaultSkin, "default");
-		increaseButton.addListener(new InputListener() {
+		Button increaseSizeButton = new TextButton("+", game.defaultSkin, "default");
+		increaseSizeButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.buttonPressed.play();
@@ -147,14 +149,64 @@ public class SettingsScreen implements Screen {
 			}
 
 		});
+
+		Button increaseVolButton = new TextButton("+", game.defaultSkin, "default");
+		increaseVolButton.addListener(new InputListener() {
+			@Override
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				game.buttonPressed.play();
+				if (volumeLevel < 5) {
+					volumeLevel++;
+				}
+				game.setVolume(volumeLevel);
+				game.setScreen(new SettingsScreen(game, fromMenuScreen));
+				dispose();
+			}
+
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+
+		});
+
+		Button decreaseVolButton = new TextButton("-", game.defaultSkin, "default");
+		decreaseVolButton.addListener(new InputListener() {
+			@Override
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				game.buttonPressed.play();
+				if (volumeLevel > 0) {
+					volumeLevel--;
+				}
+				game.setVolume(volumeLevel);
+				game.setScreen(new SettingsScreen(game, fromMenuScreen));
+				dispose();
+			}
+
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				return true;
+			}
+
+		});
+
 		settingsTable.center().bottom();
 		Label sizeLabel = new Label("" + game.size, game.defaultSkin);
+		Label volumeLevelLabel = new Label("" + game.volumeLevel, game.defaultSkin);
+		Label textSize = new Label("Text Size", game.defaultSkin);
+		Label volLevel = new Label("Volume", game.defaultSkin);
 		settingsTable.row();
-		settingsTable.add(musicButton).width(175).height(45).pad(5).colspan(3).center();
+		settingsTable.add(musicButton).width(175).height(45).pad(5).colspan(4).center();
 		settingsTable.row();
-		settingsTable.add(decreaseButton).width(175).height(45).pad(5);
+		settingsTable.add(volLevel);
+		settingsTable.add(decreaseVolButton).width(175).height(45).pad(5);
+		settingsTable.add(volumeLevelLabel);
+		settingsTable.add(increaseVolButton).width(175).height(45).pad(5);
+		settingsTable.row();
+		settingsTable.add(textSize);
+		settingsTable.add(decreaseSizeButton).width(175).height(45).pad(5);
 		settingsTable.add(sizeLabel);
-		settingsTable.add(increaseButton).width(175).height(45).pad(5);
+		settingsTable.add(increaseSizeButton).width(175).height(45).pad(5);
 		settingsTable.row();
 
 		if (!fromMenuScreen) {
