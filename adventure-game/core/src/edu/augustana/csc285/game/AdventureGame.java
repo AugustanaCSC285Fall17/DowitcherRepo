@@ -41,6 +41,7 @@ public class AdventureGame extends Game {
 
 		// option 1
 		assets.manager.finishLoading();
+		menuSkin = assets.manager.get(Assets.menuSkin);
 		defaultSkin = assets.manager.get(Assets.defaultSkin);
 		scrollSkin = assets.manager.get(Assets.scrollSkin);
 		defaultMusic = assets.manager.get(Assets.defaultMusic);
@@ -90,7 +91,8 @@ public class AdventureGame extends Game {
 	public void setDescFont(int size) {
 		if (size != this.size) {
 			this.size = size;
-			descFont = new BitmapFont(Gdx.files.internal("fonts/descriptionFont/size" + size + "/fontSize" + size + ".fnt"), false);
+			descFont = new BitmapFont(
+					Gdx.files.internal("fonts/descriptionFont/size" + size + "/fontSize" + size + ".fnt"), false);
 		}
 	}
 

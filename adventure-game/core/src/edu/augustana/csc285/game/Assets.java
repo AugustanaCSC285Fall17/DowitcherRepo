@@ -19,6 +19,8 @@ public class Assets {
 			Music.class);
 	public static final AssetDescriptor<Sound> buttonPressed = new AssetDescriptor<Sound>(
 			"music/sound/button_press.wav", Sound.class);
+	public static final AssetDescriptor<Skin> menuSkin = new AssetDescriptor<Skin>("skin/menuSkin/cloud-form-ui.json",
+			Skin.class);
 
 	public void load() {
 		manager.load(backgroundImage);
@@ -26,6 +28,7 @@ public class Assets {
 		manager.load(scrollSkin);
 		manager.load(defaultMusic);
 		manager.load(buttonPressed);
+		manager.load(menuSkin);
 	}
 
 	public void dispose() {

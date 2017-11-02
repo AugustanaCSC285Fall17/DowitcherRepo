@@ -1,7 +1,7 @@
 {
 slides: {
 	44: {
-		image: 44.jpg
+		image: 44.png
 		desc: "He makes a gesture for his superior officer to come over. The superior officer glances at the papers and murmurs instructions to his subordinate. The superior officer makes some sharp remarks to you and hands you over to the police for forgery. You are immediately deported and put on a watch list for travelling in England. Your hopes of making it to America are squandered and now must live the rest of your days finding work in Sweden.  "
 		id: 44
 		title: Don’t bribe him
@@ -13,7 +13,7 @@ slides: {
 		]
 	}
 	45: {
-		image: 45.jpg
+		image: 45.png
 		desc: "You present your papers. You start to become nervous as he eyes them. He makes a gesture for his superior officer to come over. The superior officer glances at the papers and murmurs instructions to his subordinate. The superior officer nods his head and presents you with a stamped ticket and papers. Happy to have made it thus far, you proceed onto the boat. "
 		id: 45
 		title: Present your papers
@@ -147,7 +147,7 @@ slides: {
 		]
 	}
 	52: {
-		image: 52.jpg
+		image: 52.png
 		id: 52
 		title: You’re in the reading room
 		options: [
@@ -173,7 +173,7 @@ slides: {
 		]
 	}
 	10: {
-		image: 10.jpg
+		image: 10.png
 		desc: "Dear Cousin,\nI have been blessed to have found a place I can call home. My journeys were long, and at times I had felt grief for leaving my beautiful Sweden. I remember so clearly how it felt to be a stranger in a strange place. Only having a small trunk and broken English left me apprehensive of my surroundings. I am thankful that I have experienced no ill wills on my passage to America. I had heard some of my kin had travelled to the far west of this vast country, in a place called Washington state. My family settled near Tacoma and are now prosperous farmers and fishermen! I decided to try my hand for this place. I took the Walla Walla railroad instead of the Northern Pacific, as it was the cheaper option. I was taken to Seattle and found a boardinghouse for Swedes. Within a month I had found employment as a maid to one of the founding families. They treat me well despite some language barrier, but I am becoming more proficient and feel more confident in my new home.\nI do wish you well and hope someday to meet you again in my new home! Give my love to my family and friends!\n\nLinnea Parsson\n"
 		id: 10
 		title: Washington letter
@@ -196,7 +196,7 @@ slides: {
 		]
 	}
 	11: {
-		image: 11.jpg
+		image: 11.png
 		desc: "Dear Cousin,\nI am content to report that I have found steady employment as my own master. I had arrived only two months in St. Paul, working odds and ends in the town when I noticed an advertisement of purchasable land not far from my lodgings. Land is so cheap here in America! I saved enough to buy my own lot and have begun to till and grind the land. My hope is to grow peas and potatoes and sell them at market. Let us pray for a good harvest this next season!\nLife has treated me well. The journey is hard on everyone, harder for others. My companion on the trip to America arrived well but I have received word that he has fallen into poverty. He was swindled by a false recruiter at the docks. He is struggling to find employment in the city but, God willing, I hope he will find something soon!\nAs you make the journey, make sure to bring plenty of food. They treat you well on the ships and trains but the journey alone can make one homesick. A little piece of home can appease the qualms of the stomach and might make you a friend or two!\nGodspeed dear cousin! \nArvid Lothbrok"
 		id: 11
 		title: Minnesota letter
@@ -282,7 +282,7 @@ slides: {
 		]
 	}
 	13: {
-		image: 13.jpg
+		image: 13.png
 		desc: "To start your journey, you need a few provisions. The first and foremost being your papers. Check your inventory to see how much money you currently have.  Do you:"
 		id: 13
 		title: "Travel Papers "
@@ -821,7 +821,7 @@ slides: {
 		]
 	}
 	19: {
-		image: 19.jpg
+		image: 19.png
 		desc: "You take a wagon to the port city of Gothenburg. You walk along Sillgatan or “Herring Street” where there were many emigrant agents, hotels, shops, and taverns. Here you wait to board a ship to England."
 		id: 19
 		title: Transport to Gothenburg
@@ -855,7 +855,7 @@ slides: {
 		]
 	}
 	3: {
-		image: 3.jpg
+		image: 3.png
 		desc: "It’s the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. Who are you?"
 		id: 3
 		title: Choose Your Character
@@ -911,7 +911,7 @@ slides: {
 		]
 	}
 	4: {
-		image: 4.jpg
+		image: 4.png
 		desc: "You are an 18 year-old male from Mellby Parish, Småland. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. "
 		id: 4
 		title: Anders Bengtsson
@@ -923,7 +923,7 @@ slides: {
 		]
 	}
 	5: {
-		image: 5.jpg
+		image: 5.png
 		desc: You are an 18 year-old female maid from Stockholm. You dislike your job as maid and can’t seem to find a better one because there is too much competition (population has been booming in the city and countryside). You decide to seek better employment in America.\n
 		id: 5
 		title: Lovisa Eriksdotter
@@ -946,7 +946,7 @@ slides: {
 		]
 	}
 	7: {
-		image: 7.jpg
+		image: 7.png
 		desc: "To Whom It May Concern,\nWe hope you find this letter in good spirits. On behalf of the John Deere Company, you have been selected for a position at the Moline factory site. We are looking forward to seeing you again and have safe travels. Please bring this notarized letter with you to our recruitment office.\nGodspeed,\nFrom the Office of John Deere, President of John Deere Co."
 		id: 7
 		title: John Deere letter
@@ -958,7 +958,7 @@ slides: {
 		]
 	}
 	8: {
-		image: 8.jpg
+		image: 8.png
 		desc: "Receiving letters from those who journeyed to America prompted many of your family friends to pursue their own journey over. Life must be treating them well in America— economic opportunities, building their own legacy and family. The American Dream is a strong pull for Swedes, yourself included. \n\nChoose a letter to read:"
 		id: 8
 		title: You’ve received a letter from America.
@@ -1048,7 +1048,7 @@ slides: {
 		]
 	}
 	9: {
-		image: 9.jpg
+		image: 9.png
 		desc: "Dear Cousin,\nMay God find you well, dear friend! God is good and God is plentiful. He has shown me the way to a brighter future here in America. My journey has led my travelling companions and myself to a quaint town in the state of Illinois called Moline. It may be quaint now but we are fortunate to have factories and farming jobs available for the people. I have friends all over Illinois including Rockford and Chicago! We stay in touch through correspondence and the occasional social visit when we can. My piece of advice for you, should you make the journey, is to find peace with yourself and our loving God. For He is the way and will guide you! The Christian faith has given me hope and salvation along my journey. My fellow companions and I attend the Lutheran service held by a pastor who is also from Sweden. It is wonderful to have familiarity in a strange place. Services are something to look forward to as it brings us closer to our Maker and builds a strong sense of community. I pray for all the success in the world for you as you make your own journey. \nLovingly,\nErika Leiffson"
 		id: 9
 		title: Illinois letter
@@ -1110,7 +1110,7 @@ slides: {
 		]
 	}
 	62: {
-		image: 62.jpg
+		image: 62.png
 		desc: "You situate yourself near the railing of the deck. Your face feels the gentle breeze and you can smell the salty air. The sea is roaring with life as you make your way to America. The weather is fair and your spirits lift as you see the sun glisten onto the shining waters. From the corner of your eye, you notice a shiny glimpse beside you. On one of the lounge chairs there are some small coins. You inspect and find $5 or 20 SEK (+$5 or 20 SEK)! How fortunate! "
 		id: 62
 		title: Oceanside
@@ -1134,7 +1134,7 @@ slides: {
 		]
 	}
 	63: {
-		image: 63.jpg
+		image: 63.png
 		desc: "You notice the gate is wide open to the upper decks. Hoping to sneak a better glimpse of the vast ocean, you climb your way up the steps. Before you could find your balance onto the final step, the first officer rounds the corner and catches you. He gives you a sharp warning and orders you to head back to your deck."
 		id: 63
 		title: First class deck
@@ -1157,7 +1157,7 @@ slides: {
 		]
 	}
 	64: {
-		image: 64.jpg
+		image: 64.png
 		desc: You can hear some lively discussion ahead. However you can also see the entrance to a peaceful cabin room. What do you decide to do?
 		id: 64
 		title: Social floor
@@ -1184,7 +1184,7 @@ slides: {
 		]
 	}
 	65: {
-		image: 65.jpg
+		image: 65.png
 		desc: "You meet and socialize with other passengers, exchanging stories of the journey thus far. You are both excited and scared when the boat docks in New York"
 		id: 65
 		title: Chat with other passengers
@@ -1200,7 +1200,7 @@ slides: {
 		]
 	}
 	22: {
-		image: 22.jpg
+		image: 22.png
 		desc: You have arrived at Gothenburg port. The port of Gothenburg promises good sailing today. You need to find the ticket agent for the White Star Line.
 		id: 22
 		title: Gothenburg Port
@@ -1232,7 +1232,7 @@ slides: {
 		]
 	}
 	66: {
-		image: 66.jpg
+		image: 66.png
 		desc: "You encounter a priest reading some psalms and verses to himself. He notices you and begs you to come closer. Interested, you sit beside him and he tells you about the word of God and the inspiration of men like Moses, Noah, and Job— all who were tested on their journeys. Through faith in the Lord, they were triumphant and lived peacefully preaching the word of God."
 		id: 66
 		title: Discuss scripture
@@ -1289,7 +1289,7 @@ slides: {
 		]
 	}
 	23: {
-		image: 23.jpg
+		image: 23.png
 		desc: You see a market at the end of the lane. Do you wish to shop here?
 		id: 23
 		title: Market
@@ -1305,7 +1305,7 @@ slides: {
 		]
 	}
 	67: {
-		image: 67.jpg
+		image: 67.png
 		desc: "You reflect on his words and feel a sense of belonging with these stories. You hope you too will find success on your journey. Perhaps God has a special plan for you in America. "
 		id: 67
 		title: Scripture
@@ -1317,7 +1317,7 @@ slides: {
 		]
 	}
 	24: {
-		image: 24.jpg
+		image: 24.png
 		desc: You’re in the shop. What would you like to do?
 		id: 24
 		title: Shop
@@ -1796,7 +1796,7 @@ slides: {
 		]
 	}
 	29: {
-		image: 29.jpg
+		image: 29.png
 		desc: "Inspection After passing initial health inspection, the ticketmaster asks for your papers. Do you have your ticket?"
 		id: 29
 		title: Go straight to ship
@@ -1836,7 +1836,7 @@ slides: {
 		]
 	}
 	70: {
-		image: 70.jpg
+		image: 70.png
 		desc: "Go below [boiler room] You creep down to the belly of the ship and find a world of coal and fire. Men all around are keeping the boilers running. The squeals and churnings of the machine were matched with the yells of crew men giving out orders. Amidst all the noise, someone notices your presence.\n"
 		id: 70
 		title: Go below to the boiler room
@@ -1864,7 +1864,7 @@ slides: {
 		]
 	}
 	71: {
-		image: 71.jpg
+		image: 71.png
 		desc: "You meet a disgruntled boilerman hard at work. He eyes you and starts yelling and pointing for you to get out of there. \nQuickly,"
 		id: 71
 		title: Boiler room
@@ -1876,7 +1876,7 @@ slides: {
 		]
 	}
 	72: {
-		image: 72.jpg
+		image: 72.png
 		desc: "The boilerman mistakes you for a worker, forces you to work. The boilerman eyes you and makes gestures to pick up a shovel and work. What do you do?"
 		id: 72
 		title: Boiler room
@@ -1892,7 +1892,7 @@ slides: {
 		]
 	}
 	73: {
-		image: 73.jpg
+		image: 73.png
 		desc: "You shake your head and try your best to explain you are a passenger. The boilerman yells at you, presumably to get out."
 		id: 73
 		title: Say you’re a passenger
@@ -1904,7 +1904,7 @@ slides: {
 		]
 	}
 	30: {
-		image: 30.jpg
+		image: 30.png
 		desc: "“Seems to be in order. Proceed.” You board the ship for Hull, England.  "
 		id: 30
 		title: Board ship for Hull
@@ -1916,7 +1916,7 @@ slides: {
 		]
 	}
 	74: {
-		image: 74.jpg
+		image: 74.png
 		desc: "Confused and afraid, you don’t say anything. He points to a boiler to work on and orders you to shovel the coal into the fire pit. You try to walk away but he pushes you back to the boiler. You hesitantly do as he says. He orders you to fix the gears on the pressure system when you are done. Because of your lack of engineering skills, you fiddle with the gears which causes great amounts of pressure. So much pressure that you cause the boiler to implode. One by one, the boilers catch on fire and cause the room to collapse. The ship sinks into the abyss, lost forever."
 		id: 74
 		title: You cause the boat to sink!
@@ -1939,7 +1939,7 @@ slides: {
 		]
 	}
 	75: {
-		image: 75.jpg
+		image: 75.png
 		desc: "Arrived! You’ve arrived at Castle Garden in New York City. Before 1890, the federal government practiced some oversight of immigration to the U.S., but it largely contracted out the duties. The famous Ellis Island did not open as the country’s primary immigration center until 1892. From 1855 to 1890, more than 8 million immigrants who arrived in New York City were instead processed at Castle Garden, America’s first official immigration center, by New York state officials. "
 		id: 75
 		title: "Castle Garden, New York City"
@@ -1951,7 +1951,7 @@ slides: {
 		]
 	}
 	32: {
-		image: 32.jpg
+		image: 32.png
 		desc: Ticket agent “What can I do for you?”
 		id: 32
 		title: You found the Ticket Agent
@@ -2095,7 +2095,7 @@ slides: {
 		]
 	}
 	36: {
-		image: 36.jpg
+		image: 36.png
 		desc: "After a relatively smooth journey, you make it to Hull, England— a thriving port and the next step in your journey. In order to proceed, you need to buy passage to Liverpool. "
 		id: 36
 		title: "Arrived in Hull, England"
@@ -2188,7 +2188,7 @@ slides: {
 		]
 	}
 	39: {
-		image: 39.jpg
+		image: 39.png
 		desc: A sign above you says Liverpool station. A ticketmaster is inspecting tickets in front out you.\nBoard Liverpool train
 		id: 39
 		title: Train to Liverpool
@@ -2239,7 +2239,7 @@ slides: {
 		]
 	}
 	40: {
-		image: 40.jpg
+		image: 40.png
 		desc: "Made it to Liverpool The journey to Liverpool went well. Aside from the uncomfortable seating on the train and the occasional strange looks from the English, you feel more confident about your travels. Liverpool is known as a waypoint for immigrants seeking passage to America."
 		id: 40
 		title: "Arrived in Liverpool, England"
@@ -2333,7 +2333,7 @@ slides: {
 		]
 	}
 	43: {
-		image: 43.jpg
+		image: 43.png
 		desc: He makes a gesture for his superior officer to come over. The superior officer glances at the papers and murmurs instructions to his subordinate. The superior officer makes some sharp remarks to you and hands you over to the police for forgery and bribing an officer. You are immediately put in prison for your crimes and are stripped of all your belongings. You must now wait to serve your sentence before you attempt to make it to America.
 		id: 43
 		title: Bribe him

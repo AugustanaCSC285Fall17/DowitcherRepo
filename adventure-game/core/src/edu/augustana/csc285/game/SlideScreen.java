@@ -240,8 +240,8 @@ public class SlideScreen implements Screen {
 		}
 	}
 
-	public Button addTextureRegion(String skinLocation, Screen screen, int locationInt) {
-		Texture textureImage = new Texture(skinLocation);
+	public Button addTextureRegion(String textureLocation, Screen screen, int locationInt) {
+		Texture textureImage = new Texture(textureLocation);
 
 		TextureRegion textureRegion = new TextureRegion(textureImage);
 		TextureRegionDrawable textureRegionDrawable = new TextureRegionDrawable(textureRegion);

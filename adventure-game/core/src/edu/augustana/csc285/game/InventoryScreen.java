@@ -49,11 +49,12 @@ public class InventoryScreen implements Screen {
 	private String playerGender;
 
 	public InventoryScreen(AdventureGame game) {
-		if (game.manager.getPlayer().getName() != null && !game.manager.getPlayer().getName().equals("")) {
+		if (game.manager.getPlayer().getName() != null && !game.manager.getPlayer().getName().equalsIgnoreCase("")) {
 			playerName = game.manager.getPlayer().getName();
 			playerGender = game.manager.getPlayer().getGender().toString();
+			System.out.println("Here");
 			// Todo note: Add the texture
-			playerIcon = new Texture("");
+			//playerIcon = new Texture("");
 		}
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
