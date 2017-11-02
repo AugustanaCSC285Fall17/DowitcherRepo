@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -33,9 +34,11 @@ public class SettingsScreen implements Screen {
 	private boolean fromMenuScreen;
 	private int size;
 	private int volumeLevel;
+	private boolean dialog;
 
 	// Second constructor to allow for back button to go back to main menu
-	public SettingsScreen(AdventureGame game, boolean fromMenuScreen) {
+	public SettingsScreen(AdventureGame game, boolean fromMenuScreen, boolean dialog) {
+		this.dialog = dialog;
 		size = game.size;
 		volumeLevel = game.volumeLevel;
 		this.game = game;
@@ -45,7 +48,7 @@ public class SettingsScreen implements Screen {
 
 	// First constructor for regular slide screen settings
 	public SettingsScreen(AdventureGame game) {
-		this(game, false);
+		this(game, false, false);
 	}
 
 	public void setUpSettingsScreen() {
@@ -57,12 +60,11 @@ public class SettingsScreen implements Screen {
 		Table settingsTable = new Table();
 		if (fromMenuScreen) {
 			settingsTable.setPosition((float) (AdventureGame.GAME_SCREEN_WIDTH / 2),
-					(float) 0.3 * AdventureGame.GAME_SCREEN_WIDTH);	
+					(float) 0.3 * AdventureGame.GAME_SCREEN_WIDTH);
 		} else {
 			settingsTable.setPosition((float) (AdventureGame.GAME_SCREEN_WIDTH / 2),
 					(float) 0.25 * AdventureGame.GAME_SCREEN_WIDTH);
 		}
-		
 
 		Label screenTitle = new Label("Settings", new Label.LabelStyle(titleFont, Color.BLACK));
 		screenTitle.setPosition(420, 540);
@@ -70,7 +72,6 @@ public class SettingsScreen implements Screen {
 
 		String str = "";
 		// Add music on button to table
-
 
 		if (game.defaultMusic.isPlaying()) {
 			str = "Music Off";
@@ -87,7 +88,7 @@ public class SettingsScreen implements Screen {
 				} else {
 					game.defaultMusic.play();
 				}
-				game.setScreen(new SettingsScreen(game, fromMenuScreen));
+				game.setScreen(new SettingsScreen(game, fromMenuScreen, dialog));
 			}
 
 			@Override
@@ -125,7 +126,7 @@ public class SettingsScreen implements Screen {
 					size--;
 				}
 				game.setDescFont(size);
-				game.setScreen(new SettingsScreen(game, fromMenuScreen));
+				game.setScreen(new SettingsScreen(game, fromMenuScreen, dialog));
 				dispose();
 
 			}
@@ -145,7 +146,7 @@ public class SettingsScreen implements Screen {
 					size++;
 				}
 				game.setDescFont(size);
-				game.setScreen(new SettingsScreen(game, fromMenuScreen));
+				game.setScreen(new SettingsScreen(game, fromMenuScreen, dialog));
 				dispose();
 			}
 
@@ -165,7 +166,7 @@ public class SettingsScreen implements Screen {
 					volumeLevel++;
 				}
 				game.setVolume(volumeLevel);
-				game.setScreen(new SettingsScreen(game, fromMenuScreen));
+				game.setScreen(new SettingsScreen(game, fromMenuScreen, dialog));
 				dispose();
 			}
 
@@ -185,7 +186,7 @@ public class SettingsScreen implements Screen {
 					volumeLevel--;
 				}
 				game.setVolume(volumeLevel);
-				game.setScreen(new SettingsScreen(game, fromMenuScreen));
+				game.setScreen(new SettingsScreen(game, fromMenuScreen, dialog));
 				dispose();
 			}
 
@@ -222,10 +223,14 @@ public class SettingsScreen implements Screen {
 				@Override
 				public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 					game.buttonPressed.play();
-					game.setScreen(new MainMenuScreen(game, false));
-					game.initializeManager();
+
+					game.setScreen(new SettingsScreen(game, fromMenuScreen, true));
+
+					// game.setScreen(new MainMenuScreen(game, false));
+					// game.initializeManager();
 					dispose();
 				}
+
 				@Override
 				public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 					return true;
@@ -253,7 +258,11 @@ public class SettingsScreen implements Screen {
 		stage.draw();
 		// Go back to slide screen
 		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE)) {
-			game.setScreen(new SlideScreen(game));
+			if (fromMenuScreen) {
+				game.setScreen(new MainMenuScreen(game, false));
+			} else {
+				game.setScreen(new SlideScreen(game));
+			}
 			dispose();
 		}
 
@@ -262,6 +271,26 @@ public class SettingsScreen implements Screen {
 	@Override
 	public void show() {
 		Gdx.input.setInputProcessor(stage);
+		if (dialog) {
+			new Dialog("Confirmation", game.defaultSkin) {
+
+				{
+					text("Are you sure?");
+					button("Yes", new MainMenuScreen(game, false));
+					button("No", new SettingsScreen(game, fromMenuScreen, false));
+				}
+
+				@Override
+				protected void result(final Object object) {
+					if (object.getClass().isInstance(new MainMenuScreen(game, false))) {
+						game.setScreen(new MainMenuScreen(game, false));
+					} else {
+						game.setScreen(new SettingsScreen(game, fromMenuScreen, false));
+					}
+				}
+
+			}.show(stage);
+		}
 	}
 
 	@Override

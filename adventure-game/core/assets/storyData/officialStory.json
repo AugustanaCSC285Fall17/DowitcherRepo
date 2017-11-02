@@ -2075,7 +2075,7 @@ slides: {
 	34: {
 		desc: You put both tickets into your pocket.
 		id: 34
-		title: Pay for ticket to Hull through Liverpool
+		title: Pay for ticket through Liverpool
 		options: [
 			{
 				desc: Continue

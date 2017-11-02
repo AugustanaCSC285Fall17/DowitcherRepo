@@ -136,7 +136,7 @@ public class SlideScreen implements Screen {
 							game.setScreen(new SlideScreen(game));
 
 						} else {
-							game.setScreen(new SlideScreen(game, option.getRejectMessage()));
+							game.setScreen(new SlideScreen(game));
 						}
 					} else {
 						game.setScreen(new EndScreen(game));
@@ -239,7 +239,7 @@ public class SlideScreen implements Screen {
 			dispose();
 		}
 		if (Gdx.input.isKeyJustPressed(Keys.S)) {
-			game.setScreen(new SettingsScreen(game, true));
+			game.setScreen(new SettingsScreen(game, true,false));
 			dispose();
 		}
 
@@ -266,15 +266,6 @@ public class SlideScreen implements Screen {
 		return button;
 	}
 
-	/*
-	 * public Image addTexture(String skinLocation) { Texture textureImage = new
-	 * Texture(skinLocation); TextureRegion textureRegion = new
-	 * TextureRegion(textureImage); TextureRegionDrawable textureRegionDrawable
-	 * = new TextureRegionDrawable(textureRegion); Image playerImg = new
-	 * Image(textureRegionDrawable); playerImg.setSize(75, 75);
-	 * playerImg.setPosition(AdventureGame.GAME_SCREEN_WIDTH - 200,
-	 * AdventureGame.GAME_SCREEN_HEIGHT - 200); return playerImg; }
-	 */
 
 	@Override
 	public void show() {

@@ -87,7 +87,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		boolean fromMenuScreen = true;
 		settingsButton.addListener(new InputListener() {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				game.setScreen(new SettingsScreen(game, fromMenuScreen));
+				game.setScreen(new SettingsScreen(game, fromMenuScreen, false));
 				dispose();
 			}
 
