@@ -240,11 +240,6 @@ public class SlideScreen implements Screen {
 			game.setScreen(new InventoryScreen(game));
 			dispose();
 		}
-		// Change to player stat screen
-		if (Gdx.input.isKeyJustPressed(Keys.S)) {
-			game.setScreen(new PlayerStatScreen(game));
-			dispose();
-		}
 
 	}
 
