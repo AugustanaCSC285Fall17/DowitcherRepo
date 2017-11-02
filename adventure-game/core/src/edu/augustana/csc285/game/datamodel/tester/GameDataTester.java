@@ -282,26 +282,26 @@ public class GameDataTester {
 
 		s19.addOption(new Option("Leave", null, null, "14", null, null));
 
-		story.addSlide(s0);
-		story.addSlide(s1);
-		story.addSlide(s2);
-		story.addSlide(s3);
-		story.addSlide(s4);
-		story.addSlide(s5);
-		story.addSlide(s6);
-		story.addSlide(s7);
-		story.addSlide(s8);
-		story.addSlide(s9);
-		story.addSlide(s10);
-		story.addSlide(s11);
-		story.addSlide(s12);
-		story.addSlide(s13);
-		story.addSlide(s14);
-		story.addSlide(s15);
-		story.addSlide(s16);
-		story.addSlide(s17);
-		story.addSlide(s18);
-		story.addSlide(s19);
+		story.addSlide(s0, true);
+		story.addSlide(s1, true);
+		story.addSlide(s2, true);
+		story.addSlide(s3, true);
+		story.addSlide(s4, true);
+		story.addSlide(s5, true);
+		story.addSlide(s6, true);
+		story.addSlide(s7, true);
+		story.addSlide(s8, true);
+		story.addSlide(s9, true);
+		story.addSlide(s10, true);
+		story.addSlide(s11, true);
+		story.addSlide(s12, true);
+		story.addSlide(s13, true);
+		story.addSlide(s14, true);
+		story.addSlide(s15, true);
+		story.addSlide(s16, true);
+		story.addSlide(s17, true);
+		story.addSlide(s18, true);
+		story.addSlide(s19, true);
 
 		System.out.println(story.toJSON());
 

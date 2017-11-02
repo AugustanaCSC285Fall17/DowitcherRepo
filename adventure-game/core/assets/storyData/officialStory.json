@@ -4,7 +4,7 @@ slides: {
 		image: 44.jpg
 		desc: "He makes a gesture for his superior officer to come over. The superior officer glances at the papers and murmurs instructions to his subordinate. The superior officer makes some sharp remarks to you and hands you over to the police for forgery. You are immediately deported and put on a watch list for travelling in England. Your hopes of making it to America are squandered and now must live the rest of your days finding work in Sweden.  "
 		id: 44
-		title: Donít bribe him
+		title: Don‚Äôt bribe him
 		options: [
 			{
 				desc: Continue
@@ -27,7 +27,7 @@ slides: {
 	46: {
 		desc: "Making friends along the journey, especially with crewmen, would have been advantageous. Some immigrants expressed discomfort with their new surroundings. One immigrant, Swen Magnus Swensson, remembers how the food and coffee served onboard were bland and unappealing. Some of the passengers would bribe the crew for more food and helped out in the kitchens to receive an extra serving or barter for different items. "
 		id: 46
-		title: "Historical Note: Taking a Boat to America "
+		title: Taking a boat to America
 		options: [
 			{
 				desc: Continue
@@ -39,7 +39,7 @@ slides: {
 		image: 47.jpg
 		desc: On the boat You made it on the boat!
 		id: 47
-		title: On the Boat to America
+		title: On the boat to America
 		options: [
 			{
 				desc: "Go left [dining hall]"
@@ -78,7 +78,7 @@ slides: {
 		image: 49.jpg
 		desc: You meet a lone crew member prepping the dining hall. He stares at you curiously and asks what are you doing here.\n
 		id: 49
-		title: Youíre in the Dining Room
+		title: You‚Äôre in the dining room
 		options: [
 			{
 				desc: Thank him and offer Cured Meat
@@ -138,7 +138,7 @@ slides: {
 	51: {
 		desc: "The crew member glances at you strangely and swiftly rejects you before attending to his duties. "
 		id: 51
-		title: No more rations for you
+		title: No more rations
 		options: [
 			{
 				desc: Leave
@@ -149,7 +149,7 @@ slides: {
 	52: {
 		image: 52.jpg
 		id: 52
-		title: Youíre in the reading room
+		title: You‚Äôre in the reading room
 		options: [
 			{
 				desc: Interact with passengers
@@ -162,7 +162,7 @@ slides: {
 		]
 	}
 	53: {
-		desc: "You spend a while with some of the passengers: exchanging stories, sharing meals, and playing music. However, you are now feeling sickÖ"
+		desc: "You spend a while with some of the passengers: exchanging stories, sharing meals, and playing music. However, you are now feeling sick‚Ä¶"
 		id: 53
 		title: Interact with passengers
 		options: [
@@ -187,7 +187,7 @@ slides: {
 	54: {
 		desc: "One of the dangers of being onboard is being exposed to germs and disease, partly from traveling in close quarters to others. Cramped living spaces, a lack of access to medical care, and the lack of a clean plumbing system were not ideal conditions. If a person did not bring along home remedies, have additional money to pay for nursing services or contracted something prior to boarding, then passengers had to fend for themselves. Combined with seasickness, the journey could be physically exhausting. "
 		id: 54
-		title: "Historical Note: Illness and Travel "
+		title: "Illness and travel "
 		options: [
 			{
 				desc: Continue
@@ -208,12 +208,13 @@ slides: {
 		]
 	}
 	55: {
-		desc: You begin to cough uncontrollably. Other passengers stop what theyíre doing and look at you. What do you do?
+		desc: You begin to cough uncontrollably. Other passengers stop what they‚Äôre doing and look at you. What do you do?
 		id: 55
 		title: You fell ill!
 		options: [
 			{
 				desc: Take medicine
+				rejectMessage: You don't have medicine
 				nextSlideIndex: 56
 				effects: [
 					{
@@ -222,7 +223,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: meat.png
+							image: medicine.png
 						}
 						operation: MINUS
 					}
@@ -234,7 +235,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: meat.png
+							image: medicine.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -247,9 +248,9 @@ slides: {
 		]
 	}
 	12: {
-		desc: "Immigrants were inspired to move to America not only by ìpushî factors that pushed them to leave their country of origin, but by ìpullî factors that suggested the United States would offer great opportunities. Many immigrants found out about these opportunities from family and friends, then they often followed those family and friends to places where they had already become established--a process called chain migration. Letters from the U.S. to Sweden provided lots of advice about the long journey as well as information about opportunities in their new American homes and sometimes encouragement to join them. Other immigrants were recruited in Sweden to go straight to particular jobs in the United States. John Deere, in Moline, Illinois, was well known for recruiting Swedes for its growing factory operation. "
+		desc: "Immigrants were inspired to move to America not only by ‚Äúpush‚Äù factors that pushed them to leave their country of origin, but by ‚Äúpull‚Äù factors that suggested the United States would offer great opportunities. Many immigrants found out about these opportunities from family and friends, then they often followed those family and friends to places where they had already become established--a process called chain migration. Letters from the U.S. to Sweden provided lots of advice about the long journey as well as information about opportunities in their new American homes and sometimes encouragement to join them. Other immigrants were recruited in Sweden to go straight to particular jobs in the United States. John Deere, in Moline, Illinois, was well known for recruiting Swedes for its growing factory operation. "
 		id: 12
-		title: "Historical Note: the Pull of America "
+		title: "The Pull of America "
 		options: [
 			{
 				desc: Continue
@@ -260,7 +261,7 @@ slides: {
 	56: {
 		desc: "All better! Thankfully you brought along some remedies from home. "
 		id: 56
-		title: Take Medicine
+		title: Take medicine
 		options: [
 			{
 				desc: Head back
@@ -371,6 +372,7 @@ slides: {
 		options: [
 			{
 				desc: Pay for a physician/nursing care
+				rejectMessage: You need at least 20 Kronor
 				nextSlideIndex: 58
 				effects: [
 					{
@@ -406,7 +408,7 @@ slides: {
 	14: {
 		desc: "Immigrants from Sweden usually gained needed papers for travel from their Parish. Tickets were costly; $30 USD in 1880 is the equivalent of $775 USD in 2017. Forging papers was not typical for immigrants; however, one letter, translated by the Swenson Center and sent to a Mr. Hjalmar Andersson, mentions that Swedish men were drafted in the military when they turned 18. In order for these men to migrate, they needed to find alternative ways to seek passage and documentation, so the letter writer suggests pursuing a forgery. \n"
 		id: 14
-		title: Historical Note: Getting Papers for Travel
+		title: Getting papers for travel
 		options: [
 			{
 				desc: Continue
@@ -428,7 +430,7 @@ slides: {
 	15: {
 		desc: "Excellent. You are the first in your family to take on this journey. They are counting on your success in America. Your family has pooled enough money for passage, thankfully. You cannot take very much with you, so you must choose carefully which items to bring. Some items are more useful than others but even the smallest, trivial item can lead to unexpected use. Remember, you have some money left after purchasing papers. \nChoose one item:"
 		id: 15
-		title: Choose your Inventory items
+		title: Choose your inventory items
 		options: [
 			{
 				desc: Bible
@@ -488,7 +490,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: meat.png
+							image: medicine.png
 						}
 						operation: PLUS
 					}
@@ -526,7 +528,7 @@ slides: {
 	16: {
 		desc: "Excellent. You are the first in your family to take on this journey. They are counting on your success in America. Your family has pooled enough money for passage, thankfully. You cannot take very much with you, so you must choose carefully which items to bring. Some items are more useful than others but even the smallest, trivial item can lead to unexpected use. "
 		id: 16
-		title: Choose another Inventory item
+		title: Choose another inventory item
 		options: [
 			{
 				desc: Bible
@@ -619,7 +621,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: meat.png
+							image: medicine.png
 						}
 						operation: PLUS
 					}
@@ -630,7 +632,7 @@ slides: {
 						item: {
 							name: Medicine
 							desc: ""
-							image: meat.png
+							image: medicine.png
 						}
 						operation: EQUAL
 					}
@@ -668,7 +670,7 @@ slides: {
 	17: {
 		desc: "Excellent. You are the first in your family to take on this journey. They are counting on your success in America. Your family has pooled enough money for passage, thankfully. You cannot take very much with you, so you must choose carefully which items to bring. Some items are more useful than others but even the smallest, trivial item can lead to unexpected use. "
 		id: 17
-		title: Choose your final Inventory item
+		title: Choose your final inventory item
 		options: [
 			{
 				desc: Bible
@@ -761,7 +763,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: meat.png
+							image: medicine.png
 						}
 						operation: PLUS
 					}
@@ -772,7 +774,7 @@ slides: {
 						item: {
 							name: Medicine
 							desc: ""
-							image: meat.png
+							image: medicine.png
 						}
 						operation: EQUAL
 					}
@@ -810,7 +812,7 @@ slides: {
 	18: {
 		desc: Many immigrants sold much of what they owned both in order to pay for the immense travel fees. Others planned to start over in America and so liquidated all their assets.
 		id: 18
-		title: "Historical Note: Inventory "
+		title: "Inventory "
 		options: [
 			{
 				desc: Continue
@@ -820,7 +822,7 @@ slides: {
 	}
 	19: {
 		image: 19.jpg
-		desc: "You take a wagon to the port city of Gothenburg. You walk along Sillgatan or ìHerring Streetî where there were many emigrant agents, hotels, shops, and taverns. Here you wait to board a ship to England."
+		desc: "You take a wagon to the port city of Gothenburg. You walk along Sillgatan or ‚ÄúHerring Street‚Äù where there were many emigrant agents, hotels, shops, and taverns. Here you wait to board a ship to England."
 		id: 19
 		title: Transport to Gothenburg
 		options: [
@@ -831,7 +833,7 @@ slides: {
 		]
 	}
 	1: {
-		desc: Youíre a young Swedish immigrant to America in 1880. Youíve made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?
+		desc: You‚Äôre a young Swedish immigrant to America in 1880. You‚Äôve made the tough decision to leave your family and life in Sweden behind. Will you survive and prosper in America?
 		id: 1
 		title: The Swedish Immigrant Trail
 		options: [
@@ -842,9 +844,9 @@ slides: {
 		]
 	}
 	2: {
-		desc: "Between 1850 and 1930, over 1.3 million Swedes immigrated to the United States. At the same time, over 50 million Europeans left Europe. Several factors ìpushedî Swedes to leave their homeland while others ìpulled\" them to America. Population growth in Sweden led to less available land for farming and crop failure in the late 1860s put pressure on the agrarian society. That, paired with the availability of cheap land for farming and the Homestead Act of 1862 in the United States, caused many Swedes to seek a new life in America. Once Swedish immigrants found themselves here, they wrote letters back home describing their experiences, often in overly positive terms. These so-called ìAmerica lettersî proved important in establishing migration channels for new immigrants to come and join their family and friends in America. Religious and political reasons played a much smaller role for the move to America, although it was critical in some cases.This Trans-Atlantic mass exodus was one of the major events in Swedish history during the last two centuries. This immense network of contacts established across the Atlantic has influenced the ways in which Swedish society then and now is oriented towards the United States."
+		desc: "Between 1850 and 1930, over 1.3 million Swedes immigrated to the United States. At the same time, over 50 million Europeans left Europe. Several factors ‚Äúpushed‚Äù Swedes to leave their homeland while others ‚Äúpulled\" them to America. Population growth in Sweden led to less available land for farming and crop failure in the late 1860s put pressure on the agrarian society. That, paired with the availability of cheap land for farming and the Homestead Act of 1862 in the United States, caused many Swedes to seek a new life in America. Once Swedish immigrants found themselves here, they wrote letters back home describing their experiences, often in overly positive terms. These so-called ‚ÄúAmerica letters‚Äù proved important in establishing migration channels for new immigrants to come and join their family and friends in America. Religious and political reasons played a much smaller role for the move to America, although it was critical in some cases.This Trans-Atlantic mass exodus was one of the major events in Swedish history during the last two centuries. This immense network of contacts established across the Atlantic has influenced the ways in which Swedish society then and now is oriented towards the United States."
 		id: 2
-		title: Historical Note: Swedish Immigration
+		title: Swedish Immigration
 		options: [
 			{
 				desc: Continue
@@ -854,7 +856,7 @@ slides: {
 	}
 	3: {
 		image: 3.jpg
-		desc: "Itís the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. Who are you?"
+		desc: "It‚Äôs the 1880s in Sweden. The opportunities in America, such as cheap land and a stable economy, make migration attractive to many Europeans who face problems related to overpopulation. Millions have migrated from their homelands for a new life. You now wish to join them. Who are you?"
 		id: 3
 		title: Choose Your Character
 		options: [
@@ -910,7 +912,7 @@ slides: {
 	}
 	4: {
 		image: 4.jpg
-		desc: "You are an 18 year-old male from Mellby Parish, SmÂland. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. "
+		desc: "You are an 18 year-old male from Mellby Parish, Sm√•land. You are the youngest of 4 brothers and will not have any farmland to work. There are too many men in your family and not enough farmland. Additionally, the crop failures of 1867-1868 hit your family farm hard. You would also like to avoid Swedish military conscription. You are coming to America to own your own farmland or find a good job. "
 		id: 4
 		title: Anders Bengtsson
 		options: [
@@ -922,7 +924,7 @@ slides: {
 	}
 	5: {
 		image: 5.jpg
-		desc: You are an 18 year-old female maid from Stockholm. You dislike your job as maid and canít seem to find a better one because there is too much competition (population has been booming in the city and countryside). You decide to seek better employment in America.\n
+		desc: You are an 18 year-old female maid from Stockholm. You dislike your job as maid and can‚Äôt seem to find a better one because there is too much competition (population has been booming in the city and countryside). You decide to seek better employment in America.\n
 		id: 5
 		title: Lovisa Eriksdotter
 		options: [
@@ -935,7 +937,7 @@ slides: {
 	6: {
 		desc: "Sweden followed a patronymic naming system until the late 19th-century. For example, Anders Bengtsson was so named because he was Anders, the son of Bengt. His son might be named Nils Andersson. A daughter could be Britta Andersdotter (dotter = daughter). Exceptions to this include nobility and clergy. Priests would often combine Greek or Roman endings -ander or -ius to names of parishes to form new names (for example, Eric Norelius). "
 		id: 6
-		title: Historical Note: Swedish Names
+		title: Swedish Names
 		options: [
 			{
 				desc: Continue
@@ -957,9 +959,9 @@ slides: {
 	}
 	8: {
 		image: 8.jpg
-		desc: "Receiving letters from those who journeyed to America prompted many of your family friends to pursue their own journey over. Life must be treating them well in Americaó economic opportunities, building their own legacy and family. The American Dream is a strong pull for Swedes, yourself included. \n\nChoose a letter to read:"
+		desc: "Receiving letters from those who journeyed to America prompted many of your family friends to pursue their own journey over. Life must be treating them well in America‚Äî economic opportunities, building their own legacy and family. The American Dream is a strong pull for Swedes, yourself included. \n\nChoose a letter to read:"
 		id: 8
-		title: Youíve received a letter from America.
+		title: You‚Äôve received a letter from America.
 		options: [
 			{
 				desc: John Deere letter
@@ -1058,7 +1060,7 @@ slides: {
 		]
 	}
 	60: {
-		desc: "You spend some time to yourselfó exploring the ship, reading the few materials on the ship, reflecting on how far you have come and thinking about the journey still to come."
+		desc: "You spend some time to yourself‚Äî exploring the ship, reading the few materials on the ship, reflecting on how far you have come and thinking about the journey still to come."
 		id: 60
 		title: Read to yourself
 		options: [
@@ -1071,7 +1073,7 @@ slides: {
 	61: {
 		desc: What do you want to do?\n
 		id: 61
-		title: Youíre on the Deck
+		title: You‚Äôre on the deck
 		options: [
 			{
 				desc: Look at the ocean
@@ -1144,9 +1146,9 @@ slides: {
 		]
 	}
 	20: {
-		desc: "Over a million Swedish immigrants left through the port of Gothenburg in southwest Sweden. Many American genealogists believe their ancestors lived in Gothenburg, when really this was just the port they left through. Provinces of Sweden including SmÂland, V‰stergˆtland, Dalsland, V‰rmland, and ÷land saw large numbers emigrate. "
+		desc: "Over a million Swedish immigrants left through the port of Gothenburg in southwest Sweden. Many American genealogists believe their ancestors lived in Gothenburg, when really this was just the port they left through. Provinces of Sweden including Sm√•land, V√§sterg√∂tland, Dalsland, V√§rmland, and √ñland saw large numbers emigrate. "
 		id: 20
-		title: Historical Note: Gothenburg Port
+		title: Gothenburg Port
 		options: [
 			{
 				desc: Continue
@@ -1158,7 +1160,7 @@ slides: {
 		image: 64.jpg
 		desc: You can hear some lively discussion ahead. However you can also see the entrance to a peaceful cabin room. What do you decide to do?
 		id: 64
-		title: Social Floor
+		title: Social floor
 		options: [
 			{
 				desc: Head towards the other passengers gathered around
@@ -1173,7 +1175,7 @@ slides: {
 	21: {
 		desc: "After the American Civil War, big steamship companies like the White Star Line organized emigrant travel. For Swedes, this often meant traveling to Gothenburg, taking a ship to Hull, England, crossing England by train, and taking a steamliner from Liverpool to New York. During World War I, the Swedish American Line was established with a direct route from Gothenburg to New York and Swedish immigrants no longer had to travel through England. "
 		id: 21
-		title: Historical Note: The Travel Route
+		title: The travel route
 		options: [
 			{
 				desc: Continue
@@ -1231,9 +1233,9 @@ slides: {
 	}
 	66: {
 		image: 66.jpg
-		desc: "You encounter a priest reading some psalms and verses to himself. He notices you and begs you to come closer. Interested, you sit beside him and he tells you about the word of God and the inspiration of men like Moses, Noah, and Jobó all who were tested on their journeys. Through faith in the Lord, they were triumphant and lived peacefully preaching the word of God."
+		desc: "You encounter a priest reading some psalms and verses to himself. He notices you and begs you to come closer. Interested, you sit beside him and he tells you about the word of God and the inspiration of men like Moses, Noah, and Job‚Äî all who were tested on their journeys. Through faith in the Lord, they were triumphant and lived peacefully preaching the word of God."
 		id: 66
-		title: Discuss Scripture
+		title: Discuss scripture
 		options: [
 			{
 				desc: Continue
@@ -1316,7 +1318,7 @@ slides: {
 	}
 	24: {
 		image: 24.jpg
-		desc: Youíre in the shop. What would you like to do?
+		desc: You‚Äôre in the shop. What would you like to do?
 		id: 24
 		title: Shop
 		options: [
@@ -1337,7 +1339,7 @@ slides: {
 	68: {
 		desc: "Although dwarfed by economic reasons, another push factor inspiring immigrants to leave Europe was religious persecution. During the 18th century, official laws forbade Swedes from any religion outside of a recognized Lutheran parish. Around 1860, the Church of Sweden relinquished some of the restrictions and allowed Swedes to practice other denominations. "
 		id: 68
-		title: "Historical Note: Religion and Immigration "
+		title: Religion and immigration
 		options: [
 			{
 				desc: Continue
@@ -1352,6 +1354,7 @@ slides: {
 		options: [
 			{
 				desc: Bible
+				rejectMessage: You need at least 20 Kronor
 				nextSlideIndex: 26
 				effects: [
 					{
@@ -1390,6 +1393,7 @@ slides: {
 			}
 			{
 				desc: Family Heirloom
+				rejectMessage: You need at least 20 Kronor
 				nextSlideIndex: 26
 				effects: [
 					{
@@ -1428,6 +1432,7 @@ slides: {
 			}
 			{
 				desc: Sewing Materials
+				rejectMessage: You need at least 20 Kronor
 				nextSlideIndex: 26
 				effects: [
 					{
@@ -1466,6 +1471,7 @@ slides: {
 			}
 			{
 				desc: Medicine
+				rejectMessage: You need at least 20 Kronor
 				nextSlideIndex: 26
 				effects: [
 					{
@@ -1474,7 +1480,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: meat.png
+							image: medicine.png
 						}
 						operation: PLUS
 					}
@@ -1504,6 +1510,7 @@ slides: {
 			}
 			{
 				desc: Cured Meat
+				rejectMessage: You need at least 20 Kronor
 				nextSlideIndex: 26
 				effects: [
 					{
@@ -1558,7 +1565,7 @@ slides: {
 		]
 	}
 	26: {
-		desc: "The shopkeeper is grateful to sell another item and hands it to you. Youíre sure it will help you on the long journey ahead. You wrap it, put it into your luggage, and head back to the street."
+		desc: "The shopkeeper is grateful to sell another item and hands it to you. You‚Äôre sure it will help you on the long journey ahead. You wrap it, put it into your luggage, and head back to the street."
 		id: 26
 		title: "Thank you for your purchase! "
 		options: [
@@ -1575,7 +1582,7 @@ slides: {
 	27: {
 		desc: The shop seller will purchase any of your items for 15 Kronor.
 		id: 27
-		title: Choose One Item to Sell
+		title: Choose one item to sell
 		options: [
 			{
 				desc: Bible
@@ -1701,7 +1708,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: meat.png
+							image: medicine.png
 						}
 						operation: MINUS
 					}
@@ -1723,7 +1730,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: meat.png
+							image: medicine.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -1774,7 +1781,7 @@ slides: {
 		]
 	}
 	28: {
-		desc: The shopkeeper pays you for your item. Youíre happy to have a bit more cash on hand for the journey ahead. It may come in handy. \nYou head back into the street.\n
+		desc: The shopkeeper pays you for your item. You‚Äôre happy to have a bit more cash on hand for the journey ahead. It may come in handy. \nYou head back into the street.\n
 		id: 28
 		title: Just what we needed for the store
 		options: [
@@ -1792,7 +1799,7 @@ slides: {
 		image: 29.jpg
 		desc: "Inspection After passing initial health inspection, the ticketmaster asks for your papers. Do you have your ticket?"
 		id: 29
-		title: Go Straight To Ship
+		title: Go straight to ship
 		options: [
 			{
 				desc: Yes
@@ -1860,7 +1867,7 @@ slides: {
 		image: 71.jpg
 		desc: "You meet a disgruntled boilerman hard at work. He eyes you and starts yelling and pointing for you to get out of there. \nQuickly,"
 		id: 71
-		title: Boiler Room
+		title: Boiler room
 		options: [
 			{
 				desc: Make your way out
@@ -1872,14 +1879,14 @@ slides: {
 		image: 72.jpg
 		desc: "The boilerman mistakes you for a worker, forces you to work. The boilerman eyes you and makes gestures to pick up a shovel and work. What do you do?"
 		id: 72
-		title: Boiler Room
+		title: Boiler room
 		options: [
 			{
-				desc: Say youíre a passenger
+				desc: Say you‚Äôre a passenger
 				nextSlideIndex: 73
 			}
 			{
-				desc: Donít say anything
+				desc: Don‚Äôt say anything
 				nextSlideIndex: 74
 			}
 		]
@@ -1888,7 +1895,7 @@ slides: {
 		image: 73.jpg
 		desc: "You shake your head and try your best to explain you are a passenger. The boilerman yells at you, presumably to get out."
 		id: 73
-		title: Say youíre a passenger
+		title: Say you‚Äôre a passenger
 		options: [
 			{
 				desc: You scurry back up
@@ -1898,9 +1905,9 @@ slides: {
 	}
 	30: {
 		image: 30.jpg
-		desc: "ìSeems to be in order. Proceed.î You board the ship for Hull, England.  "
+		desc: "‚ÄúSeems to be in order. Proceed.‚Äù You board the ship for Hull, England.  "
 		id: 30
-		title: Board Ship for Hull
+		title: Board ship for Hull
 		options: [
 			{
 				desc: Continue
@@ -1910,7 +1917,7 @@ slides: {
 	}
 	74: {
 		image: 74.jpg
-		desc: "Confused and afraid, you donít say anything. He points to a boiler to work on and orders you to shovel the coal into the fire pit. You try to walk away but he pushes you back to the boiler. You hesitantly do as he says. He orders you to fix the gears on the pressure system when you are done. Because of your lack of engineering skills, you fiddle with the gears which causes great amounts of pressure. So much pressure that you cause the boiler to implode. One by one, the boilers catch on fire and cause the room to collapse. The ship sinks into the abyss, lost forever."
+		desc: "Confused and afraid, you don‚Äôt say anything. He points to a boiler to work on and orders you to shovel the coal into the fire pit. You try to walk away but he pushes you back to the boiler. You hesitantly do as he says. He orders you to fix the gears on the pressure system when you are done. Because of your lack of engineering skills, you fiddle with the gears which causes great amounts of pressure. So much pressure that you cause the boiler to implode. One by one, the boilers catch on fire and cause the room to collapse. The ship sinks into the abyss, lost forever."
 		id: 74
 		title: You cause the boat to sink!
 		options: [
@@ -1921,7 +1928,7 @@ slides: {
 		]
 	}
 	31: {
-		desc: ìNo ticket? What are you doing here?? Go back and get a ticket. Next!î
+		desc: ‚ÄúNo ticket? What are you doing here?? Go back and get a ticket. Next!‚Äù
 		id: 31
 		title: No Ticket
 		options: [
@@ -1933,9 +1940,9 @@ slides: {
 	}
 	75: {
 		image: 75.jpg
-		desc: "Arrived! Youíve arrived at Castle Garden in New York City. Before 1890, the federal government practiced some oversight of immigration to the U.S., but it largely contracted out the duties. The famous Ellis Island did not open as the countryís primary immigration center until 1892. From 1855 to 1890, more than 8 million immigrants who arrived in New York City were instead processed at Castle Garden, Americaís first official immigration center, by New York state officials. "
+		desc: "Arrived! You‚Äôve arrived at Castle Garden in New York City. Before 1890, the federal government practiced some oversight of immigration to the U.S., but it largely contracted out the duties. The famous Ellis Island did not open as the country‚Äôs primary immigration center until 1892. From 1855 to 1890, more than 8 million immigrants who arrived in New York City were instead processed at Castle Garden, America‚Äôs first official immigration center, by New York state officials. "
 		id: 75
-		title: "Arrived! Castle Garden, New York City"
+		title: "Castle Garden, New York City"
 		options: [
 			{
 				desc: Continue
@@ -1945,12 +1952,13 @@ slides: {
 	}
 	32: {
 		image: 32.jpg
-		desc: Ticket agent ìWhat can I do for you?î
+		desc: Ticket agent ‚ÄúWhat can I do for you?‚Äù
 		id: 32
-		title: You Found the Ticket Agent
+		title: You found the Ticket Agent
 		options: [
 			{
 				desc: Pay for transport to Hull for 60 Kronor
+				rejectMessage: You need at least 60 Kronor
 				nextSlideIndex: 33
 				effects: [
 					{
@@ -1988,7 +1996,8 @@ slides: {
 				]
 			}
 			{
-				desc: Pay for transport to Hull and ship passage for 120 Kronor
+				desc: Pay for transport & ship passage for 120 Kronor
+				rejectMessage: You need at least 120 Kronor
 				nextSlideIndex: 34
 				effects: [
 					{
@@ -2042,9 +2051,9 @@ slides: {
 		]
 	}
 	76: {
-		desc: "After authorities examined the sanitary conditions of the boat, passengers were brought from their ships on barges to Castle Garden. If medical examiners believed a migrant was likely to become a public charge, either due to disease or a perception of helplessness, then they would be quarantined until officials could arrange for deportation. Each person was individually registered by a clerk, then moved to the next desk, where transportation companiesí clerks would determine where the migrant was traveling, lay out maps to view the route ahead, and figure out the price for their next stage of the journey. Immigrants would have their bags checked, pay the requisite costs, and then a steamboat would take them to the starting points for various railroad and steamboat lines."
+		desc: "After authorities examined the sanitary conditions of the boat, passengers were brought from their ships on barges to Castle Garden. If medical examiners believed a migrant was likely to become a public charge, either due to disease or a perception of helplessness, then they would be quarantined until officials could arrange for deportation. Each person was individually registered by a clerk, then moved to the next desk, where transportation companies‚Äô clerks would determine where the migrant was traveling, lay out maps to view the route ahead, and figure out the price for their next stage of the journey. Immigrants would have their bags checked, pay the requisite costs, and then a steamboat would take them to the starting points for various railroad and steamboat lines."
 		id: 76
-		title: Historical Note: Castle Garden
+		title: Castle Garden
 		options: [
 			{
 				desc: Continue
@@ -2066,7 +2075,7 @@ slides: {
 	34: {
 		desc: You put both tickets into your pocket.
 		id: 34
-		title: Pay for ticket to Hull with connection to Liverpool
+		title: Pay for ticket to Hull through Liverpool
 		options: [
 			{
 				desc: Continue
@@ -2075,9 +2084,9 @@ slides: {
 		]
 	}
 	35: {
-		desc: "Tickets were usually purchased from a Swedish emigration agent who booked their passage all the way from Gothenburg to the emigrantís destination city in America (such as Chicago or Lindsborg, Kansas). Companies with strong economic interests in emigrants (like railroad companies or manufacturers like John Deere) were eager to attract new workers to their areas."
+		desc: "Tickets were usually purchased from a Swedish emigration agent who booked their passage all the way from Gothenburg to the emigrant‚Äôs destination city in America (such as Chicago or Lindsborg, Kansas). Companies with strong economic interests in emigrants (like railroad companies or manufacturers like John Deere) were eager to attract new workers to their areas."
 		id: 35
-		title: Historical Note: Buying Tickets
+		title: Buying Tickets
 		options: [
 			{
 				desc: Proceed to ship
@@ -2087,9 +2096,9 @@ slides: {
 	}
 	36: {
 		image: 36.jpg
-		desc: "After a relatively smooth journey, you make it to Hull, Englandó a thriving port and the next step in your journey. In order to proceed, you need to buy passage to Liverpool. "
+		desc: "After a relatively smooth journey, you make it to Hull, England‚Äî a thriving port and the next step in your journey. In order to proceed, you need to buy passage to Liverpool. "
 		id: 36
-		title: "Arrive in Hull, England "
+		title: "Arrived in Hull, England"
 		options: [
 			{
 				desc: Go left
@@ -2106,12 +2115,13 @@ slides: {
 		]
 	}
 	37: {
-		desc: Ticket agent ìWelcome to Hull. What are you looking for?î
+		desc: Ticket agent: ‚ÄúWelcome to Hull. What are you looking for?‚Äù
 		id: 37
-		title: You Found the Ticket Agent
+		title: You found the Ticket Agent
 		options: [
 			{
 				desc: Buy train ticket to Liverpool Stockyards and passage to America for 80 Kronor
+				rejectMessage: You need at least 80 Kronor
 				nextSlideIndex: 36
 				effects: [
 					{
@@ -2169,7 +2179,7 @@ slides: {
 	38: {
 		desc: "You find nothing of interest. "
 		id: 38
-		title: Nothing to See
+		title: Nothing to see
 		options: [
 			{
 				desc: Return
@@ -2232,7 +2242,7 @@ slides: {
 		image: 40.jpg
 		desc: "Made it to Liverpool The journey to Liverpool went well. Aside from the uncomfortable seating on the train and the occasional strange looks from the English, you feel more confident about your travels. Liverpool is known as a waypoint for immigrants seeking passage to America."
 		id: 40
-		title: "Arrive in Liverpool, England "
+		title: "Arrived in Liverpool, England"
 		options: [
 			{
 				desc: Go left
@@ -2247,7 +2257,7 @@ slides: {
 	41: {
 		desc: Inspection You encounter the ticketmaster inspecting the passengers. You present him your ticket. He nods and gestures for your papers.
 		id: 41
-		title: You Found the Inspection Line
+		title: You found the Inspection Line
 		options: [
 			{
 				desc: Proceed with forged papers
@@ -2308,7 +2318,7 @@ slides: {
 		]
 	}
 	42: {
-		desc: You present your papers and hope they will pay off. You start to become nervous as he eyes them. Perhaps you can silence his questioning glanceÖ
+		desc: You present your papers and hope they will pay off. You start to become nervous as he eyes them. Perhaps you can silence his questioning glance‚Ä¶
 		id: 42
 		title: Forged Papers
 		options: [

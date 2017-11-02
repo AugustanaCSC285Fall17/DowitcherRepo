@@ -44,8 +44,17 @@ public class InventoryScreen implements Screen {
 	private AdventureGame game;
 	private OrthographicCamera camera;
 	private Stage stage;
+	private Texture playerIcon;
+	private String playerName;
+	private String playerGender;
 
 	public InventoryScreen(AdventureGame game) {
+		if (game.manager.getPlayer().getName() != null && !game.manager.getPlayer().getName().equals("")) {
+			playerName = game.manager.getPlayer().getName();
+			playerGender = game.manager.getPlayer().getGender().toString();
+			// Todo note: Add the texture
+			playerIcon = new Texture("");
+		}
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
@@ -130,6 +139,10 @@ public class InventoryScreen implements Screen {
 		// Draw background image
 		game.batch.draw(game.backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 
+		if (playerIcon != null) {
+			// Draw the stuff
+		}
+
 		game.batch.end();
 
 		camera.update();
@@ -163,6 +176,9 @@ public class InventoryScreen implements Screen {
 
 	@Override
 	public void dispose() {
+		if (playerIcon != null) {
+			playerIcon.dispose();
+		}
 		stage.dispose();
 	}
 

@@ -301,7 +301,7 @@ public class OptionEditorController {
 	private void updateSlideCreated() {
 		String toSlideString = this.toSlideTextField.getText();
 		if (Helper.checkLegalInt(toSlideString)) {
-			this.slidedCreatedLabel.setText(String.valueOf(this.controller.getStory().contains(toSlideString)));
+			this.slidedCreatedLabel.setText(String.valueOf(this.controller.getStory().containsSlide(toSlideString)));
 		}
 	}
 

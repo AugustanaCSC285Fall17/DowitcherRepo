@@ -34,8 +34,9 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
-		logo = new Texture("GameData/swensonlogo.png");
-		titleFont = new BitmapFont(Gdx.files.internal("fonts/menuTitle.fnt"), false);
+
+		logo = new Texture("image/icon/other/swensonlogo.png");
+		titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
 
 		Table buttonTable = new Table();
 		buttonTable.setPosition((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH,
@@ -101,8 +102,6 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		stage.addActor(buttonTable);
 		introduction = "Swedish Immigration Trail";
 		layout = new GlyphLayout(titleFont, introduction);
-		float textWidth = layout.width;
-		float textHeight = layout.height;
 	}
 
 	@Override
