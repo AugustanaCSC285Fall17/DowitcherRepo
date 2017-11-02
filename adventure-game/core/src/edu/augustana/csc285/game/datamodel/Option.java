@@ -24,7 +24,9 @@ public class Option {
 	private String sound;
 
 	public Option() {
-
+		if (rejectMessage == null) {
+			rejectMessage = DEFAULT_REJECT_MESSAGE;
+		}
 	}
 
 	/**
@@ -226,13 +228,13 @@ public class Option {
 		this.checkIndex(index, effects);
 		effects.set(index, effect);
 	}
-	
-	public boolean containsEffectsAndConditions(Option search) {
-		for(int i = 0; i < effects.size(); i++) {
-			if(search.getEffect(i).getEffectType().equals(search.getEffect(i).getEffectType()))
-		}
-		
-	}
+
+//	public boolean containsEffectsAndConditions(Option search) {
+//		for(int i = 0; i < effects.size(); i++) {
+//			if(search.getEffect(i).getEffectType().equals(search.getEffect(i).getEffectType()))
+//		}
+//		
+//	}
 
 	public void setVisibleCondition(int index, Condition condition) {
 		this.checkIndex(index, visibleConditions);

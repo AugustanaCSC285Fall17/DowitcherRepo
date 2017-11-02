@@ -41,22 +41,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
  * 
  */
 public class InventoryScreen implements Screen {
-	public static final Skin DEFAULT_SKIN = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
-	public static final Skin SCROLL_SKIN = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
-	public static final Skin BACK_BUTTON_SKIN = new Skin(Gdx.files.internal("skin/menuSkin/cloud-form-ui.json"));
-
-	private final int WIDTH_BUFFER = AdventureGame.GAME_SCREEN_WIDTH / 100;
-	private final int HEIGHT_BUFFER = AdventureGame.GAME_SCREEN_HEIGHT / 100;
-	private final AdventureGame game;
+	private AdventureGame game;
 	private OrthographicCamera camera;
 	private Stage stage;
-	private Texture backgroundImage;
 
 	public InventoryScreen(AdventureGame game) {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
-		backgroundImage = new Texture("GameData/background.jpg");
 		stage = new Stage(new ScreenViewport());
 		BitmapFont inventoryFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
 		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
@@ -66,7 +58,7 @@ public class InventoryScreen implements Screen {
 		inventoryLabel.setWrap(true);
 		Table inventoryTable = new Table();
 		inventoryTable.setPosition(500, 500);
-		inventoryTable.setSkin(DEFAULT_SKIN);
+		inventoryTable.setSkin(game.defaultSkin);
 
 		ArrayList<Item> items = game.manager.getPlayer().getInventory().getVisibleItemList();
 		for (Item item : items) {
@@ -78,7 +70,7 @@ public class InventoryScreen implements Screen {
 			NinePatch patch = new NinePatch(itemIcon);
 			inventoryTable.add(new Image(patch));
 
-			Label nameLabel = new Label(item.getQuantity() + " x " + item.getName(), SCROLL_SKIN);
+			Label nameLabel = new Label(item.getQuantity() + " x " + item.getName(), game.scrollSkin);
 			nameLabel.setColor(Color.BLACK);
 			inventoryLabel.setWrap(true);
 			inventoryTable.add(nameLabel);
@@ -91,7 +83,7 @@ public class InventoryScreen implements Screen {
 				(float) 0.75 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(screenTitle);
 
-		ScrollPane scroll = new ScrollPane(inventoryTable, SCROLL_SKIN);
+		ScrollPane scroll = new ScrollPane(inventoryTable, game.scrollSkin);
 		scroll.setPosition((float) 0.15 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) 0.3 * AdventureGame.GAME_SCREEN_HEIGHT);
 		scroll.setSize(AdventureGame.GAME_SCREEN_HEIGHT - 200, 300);
@@ -99,7 +91,7 @@ public class InventoryScreen implements Screen {
 		scroll.setFadeScrollBars(false);
 		stage.addActor(scroll);
 
-		Button backButton = new TextButton("Back", BACK_BUTTON_SKIN);
+		Button backButton = new TextButton("Back", game.defaultSkin);
 		backButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -136,15 +128,13 @@ public class InventoryScreen implements Screen {
 		}
 		game.batch.begin();
 		// Draw background image
-		game.batch.draw(backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+		game.batch.draw(game.backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 
 		game.batch.end();
 
 		camera.update();
 		stage.act();
 		stage.draw();
-		game.batch.begin();
-		game.batch.end();
 	}
 
 	@Override
@@ -174,7 +164,6 @@ public class InventoryScreen implements Screen {
 	@Override
 	public void dispose() {
 		stage.dispose();
-		backgroundImage.dispose();
 	}
 
 }
