@@ -32,7 +32,7 @@ public class AdventureGame extends Game {
 		descFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
 		size = 3;
 		buttonPressed = Gdx.audio.newSound(Gdx.files.internal("music/sound/button_press.wav"));
-		story = Story.fromJSON(Gdx.files.internal("storyData/officialStory.json").readString());
+		story = Story.fromJSON(Gdx.files.internal("storyData/officialStory.json").readString("UTF-8"));
 		this.initializeManager();
 		defaultSkin = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
 		scrollSkin = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
