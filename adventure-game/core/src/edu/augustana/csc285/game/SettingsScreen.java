@@ -55,11 +55,17 @@ public class SettingsScreen implements Screen {
 		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
 
 		Table settingsTable = new Table();
-		settingsTable.setPosition((float) (AdventureGame.GAME_SCREEN_WIDTH / 2),
-				(float) 0.3 * AdventureGame.GAME_SCREEN_WIDTH);
+		if (fromMenuScreen) {
+			settingsTable.setPosition((float) (AdventureGame.GAME_SCREEN_WIDTH / 2),
+					(float) 0.3 * AdventureGame.GAME_SCREEN_WIDTH);	
+		} else {
+			settingsTable.setPosition((float) (AdventureGame.GAME_SCREEN_WIDTH / 2),
+					(float) 0.25 * AdventureGame.GAME_SCREEN_WIDTH);
+		}
+		
 
 		Label screenTitle = new Label("Settings", new Label.LabelStyle(titleFont, Color.BLACK));
-		screenTitle.setPosition(420, 500);
+		screenTitle.setPosition(420, 540);
 		stage.addActor(screenTitle);
 
 		String str = "";
@@ -175,7 +181,7 @@ public class SettingsScreen implements Screen {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.buttonPressed.play();
-				if (volumeLevel > 0) {
+				if (volumeLevel > 1) {
 					volumeLevel--;
 				}
 				game.setVolume(volumeLevel);
@@ -199,14 +205,14 @@ public class SettingsScreen implements Screen {
 		settingsTable.add(musicButton).width(175).height(45).pad(5).colspan(4).center();
 		settingsTable.row();
 		settingsTable.add(volLevel);
-		settingsTable.add(decreaseVolButton).width(175).height(45).pad(5);
+		settingsTable.add(decreaseVolButton).width(45).height(45).pad(5).center();
 		settingsTable.add(volumeLevelLabel);
-		settingsTable.add(increaseVolButton).width(175).height(45).pad(5);
+		settingsTable.add(increaseVolButton).width(45).height(45).pad(5).center();
 		settingsTable.row();
 		settingsTable.add(textSize);
-		settingsTable.add(decreaseSizeButton).width(175).height(45).pad(5);
+		settingsTable.add(decreaseSizeButton).width(45).height(45).pad(5).center();
 		settingsTable.add(sizeLabel);
-		settingsTable.add(increaseSizeButton).width(175).height(45).pad(5);
+		settingsTable.add(increaseSizeButton).width(45).height(45).pad(5).center();
 		settingsTable.row();
 
 		if (!fromMenuScreen) {
@@ -225,7 +231,7 @@ public class SettingsScreen implements Screen {
 					return true;
 				}
 			});
-			settingsTable.add(exitToMenuButton).width(200).height(50).pad(5).colspan(3).center();
+			settingsTable.add(exitToMenuButton).width(200).height(50).pad(5).colspan(4).center();
 		}
 		backButton.setSize(130, 45);
 		backButton.setPosition(1050, 650);

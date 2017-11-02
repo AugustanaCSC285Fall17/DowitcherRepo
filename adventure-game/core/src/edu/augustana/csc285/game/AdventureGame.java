@@ -22,6 +22,7 @@ public class AdventureGame extends Game {
 	BitmapFont font;
 	Music defaultMusic;
 	Skin defaultSkin;
+	Skin menuSkin;
 	Skin scrollSkin;
 	Texture backgroundImage;
 	Sound buttonPressed;
@@ -37,6 +38,7 @@ public class AdventureGame extends Game {
 		story = Story.fromJSON(Gdx.files.internal("storyData/officialStory.json").readString("UTF-8"));
 		this.initializeManager();
 		defaultSkin = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
+		menuSkin = new Skin(Gdx.files.internal("skin/menuSkin/cloud-form-ui.json"));
 		scrollSkin = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
 		backgroundImage = new Texture("image/icon/other/background.jpg");
 

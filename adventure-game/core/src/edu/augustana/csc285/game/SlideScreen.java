@@ -60,7 +60,7 @@ public class SlideScreen implements Screen {
 
 	public SlideScreen(AdventureGame game) {
 		BitmapFont defaultFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
-		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/secondaryTitle.fnt"), false);
+		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/menuTitle.fnt"), false);
 
 		// Set up data fields
 		this.popUp = false;
@@ -172,7 +172,7 @@ public class SlideScreen implements Screen {
 
 		GlyphLayout titleLength = new GlyphLayout(defaultFont, slideTitle.toString());
 
-		slideTitle.setPosition((float) 0.5 * (AdventureGame.GAME_SCREEN_WIDTH - titleLength.width),
+		slideTitle.setPosition((float) ((0.5 * AdventureGame.GAME_SCREEN_WIDTH) - titleLength.width),
 
 				(float) 0.90 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(slideTitle);

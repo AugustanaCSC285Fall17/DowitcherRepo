@@ -35,7 +35,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
 		logo = new Texture("GameData/swensonlogo.png");
-		titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
+		titleFont = new BitmapFont(Gdx.files.internal("fonts/menuTitle.fnt"), false);
 
 		Table buttonTable = new Table();
 		buttonTable.setPosition((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH,
@@ -43,9 +43,9 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 
 		TextButton newGameButton;
 		if (resumeGame) {
-			newGameButton = new TextButton("Resume Game", game.defaultSkin, "default");
+			newGameButton = new TextButton("Resume Game", game.menuSkin, "default");
 		} else {
-			newGameButton = new TextButton("New Game", game.defaultSkin, "default");
+			newGameButton = new TextButton("New Game", game.menuSkin, "default");
 		}
 		newGameButton.addListener(new InputListener() {
 
@@ -67,7 +67,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			buttonTable.add(newGameButton).width(175).height(50).pad(5).row();
 		}
 
-		TextButton creditButton = new TextButton("Credit", game.defaultSkin, "default");
+		TextButton creditButton = new TextButton("Credit", game.menuSkin, "default");
 		creditButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -82,7 +82,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 
 		});
 
-		TextButton settingsButton = new TextButton("Settings", game.defaultSkin, "default");
+		TextButton settingsButton = new TextButton("Settings", game.menuSkin, "default");
 		boolean fromMenuScreen = true;
 		settingsButton.addListener(new InputListener() {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -127,7 +127,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		game.batch.draw(logo, (float) 0.32 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) 0.8 * AdventureGame.GAME_SCREEN_HEIGHT, (float) 0.5 * logo.getWidth(),
 				(float) 0.5 * logo.getHeight());
-		titleFont.draw(game.batch, introduction, (float) 0.23 * AdventureGame.GAME_SCREEN_WIDTH,
+		titleFont.draw(game.batch, introduction, (float) 0.24 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) (AdventureGame.GAME_SCREEN_HEIGHT * 0.72));
 		game.batch.end();
 
