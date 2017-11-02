@@ -35,6 +35,9 @@ public class AdventureGame extends Game {
 	int size;
 	int volumeLevel;
 
+	/**
+	 * post: loading all the assets and assign all the assets
+	 */
 	public void create() {
 		Assets assets = new Assets();
 		assets.load();
@@ -66,28 +69,21 @@ public class AdventureGame extends Game {
 			}
 		}
 		story = Story.fromJSON(sb.toString());
-		// story =
-		// Story.fromJSON(Gdx.files.internal("storyData/officialStory.json").readString("UTF-8"));
-
 		this.initializeManager();
-		// buttonPressed =
-		// Gdx.audio.newSound(Gdx.files.internal("music/sound/button_press.wav"));
-		// defaultSkin = new
-		// Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
-		// scrollSkin = new
-		// Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
-		// backgroundImage = new Texture("image/icon/other/background.jpg");
-		// defaultMusic =
-		// Gdx.audio.newMusic(Gdx.files.internal("music/background/theme.mp3"));
 		batch = new SpriteBatch();
 		font = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
-
 		defaultMusic.setLooping(true);
 		defaultMusic.play();
 		defaultMusic.setVolume(volumeLevel * 0.2f);
 		this.setScreen(new MainMenuScreen(this, false));
 	}
 
+	/**
+	 * post: change the font for desc and set the size in game
+	 * 
+	 * @param size:
+	 *            size to change
+	 */
 	public void setDescFont(int size) {
 		if (size != this.size) {
 			this.size = size;
@@ -96,13 +92,18 @@ public class AdventureGame extends Game {
 		}
 	}
 
+	/**
+	 * post: set the volume level
+	 * 
+	 * @param volumeLevel:
+	 *            level to change
+	 */
 	public void setVolume(int volumeLevel) {
 		if (volumeLevel != this.volumeLevel) {
 			this.volumeLevel = volumeLevel;
 			defaultMusic.setVolume(volumeLevel * 0.2f);
 		}
 	}
-
 	public void initializeManager() {
 		manager = new StoryManager(story, "", story.getStartingSlideIndex());
 	}
