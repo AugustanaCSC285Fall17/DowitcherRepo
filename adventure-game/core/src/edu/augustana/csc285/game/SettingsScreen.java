@@ -276,13 +276,13 @@ public class SettingsScreen implements Screen {
 
 				{
 					text("Are you sure?");
-					button("Yes", new MainMenuScreen(game, false));
-					button("No", new SettingsScreen(game, fromMenuScreen, false));
+					button("Yes", "Yes");
+					button("No", "No");
 				}
 
 				@Override
 				protected void result(final Object object) {
-					if (object.getClass().isInstance(new MainMenuScreen(game, false))) {
+					if (object.equals("Yes")) {
 						game.setScreen(new MainMenuScreen(game, false));
 					} else {
 						game.setScreen(new SettingsScreen(game, fromMenuScreen, false));
