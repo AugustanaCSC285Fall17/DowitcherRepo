@@ -173,7 +173,7 @@ public class MainPanev2Controller {
 		saveStory.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
-				configureFileChooser("Saving Library", fileChooser, new FileChooser.ExtensionFilter("JSON", "*.json"));
+				configureFileChooser("Saving Story", fileChooser, new FileChooser.ExtensionFilter("JSON", "*.json"));
 				File file = fileChooser.showSaveDialog(stage);
 				if (file != null) {
 					saveFile(currentStory.toJSON(), file);

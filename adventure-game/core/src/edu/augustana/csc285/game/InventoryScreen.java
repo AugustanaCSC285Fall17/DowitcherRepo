@@ -44,8 +44,17 @@ public class InventoryScreen implements Screen {
 	private AdventureGame game;
 	private OrthographicCamera camera;
 	private Stage stage;
+	private Texture playerIcon;
+	private String playerName;
+	private String playerGender;
 
 	public InventoryScreen(AdventureGame game) {
+		if (game.manager.getPlayer().getName() != null && !game.manager.getPlayer().getName().equals("")) {
+			playerName = game.manager.getPlayer().getName();
+			playerGender = game.manager.getPlayer().getGender().toString();
+			// Todo note: Add the texture
+			playerIcon = new Texture("");
+		}
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		this.game = game;
@@ -79,8 +88,8 @@ public class InventoryScreen implements Screen {
 		}
 
 		Label screenTitle = new Label("Inventory", new Label.LabelStyle(titleFont, Color.BLACK));
-		screenTitle.setPosition((float) 0.4 * AdventureGame.GAME_SCREEN_WIDTH,
-				(float) 0.8 * AdventureGame.GAME_SCREEN_HEIGHT);
+		screenTitle.setPosition((float) 0.33 * AdventureGame.GAME_SCREEN_WIDTH,
+				(float) 0.75 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(screenTitle);
 
 		ScrollPane scroll = new ScrollPane(inventoryTable, game.scrollSkin);
@@ -105,8 +114,8 @@ public class InventoryScreen implements Screen {
 			}
 
 		});
-		backButton.setSize(130, 45);
-		backButton.setPosition(1000, 650);
+		backButton.setSize(130, 50);
+		backButton.setPosition(1050, 650);
 		stage.addActor(backButton);
 	}
 
@@ -129,6 +138,10 @@ public class InventoryScreen implements Screen {
 		game.batch.begin();
 		// Draw background image
 		game.batch.draw(game.backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
+
+		if (playerIcon != null) {
+			// Draw the stuff
+		}
 
 		game.batch.end();
 
@@ -163,6 +176,9 @@ public class InventoryScreen implements Screen {
 
 	@Override
 	public void dispose() {
+		if (playerIcon != null) {
+			playerIcon.dispose();
+		}
 		stage.dispose();
 	}
 

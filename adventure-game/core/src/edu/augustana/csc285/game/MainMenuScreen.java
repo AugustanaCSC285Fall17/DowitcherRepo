@@ -34,18 +34,19 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
 		stage = new Stage(new ScreenViewport());
-		logo = new Texture("GameData/swensonlogo.png");
+
+		logo = new Texture("image/icon/other/swensonlogo.png");
 		titleFont = new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false);
 
 		Table buttonTable = new Table();
 		buttonTable.setPosition((float) 0.5 * AdventureGame.GAME_SCREEN_WIDTH,
-				(float) 0.45 * AdventureGame.GAME_SCREEN_HEIGHT);
+				(float) 0.50 * AdventureGame.GAME_SCREEN_HEIGHT);
 
 		TextButton newGameButton;
 		if (resumeGame) {
-			newGameButton = new TextButton("Resume Game", game.defaultSkin, "default");
+			newGameButton = new TextButton("Resume Game", game.menuSkin, "default");
 		} else {
-			newGameButton = new TextButton("New Game", game.defaultSkin, "default");
+			newGameButton = new TextButton("New Game", game.menuSkin, "default");
 		}
 		newGameButton.addListener(new InputListener() {
 
@@ -64,10 +65,10 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		if (resumeGame) {
 			buttonTable.add(newGameButton).width(210).height(50).pad(5).row();
 		} else {
-			buttonTable.add(newGameButton).width(175).height(45).pad(5).row();
+			buttonTable.add(newGameButton).width(175).height(50).pad(5).row();
 		}
 
-		TextButton creditButton = new TextButton("Credit", game.defaultSkin, "default");
+		TextButton creditButton = new TextButton("Credit", game.menuSkin, "default");
 		creditButton.addListener(new InputListener() {
 			@Override
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -82,13 +83,12 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 
 		});
 
-		TextButton settingsButton = new TextButton("Settings", game.defaultSkin, "default");
+		TextButton settingsButton = new TextButton("Settings", game.menuSkin, "default");
 		boolean fromMenuScreen = true;
 		settingsButton.addListener(new InputListener() {
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 				game.setScreen(new SettingsScreen(game, fromMenuScreen));
 				dispose();
-
 			}
 
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -96,14 +96,12 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 			}
 		});
 
-		buttonTable.add(settingsButton).width(145).height(45).pad(5).row();
-		buttonTable.add(creditButton).width(125).height(45).pad(5).row();
+		buttonTable.add(settingsButton).width(145).height(50).pad(5).row();
+		buttonTable.add(creditButton).width(125).height(50).pad(5).row();
 
 		stage.addActor(buttonTable);
-		introduction = "Welcome to Swedish Settler Trail";
+		introduction = "Swedish Immigration Trail";
 		layout = new GlyphLayout(titleFont, introduction);
-		float textWidth = layout.width;
-		float textHeight = layout.height;
 	}
 
 	@Override
@@ -128,7 +126,7 @@ public class MainMenuScreen extends ScreenAdapter implements Screen {
 		game.batch.draw(logo, (float) 0.32 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) 0.8 * AdventureGame.GAME_SCREEN_HEIGHT, (float) 0.5 * logo.getWidth(),
 				(float) 0.5 * logo.getHeight());
-		titleFont.draw(game.batch, introduction, (float) 0.27 * AdventureGame.GAME_SCREEN_WIDTH,
+		titleFont.draw(game.batch, introduction, (float) 0.24 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) (AdventureGame.GAME_SCREEN_HEIGHT * 0.72));
 		game.batch.end();
 

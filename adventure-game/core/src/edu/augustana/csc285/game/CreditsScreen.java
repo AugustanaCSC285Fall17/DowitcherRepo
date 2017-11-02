@@ -62,8 +62,8 @@ public class CreditsScreen implements Screen {
 		});
 		
 
-		backButton.setSize(130, 45);
-		backButton.setPosition(1000, 650);
+		backButton.setSize(130, 50);
+		backButton.setPosition(1050, 650);
 		stage.addActor(backButton);
 	}
 
@@ -79,7 +79,7 @@ public class CreditsScreen implements Screen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		game.batch.begin();
 		game.batch.draw(game.backgroundImage, 0, 0, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
-		titleFont.draw(game.batch, "Credits", (float) 0.42 * AdventureGame.GAME_SCREEN_WIDTH,
+		titleFont.draw(game.batch, "Credits", (float) 0.38 * AdventureGame.GAME_SCREEN_WIDTH,
 				(float) (AdventureGame.GAME_SCREEN_HEIGHT * 0.9));
 		if (TimeUtils.millis() - clockTime > 10 && position < 550) {
 			game.font.draw(game.batch, credits, 200, position);

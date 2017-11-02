@@ -54,7 +54,7 @@ public class SlideScreen implements Screen {
 
 	public SlideScreen(AdventureGame game) {
 		BitmapFont defaultFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
-		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/secondaryTitle.fnt"), false);
+		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/menuTitle.fnt"), false);
 
 		// Set up data fields
 		this.popUp = false;
@@ -94,8 +94,6 @@ public class SlideScreen implements Screen {
 		// Set up stage and table for buttons
 		stage = new Stage(new ScreenViewport());
 		stage.addActor(inventoryBtn);
-		//stage.addActor(playerImg);
-		//stage.addActor(playerStat);
 		stage.addActor(settingsBtn);
 
 		Table buttonTable = new Table();
@@ -163,7 +161,7 @@ public class SlideScreen implements Screen {
 
 		GlyphLayout titleLength = new GlyphLayout(defaultFont, slideTitle.toString());
 
-		slideTitle.setPosition((float) 0.5 * (AdventureGame.GAME_SCREEN_WIDTH - titleLength.width),
+		slideTitle.setPosition((float) ((0.5 * AdventureGame.GAME_SCREEN_WIDTH) - titleLength.width),
 
 				(float) 0.90 * AdventureGame.GAME_SCREEN_HEIGHT);
 		stage.addActor(slideTitle);
@@ -240,12 +238,6 @@ public class SlideScreen implements Screen {
 			game.setScreen(new InventoryScreen(game));
 			dispose();
 		}
-		// Change to player stat screen
-		if (Gdx.input.isKeyJustPressed(Keys.S)) {
-			game.setScreen(new PlayerStatScreen(game));
-			dispose();
-		}
-
 	}
 
 	public Button addTextureRegion(String skinLocation, Screen screen, int locationInt) {
@@ -254,7 +246,6 @@ public class SlideScreen implements Screen {
 		TextureRegion textureRegion = new TextureRegion(textureImage);
 		TextureRegionDrawable textureRegionDrawable = new TextureRegionDrawable(textureRegion);
 		Button button = new ImageButton(textureRegionDrawable);
-		button.setSize(75, 75);
 		button.setPosition(AdventureGame.GAME_SCREEN_WIDTH - (button.getWidth() + WIDTH_BUFFER) * locationInt,
 				AdventureGame.GAME_SCREEN_HEIGHT - HEIGHT_BUFFER - button.getHeight());
 		button.addListener(new InputListener() {
@@ -270,18 +261,16 @@ public class SlideScreen implements Screen {
 		return button;
 	}
 
-/*	public Image addTexture(String skinLocation) {
-		Texture textureImage = new Texture(skinLocation);
-		TextureRegion textureRegion = new TextureRegion(textureImage);
-		TextureRegionDrawable textureRegionDrawable = new TextureRegionDrawable(textureRegion);
-		Image playerImg = new Image(textureRegionDrawable);
-		playerImg.setSize(75, 75);
-		playerImg.setPosition(AdventureGame.GAME_SCREEN_WIDTH - 200,
-				AdventureGame.GAME_SCREEN_HEIGHT - 200);
-		return playerImg;
-	} 
-	*/
-	
+	/*
+	 * public Image addTexture(String skinLocation) { Texture textureImage = new
+	 * Texture(skinLocation); TextureRegion textureRegion = new
+	 * TextureRegion(textureImage); TextureRegionDrawable textureRegionDrawable
+	 * = new TextureRegionDrawable(textureRegion); Image playerImg = new
+	 * Image(textureRegionDrawable); playerImg.setSize(75, 75);
+	 * playerImg.setPosition(AdventureGame.GAME_SCREEN_WIDTH - 200,
+	 * AdventureGame.GAME_SCREEN_HEIGHT - 200); return playerImg; }
+	 */
+
 	@Override
 	public void show() {
 		Gdx.input.setInputProcessor(stage);
