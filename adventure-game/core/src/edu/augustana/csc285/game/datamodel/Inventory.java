@@ -10,6 +10,9 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.TreeSet;
 
+/**Stores the inventory for the player, it contains items
+ *
+ */
 public class Inventory {
 	class StringComp implements Comparator<Item> {
 		@Override
@@ -25,18 +28,35 @@ public class Inventory {
 	public Inventory() {
 	}
 
+	/**
+	 * Creates an inventory with the passed in TreeSet<Item>
+	 * 
+	 * @param collection is a TreeSet of items that you want to create inventory with
+	 */
 	public Inventory(TreeSet<Item> collection) {
 		setCollection(collection);
 	}
 
+	/**Creates clone of Inventory
+	 * 
+	 * @param other is the other inventory to clone
+	 */
 	public Inventory(Inventory other) {
 		this.itemSet = other.itemSet;
 	}
 
+	/**gets the TreeSet<Item> in the inventory
+	 * 
+	 * @return the items in the inventory
+	 */
 	public TreeSet<Item> getCollection() {
 		return itemSet;
 	}
 
+	/**Sets the inventories' items to a new TreeSet of items
+	 * 
+	 * @param collection is the TreeSet of items
+	 */
 	public void setCollection(TreeSet<Item> collection) {
 		this.itemSet = (TreeSet<Item>) collection;
 	}

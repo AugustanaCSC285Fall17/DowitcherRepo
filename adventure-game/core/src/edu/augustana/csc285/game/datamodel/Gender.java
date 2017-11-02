@@ -2,6 +2,11 @@ package edu.augustana.csc285.game.datamodel;
 
 import java.util.ArrayList;
 
+/**Enum for Gender
+ * 
+ * @author Dat
+ *
+ */
 public enum Gender {
 	MALE, FEMALE, UNKNOWN;
 

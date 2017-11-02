@@ -45,7 +45,8 @@ public class CreditsScreen implements Screen {
 				new Label.LabelStyle(new BitmapFont(Gdx.files.internal("fonts/titleFont.fnt"), false), Color.BLACK));
 
 		credits = "Game designed by Dr. Forrest Stonedahl's Software Development CSC 285 students, Dat Tran, Daniel Zweiner, Lars Harvey, Faisal Nawaz, and Ryan Philp as well as Dr. Brian Leech's history students, Abigail Buchanan, Brooks Fielder, and Katie Laschanzky for the Swenson Swedish Immigration Research Center at Augustana College in Rock Island, Illinois, 2017. "
-				+ "All image icons obtained from openclipart.org.";
+				+ "\nAll image icons obtained from openclipart.org.\nCitation for Zazie.jpg \"Zazie\" Kevin MacLeod (incompetech.com)\n" + 
+				"Licensed under Creative Commons: By Attribution 3.0 License http://creativecommons.org/licenses/by/3.0/";
 		credits = SupportMethod.wrapString(credits, 85);
 		Button backButton = new TextButton("Back", game.defaultSkin);
 		backButton.addListener(new InputListener() {
