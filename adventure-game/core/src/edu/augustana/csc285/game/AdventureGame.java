@@ -1,9 +1,14 @@
 package edu.augustana.csc285.game;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.Reader;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -45,13 +50,33 @@ public class AdventureGame extends Game {
 		size = 3;
 		volumeLevel = 3;
 
-		story = Story.fromJSON(Gdx.files.internal("storyData/officialStory.json").readString("UTF-8"));
+		FileHandle file = Gdx.files.internal("storyData/officialStory.json");
+		Reader reader = file.reader("utf-8");
+		BufferedReader br = new BufferedReader(reader);
+		StringBuilder sb = new StringBuilder();
+		String str = "";
+		while (str != null) {
+			try {
+				sb.append(str + "\n");
+				str = br.readLine();
+			} catch (IOException e1) {
+				str = null;
+			}
+		}
+		story = Story.fromJSON(sb.toString());
+		// story =
+		// Story.fromJSON(Gdx.files.internal("storyData/officialStory.json").readString("UTF-8"));
+
 		this.initializeManager();
-//		buttonPressed = Gdx.audio.newSound(Gdx.files.internal("music/sound/button_press.wav"));
-//		defaultSkin = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
-//		scrollSkin = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
-//		backgroundImage = new Texture("image/icon/other/background.jpg");
-//		defaultMusic = Gdx.audio.newMusic(Gdx.files.internal("music/background/theme.mp3"));
+		// buttonPressed =
+		// Gdx.audio.newSound(Gdx.files.internal("music/sound/button_press.wav"));
+		// defaultSkin = new
+		// Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
+		// scrollSkin = new
+		// Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
+		// backgroundImage = new Texture("image/icon/other/background.jpg");
+		// defaultMusic =
+		// Gdx.audio.newMusic(Gdx.files.internal("music/background/theme.mp3"));
 		batch = new SpriteBatch();
 		font = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
 

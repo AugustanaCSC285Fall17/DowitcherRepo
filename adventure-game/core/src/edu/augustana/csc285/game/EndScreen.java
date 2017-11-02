@@ -27,7 +27,7 @@ public class EndScreen implements Screen {
 		stage = new Stage(new ScreenViewport());
 		this.camera = new OrthographicCamera();
 		camera.setToOrtho(false, AdventureGame.GAME_SCREEN_WIDTH, AdventureGame.GAME_SCREEN_HEIGHT);
-		logo = new Texture("GameData/swensonlogo.png");
+		logo = new Texture("image/icon/other/swensonlogo.png");
 
 		Table buttonTable = new Table();
 		buttonTable.setPosition(AdventureGame.GAME_SCREEN_WIDTH / 2, (float) 0.5 * AdventureGame.GAME_SCREEN_HEIGHT);
