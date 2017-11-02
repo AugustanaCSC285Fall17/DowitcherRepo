@@ -57,7 +57,6 @@ public class SlideScreen implements Screen {
 		BitmapFont titleFont = new BitmapFont(Gdx.files.internal("fonts/menuTitle.fnt"), false);
 
 		// Set up data fields
-		this.popUp = false;
 		this.game = game;
 
 		slide = game.manager.getCurrentSlide();
@@ -136,7 +135,7 @@ public class SlideScreen implements Screen {
 							game.setScreen(new SlideScreen(game));
 
 						} else {
-							game.setScreen(new SlideScreen(game));
+							game.setScreen(new SlideScreen(game,option.getRejectMessage()));
 						}
 					} else {
 						game.setScreen(new EndScreen(game));

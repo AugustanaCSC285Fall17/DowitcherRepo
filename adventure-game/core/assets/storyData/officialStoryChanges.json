@@ -841,56 +841,6 @@ slides: {
 				desc: Take the Journey
 				nextSlideIndex: 2
 			}
-			{
-				desc: Secret Slide
-				nextSlideIndex: 78
-				effects: [
-					{
-						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
-						item: {
-							name: Bible
-							desc: ""
-							quantity: 1
-							image: bible.png
-						}
-						operation: PLUS
-					}
-				]
-			}
-			{
-				desc: Checking if you have a bible
-				rejectMessage: You are not allowed to choose this because you are not female or you don't have a bible
-				nextSlideIndex: 78
-				feasibleConditions: [
-					{
-						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
-						item: {
-							name: Bible
-							desc: ""
-							quantity: 1
-							image: bible.png
-						}
-						operation: GREATER_OR_EQUAL
-					}
-				]
-			}
-			{
-				desc: Checking if you have bible to display this option
-				rejectMessage: This is a non-visible slide
-				nextSlideIndex: 78
-				visibleConditions: [
-					{
-						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
-						item: {
-							name: Bible
-							desc: ""
-							quantity: 1
-							image: bible.png
-						}
-						operation: GREATER_OR_EQUAL
-					}
-				]
-			}
 		]
 	}
 	2: {
@@ -2132,12 +2082,6 @@ slides: {
 				nextSlideIndex: 35
 			}
 		]
-	}
-	78: {
-		image: 5.png
-		desc: This slide was just created!
-		id: 78
-		title: New Slide
 	}
 	35: {
 		desc: "Tickets were usually purchased from a Swedish emigration agent who booked their passage all the way from Gothenburg to the emigrant’s destination city in America (such as Chicago or Lindsborg, Kansas). Companies with strong economic interests in emigrants (like railroad companies or manufacturers like John Deere) were eager to attract new workers to their areas."
