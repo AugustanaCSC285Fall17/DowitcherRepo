@@ -39,6 +39,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -103,8 +105,7 @@ public class MainPanev2Controller {
 	private MenuItem saveStory;
 	@FXML
 	private TextField slideTitle;
-	
-	
+
 	private Story currentStory;
 	private Slide currentSlide;
 	private Path storyJSONPath;
@@ -119,7 +120,6 @@ public class MainPanev2Controller {
 				try {
 					if (newValue != null) {
 						if (!newValue.equals(oldValue)) {
-							System.out.println("Listener: " + newValue);
 							currentSlide = currentStory.getSlide(newValue);
 							updateFields();
 						}
@@ -134,7 +134,7 @@ public class MainPanev2Controller {
 		updateFields();
 		this.slideDescription.setWrapText(true);
 
-		//TODO set the sorting on the optionView
+		// TODO set the sorting on the optionView
 	}
 
 	public void updateFields() throws FileNotFoundException {
@@ -298,22 +298,23 @@ public class MainPanev2Controller {
 
 	}
 
-	/**Assumes ArrayList<Option> options is in the same order as the table
+	/**
+	 * Assumes ArrayList<Option> options is in the same order as the table
 	 * 
 	 * @throws FileNotFoundException
 	 */
 	@FXML
 	private void handleDeleteOptions() throws FileNotFoundException {
-//		List<Option> optionsToRemove = optionView.getSelectionModel().getSelectedItems();
-		System.out.println(optionView.getSelectionModel().getSelectedIndex());
-		if(optionView.getSelectionModel().getSelectedIndex() != -1) {
+		// List<Option> optionsToRemove =
+		// optionView.getSelectionModel().getSelectedItems();
+		if (optionView.getSelectionModel().getSelectedIndex() != -1) {
 			ArrayList<Option> currentOptions = currentSlide.getOptions();
 			currentOptions.remove(optionView.getSelectionModel().getSelectedIndex());
 			currentSlide.setOptions(currentOptions);
 		}
 		updateFields();
 	}
-	
+
 	// Source from
 	// http://docs.oracle.com/javafx/2/ui_controls/file-chooser.htm
 	@FXML
@@ -334,11 +335,8 @@ public class MainPanev2Controller {
 
 	private void readStory(File file) {
 		String storyString = "";
-		try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-
-			String line;
-			while ((line = reader.readLine()) != null)
-				storyString += line + "\n";
+		try {
+			storyString = new String(Files.readAllBytes(Paths.get(file.toURI())), StandardCharsets.UTF_8);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -371,7 +369,6 @@ public class MainPanev2Controller {
 		stage.setScene(scene);
 		stage.showAndWait();
 		this.itemLibrary = controller.getItemLibrary();
-		System.out.println(this.itemLibrary);
 	}
 
 	@FXML
@@ -430,8 +427,8 @@ public class MainPanev2Controller {
 	}
 
 	/**
-	 * Returns an array containing the story files Uses Java I/O for compatability
-	 * with gamebuilder
+	 * Returns an array containing the story files Uses Java I/O for
+	 * compatability with gamebuilder
 	 */
 	private static File[] getStoryFiles() {
 		return new File("core/storyData").listFiles();
@@ -455,13 +452,13 @@ public class MainPanev2Controller {
 	}
 
 	/*
-	 * public static void addTextLimiter(final TextField tf, final int maxLength) {
-	 * tf.textProperty().addListener(new ChangeListener<String>() {
+	 * public static void addTextLimiter(final TextField tf, final int
+	 * maxLength) { tf.textProperty().addListener(new ChangeListener<String>() {
 	 * 
 	 * @Override public void changed(final ObservableValue<? extends String> ov,
-	 * final String oldValue, final String newValue) { if (tf.getText().length() >
-	 * maxLength) { String s = tf.getText().substring(0, maxLength); tf.setText(s);
-	 * } } }); }
+	 * final String oldValue, final String newValue) { if (tf.getText().length()
+	 * > maxLength) { String s = tf.getText().substring(0, maxLength);
+	 * tf.setText(s); } } }); }
 	 */
 
 	/**
