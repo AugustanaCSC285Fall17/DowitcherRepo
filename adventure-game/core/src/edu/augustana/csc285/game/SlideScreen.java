@@ -20,6 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
@@ -31,6 +32,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Text;
 
 import edu.augustana.csc285.game.datamodel.Option;
 import edu.augustana.csc285.game.datamodel.Slide;
@@ -89,9 +91,6 @@ public class SlideScreen implements Screen {
 		}
 
 		Button inventoryBtn = this.addTextureRegion("image/icon/other/inventory.png", new InventoryScreen(game), 2);
-		// Button playerStatBtn =
-		// this.addTextureRegion("GameData/icons/player-stat.png", new
-		// PlayerStatScreen(game), 2);
 		Button settingsBtn = this.addTextureRegion("image/icon/other/settings.png", new SettingsScreen(game), 1);
 
 		visibleOptions = slide.getVisibleOptions(game.manager.getPlayer());
@@ -103,7 +102,8 @@ public class SlideScreen implements Screen {
 		// Set up stage and table for buttons
 		stage = new Stage(new ScreenViewport());
 		stage.addActor(inventoryBtn);
-		// stage.addActor(playerStatBtn);
+		//stage.addActor(playerImg);
+		//stage.addActor(playerStat);
 		stage.addActor(settingsBtn);
 
 		Table buttonTable = new Table();
@@ -278,6 +278,18 @@ public class SlideScreen implements Screen {
 		return button;
 	}
 
+/*	public Image addTexture(String skinLocation) {
+		Texture textureImage = new Texture(skinLocation);
+		TextureRegion textureRegion = new TextureRegion(textureImage);
+		TextureRegionDrawable textureRegionDrawable = new TextureRegionDrawable(textureRegion);
+		Image playerImg = new Image(textureRegionDrawable);
+		playerImg.setSize(75, 75);
+		playerImg.setPosition(AdventureGame.GAME_SCREEN_WIDTH - 200,
+				AdventureGame.GAME_SCREEN_HEIGHT - 200);
+		return playerImg;
+	} 
+	*/
+	
 	@Override
 	public void show() {
 		Gdx.input.setInputProcessor(stage);

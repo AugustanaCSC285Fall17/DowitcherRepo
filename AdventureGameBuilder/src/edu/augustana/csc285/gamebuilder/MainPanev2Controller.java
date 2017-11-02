@@ -272,7 +272,7 @@ public class MainPanev2Controller {
 		currentSlide.setDesc(slideDescription.getText());
 		currentSlide.setId(slideId.getText());
 		currentSlide.setTitle(slideTitle.getText());
-		currentStory.addSlideOverride(currentSlide);
+		currentStory.addSlide(currentSlide, false);
 		updateFields();
 	}
 
@@ -281,7 +281,7 @@ public class MainPanev2Controller {
 		// Back Button, discard changes OR save temp slide
 		// Dunno what this does anyway
 		if (currentSlide != null) {
-			if (currentStory.contains(currentSlide.getId())) {
+			if (currentStory.containsSlide(currentSlide.getId())) {
 				currentStory.removeSlide(currentSlide.getId());
 			}
 			currentSlide = new Slide(null, null, null, null);

@@ -28,7 +28,8 @@ public class StoryManager {
 	public StoryManager(Story story, Player player, String index) {
 		this.story = story;
 		this.player = player;
-		story.checkID(index);
+		if(!story.containsSlide(index))
+			throw new IllegalArgumentException("The Slide is not in the Id");
 		currentSlide = this.story.getSlide(index);
 	}
 
