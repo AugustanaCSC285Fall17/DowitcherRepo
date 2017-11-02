@@ -151,6 +151,7 @@ public class Story {
 	 */
 	public String toJSON() {
 		return new Json().prettyPrint(this);
+		
 	}
 
 	/**

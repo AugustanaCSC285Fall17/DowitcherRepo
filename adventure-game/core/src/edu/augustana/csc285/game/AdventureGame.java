@@ -27,12 +27,14 @@ public class AdventureGame extends Game {
 	Sound buttonPressed;
 	BitmapFont descFont;
 	int size;
+	int volumeLevel;
 
 	public void create() {
 		descFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
 		size = 3;
+		volumeLevel = 3;
 		buttonPressed = Gdx.audio.newSound(Gdx.files.internal("music/sound/button_press.wav"));
-		story = Story.fromJSON(Gdx.files.internal("storyData/officialStory.json").readString());
+		story = Story.fromJSON(Gdx.files.internal("storyData/officialStory.json").readString("UTF-8"));
 		this.initializeManager();
 		defaultSkin = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
 		scrollSkin = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
@@ -43,6 +45,7 @@ public class AdventureGame extends Game {
 		defaultMusic = Gdx.audio.newMusic(Gdx.files.internal("theme.mp3"));
 		defaultMusic.setLooping(true);
 		defaultMusic.play();
+		defaultMusic.setVolume(volumeLevel * 0.2f);
 		this.setScreen(new MainMenuScreen(this, false));
 	}
 
@@ -50,6 +53,13 @@ public class AdventureGame extends Game {
 		if (size != this.size) {
 			this.size = size;
 			descFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
+		}
+	}
+
+	public void setVolume(int volumeLevel) {
+		if (volumeLevel != this.volumeLevel) {
+			this.volumeLevel = volumeLevel;
+			defaultMusic.setVolume(volumeLevel * 0.2f);
 		}
 	}
 
