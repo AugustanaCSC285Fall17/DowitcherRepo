@@ -30,19 +30,31 @@ public class AdventureGame extends Game {
 	int volumeLevel;
 
 	public void create() {
+		Assets assets = new Assets();
+		assets.load();
+
+		// option 1
+		assets.manager.finishLoading();
+		defaultSkin = assets.manager.get(Assets.defaultSkin);
+		scrollSkin = assets.manager.get(Assets.scrollSkin);
+		defaultMusic = assets.manager.get(Assets.defaultMusic);
+		buttonPressed = assets.manager.get(Assets.buttonPressed);
+		backgroundImage = assets.manager.get(Assets.backgroundImage);
+
 		descFont = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
 		size = 3;
 		volumeLevel = 3;
-		buttonPressed = Gdx.audio.newSound(Gdx.files.internal("music/sound/button_press.wav"));
+
 		story = Story.fromJSON(Gdx.files.internal("storyData/officialStory.json").readString("UTF-8"));
 		this.initializeManager();
-		defaultSkin = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
-		scrollSkin = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
-		backgroundImage = new Texture("image/icon/other/background.jpg");
-
+//		buttonPressed = Gdx.audio.newSound(Gdx.files.internal("music/sound/button_press.wav"));
+//		defaultSkin = new Skin(Gdx.files.internal("skin/defaultSkin/cloud-form-ui.json"));
+//		scrollSkin = new Skin(Gdx.files.internal("skin/Holo-dark-mdpi.json"));
+//		backgroundImage = new Texture("image/icon/other/background.jpg");
+//		defaultMusic = Gdx.audio.newMusic(Gdx.files.internal("music/background/theme.mp3"));
 		batch = new SpriteBatch();
 		font = new BitmapFont(Gdx.files.internal("fonts/defaultFont.fnt"), false);
-		defaultMusic = Gdx.audio.newMusic(Gdx.files.internal("theme.mp3"));
+
 		defaultMusic.setLooping(true);
 		defaultMusic.play();
 		defaultMusic.setVolume(volumeLevel * 0.2f);
