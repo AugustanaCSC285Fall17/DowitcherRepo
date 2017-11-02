@@ -2,7 +2,7 @@ package edu.augustana.csc285.game.datamodel.tester;
 
 import static org.junit.Assert.*;
 
-import java.util.*;
+import java.util.Set;
 
 import org.junit.Test;
 

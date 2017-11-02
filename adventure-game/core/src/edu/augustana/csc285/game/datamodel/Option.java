@@ -9,7 +9,7 @@ import edu.augustana.csc285.game.datamodel.condition.*;
 /**
  * 
  * @author Dat Tran
- *
+ * 
  */
 public class Option {
 	public static final String DEFAULT_REJECT_MESSAGE = "You are not allowed to choose this.";
@@ -225,6 +225,13 @@ public class Option {
 	public void setEffect(int index, Effect effect) {
 		this.checkIndex(index, effects);
 		effects.set(index, effect);
+	}
+	
+	public boolean containsEffectsAndConditions(Option search) {
+		for(int i = 0; i < effects.size(); i++) {
+			if(search.getEffect(i).getEffectType().equals(search.getEffect(i).getEffectType()))
+		}
+		
 	}
 
 	public void setVisibleCondition(int index, Condition condition) {

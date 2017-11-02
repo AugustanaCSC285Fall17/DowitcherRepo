@@ -90,9 +90,31 @@ slides: {
 							name: Cured Meat
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: MINUS
+					}
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: American almanac
+							desc: ""
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Cured Meat
+							desc: ""
+							quantity: 1
+							image: meat.png
+						}
+						operation: GREATER_OR_EQUAL
 					}
 				]
 			}
@@ -103,7 +125,7 @@ slides: {
 		]
 	}
 	50: {
-		desc: The crew member smiles and and accepts the gift. In return he presents you with an American almanac (+American Almanac in inventory). This might come in handy in the future!
+		desc: The crew member smiles and and accepts the gift. In return he presents you with an American almanac. This might come in handy in the future!
 		id: 50
 		title: Thanks for the gift
 		options: [
@@ -200,7 +222,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: MINUS
 					}
@@ -212,7 +234,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -274,7 +296,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 80
-							image: ""
+							image: kronor.png
 						}
 						operation: MINUS
 					}
@@ -284,7 +306,7 @@ slides: {
 							name: Official Papers
 							desc: ""
 							quantity: 1
-							image: ""
+							image: official-papers.png
 						}
 						operation: PLUS
 					}
@@ -296,7 +318,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 80
-							image: ""
+							image: kronor.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -312,7 +334,7 @@ slides: {
 							name: Forged Papers
 							desc: ""
 							quantity: 1
-							image: ""
+							image: forged-papers.png
 						}
 						operation: PLUS
 					}
@@ -322,7 +344,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 40
-							image: ""
+							image: kronor.png
 						}
 						operation: MINUS
 					}
@@ -334,7 +356,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 40
-							image: ""
+							image: kronor.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -357,7 +379,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 20
-							image: ""
+							image: kronor.png
 						}
 						operation: MINUS
 					}
@@ -369,7 +391,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 20
-							image: ""
+							image: kronor.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -418,7 +440,7 @@ slides: {
 							name: Bible
 							desc: ""
 							quantity: 1
-							image: ""
+							image: bible.png
 						}
 						operation: PLUS
 					}
@@ -434,7 +456,7 @@ slides: {
 							name: Family Heirloom
 							desc: ""
 							quantity: 1
-							image: ""
+							image: familyheirloom.png
 						}
 						operation: PLUS
 					}
@@ -450,7 +472,7 @@ slides: {
 							name: Sewing Materials
 							desc: ""
 							quantity: 1
-							image: ""
+							image: sewing-machine.png
 						}
 						operation: PLUS
 					}
@@ -466,7 +488,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: PLUS
 					}
@@ -482,7 +504,7 @@ slides: {
 							name: Cured Meat
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: PLUS
 					}
@@ -516,7 +538,7 @@ slides: {
 							name: Bible
 							desc: ""
 							quantity: 1
-							image: ""
+							image: bible.png
 						}
 						operation: PLUS
 					}
@@ -527,7 +549,7 @@ slides: {
 						item: {
 							name: Bible
 							desc: ""
-							image: ""
+							image: bible.png
 						}
 						operation: EQUAL
 					}
@@ -543,7 +565,7 @@ slides: {
 							name: Family Heirloom
 							desc: ""
 							quantity: 1
-							image: ""
+							image: familyheirloom.png
 						}
 						operation: PLUS
 					}
@@ -554,7 +576,7 @@ slides: {
 						item: {
 							name: Family Heirloom
 							desc: ""
-							image: ""
+							image: familyheirloom.png
 						}
 						operation: EQUAL
 					}
@@ -570,7 +592,7 @@ slides: {
 							name: Sewing Materials
 							desc: ""
 							quantity: 1
-							image: ""
+							image: sewing-machine.png
 						}
 						operation: PLUS
 					}
@@ -581,7 +603,7 @@ slides: {
 						item: {
 							name: Sewing Materials
 							desc: ""
-							image: ""
+							image: sewing-machine.png
 						}
 						operation: EQUAL
 					}
@@ -597,7 +619,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: PLUS
 					}
@@ -608,7 +630,7 @@ slides: {
 						item: {
 							name: Medicine
 							desc: ""
-							image: ""
+							image: meat.png
 						}
 						operation: EQUAL
 					}
@@ -624,7 +646,7 @@ slides: {
 							name: Cured Meat
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: PLUS
 					}
@@ -635,7 +657,7 @@ slides: {
 						item: {
 							name: Cured Meat
 							desc: ""
-							image: ""
+							image: meat.png
 						}
 						operation: EQUAL
 					}
@@ -658,7 +680,7 @@ slides: {
 							name: Bible
 							desc: ""
 							quantity: 1
-							image: ""
+							image: bible.png
 						}
 						operation: PLUS
 					}
@@ -669,7 +691,7 @@ slides: {
 						item: {
 							name: Bible
 							desc: ""
-							image: ""
+							image: bible.png
 						}
 						operation: EQUAL
 					}
@@ -685,7 +707,7 @@ slides: {
 							name: Family Heirloom
 							desc: ""
 							quantity: 1
-							image: ""
+							image: familyheirloom.png
 						}
 						operation: PLUS
 					}
@@ -696,7 +718,7 @@ slides: {
 						item: {
 							name: Family Heirloom
 							desc: ""
-							image: ""
+							image: familyheirloom.png
 						}
 						operation: EQUAL
 					}
@@ -712,7 +734,7 @@ slides: {
 							name: Sewing Materials
 							desc: ""
 							quantity: 1
-							image: ""
+							image: sewing-machine.png
 						}
 						operation: PLUS
 					}
@@ -723,7 +745,7 @@ slides: {
 						item: {
 							name: Sewing Materials
 							desc: ""
-							image: ""
+							image: sewing-machine.png
 						}
 						operation: EQUAL
 					}
@@ -739,7 +761,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: PLUS
 					}
@@ -750,7 +772,7 @@ slides: {
 						item: {
 							name: Medicine
 							desc: ""
-							image: ""
+							image: meat.png
 						}
 						operation: EQUAL
 					}
@@ -766,7 +788,7 @@ slides: {
 							name: Cured Meat
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: PLUS
 					}
@@ -777,7 +799,7 @@ slides: {
 						item: {
 							name: Cured Meat
 							desc: ""
-							image: ""
+							image: meat.png
 						}
 						operation: EQUAL
 					}
@@ -850,7 +872,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 280
-							image: ""
+							image: kronor.png
 						}
 						operation: PLUS
 					}
@@ -878,7 +900,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 280
-							image: ""
+							image: kronor.png
 						}
 						operation: PLUS
 					}
@@ -949,7 +971,7 @@ slides: {
 							name: John Deere letter
 							desc: ""
 							quantity: 1
-							image: ""
+							image: letter.png
 						}
 						operation: PLUS
 					}
@@ -971,7 +993,7 @@ slides: {
 							name: Illinois letter
 							desc: ""
 							quantity: 1
-							image: ""
+							image: letter.png
 						}
 						operation: PLUS
 					}
@@ -987,7 +1009,7 @@ slides: {
 							name: Washington letter
 							desc: ""
 							quantity: 1
-							image: ""
+							image: letter.png
 						}
 						operation: PLUS
 					}
@@ -1009,7 +1031,7 @@ slides: {
 							name: Minnesota letter
 							desc: ""
 							quantity: 1
-							image: ""
+							image: letter.png
 						}
 						operation: PLUS
 					}
@@ -1054,6 +1076,30 @@ slides: {
 			{
 				desc: Look at the ocean
 				nextSlideIndex: 62
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: ~oceanside
+							desc: To prevent them from going to ocean side multiple times
+							quantity: 1
+							image: ""
+						}
+						operation: PLUS
+					}
+				]
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: ~oceanside
+							desc: To prevent them from going to ocean side multiple times
+							quantity: 1
+							image: ""
+						}
+						operation: SMALLER
+					}
+				]
 			}
 			{
 				desc: Try to get on the first-class deck
@@ -1077,7 +1123,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 20
-							image: ""
+							image: kronor.png
 						}
 						operation: PLUS
 					}
@@ -1168,6 +1214,18 @@ slides: {
 			{
 				desc: Go right
 				nextSlideIndex: 32
+				visibleConditions: [
+					{
+						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
+						item: {
+							name: Ticket to Hull
+							desc: ""
+							quantity: 1
+							image: ticket.png
+						}
+						operation: SMALLER
+					}
+				]
 			}
 		]
 	}
@@ -1191,7 +1249,7 @@ slides: {
 							name: Bible
 							desc: ""
 							quantity: 1
-							image: ""
+							image: bible.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -1210,7 +1268,7 @@ slides: {
 						item: {
 							name: Bible
 							desc: ""
-							image: ""
+							image: bible.png
 						}
 						operation: EQUAL
 					}
@@ -1288,6 +1346,7 @@ slides: {
 		]
 	}
 	25: {
+		desc: All items for sale cost 20 Kronor.
 		id: 25
 		title: Choose one item to buy
 		options: [
@@ -1301,7 +1360,7 @@ slides: {
 							name: Bible
 							desc: ""
 							quantity: 1
-							image: ""
+							image: bible.png
 						}
 						operation: PLUS
 					}
@@ -1311,7 +1370,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 20
-							image: ""
+							image: kronor.png
 						}
 						operation: MINUS
 					}
@@ -1323,7 +1382,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 20
-							image: ""
+							image: kronor.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -1339,7 +1398,7 @@ slides: {
 							name: Family Heirloom
 							desc: ""
 							quantity: 1
-							image: ""
+							image: familyheirloom.png
 						}
 						operation: PLUS
 					}
@@ -1349,7 +1408,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 20
-							image: ""
+							image: kronor.png
 						}
 						operation: MINUS
 					}
@@ -1361,7 +1420,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 20
-							image: ""
+							image: kronor.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -1377,7 +1436,7 @@ slides: {
 							name: Sewing Materials
 							desc: ""
 							quantity: 1
-							image: ""
+							image: sewing-machine.png
 						}
 						operation: PLUS
 					}
@@ -1387,7 +1446,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 20
-							image: ""
+							image: kronor.png
 						}
 						operation: MINUS
 					}
@@ -1399,7 +1458,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 20
-							image: ""
+							image: kronor.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -1415,7 +1474,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: PLUS
 					}
@@ -1425,7 +1484,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 20
-							image: ""
+							image: kronor.png
 						}
 						operation: MINUS
 					}
@@ -1437,7 +1496,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 20
-							image: ""
+							image: kronor.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -1453,7 +1512,7 @@ slides: {
 							name: Cured Meat
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: PLUS
 					}
@@ -1463,7 +1522,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 20
-							image: ""
+							image: kronor.png
 						}
 						operation: MINUS
 					}
@@ -1475,7 +1534,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 20
-							image: ""
+							image: kronor.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -1514,6 +1573,7 @@ slides: {
 		]
 	}
 	27: {
+		desc: The shop seller will purchase any of your items for 15 Kronor.
 		id: 27
 		title: Choose One Item to Sell
 		options: [
@@ -1527,7 +1587,7 @@ slides: {
 							name: Bible
 							desc: ""
 							quantity: 1
-							image: ""
+							image: bible.png
 						}
 						operation: MINUS
 					}
@@ -1537,7 +1597,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 15
-							image: ""
+							image: kronor.png
 						}
 						operation: PLUS
 					}
@@ -1549,7 +1609,7 @@ slides: {
 							name: Bible
 							desc: ""
 							quantity: 1
-							image: ""
+							image: bible.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -1565,7 +1625,7 @@ slides: {
 							name: Family Heirloom
 							desc: ""
 							quantity: 1
-							image: ""
+							image: familyheirloom.png
 						}
 						operation: MINUS
 					}
@@ -1575,7 +1635,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 15
-							image: ""
+							image: kronor.png
 						}
 						operation: PLUS
 					}
@@ -1587,7 +1647,7 @@ slides: {
 							name: Family Heirloom
 							desc: ""
 							quantity: 1
-							image: ""
+							image: familyheirloom.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -1603,7 +1663,7 @@ slides: {
 							name: Sewing Materials
 							desc: ""
 							quantity: 1
-							image: ""
+							image: sewing-machine.png
 						}
 						operation: MINUS
 					}
@@ -1613,7 +1673,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 15
-							image: ""
+							image: kronor.png
 						}
 						operation: PLUS
 					}
@@ -1625,7 +1685,7 @@ slides: {
 							name: Sewing Materials
 							desc: ""
 							quantity: 1
-							image: ""
+							image: sewing-machine.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -1641,7 +1701,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: MINUS
 					}
@@ -1651,7 +1711,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 15
-							image: ""
+							image: kronor.png
 						}
 						operation: PLUS
 					}
@@ -1663,7 +1723,7 @@ slides: {
 							name: Medicine
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -1679,7 +1739,7 @@ slides: {
 							name: Cured Meat
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: MINUS
 					}
@@ -1689,7 +1749,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 15
-							image: ""
+							image: kronor.png
 						}
 						operation: PLUS
 					}
@@ -1701,7 +1761,7 @@ slides: {
 							name: Cured Meat
 							desc: ""
 							quantity: 1
-							image: ""
+							image: meat.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -1737,6 +1797,18 @@ slides: {
 			{
 				desc: Yes
 				nextSlideIndex: 30
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Ticket to Hull
+							desc: ""
+							quantity: 1
+							image: ticket.png
+						}
+						operation: MINUS
+					}
+				]
 				visibleConditions: [
 					{
 						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
@@ -1744,7 +1816,7 @@ slides: {
 							name: Ticket to Hull
 							desc: ""
 							quantity: 1
-							image: ""
+							image: ticket.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -1887,7 +1959,7 @@ slides: {
 							name: Ticket to Hull
 							desc: ""
 							quantity: 1
-							image: ""
+							image: ticket.png
 						}
 						operation: PLUS
 					}
@@ -1897,7 +1969,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 60
-							image: ""
+							image: kronor.png
 						}
 						operation: MINUS
 					}
@@ -1909,7 +1981,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 60
-							image: ""
+							image: kronor.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -1925,7 +1997,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 120
-							image: ""
+							image: kronor.png
 						}
 						operation: MINUS
 					}
@@ -1935,7 +2007,7 @@ slides: {
 							name: Ticket to America
 							desc: ""
 							quantity: 1
-							image: ""
+							image: ticket.png
 						}
 						operation: PLUS
 					}
@@ -1945,7 +2017,7 @@ slides: {
 							name: Ticket to Hull
 							desc: ""
 							quantity: 1
-							image: ""
+							image: ticket.png
 						}
 						operation: PLUS
 					}
@@ -1957,11 +2029,15 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 120
-							image: ""
+							image: kronor.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
 				]
+			}
+			{
+				desc: Back
+				nextSlideIndex: 22
 			}
 		]
 	}
@@ -2044,7 +2120,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 80
-							image: ""
+							image: kronor.png
 						}
 						operation: MINUS
 					}
@@ -2054,7 +2130,7 @@ slides: {
 							name: Ticket to America
 							desc: ""
 							quantity: 1
-							image: ""
+							image: ticket.png
 						}
 						operation: PLUS
 					}
@@ -2066,7 +2142,7 @@ slides: {
 							name: Ticket to America
 							desc: ""
 							quantity: 1
-							image: ""
+							image: ticket.png
 						}
 						operation: SMALLER
 					}
@@ -2078,7 +2154,7 @@ slides: {
 							name: Swedish Kronor
 							desc: ""
 							quantity: 80
-							image: ""
+							image: kronor.png
 						}
 						operation: GREATER_OR_EQUAL
 					}
@@ -2110,13 +2186,25 @@ slides: {
 			{
 				desc: Proceed
 				nextSlideIndex: 40
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Ticket to America
+							desc: ""
+							quantity: 1
+							image: ticket.png
+						}
+						operation: MINUS
+					}
+				]
 				visibleConditions: [
 					{
 						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
 						item: {
 							name: Ticket to America
 							desc: ""
-							image: ""
+							image: ticket.png
 						}
 						operation: GREATER
 					}
@@ -2132,7 +2220,7 @@ slides: {
 							name: Ticket to America
 							desc: ""
 							quantity: 1
-							image: ""
+							image: ticket.png
 						}
 						operation: SMALLER
 					}
@@ -2164,6 +2252,18 @@ slides: {
 			{
 				desc: Proceed with forged papers
 				nextSlideIndex: 42
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Forged Papers
+							desc: ""
+							quantity: 1
+							image: forged-papers.png
+						}
+						operation: MINUS
+					}
+				]
 				visibleConditions: [
 					{
 						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
@@ -2171,15 +2271,27 @@ slides: {
 							name: Forged Papers
 							desc: ""
 							quantity: 1
-							image: ""
+							image: forged-papers.png
 						}
-						operation: EQUAL
+						operation: GREATER_OR_EQUAL
 					}
 				]
 			}
 			{
 				desc: Proceed with real papers
 				nextSlideIndex: 45
+				effects: [
+					{
+						class: edu.augustana.csc285.game.datamodel.effect.ItemEffect
+						item: {
+							name: Ticket to America
+							desc: ""
+							quantity: 1
+							image: ticket.png
+						}
+						operation: MINUS
+					}
+				]
 				visibleConditions: [
 					{
 						class: edu.augustana.csc285.game.datamodel.condition.ItemCondition
@@ -2187,9 +2299,9 @@ slides: {
 							name: Official Papers
 							desc: ""
 							quantity: 1
-							image: ""
+							image: official-papers.png
 						}
-						operation: EQUAL
+						operation: GREATER_OR_EQUAL
 					}
 				]
 			}

@@ -91,8 +91,6 @@ public class CreditsScreen implements Screen {
 		camera.update();
 		stage.act();
 		stage.draw();
-		game.batch.begin();
-		game.batch.end();
 	}
 
 	@Override
@@ -122,6 +120,7 @@ public class CreditsScreen implements Screen {
 	@Override
 	public void dispose() {
 		stage.dispose();
+		backgroundImage.dispose();
 	}
 
 }

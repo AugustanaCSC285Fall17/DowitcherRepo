@@ -175,6 +175,35 @@ public class Slide {
 		checkIndex(index);
 		options.remove(index);
 	}
+	
+	public boolean contains(Option search) {
+		for(Option index : options) {
+			if(index.getNextSlideIndex().equals(search.getNextSlideIndex())) {
+				if(index.getDesc().equals(search.getDesc())) {
+					if(index.getEffects().equals(search.getEffects())) {
+						if(index.getImage().equals(search.getImage())) {
+							if(index.getSound().equals(search.getSound())) {
+								if(index.getRejectMessage().equals(search.getRejectMessage())) {
+									if(index.getTransitionMessage().equals(search.getTransitionMessage())) {
+										if(index.getVisibleConditions().equals(search.getVisibleConditions())) {
+											if(index.getFeasibleConditions().equals(search.getFeasibleConditions())) {
+												return true;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
+	public void setOptions(ArrayList<Option> toSet) {
+		this.options = toSet;
+	}
 
 	public ArrayList<Option> getVisibleOptions(Player player) {
 		ArrayList<Option> visibleOptions = new ArrayList<Option>();

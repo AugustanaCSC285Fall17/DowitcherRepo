@@ -22,7 +22,7 @@ public class Player {
 		this.properties = properties;
 		this.gameOver = gameOver;
 		this.gender = gender;
-		PlayerHelper();
+		//PlayerHelper();
 	}
 	
 	private void PlayerHelper() {
