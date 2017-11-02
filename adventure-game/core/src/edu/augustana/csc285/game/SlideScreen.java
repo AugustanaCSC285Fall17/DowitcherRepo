@@ -32,7 +32,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Text;
 
 import edu.augustana.csc285.game.datamodel.Option;
 import edu.augustana.csc285.game.datamodel.Slide;
