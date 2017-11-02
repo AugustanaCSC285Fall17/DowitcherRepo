@@ -162,18 +162,20 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>870</x>
+      <x>828</x>
       <y>438</y>
-      <w>90</w>
-      <h>84</h>
+      <w>150</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>Story
 --
 - music : Music
 --
-+ addSlide(Slide)
++ addSlide(Slide, boolean)
 + removeSlide(Slide)
++ containsSlide(String) : boolean
 + addMusic(Music)
++ checkID(String)
 + save()
 
 
@@ -229,11 +231,11 @@
     <coordinates>
       <x>738</x>
       <y>480</y>
-      <w>144</w>
+      <w>102</w>
       <h>18</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>220.0;10.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -249,13 +251,13 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>954</x>
+      <x>972</x>
       <y>480</y>
-      <w>126</w>
+      <w>108</w>
       <h>18</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>190.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>160.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
@@ -516,13 +518,13 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>654</x>
+      <x>588</x>
       <y>114</y>
-      <w>270</w>
+      <w>336</w>
       <h>234</h>
     </coordinates>
     <panel_attributes>lt=&lt;..</panel_attributes>
-    <additional_attributes>430.0;370.0;10.0;10.0</additional_attributes>
+    <additional_attributes>540.0;370.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -577,16 +579,17 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>870</x>
+      <x>858</x>
       <y>336</y>
-      <w>84</w>
-      <h>42</h>
+      <w>108</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>StoryManager
 --
 - slideID : int
 --
 + updateID (Slide)
++ applyOption (Option)
 
 
 
@@ -597,12 +600,12 @@
     <id>Relation</id>
     <coordinates>
       <x>906</x>
-      <y>372</y>
+      <y>384</y>
       <w>18</w>
-      <h>78</h>
+      <h>66</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>

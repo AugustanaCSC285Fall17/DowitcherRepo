@@ -111,6 +111,10 @@ public class Inventory {
 		return str;
 	}
 
+	/**Gets a list of all of the visible items
+	 * 
+	 * @return the list of visible items
+	 */
 	public ArrayList<Item> getVisibleItemList() {
 		ArrayList<Item> list = new ArrayList<Item>();
 		for (Item item : this.itemSet) {
